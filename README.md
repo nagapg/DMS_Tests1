@@ -7,13 +7,9 @@ placed onto the [Prowl Server.]()
 
 ### Dependencies
 
-To perform this build it may be necessary to manually download the library from 
-[Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=11774). Unless it has been installed on the
-corporate Maven Repository.
-`mvn install:install-file -Dfile=sqljdbc4.jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.0 -Dpackaging=jar`
 ### Command
 
-
+`mvn package`
 
 ### Continuous Integration
 - This tests builds on [Jekins.](http://jenkins.intranet.local:8080/view/MAGIC/view/Magic/view/Magic%20Builds/job/MAGIC-selenium-tests/)
