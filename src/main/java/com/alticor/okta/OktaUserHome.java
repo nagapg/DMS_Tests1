@@ -1,17 +1,15 @@
 package com.alticor.okta;
 
 import com.alticor.magic.report.DummyReport;
+import io.swarmauto.driverextended.AbstractPageObject;
 import io.swarmauto.driverextended.DynamicElement;
-import io.swarmauto.driverextended.PageObject;
 import io.swarmauto.driverextended.Report;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class OktaUserHome implements PageObject {
+public class OktaUserHome extends AbstractPageObject {
 
     private final String pageUrl = "https://amway.okta.com/app/UserHome";
-    private WebDriver driver;
-    private Report report;
 
     public OktaUserHome(WebDriver d, Report r) {
         driver = d;
@@ -52,27 +50,23 @@ public class OktaUserHome implements PageObject {
 
     }
 
-    @Override public void navigate(WebDriver webDriver, String page) {
-        webDriver.get(page);
-    }
-
-    @Override public void navigate(WebDriver webDriver) {
-        navigate(webDriver, pageUrl);
-    }
-
-    @Override public void navigate(String s) {
-        navigate(driver, s);
-    }
-
-    @Override public void navigate() {
-        navigate(pageUrl);
-    }
-
     @Override public void tearDown() {
 
     }
 
-    private DynamicElement getDynamicElement() {
-        return new DynamicElement(driver, report);
+    @Override public String getBaseUrl() {
+        return null;
+    }
+
+    @Override public void setBaseUrl(String s) {
+
+    }
+
+    @Override public String getPath() {
+        return null;
+    }
+
+    @Override public void setPath(String s) {
+
     }
 }

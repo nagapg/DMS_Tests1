@@ -13,7 +13,7 @@ public class EndpointRegistry {
     static {
         endpoints = new Properties();
         try {
-            endpoints.load(ClassLoader.getSystemResourceAsStream("endpoints.properties"));
+            endpoints.load(ClassLoader.getSystemResourceAsStream("endpoint.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }

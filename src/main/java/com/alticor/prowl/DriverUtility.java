@@ -32,6 +32,7 @@ public class DriverUtility {
 
         configureDriver(driver);
 
+
         return driver;
     }
 
@@ -50,5 +51,10 @@ public class DriverUtility {
             default:
                 throw new UnsupportedOperationException("Unknown Browser: " + browser);
         }
+    }
+
+    public static WebDriver getDriver() {
+        String browser = System.getenv("BROWSER");
+        return getDriver(browser == null ? "firefox" : browser);
     }
 }
