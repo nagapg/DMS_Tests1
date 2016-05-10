@@ -16,16 +16,15 @@ import java.util.Date;
  */
 public class AfterFailureScreenshotHook extends RunListener {
 
-    @Override
-    public void testFailure(Failure failure) throws Exception {
+    @Override public void testFailure(Failure failure) throws Exception {
         saveScreenshot(failure.getTestHeader());
         super.testFailure(failure);
     }
 
-    public void saveScreenshot(String fileName){
+    public void saveScreenshot(String fileName) {
         try {
             String screenshotDirectory = System.getenv("SCREENSHOT_DIR");
-            if(screenshotDirectory == null){
+            if (screenshotDirectory == null) {
                 screenshotDirectory = "target/screenshots";
             }
             new File(screenshotDirectory).mkdirs();
@@ -33,17 +32,14 @@ public class AfterFailureScreenshotHook extends RunListener {
 
             out.write(getScreenshot());
             out.close();
-        }
-        catch ( Exception e ){
+        } catch (Exception e) {
 
         }
     }
 
     private String getFullPath(String fileName, String screenshotDirectory) {
-        return screenshotDirectory
-               + "/"
-               + getDateString()
-               + formatFileName(fileName) + ".png";}
+        return screenshotDirectory + "/" + getDateString() + formatFileName(fileName) + ".png";
+    }
 
     private String getDateString() {
         Date date = new Date();
@@ -56,18 +52,17 @@ public class AfterFailureScreenshotHook extends RunListener {
         int lastPerIndex = fileName.lastIndexOf('.');
         int openIndex = fileName.indexOf('(');
         int closeIndex = fileName.indexOf(')');
-        return fileName.substring(lastPerIndex + 1,closeIndex)
-               + "."
-               + fileName.substring(0,openIndex);
+        return fileName.substring(lastPerIndex + 1, closeIndex) + "." + fileName
+            .substring(0, openIndex);
     }
 
     private byte[] getScreenshot() {
         String browser = System.getenv("BROWSER");
-        if ( browser == null ){
+        if (browser == null) {
             browser = "firefox";
         }
         WebDriver driver = WebDriverManager.getInstance().getDriver(browser);
-        byte[] shot =  ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        byte[] shot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         return shot;
     }
 }

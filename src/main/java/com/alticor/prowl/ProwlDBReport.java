@@ -16,8 +16,7 @@ public class ProwlDBReport implements Report {
 
     private Connection connection;
 
-    @Override
-    public void prepReporting() {
+    @Override public void prepReporting() {
         connection = getConnection();
     }
 
@@ -25,23 +24,19 @@ public class ProwlDBReport implements Report {
         return null; // TODO: Finish writing this.
     }
 
-    @Override
-    public void validate(String s, boolean b, boolean b1, byte[] bytes) {
+    @Override public void validate(String s, boolean b, boolean b1, byte[] bytes) {
 
     }
 
-    @Override
-    public void validate(String s, boolean b, boolean b1) {
+    @Override public void validate(String s, boolean b, boolean b1) {
 
     }
 
-    @Override
-    public void validate(String s, boolean b) {
+    @Override public void validate(String s, boolean b) {
 
     }
 
-    @Override
-    public void writeStep(String s) {
+    @Override public void writeStep(String s) {
         String statement = "";
         PreparedStatement ps = null;
         try {
@@ -52,24 +47,20 @@ public class ProwlDBReport implements Report {
             ps.setString(1, "");
             ps.setString(2, "");
             ResultSet rs = ps.executeQuery();
-        }
-        catch ( SQLException e ) {
+        } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
-            if(ps != null){
+        } finally {
+            if (ps != null) {
                 try {
                     ps.close();
-                }
-                catch ( SQLException e ) {
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
         }
     }
 
-    @Override
-    public void writeReport() {
+    @Override public void writeReport() {
 
     }
 }

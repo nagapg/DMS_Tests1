@@ -4,7 +4,10 @@ import com.alticor.magic.pages.MagicPage;
 import com.alticor.magic.pages.inquiry.bonus.MagicTransactionDetail;
 import com.alticor.okta.OktaLogin;
 import com.alticor.prowl.DriverUtility;
-import org.junit.*;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Rule;
+import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 import org.openqa.selenium.WebDriver;
 
@@ -12,43 +15,37 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class MagicTransactionDetailTest {
 
-    @Rule
-    public ErrorCollector collector = new ErrorCollector();
-
     static WebDriver driver;
     static MagicPage magicPage;
     static OktaLogin oktaLogin;
+    @Rule public ErrorCollector collector = new ErrorCollector();
 
-    @BeforeClass
-    public static void setup(){
+    @BeforeClass public static void setup() {
         driver = DriverUtility.getFirefoxDriver();
 
-        oktaLogin = new OktaLogin(driver,null);
-        oktaLogin.login("cmns559","our49pot");// TODO: Make this grab password from environment variables
+        oktaLogin = new OktaLogin(driver, null);
+        oktaLogin.login("cmns559",
+            "our49pot");// TODO: Make this grab password from environment variables
         driver.getTitle();
 
-        magicPage = new MagicPage(driver,null);
-        magicPage.aboLookup("010","670",null);
+        magicPage = new MagicPage(driver, null);
+        magicPage.aboLookup("010", "670", null);
     }
 
-    @AfterClass
-    public static void tearDown(){
+    @AfterClass public static void tearDown() {
         driver.close();
     }
 
-    @Test
-    public void testPageTitle(){
-        MagicTransactionDetail detail = new MagicTransactionDetail(driver,null);
+    @Test public void testPageTitle() {
+        MagicTransactionDetail detail = new MagicTransactionDetail(driver, null);
         detail.navigate();
-        collector.checkThat("Page Title",
-                driver.getTitle(),equalTo(detail.pageTitle()));
+        collector.checkThat("Page Title", driver.getTitle(), equalTo(detail.pageTitle()));
     }
 
-    @Test
-    public void testTransactionSection(){
-        MagicTransactionDetail detail = new MagicTransactionDetail(driver,null);
+    @Test public void testTransactionSection() {
+        MagicTransactionDetail detail = new MagicTransactionDetail(driver, null);
         detail.navigate();
-        collector.checkThat("Transaction Bar Label",
-                detail.transactionBarLabel().getText(),equalTo("Transactions"));
+        collector.checkThat("Transaction Bar Label", detail.transactionBarLabel().getText(),
+            equalTo("Transactions"));
     }
 }

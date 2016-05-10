@@ -16,60 +16,54 @@ import org.openqa.selenium.WebDriver;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 
-@RunWith(AmwayProwlRunner.class)
-public class InfoEchoTest {
-
-    @Rule
-    public ErrorCollector collector = new ErrorCollector();
+@RunWith(AmwayProwlRunner.class) public class InfoEchoTest {
 
     static WebDriver driver;
     static MagicPage magicPage;
     static OktaLogin oktaLogin;
+    @Rule public ErrorCollector collector = new ErrorCollector();
 
-    @BeforeClass
-    public static void setup(){
+    @BeforeClass public static void setup() {
         String browser = System.getenv("BROWSER");
         String target = System.getenv("TARGET");
         String baseUrl = null;
 
-        if(target == null){
+        if (target == null) {
             target = "magic.dev";
         }
 
         baseUrl = EndpointRegistry.getEndpoint(target);
         driver = WebDriverManager.getInstance().getDriver(browser == null ? "firefox" : browser);
 
-        oktaLogin = new OktaLogin(driver,null);
-        oktaLogin.login("cmns559","our49pot");// TODO: Make this grab password from environment variables
+        oktaLogin = new OktaLogin(driver, null);
+        oktaLogin.login("cmns559",
+            "our49pot");// TODO: Make this grab password from environment variables
         driver.getTitle();
 
-        magicPage = new MagicPage(driver,null);
+        magicPage = new MagicPage(driver, null);
         magicPage.setBaseUrl(baseUrl);
     }
 
-    @AfterClass
-    public static void tearDown(){
+    @AfterClass public static void tearDown() {
         driver.close();
     }
 
-    @Test
-    public void testPageTitle(){
-        InfoEcho info = new InfoEcho(driver,null);
+    @Test public void testPageTitle() {
+        InfoEcho info = new InfoEcho(driver, null);
         info.navigate();
-        collector.checkThat("Page Title",
-                driver.getTitle(), equalTo(info.pageTitle()));
+        collector.checkThat("Page Title", driver.getTitle(), equalTo(info.pageTitle()));
     }
 
-    @Test
-    public void testBuildPropertiesSection(){
-        InfoEcho info = new InfoEcho(driver,null);
+    @Test public void testBuildPropertiesSection() {
+        InfoEcho info = new InfoEcho(driver, null);
         info.navigate();
-        collector.checkThat("Section Displayed",
-                info.getBuildPropertiesPanel().isDisplayed(), equalTo(true));
+        collector.checkThat("Section Displayed", info.getBuildPropertiesPanel().isDisplayed(),
+            equalTo(true));
         String revision = System.getenv("BUILD_REVISION");
-        if(revision != null) {
-            collector.checkThat("Correct Build Revision Number",
-                    info.getRevisionNumberField().getText(), equalTo(revision));
+        if (revision != null) {
+            collector
+                .checkThat("Correct Build Revision Number", info.getRevisionNumberField().getText(),
+                    equalTo(revision));
         }
     }
 }

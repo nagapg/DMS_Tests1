@@ -24,17 +24,16 @@ public class MagicPage implements PageObject {
         path = MAGIC_HOME;
     }
 
-    public MagicPage(WebDriver d, Report r){
-        this(d,r,MAGIC_HOME);
+    public MagicPage(WebDriver d, Report r) {
+        this(d, r, MAGIC_HOME);
     }
 
-    public MagicPage(WebDriver d, Report r,String p){
+    public MagicPage(WebDriver d, Report r, String p) {
         path = p;
         driver = d;
-        if(r == null){
+        if (r == null) {
             report = new DummyReport();
-        }
-        else{
+        } else {
             report = r;
         }
 
@@ -44,61 +43,55 @@ public class MagicPage implements PageObject {
         this.baseUrl = baseUrl;
     }
 
-    public String pageTitle(){
+    public String pageTitle() {
         return PAGE_TITLE;
     }
 
-    public DynamicElement affiliateInputField(){
+    public DynamicElement affiliateInputField() {
         return getDynamicElement().addSearch(By.id("selectedAffLeftContainer"));
     }
 
-    public DynamicElement aboNumberInputField(){
+    public DynamicElement aboNumberInputField() {
         return getDynamicElement().addSearch(By.id("selectedIboNumber"));
     }
 
-    public DynamicElement periodInputField(){
+    public DynamicElement periodInputField() {
         return getDynamicElement().addSearch(By.id("selectedPeriod"));
     }
 
-    public DynamicElement mainSubmitButton(){
+    public DynamicElement mainSubmitButton() {
         return getDynamicElement().addSearch(By.id("SubmitButton"));
     }
 
-    public DynamicElement userLoginLabel(){
+    public DynamicElement userLoginLabel() {
         return getDynamicElement().addSearch(By.className("login-as-container"));
     }
 
     public DynamicElement getDynamicElement() {
-        return new DynamicElement(driver,report);
+        return new DynamicElement(driver, report);
     }
 
-    @Override
-    public void setup() {
+    @Override public void setup() {
         // Place Setup
     }
 
-    @Override
-    public void tearDown() {
+    @Override public void tearDown() {
         // Place Tear Down
     }
 
-    @Override
-    public void navigate(WebDriver webDriver, String page) {
+    @Override public void navigate(WebDriver webDriver, String page) {
         webDriver.navigate().to(page);
     }
 
-    @Override
-    public void navigate(WebDriver webDriver) {
-        navigate(webDriver,getPageUrl());
+    @Override public void navigate(WebDriver webDriver) {
+        navigate(webDriver, getPageUrl());
     }
 
-    @Override
-    public void navigate(String s) {
-        navigate(driver,s);
+    @Override public void navigate(String s) {
+        navigate(driver, s);
     }
 
-    @Override
-    public void navigate() {
+    @Override public void navigate() {
         navigate(getPageUrl());
     }
 
@@ -109,19 +102,19 @@ public class MagicPage implements PageObject {
     public void aboLookup(String affiliateNumber, String aboNumber, String period) {
         navigate();
 
-        if(affiliateNumber != null){
+        if (affiliateNumber != null) {
             DynamicElement aff = affiliateInputField();
             aff.clear();
             aff.sendKeys(affiliateNumber);
         }
 
-        if(aboNumber != null){
+        if (aboNumber != null) {
             DynamicElement aboNum = aboNumberInputField();
             aboNum.clear();
             aboNum.sendKeys(aboNumber);
         }
 
-        if(period != null){
+        if (period != null) {
             DynamicElement per = periodInputField();
             per.clear();
             per.sendKeys();

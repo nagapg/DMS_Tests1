@@ -10,9 +10,10 @@ public class WebDriverManager {
 
     private WebDriver driver;
 
-    private WebDriverManager(){ }
+    private WebDriverManager() {
+    }
 
-    public static synchronized WebDriverManager getInstance(){
+    public static synchronized WebDriverManager getInstance() {
         if (instance == null) {
             instance = new WebDriverManager();
         }
@@ -20,7 +21,7 @@ public class WebDriverManager {
     }
 
     public synchronized WebDriver getDriver(String browser) {
-        if ( driver == null ) {
+        if (driver == null) {
             driver = DriverUtility.getDriver(browser);
         }
         return driver;

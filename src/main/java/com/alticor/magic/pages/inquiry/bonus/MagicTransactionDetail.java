@@ -8,16 +8,16 @@ import org.openqa.selenium.WebDriver;
 
 public class MagicTransactionDetail extends MagicPage {
 
-    public MagicTransactionDetail(WebDriver d, Report r){
-        super(d,r,"/EBS_UI_Web/TransactionDetail");
+    public MagicTransactionDetail(WebDriver d, Report r) {
+        super(d, r, "/EBS_UI_Web/TransactionDetail");
     }
 
-    @Override
-    public String pageTitle() {
+    @Override public String pageTitle() {
         return "MAGIC - Transactions";
     }
 
-    public DynamicElement transactionBarLabel(){
-        return getDynamicElement().addSearch(By.xpath(".//*[@id='IboTrxDtlExpand']/form/div/span[1]"));
+    public DynamicElement transactionBarLabel() {
+        return getDynamicElement()
+            .addSearch(By.xpath(".//*[@id='IboTrxDtlExpand']/form/div/span[1]"));
     }
 }

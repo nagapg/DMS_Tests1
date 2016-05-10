@@ -7,28 +7,28 @@ import org.openqa.selenium.WebDriver;
 
 public class MagicDashboard extends MagicPage {
 
-    public MagicDashboard(WebDriver d, Report r){
-        super(d,r,"/EBS_UI_Web/Magic");
+    public MagicDashboard(WebDriver d, Report r) {
+        super(d, r, "/EBS_UI_Web/Magic");
     }
 
-    public DynamicElement aboInfoBarLabel(){
+    public DynamicElement aboInfoBarLabel() {
         return getDynamicElement().addSearch(By.xpath(".//*[@id='IboInfoExpand']/div[1]"));
     }
 
-    public DynamicElement aboStatisticsBarLabel(){
+    public DynamicElement aboStatisticsBarLabel() {
         return getDynamicElement().addSearch(By.xpath(".//*[@id='StatsExpand']/div[1]"));
     }
 
-    public DynamicElement quickGlanceBarLabel(){
+    public DynamicElement quickGlanceBarLabel() {
         return getDynamicElement().addSearch(By.xpath(".//*[@id='IboOverviewExpand']/div[1]"));
     }
 
-    public DynamicElement awardQualificationsBarLabel(){
-        return getDynamicElement().addSearch(By.xpath(".//*[@id='IboDashboardAwardsExpand']/div[1]"));
+    public DynamicElement awardQualificationsBarLabel() {
+        return getDynamicElement()
+            .addSearch(By.xpath(".//*[@id='IboDashboardAwardsExpand']/div[1]"));
     }
 
-    @Override
-    public String pageTitle() {
+    @Override public String pageTitle() {
         return "MAGIC - Dashboard";
     }
 }

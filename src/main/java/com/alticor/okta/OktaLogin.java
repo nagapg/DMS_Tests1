@@ -7,33 +7,33 @@ import io.swarmauto.driverextended.Report;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class OktaLogin implements PageObject{
+public class OktaLogin implements PageObject {
 
+    private final String pageUrl = "https://amway.okta.com/login/default";
     private WebDriver driver;
     private Report report;
-    private final String pageUrl = "https://amway.okta.com/login/default";
 
-    public OktaLogin(WebDriver d, Report r){
+    public OktaLogin(WebDriver d, Report r) {
         driver = d;
-        if(r == null){
+        if (r == null) {
             report = new DummyReport();
-        }
-        else{
+        } else {
             report = r;
         }
     }
 
-    private OktaLogin() {}
+    private OktaLogin() {
+    }
 
-    public DynamicElement userNameInputField(){
+    public DynamicElement userNameInputField() {
         return getDynamicElement().addSearch(By.id("user-signin"));
     }
 
-    public DynamicElement passwordInputField(){
+    public DynamicElement passwordInputField() {
         return getDynamicElement().addSearch(By.id("pass-signin"));
     }
 
-    public DynamicElement submitButton(){
+    public DynamicElement submitButton() {
         return getDynamicElement().addSearch(By.id("signin-button"));
     }
 
@@ -44,35 +44,31 @@ public class OktaLogin implements PageObject{
         submitButton().click();
     }
 
-    @Override
-    public void setup() {
+    @Override public void setup() {
 
     }
 
-    @Override
-    public void navigate(WebDriver webDriver, String page) {
+    @Override public void navigate(WebDriver webDriver, String page) {
         webDriver.get(page);
     }
 
-    @Override
-    public void navigate(WebDriver webDriver) {
-        navigate(webDriver,pageUrl);
+    @Override public void navigate(WebDriver webDriver) {
+        navigate(webDriver, pageUrl);
     }
 
-    @Override
-    public void navigate(String s) {
-        navigate(driver,s);
+    @Override public void navigate(String s) {
+        navigate(driver, s);
     }
 
-    @Override
-    public void navigate() {
+    @Override public void navigate() {
         navigate(pageUrl);
     }
 
-    @Override
-    public void tearDown() {
+    @Override public void tearDown() {
 
     }
 
-    private DynamicElement getDynamicElement() {return new DynamicElement(driver,report);}
+    private DynamicElement getDynamicElement() {
+        return new DynamicElement(driver, report);
+    }
 }

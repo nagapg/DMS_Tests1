@@ -1,6 +1,9 @@
 package com.alticor.prowl;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Properties;
 
 public class EndpointRegistry {
@@ -11,46 +14,42 @@ public class EndpointRegistry {
         endpoints = new Properties();
         try {
             endpoints.load(ClassLoader.getSystemResourceAsStream("endpoints.properties"));
-        }
-        catch ( IOException e ) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private EndpointRegistry(){ }
+    private EndpointRegistry() {
+    }
 
-    public static synchronized void register(String tag,String endpoint){
+    public static synchronized void register(String tag, String endpoint) {
         String existing = endpoints.getProperty(tag);
 
-        if(existing == null){
-            endpoints.put(tag,endpoint);
+        if (existing == null) {
+            endpoints.put(tag, endpoint);
         }
         // TODO: Handle case of duplicate tags
     }
 
-    public static synchronized String getEndpoint(String tag){
+    public static synchronized String getEndpoint(String tag) {
         return endpoints.getProperty(tag);
     }
 
-    public static EndpointRegistry registerFromFile(File file){
+    public static EndpointRegistry registerFromFile(File file) {
         FileInputStream inputStream = null;
         try {
             inputStream = new FileInputStream(file);
             endpoints.load(inputStream);
 
-        }
-        catch ( FileNotFoundException e ) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
-        catch ( IOException e ){
+        } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally {
-            if ( inputStream != null ) {
+        } finally {
+            if (inputStream != null) {
                 try {
                     inputStream.close();
-                }
-                catch ( IOException e ) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }

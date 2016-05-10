@@ -12,8 +12,7 @@ public class AmwayProwlRunner extends BlockJUnit4ClassRunner {
         super(klass);
     }
 
-    @Override
-    public void run(RunNotifier notifier) {
+    @Override public void run(RunNotifier notifier) {
         // Setup Report
 
         notifier.addListener(new AfterFailureScreenshotHook());

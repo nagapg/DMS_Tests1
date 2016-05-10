@@ -9,16 +9,15 @@ import org.openqa.selenium.WebDriver;
 public class MagicAmountFlowInquiry extends MagicPage {
 
 
-    public MagicAmountFlowInquiry(WebDriver d, Report r){
-        super(d,r,"/EBS_UI_Web/AmountFlowInq");
+    public MagicAmountFlowInquiry(WebDriver d, Report r) {
+        super(d, r, "/EBS_UI_Web/AmountFlowInq");
     }
 
-    @Override
-    public String pageTitle() {
+    @Override public String pageTitle() {
         return "MAGIC - Generator Flow";
     }
 
-    public DynamicElement iblFlowBarLabel(){
+    public DynamicElement iblFlowBarLabel() {
         return getDynamicElement().addSearch(By.xpath(".//*[@id='AmountFlowExpand']/div"));
     }
 }

@@ -9,16 +9,16 @@ import org.openqa.selenium.WebDriver;
 public class MagicAwardInquiry extends MagicPage {
 
     public MagicAwardInquiry(WebDriver d, Report r) {
-            super(d, r, "/EBS_UI_Web/AwardInquiry");
+        super(d, r, "/EBS_UI_Web/AwardInquiry");
     }
 
-    @Override
-    public String pageTitle() {
+    @Override public String pageTitle() {
         return "MAGIC - Award Details";
     }
 
     public DynamicElement annualFrontLinersBarLabel() {
-        return getDynamicElement().addSearch(By.xpath(".//*[@id='AwardInfoExpand']/div[1]/span[1]"));
+        return getDynamicElement()
+            .addSearch(By.xpath(".//*[@id='AwardInfoExpand']/div[1]/span[1]"));
     }
 
     public DynamicElement awardInformationBarLabel() {
@@ -38,6 +38,7 @@ public class MagicAwardInquiry extends MagicPage {
     }
 
     public DynamicElement annualFrontLinersAppError() {
-        return getDynamicElement().addSearch(By.xpath(".//*[@id='AwardInquiry']/tbody/tr[2]/td[1]"));
+        return getDynamicElement()
+            .addSearch(By.xpath(".//*[@id='AwardInquiry']/tbody/tr[2]/td[1]"));
     }
 }

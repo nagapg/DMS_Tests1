@@ -4,60 +4,55 @@ import com.alticor.magic.pages.MagicPage;
 import com.alticor.magic.pages.inquiry.bonus.MagicBonusAmount;
 import com.alticor.okta.OktaLogin;
 import com.alticor.prowl.DriverUtility;
-import org.junit.*;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Rule;
+import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 import org.openqa.selenium.WebDriver;
-
 
 import static org.hamcrest.CoreMatchers.equalTo;
 
 public class MagicBonusAmountTest {
 
-    @Rule
-    public ErrorCollector collector = new ErrorCollector();
-
     static WebDriver driver;
     static MagicPage magicPage;
     static OktaLogin oktaLogin;
+    @Rule public ErrorCollector collector = new ErrorCollector();
 
-    @BeforeClass
-    public static void setup(){
+    @BeforeClass public static void setup() {
         driver = DriverUtility.getFirefoxDriver();
 
-        oktaLogin = new OktaLogin(driver,null);
-        oktaLogin.login("cmns559","our49pot");// TODO: Make this grab password from environment variables
+        oktaLogin = new OktaLogin(driver, null);
+        oktaLogin.login("cmns559",
+            "our49pot");// TODO: Make this grab password from environment variables
         driver.getTitle();
 
-        magicPage = new MagicPage(driver,null);
-        magicPage.aboLookup("010","670",null);
+        magicPage = new MagicPage(driver, null);
+        magicPage.aboLookup("010", "670", null);
     }
 
-    @AfterClass
-    public static void tearDown(){
+    @AfterClass public static void tearDown() {
         driver.close();
     }
 
-    @Test
-    public void testPageTitle(){
-        MagicBonusAmount amount = new MagicBonusAmount(driver,null);
+    @Test public void testPageTitle() {
+        MagicBonusAmount amount = new MagicBonusAmount(driver, null);
         amount.navigate();
-        collector.checkThat("Page Title",
-                driver.getTitle(),equalTo(amount.pageTitle()));
+        collector.checkThat("Page Title", driver.getTitle(), equalTo(amount.pageTitle()));
     }
 
-    @Test
-    public void testMonthlyVolumeSection(){
-        MagicBonusAmount amount = new MagicBonusAmount(driver,null);
+    @Test public void testMonthlyVolumeSection() {
+        MagicBonusAmount amount = new MagicBonusAmount(driver, null);
         amount.navigate();
-        collector.checkThat("Monthly Volume Bar Label",
-                amount.monthlyAmountsBarLabel().getText(),equalTo("Monthly Amounts"));
+        collector.checkThat("Monthly Volume Bar Label", amount.monthlyAmountsBarLabel().getText(),
+            equalTo("Monthly Amounts"));
     }
 
-    @Test
-    public void testAnnualVolumeSection(){
-        MagicBonusAmount amount = new MagicBonusAmount(driver,null);
+    @Test public void testAnnualVolumeSection() {
+        MagicBonusAmount amount = new MagicBonusAmount(driver, null);
         amount.navigate();
-        collector.checkThat("Annual Volume Bar Label",
-                amount.annualAmountsBarLabel().getText(),equalTo("Annual Amounts"));
+        collector.checkThat("Annual Volume Bar Label", amount.annualAmountsBarLabel().getText(),
+            equalTo("Annual Amounts"));
     }
 }

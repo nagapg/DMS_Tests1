@@ -8,20 +8,19 @@ import org.openqa.selenium.WebDriver;
 
 public class MagicBonusAmount extends MagicPage {
 
-    public MagicBonusAmount(WebDriver d, Report r){
-        super(d,r,"/EBS_UI_Web/BonusAmount");
+    public MagicBonusAmount(WebDriver d, Report r) {
+        super(d, r, "/EBS_UI_Web/BonusAmount");
     }
 
-    @Override
-    public String pageTitle() {
+    @Override public String pageTitle() {
         return "MAGIC - Amounts";
     }
 
-    public DynamicElement monthlyAmountsBarLabel(){
+    public DynamicElement monthlyAmountsBarLabel() {
         return getDynamicElement().addSearch(By.xpath(".//*[@id='IboAmountsDtlExpand']/div[1]"));
     }
 
-    public DynamicElement annualAmountsBarLabel(){
+    public DynamicElement annualAmountsBarLabel() {
         return getDynamicElement().addSearch(By.xpath(".//*[@id='AnnAmountsExpand']/div[1]"));
     }
 }

@@ -8,9 +8,10 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import java.util.concurrent.TimeUnit;
 
 public class DriverUtility {
-    private  DriverUtility(){}
+    private DriverUtility() {
+    }
 
-    public static WebDriver getFirefoxDriver(){
+    public static WebDriver getFirefoxDriver() {
         WebDriver driver = new FirefoxDriver();
 
         configureDriver(driver);
@@ -18,7 +19,7 @@ public class DriverUtility {
         return driver;
     }
 
-    public static WebDriver getChromeDriver(){
+    public static WebDriver getChromeDriver() {
         WebDriver driver = new ChromeDriver();
 
         configureDriver(driver);
@@ -26,7 +27,7 @@ public class DriverUtility {
         return driver;
     }
 
-    public static WebDriver getIEDriver(){
+    public static WebDriver getIEDriver() {
         WebDriver driver = new InternetExplorerDriver();
 
         configureDriver(driver);
@@ -39,7 +40,7 @@ public class DriverUtility {
     }
 
     public static WebDriver getDriver(String browser) {
-        switch ( browser ) {
+        switch (browser) {
             case "chrome":
                 return DriverUtility.getChromeDriver();
             case "firefox":

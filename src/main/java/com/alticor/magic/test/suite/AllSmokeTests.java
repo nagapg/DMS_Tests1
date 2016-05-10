@@ -15,8 +15,8 @@ import org.junit.runners.Suite.SuiteClasses;
 /**
  * Created by harolddost on 3/31/16.
  */
-@RunWith( Categories.class )
-@IncludeCategory( SmokeTests.class )
-@SuiteClasses( { MagicPageTest.class, MagicAmountFlowInquiryTest.class, MagicBonusAmountTest.class,
-                 MagicBonusVolumeTest.class, MagicTransactionDetailTest.class, MagicBusinessOwnerInfoTest.class})
-public class AllSmokeTests {}
+@RunWith(Categories.class) @IncludeCategory(SmokeTests.class)
+@SuiteClasses({MagicPageTest.class, MagicAmountFlowInquiryTest.class, MagicBonusAmountTest.class,
+    MagicBonusVolumeTest.class, MagicTransactionDetailTest.class, MagicBusinessOwnerInfoTest.class})
+public class AllSmokeTests {
+}

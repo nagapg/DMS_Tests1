@@ -7,12 +7,11 @@ import org.openqa.selenium.WebDriver;
 
 public class MagicFAA extends MagicPage {
 
-    public MagicFAA(WebDriver d, Report r){
-        super(d,r,"/EBS_UI_Web/FAA");
+    public MagicFAA(WebDriver d, Report r) {
+        super(d, r, "/EBS_UI_Web/FAA");
     }
 
-    @Override
-    public String pageTitle() {
+    @Override public String pageTitle() {
         return "MAGIC - FAA";
     }
 }
