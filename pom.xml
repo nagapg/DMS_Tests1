@@ -45,25 +45,21 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>2.52.0</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.SwarmAutomation</groupId>
             <artifactId>WebDriverExtendedJVM</artifactId>
-            <version>develop-SNAPSHOT</version>
-            <scope>provided</scope>
+            <version>0.1</version>
         </dependency>
         <dependency>
             <groupId>com.github.SwarmAutomation</groupId>
             <artifactId>ExtendedReportingJVM</artifactId>
-            <version>develop-SNAPSHOT</version>
-            <scope>provided</scope>
+            <version>0.1</version>
         </dependency>
 
         <!-- Cucumber -->
