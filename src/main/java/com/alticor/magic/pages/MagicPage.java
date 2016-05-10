@@ -1,24 +1,20 @@
 package com.alticor.magic.pages;
 
 import com.alticor.magic.report.DummyReport;
+import io.swarmauto.driverextended.AbstractPageObject;
 import io.swarmauto.driverextended.DynamicElement;
-import io.swarmauto.driverextended.PageObject;
 import io.swarmauto.driverextended.Report;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class MagicPage implements PageObject {
-
+public class MagicPage extends AbstractPageObject {
 
     private static final String MAGIC_HOME = "/EBS_UI_Web/Magic";
     private static final String PAGE_TITLE = "MAGIC - Home Page";
 
     private static String baseUrl;
-
     private String path;
 
-    private WebDriver driver;
-    private Report report;
 
     public MagicPage() {
         path = MAGIC_HOME;
@@ -39,8 +35,28 @@ public class MagicPage implements PageObject {
 
     }
 
-    public void setBaseUrl(String baseUrl) {
+    @Override public String getBaseUrl() {
+        return baseUrl;
+    }
+
+    @Override public void setBaseUrl(String baseUrl) {
         this.baseUrl = baseUrl;
+    }
+
+    @Override public String getPath() {
+        return path;
+    }
+
+    @Override public void setPath(String s) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override public void setup() {
+        // Place Setup
+    }
+
+    @Override public void tearDown() {
+        // Place Tear Down
     }
 
     public String pageTitle() {
@@ -65,38 +81,6 @@ public class MagicPage implements PageObject {
 
     public DynamicElement userLoginLabel() {
         return getDynamicElement().addSearch(By.className("login-as-container"));
-    }
-
-    public DynamicElement getDynamicElement() {
-        return new DynamicElement(driver, report);
-    }
-
-    @Override public void setup() {
-        // Place Setup
-    }
-
-    @Override public void tearDown() {
-        // Place Tear Down
-    }
-
-    @Override public void navigate(WebDriver webDriver, String page) {
-        webDriver.navigate().to(page);
-    }
-
-    @Override public void navigate(WebDriver webDriver) {
-        navigate(webDriver, getPageUrl());
-    }
-
-    @Override public void navigate(String s) {
-        navigate(driver, s);
-    }
-
-    @Override public void navigate() {
-        navigate(getPageUrl());
-    }
-
-    private String getPageUrl() {
-        return baseUrl + path;
     }
 
     public void aboLookup(String affiliateNumber, String aboNumber, String period) {

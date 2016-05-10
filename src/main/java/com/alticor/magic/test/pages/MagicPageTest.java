@@ -3,6 +3,8 @@ package com.alticor.magic.test.pages;
 import com.alticor.magic.pages.MagicPage;
 import com.alticor.okta.OktaLogin;
 import com.alticor.prowl.DriverUtility;
+import com.alticor.prowl.EndpointUtility;
+import com.alticor.prowl.WebDriverManager;
 import com.alticor.prowl.categories.SmokeTests;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -22,7 +24,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
     @Rule public ErrorCollector collector = new ErrorCollector();
 
     @BeforeClass public static void setup() {
-        driver = DriverUtility.getFirefoxDriver();
+        String baseUrl = EndpointUtility.getEndpoint();
+        driver = WebDriverManager.getInstance().getDriver();
 
         oktaLogin = new OktaLogin(driver, null);
         oktaLogin.login("cmns559",
@@ -30,12 +33,12 @@ import static org.hamcrest.CoreMatchers.equalTo;
         driver.getTitle();
 
         magicPage = new MagicPage(driver, null);
-
+        magicPage.setBaseUrl(baseUrl);
         magicPage.navigate();
     }
 
     @AfterClass public static void tearDown() {
-        driver.close();
+        WebDriverManager.getInstance().close();
     }
 
     @Test public void testBasicMagicPageTitle() {

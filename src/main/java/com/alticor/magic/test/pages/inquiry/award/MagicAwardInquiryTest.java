@@ -4,6 +4,8 @@ import com.alticor.magic.pages.MagicPage;
 import com.alticor.magic.pages.inquiry.award.MagicAwardInquiry;
 import com.alticor.okta.OktaLogin;
 import com.alticor.prowl.DriverUtility;
+import com.alticor.prowl.EndpointUtility;
+import com.alticor.prowl.WebDriverManager;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Rule;
@@ -18,10 +20,12 @@ public class MagicAwardInquiryTest {
     static WebDriver driver;
     static MagicPage magicPage;
     static OktaLogin oktaLogin;
+
     @Rule public ErrorCollector collector = new ErrorCollector();
 
     @BeforeClass public static void setup() {
-        driver = DriverUtility.getFirefoxDriver();
+        String baseUrl = EndpointUtility.getEndpoint();
+        driver = WebDriverManager.getInstance().getDriver();
 
         oktaLogin = new OktaLogin(driver, null);
         oktaLogin.login("cmns559",
@@ -29,11 +33,12 @@ public class MagicAwardInquiryTest {
         driver.getTitle();
 
         magicPage = new MagicPage(driver, null);
+        magicPage.setBaseUrl(baseUrl);
         magicPage.aboLookup("010", "670", null);
     }
 
     @AfterClass public static void tearDown() {
-        driver.close();
+        WebDriverManager.getInstance().close();
     }
 
     @Test public void testPageTitle() {

@@ -57,11 +57,7 @@ public class AfterFailureScreenshotHook extends RunListener {
     }
 
     private byte[] getScreenshot() {
-        String browser = System.getenv("BROWSER");
-        if (browser == null) {
-            browser = "firefox";
-        }
-        WebDriver driver = WebDriverManager.getInstance().getDriver(browser);
+        WebDriver driver = WebDriverManager.getInstance().getDriver();
         byte[] shot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         return shot;
     }

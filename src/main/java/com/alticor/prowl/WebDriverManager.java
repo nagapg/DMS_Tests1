@@ -2,9 +2,6 @@ package com.alticor.prowl;
 
 import org.openqa.selenium.WebDriver;
 
-/**
- * Created by harolddost on 4/2/16.
- */
 public class WebDriverManager {
     private static WebDriverManager instance;
 
@@ -25,5 +22,17 @@ public class WebDriverManager {
             driver = DriverUtility.getDriver(browser);
         }
         return driver;
+    }
+
+    public synchronized WebDriver getDriver() {
+        if (driver == null) {
+            driver = DriverUtility.getDriver();
+        }
+        return driver;
+    }
+
+    public synchronized void close() {
+        driver.close();
+        driver = null;
     }
 }

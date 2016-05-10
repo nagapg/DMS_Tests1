@@ -1,17 +1,15 @@
 package com.alticor.okta;
 
 import com.alticor.magic.report.DummyReport;
+import io.swarmauto.driverextended.AbstractPageObject;
 import io.swarmauto.driverextended.DynamicElement;
-import io.swarmauto.driverextended.PageObject;
 import io.swarmauto.driverextended.Report;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class OktaLogin implements PageObject {
+public class OktaLogin extends AbstractPageObject {
 
-    private final String pageUrl = "https://amway.okta.com/login/default";
-    private WebDriver driver;
-    private Report report;
+    private String baseUrl = "https://amway.okta.com";
 
     public OktaLogin(WebDriver d, Report r) {
         driver = d;
@@ -48,27 +46,23 @@ public class OktaLogin implements PageObject {
 
     }
 
-    @Override public void navigate(WebDriver webDriver, String page) {
-        webDriver.get(page);
-    }
-
-    @Override public void navigate(WebDriver webDriver) {
-        navigate(webDriver, pageUrl);
-    }
-
-    @Override public void navigate(String s) {
-        navigate(driver, s);
-    }
-
-    @Override public void navigate() {
-        navigate(pageUrl);
-    }
-
     @Override public void tearDown() {
 
     }
 
-    private DynamicElement getDynamicElement() {
-        return new DynamicElement(driver, report);
+    @Override public String getBaseUrl() {
+        return baseUrl;
+    }
+
+    @Override public void setBaseUrl(String s) {
+        this.baseUrl = s;
+    }
+
+    @Override public String getPath() {
+        return "/login/default";
+    }
+
+    @Override public void setPath(String s) {
+        throw new UnsupportedOperationException();
     }
 }

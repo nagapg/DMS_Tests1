@@ -5,6 +5,7 @@ import com.alticor.magic.pages.maintenance.itadmin.InfoEcho;
 import com.alticor.okta.OktaLogin;
 import com.alticor.prowl.AmwayProwlRunner;
 import com.alticor.prowl.EndpointRegistry;
+import com.alticor.prowl.EndpointUtility;
 import com.alticor.prowl.WebDriverManager;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -24,16 +25,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
     @Rule public ErrorCollector collector = new ErrorCollector();
 
     @BeforeClass public static void setup() {
-        String browser = System.getenv("BROWSER");
-        String target = System.getenv("TARGET");
-        String baseUrl = null;
-
-        if (target == null) {
-            target = "magic.dev";
-        }
-
-        baseUrl = EndpointRegistry.getEndpoint(target);
-        driver = WebDriverManager.getInstance().getDriver(browser == null ? "firefox" : browser);
+        String baseUrl = EndpointUtility.getEndpoint();
+        driver = WebDriverManager.getInstance().getDriver();
 
         oktaLogin = new OktaLogin(driver, null);
         oktaLogin.login("cmns559",
@@ -45,7 +38,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
     }
 
     @AfterClass public static void tearDown() {
-        driver.close();
+        WebDriverManager.getInstance().close();
     }
 
     @Test public void testPageTitle() {
