@@ -1,6 +1,6 @@
 package com.alticor.prowl;
 
-public class EndpointUtility {
+public class EndpointProvider {
     public static String getEndpoint() {
         String target = System.getenv("TARGET");
         String baseUrl = null;

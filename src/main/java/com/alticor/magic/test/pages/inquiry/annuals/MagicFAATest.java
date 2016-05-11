@@ -4,8 +4,7 @@ import com.alticor.magic.pages.MagicPage;
 import com.alticor.magic.pages.inquiry.annuals.MagicFAA;
 import com.alticor.okta.OktaLogin;
 import com.alticor.prowl.AmwayProwlRunner;
-import com.alticor.prowl.EndpointRegistry;
-import com.alticor.prowl.EndpointUtility;
+import com.alticor.prowl.EndpointProvider;
 import com.alticor.prowl.WebDriverManager;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -25,7 +24,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
     @Rule public ErrorCollector collector = new ErrorCollector();
 
     @BeforeClass public static void setup() {
-        String baseUrl = EndpointUtility.getEndpoint();
+        String baseUrl = EndpointProvider.getEndpoint();
         driver = WebDriverManager.getInstance().getDriver();
 
         oktaLogin = new OktaLogin(driver, null);

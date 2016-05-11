@@ -2,8 +2,7 @@ package com.alticor.magic.test.pages;
 
 import com.alticor.magic.pages.MagicPage;
 import com.alticor.okta.OktaLogin;
-import com.alticor.prowl.DriverUtility;
-import com.alticor.prowl.EndpointUtility;
+import com.alticor.prowl.EndpointProvider;
 import com.alticor.prowl.WebDriverManager;
 import com.alticor.prowl.categories.SmokeTests;
 import org.junit.AfterClass;
@@ -24,7 +23,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
     @Rule public ErrorCollector collector = new ErrorCollector();
 
     @BeforeClass public static void setup() {
-        String baseUrl = EndpointUtility.getEndpoint();
+        String baseUrl = EndpointProvider.getEndpoint();
         driver = WebDriverManager.getInstance().getDriver();
 
         oktaLogin = new OktaLogin(driver, null);
