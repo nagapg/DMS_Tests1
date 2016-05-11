@@ -1,5 +1,6 @@
 package com.alticor.prowl;
 
+import com.alticor.prowl.provider.DriverProvider;
 import org.openqa.selenium.WebDriver;
 
 public class WebDriverManager {

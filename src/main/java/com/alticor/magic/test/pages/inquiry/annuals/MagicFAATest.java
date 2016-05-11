@@ -4,7 +4,7 @@ import com.alticor.magic.pages.MagicPage;
 import com.alticor.magic.pages.inquiry.annuals.MagicFAA;
 import com.alticor.okta.OktaLogin;
 import com.alticor.prowl.AmwayProwlRunner;
-import com.alticor.prowl.EndpointProvider;
+import com.alticor.prowl.provider.EndpointProvider;
 import com.alticor.prowl.WebDriverManager;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

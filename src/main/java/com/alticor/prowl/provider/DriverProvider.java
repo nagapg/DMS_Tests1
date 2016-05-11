@@ -1,5 +1,6 @@
-package com.alticor.prowl;
+package com.alticor.prowl.provider;
 
+import com.alticor.prowl.UnsupportedBrowserException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

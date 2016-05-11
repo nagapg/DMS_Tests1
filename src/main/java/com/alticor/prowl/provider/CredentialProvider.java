@@ -1,4 +1,4 @@
-package com.alticor.prowl;
+package com.alticor.prowl.provider;
 
 public class CredentialProvider {
 }

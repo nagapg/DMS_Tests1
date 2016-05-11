@@ -3,7 +3,7 @@ package com.alticor.magic.test.pages;
 import com.alticor.magic.pages.MagicDashboard;
 import com.alticor.magic.pages.MagicPage;
 import com.alticor.okta.OktaLogin;
-import com.alticor.prowl.EndpointProvider;
+import com.alticor.prowl.provider.EndpointProvider;
 import com.alticor.prowl.WebDriverManager;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
