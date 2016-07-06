@@ -62,6 +62,6 @@ public class DriverProvider {
      */
     public static WebDriver getDriver() {
         String browser = System.getenv("BROWSER");
-        return getDriver(browser == null ? "firefox" : browser);
+        return getDriver(browser == null ? "ie" : browser);
     }
 }
