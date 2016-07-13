@@ -3,8 +3,7 @@ package com.alticor.magic.test.pages.inquiry.businfo;
 import com.alticor.magic.pages.MagicPage;
 import com.alticor.magic.pages.inquiry.businfo.MagicBusinessOwnerInfo;
 import com.alticor.okta.OktaLogin;
-import com.alticor.prowl.DriverUtility;
-import com.alticor.prowl.EndpointUtility;
+import com.alticor.prowl.provider.EndpointProvider;
 import com.alticor.prowl.WebDriverManager;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -23,7 +22,7 @@ public class MagicBusinessOwnerInfoTest {
     @Rule public ErrorCollector collector = new ErrorCollector();
 
     @BeforeClass public static void setup() {
-        String baseUrl = EndpointUtility.getEndpoint();
+        String baseUrl = EndpointProvider.getEndpoint();
         driver = WebDriverManager.getInstance().getDriver();
 
         oktaLogin = new OktaLogin(driver, null);
