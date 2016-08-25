@@ -18,7 +18,7 @@ public class Test1 {
     boolean bStatus=false;
 	
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	public void setUp() throws Exception {
 		Reports.setTestCaseName("Test1");
 		bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
@@ -34,7 +34,7 @@ public class Test1 {
 	  @AfterMethod
       public void tearDown() throws Exception {
 	  Reports.endTest();
-	   }*/
+	   }
 	
 	  @Test
 	  public void test() {
