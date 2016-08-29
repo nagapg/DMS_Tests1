@@ -133,7 +133,7 @@ public class MAGIC_SponAll {
 	       }
 
 	       
-	       bStatus=GeneralFunctions.enterTextToElement(By.id("mbIboNo"), "46");
+	       bStatus=GeneralFunctions.enterTextToElement(By.id("mbIboNo"), "225");
 	       if(bStatus){
 			System.out.println("new MbIboNo-Pass");
 	       }	
