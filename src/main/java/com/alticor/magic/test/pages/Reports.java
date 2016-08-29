@@ -1,4 +1,4 @@
-package alticor.magic.pages;
+package com.alticor.magic.test.pages;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
