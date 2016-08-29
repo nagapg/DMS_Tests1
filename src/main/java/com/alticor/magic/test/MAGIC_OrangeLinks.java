@@ -20,7 +20,7 @@ public class MAGIC_OrangeLinks {
 	
 	@BeforeMethod
 	public void setUp() throws Exception {
-		Reports.setTestCaseName("Test2");
+		Reports.setTestCaseName("MAGIC_OrangeLinks");
 		bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
 		if(bStatus){
         	System.out.println("Application-Pass");
@@ -117,11 +117,11 @@ public class MAGIC_OrangeLinks {
 	  			
 	 	
 		if(bStatus){
-			Reports.logResults(LogStatus.PASS,"Test Pass","Orange Links Clicked");
+			Reports.logResults(LogStatus.PASS,"Test Pass","MAGIC_OrangeLinks");
 		}
 		else
 		{
-			Reports.logResults(LogStatus.FAIL,"Test Fail","Orange Links Not Clicked");
+			Reports.logResults(LogStatus.FAIL,"Test Fail","MAGIC_OrangeLinks");
 		}
 		com.alticor.magic.GeneralFunctions.close();
 		
