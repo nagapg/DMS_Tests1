@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MyTestingSuite">
+  <test name="MAGIC">
+   <classes>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_AwardBoard">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  				<class name="com.alticor.magic.test.MAGIC_BusinessEntity">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_BusOwnerAttributeLinks">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_ChangeInMarket">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_ILBAddress">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_IntlSponChange">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		
+  		<class name="com.alticor.magic.test.MAGIC_InvoiceInquiry">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_LTSTRips">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_MassUploadInvalidABO">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_MBSponsor">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_OrangeLinks">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_SecurityRoles">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_SponAll">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_SponsorChange">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_SponsorChangeNote">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_TransmitToRMS">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		
+  		</classes>
+  		</test> 
+  
+  		
+  		
+</suite> <!-- Suite -->
