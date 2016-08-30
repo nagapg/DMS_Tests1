@@ -6,18 +6,15 @@ import com.relevantcodes.extentreports.LogStatus;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import com.alticor.prowl.AmwayProwlRunner;
-import com.alticor.prowl.provider.EndpointProvider;
-import com.alticor.prowl.WebDriverManager;
+
 
 import java.util.List;
 
 
-@RunWith(AmwayProwlRunner.class) public class SecurityRoles {
+public class SecurityRoles {
     boolean bStatus;
 
     @Before public void setUp() throws Exception {
