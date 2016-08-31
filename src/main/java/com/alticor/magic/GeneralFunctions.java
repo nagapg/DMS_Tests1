@@ -88,7 +88,7 @@ public class GeneralFunctions {
 	}
 
 	/******************************************
-	 * FunctionName  :
+	 * FunctionName  :enterTextToElement
 	 * Purpose       : enters text to element
 	 *
 	 * *****************************************/
@@ -110,7 +110,7 @@ public class GeneralFunctions {
 	
 
 	/******************************************
-	 * FunctionName  :
+	 * FunctionName  :verifyVisibilityOFElement
 	 * Purpose       : existence of the element
 	 *
 	 * *****************************************/
@@ -129,7 +129,7 @@ public class GeneralFunctions {
 
 
 	/******************************************
-	 * FunctionName  :
+	 * FunctionName  :getElemetList
 	 * Purpose       : get list of elements
 	 *
 	 * *****************************************/
@@ -150,7 +150,7 @@ public class GeneralFunctions {
 
 
 	/******************************************
-	 * FunctionName  :
+	 * FunctionName  :getText
 	 * Purpose       : get text
 	 *
 	 * *****************************************/
@@ -173,7 +173,7 @@ public class GeneralFunctions {
 	
 
 	/******************************************
-	 * FunctionName  :
+	 * FunctionName  :fileUpload
 	 * Purpose       : uploads a file
 	 *
 	 * *****************************************/
@@ -212,7 +212,7 @@ public class GeneralFunctions {
 
 
 	/******************************************
-	 * FunctionName  :
+	 * FunctionName  :openIEBrowser
 	 * Purpose       : opens IE browser
 	 *
 	 * *****************************************/
@@ -245,7 +245,7 @@ public class GeneralFunctions {
 	
 
 	/******************************************
-	 * FunctionName  :
+	 * FunctionName  :openChormeBrowser
 	 * Purpose       : opens chrome browser
 	 *
 	 * *****************************************/
@@ -280,7 +280,7 @@ driver.close();
 
 
 	/******************************************
-	 * FunctionName  :
+	 * FunctionName  :gotoframe
 	 * Purpose       :Frames
 	 * @return
 	 *
@@ -293,7 +293,7 @@ public static boolean gotoframe(By xpath) {
 
 
 /******************************************
- * FunctionName  :
+ * FunctionName  :activeElement
  * Purpose       : element active 
  *
  * *****************************************/
@@ -312,6 +312,27 @@ public static boolean activeElement(By objLocator)
 
 
 
+/******************************************
+ * FunctionName  :display
+ * Purpose       : display element
+ *
+ * *****************************************/
+public static boolean display(By objLocator)
+{
+	try{
+return true;
+	}catch(Exception e)
+	{
+		sErrMsg=e.getMessage();
+		return false;
+	}
+}
+
+
+
+
+
+
 
 /******************************************
  * FunctionName  :Wait
@@ -322,6 +343,19 @@ public static boolean activeElement(By objLocator)
 public static void waittime() {
 	// TODO Auto-generated method stub
 	 driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+}
+
+
+/******************************************
+* FunctionName  : FindElement
+* Purpose       :finding an element
+ * @return 
+*
+* *****************************************/
+public static boolean FindElement(By xpath) {
+	return false;
+	// TODO Auto-generated method stub
+	
 }
 
 
