@@ -7,7 +7,8 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
+import org.openqa.selenium.support.ui.Select;
+//import org.apache.bcel.generic.Select;//
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -24,6 +25,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class GeneralFunctions {
 
 
+	private static final String Select = null;
 	public static WebDriver driver;
 	public static String sErrMsg="";
 	/******************************************
@@ -301,15 +303,45 @@ public static void waittime() {
 }
 /******************************************
 * FunctionName  : FindElement
-* Purpose       :finding an element
+* * Purpose       :finding an element
  * @return 
 *
 * *****************************************/
 public static boolean FindElement(By objLocator) {
-	return false;
-	// TODO Auto-generated method stub
-	
+	try{
+		if(verifyVisibilityOFElement(objLocator)){
+		driver.findElement(objLocator).clear();
+		driver.findElement(objLocator);
+		return true;
+		}
+		return false;
+	}catch(Exception e)
+	{
+		sErrMsg=e.getMessage();
+		return false;
+	}
 }
+/******************************************
+* FunctionName  : DropDown
+* * Purpose       :Selecting 
+ * @return 
+*
+* *****************************************/
+public static  boolean  DropDown(By objLocator,String sval) {
+	try{
+		if(verifyVisibilityOFElement(objLocator)){
+			Select a=new Select( driver.findElement(objLocator));
+			a.selectByValue(sval);
+			}
+		return true;
+	}catch(Exception e)
+	{
+		sErrMsg=e.getMessage();
+		return false;
+	}
+}
+
+
 /*close the main*/
 	}
 
