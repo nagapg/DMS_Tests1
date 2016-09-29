@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="MyTestingSuite">
+<suite name="Regression_Test_Suite">
   <test name="MAGIC">
    <classes>
   		
@@ -10,13 +10,31 @@
   			</methods>
   		</class>
   		
-  				<class name="com.alticor.magic.test.MAGIC_BusinessEntity">
+  		<class name="com.alticor.magic.test.MAGIC_BaselineRerun">
   		<methods>
   				<include name="test"></include>
   			</methods>
   		</class>
   		
-  		<class name="com.alticor.magic.test.MAGIC_BusOwnerAttributeLinks">
+  		<class name="com.alticor.magic.test.MAGIC_BatchProcessing">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_BatchSearch">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_BusinessEntity">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  			<class name="com.alticor.magic.test.MAGIC_BusOwnerAttributeLinks">
   		<methods>
   				<include name="test"></include>
   			</methods>
@@ -34,73 +52,92 @@
   			</methods>
   		</class>
   		
+  		
   		<class name="com.alticor.magic.test.MAGIC_IntlSponChange">
   		<methods>
   				<include name="test"></include>
   			</methods>
   		</class>
   		
+  				<class name="com.alticor.magic.test.MAGIC_SecurityRoles">
+  		       <methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
   		
   		<class name="com.alticor.magic.test.MAGIC_InvoiceInquiry">
-  		<methods>
+  		       <methods>
   				<include name="test"></include>
   			</methods>
   		</class>
   		
-  		<class name="com.alticor.magic.test.MAGIC_LTSTRips">
-  		<methods>
+    <class name="com.alticor.magic.test.MAGIC_LSReqd">
+  		       <methods>
   				<include name="test"></include>
   			</methods>
   		</class>
   		
-  		<class name="com.alticor.magic.test.MAGIC_MassUploadInvalidABO">
-  		<methods>
+  		 <class name="com.alticor.magic.test.MAGIC_LTSSymbols">
+  		       <methods>
   				<include name="test"></include>
   			</methods>
   		</class>
-  		
-  		<class name="com.alticor.magic.test.MAGIC_MBSponsor">
-  		<methods>
+  		  		
+  		  		 <class name="com.alticor.magic.test.MAGIC_LTSTRips">
+  		       <methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		  		
+  		  		<class name="com.alticor.magic.test.MAGIC_MassUploadInvalidABOs">
+  		       <methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		  		
+  		  		
+  		  		<class name="com.alticor.magic.test.MAGIC_MBSponsor">
+  		       <methods>
   				<include name="test"></include>
   			</methods>
   		</class>
   		
   		<class name="com.alticor.magic.test.MAGIC_OrangeLinks">
-  		<methods>
+  		       <methods>
   				<include name="test"></include>
   			</methods>
   		</class>
   		
-  		<class name="com.alticor.magic.test.MAGIC_SecurityRoles">
-  		<methods>
-  				<include name="test"></include>
-  			</methods>
-  		</class>
-  		
-  		<class name="com.alticor.magic.test.MAGIC_SponAll">
-  		<methods>
+  		<class name="com.alticor.magic.test.MAGIC_SponAll ">
+  		       <methods>
   				<include name="test"></include>
   			</methods>
   		</class>
   		
   		<class name="com.alticor.magic.test.MAGIC_SponsorChange">
-  		<methods>
+  		       <methods>
   				<include name="test"></include>
   			</methods>
   		</class>
   		
   		<class name="com.alticor.magic.test.MAGIC_SponsorChangeNote">
-  		<methods>
+  		       <methods>
   				<include name="test"></include>
   			</methods>
   		</class>
-  		
-  		<class name="com.alticor.magic.test.MAGIC_TransmitToRMS">
-  		<methods>
+  		  		
+  		  		
+  		 <class name="com.alticor.magic.test.MAGIC_TransmitToRMS">
+  		       <methods>
   				<include name="test"></include>
   			</methods>
   		</class>
-  		
+  		  		
+  		  			 <class name="com.alticor.magic.test.MAGIC_Hierarchy">
+  		       <methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
   		
   		</classes>
   		</test> 
