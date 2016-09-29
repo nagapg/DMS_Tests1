@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -244,11 +245,11 @@ public static String getText(By objLocator)
 	 * Purpose       :closes the browser
 	 *
 	 * *****************************************/
-
-	public static void close() {
+public static void close() {
 		// TODO Auto-generated method stub
-driver.close();
-	}
+//driver.close();//
+driver.quit();
+		}
 /******************************************
 	 * FunctionName  :gotoframe
 	 * Purpose       :Frames
@@ -340,6 +341,36 @@ public static  boolean  DropDown(By objLocator,String sval) {
 		return false;
 	}
 }
+/******************************************
+ * FunctionName  :getTitle
+ * Purpose       : Capture the title
+ * @return 
+ *
+ * *****************************************/
+public static String getTitle(By objLocator)
+{
+	String text= driver.getTitle();
+	return text;
+	}
+
+/******************************************
+ * FunctionName  :switchToFrame
+ * Purpose       :Moving to particular frame
+ *
+ * *****************************************/
+public void switchToFrame(int frame) {
+	try {
+		driver.switchTo().frame(frame);
+System.out.println("Navigated to frame with id " + frame);
+	} catch (NoSuchFrameException e) {
+		System.out.println("Unable to locate frame with id " + frame
+				+ e.getStackTrace());
+	} catch (Exception e) {
+		System.out.println("Unable to navigate to frame with id " + frame
+				+ e.getStackTrace());
+	}
+}
+
 
 
 /*close the main*/
