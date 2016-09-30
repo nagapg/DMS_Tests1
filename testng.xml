@@ -126,14 +126,19 @@
   			</methods>
   		</class>
   		  		
-  		  		
-  		 <class name="com.alticor.magic.test.MAGIC_TransmitToRMS">
+  		  	<class name="com.alticor.magic.test.MAGIC_TransmitToRMS">
   		       <methods>
   				<include name="test"></include>
   			</methods>
   		</class>
   		  		
-  		  			 <class name="com.alticor.magic.test.MAGIC_Hierarchy">
+  		  		<class name="com.alticor.magic.test.MAGIC_Hierarchy">
+  		       <methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		 <class name="com.alticor.magic.test.MAGIC_MissingDetails">
   		       <methods>
   				<include name="test"></include>
   			</methods>
