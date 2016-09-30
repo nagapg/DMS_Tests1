@@ -103,9 +103,7 @@ public static boolean clickElementByJavascriptExecutor(WebElement objLocator){
 	public static boolean verifyVisibilityOFElement(By objLocator)
 	{
 		try{
-
-             //new WebDriverWait(driver,20).until(ExpectedConditions.elementToBeClickable(objLocator));
-			return true;
+return true;
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
@@ -268,9 +266,7 @@ public static boolean gotoframe(By xpath) {
 public static boolean activeElement(By objLocator)
 {
 	try{
-
-         //new WebDriverWait(driver,20).until(ExpectedConditions.elementToBeClickable(objLocator));
-		return true;
+return true;
 	}catch(Exception e)
 	{
 		sErrMsg=e.getMessage();
@@ -291,6 +287,7 @@ return true;
 		sErrMsg=e.getMessage();
 		return false;
 	}
+	
 }
 /******************************************
  * FunctionName  :Wait
@@ -300,7 +297,7 @@ return true;
 
 public static void waittime() {
 	// TODO Auto-generated method stub
-	 driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+	 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 }
 /******************************************
 * FunctionName  : FindElement
