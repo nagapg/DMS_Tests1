@@ -1,3 +1,6 @@
+/*Open IE 11 and navigate to beta
+ * click on the user name
+ * Capture the user region*/
 package com.alticor.magic.test;
 import java.util.List;
 
