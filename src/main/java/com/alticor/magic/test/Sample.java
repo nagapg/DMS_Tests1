@@ -22,7 +22,7 @@ public class Sample {
 
     @Before public void setUp() throws Exception {
         Reports.setTestCaseName("User Region:ldap-amw-magic-developer");
-        bStatus = GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
+       bStatus = GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
         if (bStatus) {
             System.out.println("browser launched sucessfully");
         } else {
