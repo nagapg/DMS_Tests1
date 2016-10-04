@@ -143,6 +143,18 @@
   				<include name="test"></include>
   			</methods>
   		</class>
+     
+     <class name="com.alticor.magic.test.MAGIC_IBOPlainumDisplay">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
+  		
+  		<class name="com.alticor.magic.test.MAGIC_AnnualBonusScreen">
+  		<methods>
+  				<include name="test"></include>
+  			</methods>
+  		</class>
   		
   		</classes>
   		</test> 
