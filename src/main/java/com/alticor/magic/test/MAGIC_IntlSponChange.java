@@ -1,16 +1,19 @@
+/*Open IE 11 and navigate to beta
+ * Go to Maintenance-->LOS-->Sponsor change-->Intl Sponsor change
+ *  Validating the warning message*/
 package com.alticor.magic.test;
-import java.util.List;
 
-import org.testng.annotations.Test;
+import com.alticor.magic.GeneralFunctions;
+import com.alticor.magic.report.Reports;
+import com.relevantcodes.extentreports.LogStatus;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import com.alticor.magic.test.pages.Reports;
 
-import com.relevantcodes.extentreports.LogStatus;
-import com.alticor.magic.GeneralFunctions;
+import java.util.List;
 
 public class MAGIC_IntlSponChange {
 	
@@ -23,7 +26,7 @@ public class MAGIC_IntlSponChange {
 	
 	
 	
-	@BeforeMethod
+	@Before
 	public void setUp() throws Exception {
 		Reports.setTestCaseName("MAGIC_IntlSponChange");
 		bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
@@ -36,7 +39,7 @@ public class MAGIC_IntlSponChange {
 		}
 
 	
-	  @AfterMethod
+	  @After
       public void tearDown() throws Exception {
 	  Reports.endTest();
 	   }
@@ -135,11 +138,7 @@ public class MAGIC_IntlSponChange {
 	       
 	       
 	       String countryCode="430";
-
-	       
-	       
-	       
-	     try{
+try{
 	    	 GeneralFunctions.verifyVisibilityOFElement(By.xpath("//div[@id='glossAffiliateList']/table/tbody/tr"));
 	      List<WebElement> objRows= GeneralFunctions.driver.findElements(By.xpath("//div[@id='glossAffiliateList']/table/tbody/tr"));
 	      for(WebElement objRow:objRows){
@@ -176,10 +175,7 @@ public class MAGIC_IntlSponChange {
 	       else{
 	       	System.out.println("Verify-Fail");
 	       }
-	       
-	       
-	       
-	       bStatus=GeneralFunctions.clickElement(By.xpath("//img[@tip='Select Reason Code']"));
+	        bStatus=GeneralFunctions.clickElement(By.xpath("//img[@tip='Select Reason Code']"));
 	       if(bStatus){
 			System.out.println("Reason Code-Pass");
 	       }	
@@ -187,19 +183,14 @@ public class MAGIC_IntlSponChange {
 	       	System.out.println("Reason Code-Fail");
 	       }
 	       
-	        
-	       
-	      bStatus= GeneralFunctions.clickElement(By.xpath("//div[@id='reasonCodeList']/table/tbody/tr/td"));
+	        bStatus= GeneralFunctions.clickElement(By.xpath("//div[@id='reasonCodeList']/table/tbody/tr/td"));
 	       if(bStatus){
 	   		System.out.println("Select Reason Code-Pass");
 	          }	
 	          else{
 	          	System.out.println("Select Reason Code-Fail");
 	          }
-	       
-	       
-	       
-	      bStatus= GeneralFunctions.enterTextToElement(By.id("createNoteTextArea"),sExpNote);
+	       bStatus= GeneralFunctions.enterTextToElement(By.id("createNoteTextArea"),sExpNote);
 	       if(bStatus){
 	   		System.out.println("Enter note-Pass");
 	          }	
@@ -207,9 +198,7 @@ public class MAGIC_IntlSponChange {
 	          	System.out.println("Enter note-Fail");
 	          }
 	       
-	       
-	       
-	       bStatus=GeneralFunctions.clickElement(By.id("saveButton"));
+	        bStatus=GeneralFunctions.clickElement(By.id("saveButton"));
 	    if(bStatus){
 	   		System.out.println("note save-Pass");
 	          }	
@@ -217,8 +206,7 @@ public class MAGIC_IntlSponChange {
 	          	System.out.println("note save-Fail");
 	          }
 	       
-	       
-	       bStatus=GeneralFunctions.clickElement(By.id("updateButton"));
+	        bStatus=GeneralFunctions.clickElement(By.id("updateButton"));
 	       if(bStatus){
 			System.out.println("Update-Pass");
 	       }	
@@ -243,9 +231,7 @@ public class MAGIC_IntlSponChange {
 	    	   System.out.println("Unable to click  cancel-Fail");
 	       }
 
-
-	       
-	    GeneralFunctions.driver.switchTo().alert().accept();
+GeneralFunctions.driver.switchTo().alert().accept();
 	    
 	    try {
 			Thread.sleep(9000);
@@ -253,7 +239,6 @@ public class MAGIC_IntlSponChange {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    
 	    
 	    bStatus=GeneralFunctions.clickElement(By.xpath("//img[@tip='Select Reason Code']"));
 	    if(bStatus){
@@ -263,9 +248,7 @@ public class MAGIC_IntlSponChange {
 	    	System.out.println("Reason Code-Fail");
 	    }
 	    
-	     
-	    
-	   bStatus= GeneralFunctions.clickElement(By.xpath("//div[@id='reasonCodeList']/table/tbody/tr/td"));
+	     bStatus= GeneralFunctions.clickElement(By.xpath("//div[@id='reasonCodeList']/table/tbody/tr/td"));
 	    if(bStatus){
 			System.out.println("Select Reason Code-Pass");
 	       }	
@@ -273,9 +256,7 @@ public class MAGIC_IntlSponChange {
 	       	System.out.println("Select Reason Code-Fail");
 	       }
 	    
-	    
-	    
-	   bStatus= GeneralFunctions.enterTextToElement(By.id("createNoteTextArea"),sExpNote);
+	     bStatus= GeneralFunctions.enterTextToElement(By.id("createNoteTextArea"),sExpNote);
 	    if(bStatus){
 			System.out.println("Enter note-Pass");
 	       }	
@@ -283,9 +264,7 @@ public class MAGIC_IntlSponChange {
 	       	System.out.println("Enter note-Fail");
 	       }
 	    
-	    
-	    
-	    bStatus=GeneralFunctions.clickElement(By.id("saveButton"));
+ bStatus=GeneralFunctions.clickElement(By.id("saveButton"));
 	 if(bStatus){
 			System.out.println("note save-Pass");
 	       }	
@@ -302,20 +281,20 @@ public class MAGIC_IntlSponChange {
 	       	System.out.println("Delete button-Fail");
 	       }
 	 
+	    com.alticor.magic.GeneralFunctions.close();
 	    
-	 
+	 //Test Results//
 	    if (bStatus) {
 	          Reports.logResults(LogStatus.PASS, "Test Passed", "MAGIC_IntlSponChange");
 
 	      } else {
 	          Reports.logResults(LogStatus.FAIL, "Test Failed", "MAGIC_IntlSponChange");
 	      }
-	      com.alticor.magic.GeneralFunctions.close();
+	    
 
 			
 
 	  }
 	}
-	  
 	  
 	  
