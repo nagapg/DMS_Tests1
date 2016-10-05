@@ -1,15 +1,16 @@
+/*Open IE 11 and navigate to beta
+ * Go to  Maintenance-->LOS-->Sponsor change-->Sponsor Change
+ * Validating Australia Aff
+ * Validating for South Africa ABO*/
 package com.alticor.magic.test;
-import java.util.List;
 
-import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import com.alticor.magic.test.pages.Reports;
-
-import com.relevantcodes.extentreports.LogStatus;
 import com.alticor.magic.GeneralFunctions;
+import com.alticor.magic.report.Reports;
+import com.relevantcodes.extentreports.LogStatus;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
 
 public class MAGIC_ChangeInMarket {
 
@@ -20,90 +21,80 @@ public class MAGIC_ChangeInMarket {
 	final private String sExpNote="Test Note";
 	
 
-	@BeforeMethod
+	@Before
 	public void setUp() throws Exception {
 		Reports.setTestCaseName("MAGIC_ChangeInMarket");
 		bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
 		if(bStatus){
-        	System.out.println("Application-Pass");
+        	System.out.println("Navigated to beta");
         }	
         else{
-        	System.out.println("Application-Fail");
+        	System.out.println("Cannot Navigate to beta");
         }
 		}
 
-	
-
-
-	
-	  @AfterMethod
+	@After
       public void tearDown() throws Exception {
 	  Reports.endTest();
 	   }
 	
-	 // @SuppressWarnings("unused")//
-		@Test
+	@Test
 		public void test() {
 		//Entering Australia Aff//
-			GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"), "030");
+		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"), "030");
 			if(bStatus){
-	        	System.out.println("Aff-Pass");
+	        	System.out.println("Entered Aff");
 	        }	
 	        else{
-	        	System.out.println("Aff-Fail");
+	        	System.out.println("Cannot Enter Aff");
 	        }
 			
-	      
-			GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "7700063");
+			bStatus= GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "7700063");
 			if(bStatus){
-	        	System.out.println("Abo-Pass");
+	        	System.out.println("Entered Abo");
 	        }	
 	        else{
-	        	System.out.println("Abo-Fail");
+	        	System.out.println("Cannot Enter Abo");
 	        }
 			
-	 
-			
-			bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"062015");
+	 bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"062015");
 			if(bStatus){
-	        	System.out.println("Period-Pass");
+	        	System.out.println("Entered Period");
 	        }	
 	        else{
-	        	System.out.println("Period-Fail");
+	        	System.out.println("Cannot Enter Period");
 	        }
-			
 			
 			bStatus=GeneralFunctions.clickElement(By.id("SubmitButton"));
 			if(bStatus){
-	        	System.out.println("submit-Pass");
+	        	System.out.println("Clicked on Submit");
 	        }	
 	        else{
-	        	System.out.println("submit-Fail");
+	        	System.out.println("Cannot Click on Submit");
 	        }
 			
 			//Maintenance//
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
 			if(bStatus){
-	        	System.out.println("Maintanence-Pass");
+	        	System.out.println("Click on Maintanence");
 	        	}	
 	        else{
-	        	System.out.println("Maintanence-Fail");
+	        	System.out.println("Cannot Click on Maintanence");
 	        }
 			
 			//Maintenance-->LOS//
-			
 			bStatus=GeneralFunctions.clickElement(By.xpath("//span[text()='LOS']"));
 			if(bStatus){
-	        	System.out.println("LOS-Pass");
+	        	System.out.println("Click on LOS");
 	        }	
 	        else{
-	        	System.out.println("LOS-Fail");
+	        	System.out.println("Cannot Click on LOS");
 	        }
 			
 			//Maintenance-->LOS-->Sponsor change//
 			bStatus=GeneralFunctions.clickElement(By.xpath("//span[text()='Sponsor Change']"));
 	        if(bStatus){
-			System.out.println("sponsor change clicked");
+			System.out.println("Click on sponsor change");
 	        }	
 	        else{
 	        	System.out.println("unable to click sponsor change");
@@ -113,7 +104,7 @@ public class MAGIC_ChangeInMarket {
 	      //Maintenance-->LOS-->Sponsor change-->Sponsor Change//
 	        bStatus=GeneralFunctions.clickElement(By.linkText("Sponsor Change"));   
 	       if(bStatus){
-			System.out.println("sponsor change clicked");
+			System.out.println("Click on sponsor change");
 	       }	
 	       else{
 	       	System.out.println("unable to click Sponsor change");
@@ -140,53 +131,48 @@ public class MAGIC_ChangeInMarket {
 			System.out.println("Message Validated successfully");
 	       }	
 	       else{
-	       	System.out.println("unable to click LTS");
+	       	System.out.println("Message not Validated ");
 	       }
 	       
-	       
-	       bStatus=GeneralFunctions.clickElement(By.xpath("//img[@tip='Select Reason Code']"));
+	      bStatus=GeneralFunctions.clickElement(By.xpath("//img[@tip='Select Reason Code']"));
 	       if(bStatus){
-			System.out.println("Message Validated successfully");
+			System.out.println("Clicked on Notes");
 	       }	
 	       else{
-	       	System.out.println("unable to click LTS");
+	       	System.out.println("Cannot Clicked on Notes");
 	       }
 	        
-	       
-	      bStatus= GeneralFunctions.clickElement(By.xpath("//div[@id='reasonCodeList']/table/tbody/tr/td"));
+	       bStatus= GeneralFunctions.clickElement(By.xpath("//div[@id='reasonCodeList']/table/tbody/tr/td"));
 	       if(bStatus){
 	   		System.out.println("Message Validated successfully");
 	          }	
 	          else{
-	          	System.out.println("unable to click LTS");
+	          	System.out.println("Message not Validated");
 	          }
 	       
 	       
 	      bStatus= GeneralFunctions.enterTextToElement(By.id("createNoteTextArea"),sExpNote);
 	       if(bStatus){
-	   		System.out.println("Message Validated successfully");
+	   		System.out.println("Entered Notes");
 	          }	
 	          else{
-	          	System.out.println("unable to click LTS");
+	          	System.out.println("Cannot Enter Notes");
 	          }
 	       
-	       
-	       
-	       bStatus=GeneralFunctions.clickElement(By.id("saveButton"));
+	      bStatus=GeneralFunctions.clickElement(By.id("saveButton"));
 	       if(bStatus){
-	   		System.out.println("Message Validated successfully");
+	   		System.out.println("Clicked on Save");
 	          }	
 	          else{
-	          	System.out.println("unable to click LTS");
+	          	System.out.println("Cannot Click on Save");
 	          }
-	       
 	       
 	       bStatus=GeneralFunctions.clickElement(By.id("updateButton"));
 	       if(bStatus){
-			System.out.println("Message Validated successfully");
+			System.out.println("Clicked on Update");
 	       }	
 	       else{
-	       	System.out.println("unable to click LTS");
+	       	System.out.println("Cannot Click on Update");
 	       }
 	       
 	       bStatus= GeneralFunctions.getText(By.className("successMessage")).equalsIgnoreCase(sTranscSuccessMsg);
@@ -194,12 +180,10 @@ public class MAGIC_ChangeInMarket {
 			System.out.println("Message sTranscSuccessMsg successfully");
 	       }	
 	       else{
-	       	System.out.println("unable to click LTS");
+	       	System.out.println("Message not successfull");
 	       }
 	       
-	       
 	       //Validating for South Africa ABO//
-	       
 	       GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"), "570");
 			if(bStatus){
 	        	System.out.println("Enter Aff");
@@ -208,8 +192,7 @@ public class MAGIC_ChangeInMarket {
 	        	System.out.println("Unable to enter Aff");
 	        }
 			
-	      
-			GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "74903");
+	      GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "74903");
 			if(bStatus){
 	        	System.out.println("Enter Abo");
 	        }	
@@ -217,26 +200,23 @@ public class MAGIC_ChangeInMarket {
 	        	System.out.println("Unable to enter Abo");
 	        }
 			
-	 
-			bStatus=GeneralFunctions.clickElement(By.id("SubmitButton"));
+	    bStatus=GeneralFunctions.clickElement(By.id("SubmitButton"));
 			if(bStatus){
-	        	System.out.println("submit Passed");
+	        	System.out.println("Click on submit");
 	        }	
 	        else{
-	        	System.out.println("submit failed");
+	        	System.out.println("Cannot Click on submit");
 	        }
-			
 			
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
 			if(bStatus){
-	        	System.out.println("Maintanence Clicked");
+	        	System.out.println("Click on Maintanence");
 	        	}	
 	        else{
 	        	System.out.println("Unable to click maintanence");
 	        }
 			
-			//click on GIP//
-			
+			//Click on LOS//
 			bStatus=GeneralFunctions.clickElement(By.xpath("//span[text()='LOS']"));
 			if(bStatus){
 	        	System.out.println("LOS  clicked");
@@ -244,7 +224,6 @@ public class MAGIC_ChangeInMarket {
 	        else{
 	        	System.out.println("unable to click LOS");
 	        }
-			
 			
 			bStatus=GeneralFunctions.clickElement(By.xpath("//span[text()='Sponsor Change']"));
 	        if(bStatus){
@@ -254,8 +233,6 @@ public class MAGIC_ChangeInMarket {
 	        	System.out.println("unable to click sponsor change");
 	        }
 			
-	        
-	        
 	        bStatus=GeneralFunctions.clickElement(By.linkText("Sponsor Change"));   
 	       if(bStatus){
 			System.out.println("sponsor change clicked");
@@ -285,53 +262,47 @@ public class MAGIC_ChangeInMarket {
 			System.out.println("Message Validated successfully");
 	       }	
 	       else{
-	       	System.out.println("unable to click LTS");
+	       	System.out.println("Unable to Validate message");
 	       }
 	       
-	       
-	       bStatus=GeneralFunctions.clickElement(By.xpath("//img[@tip='Select Reason Code']"));
+	        bStatus=GeneralFunctions.clickElement(By.xpath("//img[@tip='Select Reason Code']"));
 	       if(bStatus){
-			System.out.println("Message Validated successfully");
+			System.out.println("click on notes");
 	       }	
 	       else{
-	       	System.out.println("unable to click LTS");
+	       	System.out.println("unable to click on notes");
 	       }
 	        
-	       
-	      bStatus= GeneralFunctions.clickElement(By.xpath("//div[@id='reasonCodeList']/table/tbody/tr/td"));
+	       bStatus= GeneralFunctions.clickElement(By.xpath("//div[@id='reasonCodeList']/table/tbody/tr/td"));
 	       if(bStatus){
-	   		System.out.println("Message Validated successfully");
+	   		System.out.println("click on notes");
 	          }	
 	          else{
-	          	System.out.println("unable to click LTS");
+	          	System.out.println("unable to click notes");
 	          }
 	       
-	       
-	      bStatus= GeneralFunctions.enterTextToElement(By.id("createNoteTextArea"),sExpNote);
+	       bStatus= GeneralFunctions.enterTextToElement(By.id("createNoteTextArea"),sExpNote);
 	       if(bStatus){
-	   		System.out.println("Message Validated successfully");
+	   		System.out.println("Enter Notes");
 	          }	
 	          else{
-	          	System.out.println("unable to click LTS");
+	          	System.out.println("unable to enter notes");
 	          }
-	       
-	       
 	       
 	       bStatus=GeneralFunctions.clickElement(By.id("saveButton"));
 	       if(bStatus){
-	   		System.out.println("Message Validated successfully");
+	   		System.out.println("Clicked on save");
 	          }	
 	          else{
-	          	System.out.println("unable to click LTS");
+	          	System.out.println("unable to click on Save");
 	          }
-	       
 	       
 	       bStatus=GeneralFunctions.clickElement(By.id("updateButton"));
 	       if(bStatus){
-			System.out.println("Message Validated successfully");
+			System.out.println("Clicked on Update");
 	       }	
 	       else{
-	       	System.out.println("unable to click LTS");
+	       	System.out.println("unable to click Update");
 	       }
 	       
 	       bStatus= GeneralFunctions.getText(By.className("successMessage")).equalsIgnoreCase(sTranscSuccessMsg);
@@ -339,10 +310,12 @@ public class MAGIC_ChangeInMarket {
 			System.out.println("Message sTranscSuccessMsg successfully");
 	       }	
 	       else{
-	       	System.out.println("unable to click LTS");
+	       	System.out.println("unable to Capture the message");
 	       }
 	       
+	       com.alticor.magic.GeneralFunctions.close();
 	     	
+	       //Test Results//
 			if(bStatus){
 				Reports.logResults(LogStatus.PASS,"Test Pass","MAGIC_ChangeInMarket");
 			}
@@ -350,15 +323,7 @@ public class MAGIC_ChangeInMarket {
 			{
 				Reports.logResults(LogStatus.FAIL,"Test Fail","MAGIC_ChangeInMarket");
 			}
-			
-			com.alticor.magic.GeneralFunctions.close();
-	
-	       
-		 }	    
-
-
-
-			
-		  }
+			}	    
+}
 
 
