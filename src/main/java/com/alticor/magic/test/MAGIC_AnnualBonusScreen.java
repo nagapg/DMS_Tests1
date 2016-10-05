@@ -1,23 +1,24 @@
 /*Open IE 11 and navigate to Omega
- *Enter 170/1707163545
+ *Enter Aff:170/Abo:1707163545
  *Go to Inquiry-->Annuals-->Annual Bonus
  *Expected:Screen should appear without error display */
 
 package com.alticor.magic.test;
-import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import com.alticor.magic.test.pages.Reports;
 
-import com.relevantcodes.extentreports.LogStatus;
 import com.alticor.magic.GeneralFunctions;
+import com.alticor.magic.report.Reports;
+import com.relevantcodes.extentreports.LogStatus;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+
 public class MAGIC_AnnualBonusScreen {
 
-/** Init variables */
+      /** Init variables */
 	  boolean bStatus=false;
 	  
-	  @BeforeMethod
+	  @Before
 		public void setUp() throws Exception {
 			Reports.setTestCaseName("MAGIC_AnnualBonusScreen ");
 			bStatus=GeneralFunctions.openIEBrowser("https://magic-omega/EBS_UI_Web/Magic");
@@ -29,7 +30,7 @@ public class MAGIC_AnnualBonusScreen {
 	      }
 			}
 	  
-	  @AfterMethod
+	  @After
 	  public void tearDown() throws Exception {
 	  Reports.endTest();
 	   }
