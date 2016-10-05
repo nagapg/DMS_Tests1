@@ -7,8 +7,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import java.util.List;
 
 public class MAGIC_SponAll {
 
@@ -189,6 +187,8 @@ public class MAGIC_SponAll {
 	    
 	    
 	    
+	    com.alticor.magic.GeneralFunctions.close();
+	    
 	    if (bStatus) {
 	        Reports.logResults(LogStatus.PASS, "Test Pass", "MAGIC_SponAll");
 
@@ -196,8 +196,7 @@ public class MAGIC_SponAll {
 	        Reports.logResults(LogStatus.FAIL, "Test Fail", "MAGIC_SponAll");
 	    }
 	    
-	   
-	    com.alticor.magic.GeneralFunctions.close();
+	 
 	}
 	
 	  }

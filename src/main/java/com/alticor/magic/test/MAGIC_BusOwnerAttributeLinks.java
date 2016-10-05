@@ -1,16 +1,12 @@
 package com.alticor.magic.test;
-import java.util.List;
 
-import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import com.alticor.magic.test.pages.Reports;
-
-import com.relevantcodes.extentreports.LogStatus;
 import com.alticor.magic.GeneralFunctions;
-
+import com.alticor.magic.report.Reports;
+import com.relevantcodes.extentreports.LogStatus;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
 
 public class MAGIC_BusOwnerAttributeLinks {
 
@@ -21,20 +17,20 @@ public class MAGIC_BusOwnerAttributeLinks {
 	final private String sExpNote="Test Note";
 	
 
-	@BeforeMethod
+	@Before
 	public void setUp() throws Exception {
 		Reports.setTestCaseName("MAGIC_BusOwnerAttributeLinks");
 		bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
 		if(bStatus){
-        	System.out.println("Application-Pass");
+        	System.out.println("Navigated to beta");
         }	
         else{
-        	System.out.println("Application-Fail");
+        	System.out.println("Cannot navigate to beta");
         }
 		}
 
 	
-	  @AfterMethod
+	  @After
       public void tearDown() throws Exception {
 	  Reports.endTest();
 	   }
@@ -43,89 +39,83 @@ public class MAGIC_BusOwnerAttributeLinks {
 	  public void test() {
 		  GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "9995");
 			if(bStatus){
-	        	System.out.println("Abo-Pass");
+	        	System.out.println("Enter Abo");
 	        }	
 	        else{
-	        	System.out.println("Abo-Fail");
+	        	System.out.println("Cannot enter Abo");
 	        }
 
 			
 				bStatus=GeneralFunctions.clickElement(By.id("SubmitButton"));
 			if(bStatus){
-	        	System.out.println("Submit-Pass");
+	        	System.out.println("Click on Submit");
 	        }	
 	        else{
-	        	System.out.println("Submit-Fail");
+	        	System.out.println("Cannot Click on Submit");
 	        }
 			
 	       
 			//Maintenance//
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
 			if(bStatus){
-	        	System.out.println("Maintanence Click-Pass");
+	        	System.out.println("Click on Maintanence");
 	        	}	
 	        else{
-	        	System.out.println("Maintanence Click-Fail");
+	        	System.out.println("Cannot Click on Maintanence");
 	        }
 			
 			//Maintenance-->LOS//
-			
 			bStatus=GeneralFunctions.clickElement(By.xpath("//span[text()='LOS']"));
 			if(bStatus){
-	        	System.out.println("LOS Click-Pass");
+	        	System.out.println("Click on LOS");
 	        }	
 	        else{
-	        	System.out.println("LOS Click-Fail");
+	        	System.out.println("Cannot Click on LOS");
 	        }
 			
 			//Maintenance-->LOS-->Bus Owner Attribute Links//
 			bStatus=GeneralFunctions.clickElement(By.linkText("Bus Owner Attribute Links"));   
 		       if(bStatus){
-				System.out.println("Bus Owner Attribute Click-Pass");
+				System.out.println("Click on Bus Owner Attribute");
 		       }	
 		       else{
-		       	System.out.println("Bus Owner Attribute Click-Fail");
+		    	   System.out.println("Cannot Click on Bus Owner Attribute");
 		       }
 			
-	        
-	           //Enter Reason code//
+	        //Enter Reason code//
 		       bStatus=GeneralFunctions.clickElement(By.xpath("//img[@tip='Select Reason Code']"));
 		       if(bStatus){
-				System.out.println("Reason code-Pass");
+				System.out.println("Click on  Reason code");
 		       }	
 		       else{
-		       	System.out.println("Reason code-Fail");
+		       	System.out.println("Cannot Click on  Reason code");
 		       }
 		        
-		       
-		      bStatus= GeneralFunctions.clickElement(By.xpath("//div[@id='reasonCodeList']/table/tbody/tr/td"));
+		       bStatus= GeneralFunctions.clickElement(By.xpath("//div[@id='reasonCodeList']/table/tbody/tr/td"));
 		       if(bStatus){
-		   		System.out.println("Note Selected-Pass");
+		   		System.out.println("Click on Note");
 		          }	
 		          else{
-		          	System.out.println("Note Selected-Fail");
+		          	System.out.println("Cannot Click on Note");
 		          }
 		       
 		       
 		      bStatus= GeneralFunctions.enterTextToElement(By.id("createNoteTextArea"),sExpNote);
 		       if(bStatus){
-		   		System.out.println("Note enter-Pass");
+		   		System.out.println("Enter Note");
 		          }	
 		          else{
-		          	System.out.println("Note enter-Fail");
+		          	System.out.println("Cannot Enter Note");
 		          }
 		       
 		       bStatus=GeneralFunctions.clickElement(By.id("update"));
 		       if(bStatus){
-				System.out.println("Update-Pass");
+				System.out.println("Click on Update");
 		       }	
 		       else{
-		       	System.out.println("Update-Fail");
+		       	System.out.println("Cannot Click on Update");
 		       }
-		       
-	        
-		       
-		       try {
+		        try {
 		   		Thread.sleep(2000);
 		   	} catch (InterruptedException e) {
 		   		// TODO Auto-generated catch block
@@ -133,21 +123,24 @@ public class MAGIC_BusOwnerAttributeLinks {
 		   	}
 
 		          //Click on Ok//
-		       GeneralFunctions.driver.switchTo().alert().accept();
+		         GeneralFunctions.driver.switchTo().alert().accept();
 		       if(bStatus){
-		   		System.out.println("Ok-Pass");
+		   		System.out.println("Click on Ok");
 		          }	
 		          else{
-		       	   System.out.println("Ok-Fail");
+		       	   System.out.println("Cannot Click on Ok");
 		          }
 		       
+		       com.alticor.magic.GeneralFunctions.close();
+		       
+		       //Test Results//
 		       if (bStatus) {
 		           Reports.logResults(LogStatus.PASS, "Test Passed", "MAGIC_BusOwnerAttributeLinks");
 
 		       } else {
 		           Reports.logResults(LogStatus.FAIL, "Test Failed", "MAGIC_BusOwnerAttributeLinks");
 		       }
-		       com.alticor.magic.GeneralFunctions.close();
+		     
 
 		 		
 

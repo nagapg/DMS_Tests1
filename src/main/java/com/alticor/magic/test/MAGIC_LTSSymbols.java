@@ -1,23 +1,22 @@
 package com.alticor.magic.test;
-import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import com.alticor.magic.test.pages.Reports;
 
-import com.relevantcodes.extentreports.LogStatus;
 import com.alticor.magic.GeneralFunctions;
+import com.alticor.magic.report.Reports;
+import com.relevantcodes.extentreports.LogStatus;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
 
 public class MAGIC_LTSSymbols {
 
 /** Init variables */
 boolean bStatus=false;
 
-@BeforeMethod
+@Before
 public void setUp() throws Exception {
 	Reports.setTestCaseName("MA 5344");
-	//Open Browser and launch application//
-bStatus=GeneralFunctions.openIEBrowser("https://magic-lambda/EBS_UI_Web/Magic");
+	bStatus=GeneralFunctions.openIEBrowser("https://magic-lambda/EBS_UI_Web/Magic");
 	if(bStatus){
     	System.out.println("browser launched sucessfully");
     }	
@@ -26,7 +25,7 @@ bStatus=GeneralFunctions.openIEBrowser("https://magic-lambda/EBS_UI_Web/Magic");
     }
 }
 	
-	@AfterMethod
+	@After
 	 public void tearDown() throws Exception {
 		 Reports.endTest();
 	 }
@@ -37,62 +36,62 @@ bStatus=GeneralFunctions.openIEBrowser("https://magic-lambda/EBS_UI_Web/Magic");
 			
 		GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"), "430");
 			if(bStatus){
-	        	System.out.println("AFF-Pass");
+	        	System.out.println("Entered AFF");
 	        }	
 	        else{
-	        	System.out.println("AFF-Fail");
+	        	System.out.println("Unable to enter AFF");
 	        }
 			
 	      GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "22");
 			if(bStatus){
-	        	System.out.println("Abo-Pass");
+	        	System.out.println("Entered Abo");
 	        }	
 	        else{
-	        	System.out.println("Abo-Fail");
+	        	System.out.println("Unable to enter Abo");
 	        }
 
 			
 			GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"082016");
 			if(bStatus){
-	        	System.out.println("Period-Pass");
+	        	System.out.println("Entered Period");
 	        }	
 	        else{
-	        	System.out.println("Period-Fail");
+	        	System.out.println("Unable to enter Period");
 	        }
 			
 			GeneralFunctions.clickElement(By.id("SubmitButton"));
 			if(bStatus){
-	        	System.out.println("Submit-Pass");
+	        	System.out.println("Click on Submit");
 	        }	
 	        else{
-	        	System.out.println("Submit-Fail");
+	        	System.out.println("Cannot click on Submit");
 	        }
 			
 	        //Inquiry//
 			GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));
 			if(bStatus){
-	        	System.out.println("Inqiry-Pass");
+	        	System.out.println("Click on Inqiry");
 	        }	
 	        else{
-	        	System.out.println("Inquiry-Fail");
+	        	System.out.println("Canot Click on Inquiry");
 	        }
 			
 			//Inquiry-->GIP//
 			GeneralFunctions.clickElement(By.xpath("//span[text()='GIP']"));
 			if(bStatus){
-	        	System.out.println("GIP-Pass");
+	        	System.out.println("Click on GIP");
 	        }	
 	        else{
-	        	System.out.println("GIP-Fail");
+	        	System.out.println("Cannot Click on GIP");
 	        }
 			
 			//Inquiry-->GIP-->LTS//
 			bStatus=GeneralFunctions.clickElement(By.linkText("GIP/Events"));
 	        if(bStatus){
-			System.out.println("LTS-Pass");
+			System.out.println("Click on LTS");
 	        }	
 	        else{
-	        	System.out.println("LTS-Fail");
+	        	System.out.println("Cannot Click on LTS");
 	        }
 	        
 	        //Entering GIP:766//
@@ -106,10 +105,10 @@ bStatus=GeneralFunctions.openIEBrowser("https://magic-lambda/EBS_UI_Web/Magic");
 			
 			 bStatus=GeneralFunctions.DropDown(By.id("bnsYear"),"2015");
 			 if(bStatus){
-		        	System.out.println("PY:Pass");
+		        	System.out.println("Selected PY");
 		        }	
 		        else{
-		        	System.out.println("PY:Fail");
+		        	System.out.println("Cannot Select PY");
 		        }
 				
 			 //Wait after Selecting PY//
@@ -123,13 +122,13 @@ bStatus=GeneralFunctions.openIEBrowser("https://magic-lambda/EBS_UI_Web/Magic");
 		         //Click on Go//
 		         bStatus=GeneralFunctions.clickElement(By.id("goButton"));
 				if(bStatus){
-		        	System.out.println("Click on Go-Pass");
+		        	System.out.println("Clicked on Go");
 		        }	
 		        else{
-		        	System.out.println("Cannot click on Go-Fail");
+		        	System.out.println("Cannot click on Go");
 		        }
 				
-				 //Wait after  Clicking Go button//
+			
 		         try {
 		    		Thread.sleep(9000);
 		    	} catch (InterruptedException e) {
@@ -163,7 +162,7 @@ bStatus=GeneralFunctions.openIEBrowser("https://magic-lambda/EBS_UI_Web/Magic");
 			       }
 	
 				
-				 //Wait//
+				
 		         try {
 		    		Thread.sleep(9000);
 		    	} catch (InterruptedException e) {
@@ -181,7 +180,7 @@ bStatus=GeneralFunctions.openIEBrowser("https://magic-lambda/EBS_UI_Web/Magic");
 			        }
 		         
 					
-					 //Wait after + Click//
+					 
 			         try {
 			    		Thread.sleep(9000);
 			    	} catch (InterruptedException e) {
@@ -198,7 +197,10 @@ bStatus=GeneralFunctions.openIEBrowser("https://magic-lambda/EBS_UI_Web/Magic");
 				        	System.out.println("-   Sysmbol-Not Clicked");
 				        }
 						
-						//Reports//
+						  
+					       com.alticor.magic.GeneralFunctions.close();
+					       
+						//Test Results//
 						  if (bStatus) {
 					           Reports.logResults(LogStatus.PASS, "Test Passed", "MAGIC_LSSymbols");
 
@@ -206,8 +208,7 @@ bStatus=GeneralFunctions.openIEBrowser("https://magic-lambda/EBS_UI_Web/Magic");
 					           Reports.logResults(LogStatus.FAIL, "Test Failed", "MAGIC_LSSymbols");
 					       }
 						  
-						  //Close the browser//
-					       com.alticor.magic.GeneralFunctions.close();
+						
 
 
 	}

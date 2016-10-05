@@ -1,35 +1,37 @@
+/* Open IE 11 and navigate to beta
+ * Go to Reports-->ABO Reports-->ILB bank File
+ *  Test Case1:Validating Business Entity Field
+ *  Test Case2:Validating values on Business Entity Field*/
+
 package com.alticor.magic.test;
-import java.util.List;
 
-import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import com.alticor.magic.test.pages.Reports;
-
-import com.relevantcodes.extentreports.LogStatus;
 import com.alticor.magic.GeneralFunctions;
+import com.alticor.magic.report.Reports;
+import com.relevantcodes.extentreports.LogStatus;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
 
 public class MAGIC_BusinessEntity {
 	
 	/** Init variables */
 	boolean bStatus=false;
 	
-	@BeforeMethod
+	@Before
 	public void setUp() throws Exception {
 		Reports.setTestCaseName("MAGIC_BusinessEntity");
 		bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
 		if(bStatus){
-        	System.out.println("Application-Pass");
+        	System.out.println("Naviated to beta");
         }	
         else{
-        	System.out.println("Application-Fail");
+        	System.out.println("Cannot Navigate to beta");
         }
 		}
 
 	
-	  @AfterMethod
+	  @After
       public void tearDown() throws Exception {
 	  Reports.endTest();
 	   }
@@ -41,30 +43,29 @@ public class MAGIC_BusinessEntity {
 		//Reports//
 			GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));
 			if(bStatus){
-	        	System.out.println("Reports click-Pass");
+	        	System.out.println("Clicked on Reports");
 	        }	
 	        else{
-	        	System.out.println("Reports Click-Fail");
+	        	System.out.println("Cannot Click on Reports");
 	        }
 			
 			//Reports-->ABO Reports//
 			GeneralFunctions.clickElement(By.xpath("//span[text()='ABO Reports']"));
 			if(bStatus){
-	        	System.out.println("ABO Reports-Pass");
+	        	System.out.println("Clicked on ABO Reports");
 	        }	
 	        else{
-	        	System.out.println("ABO Reports-Fail");
+	        	System.out.println("Cannot Click on ABO Reports");
 	        }
 			
 			//Reports-->ABO Reports-->ILB bank File//
 			GeneralFunctions.clickElement(By.linkText("ILB Alt Name"));
 			if(bStatus){
-	        	System.out.println("ILB Alt name click-Pass");
+	        	System.out.println("Clicked on ILB Alt name");
 	        }	
 	        else{
-	        	System.out.println("ILB bAlt name Click-Fail");
+	        	System.out.println("Cannot Click on ILB Alt name");
 	        }
-			
 			
 			//Test Case1:Validating Business Entity Field//
 			bStatus=GeneralFunctions.driver.findElement(By.name("searchInputCol2")).getAttribute("value").isEmpty();
@@ -84,7 +85,9 @@ public class MAGIC_BusinessEntity {
 	        System.out.println("BE Drop Down List not Visible");
 	        }
 			
-		
+			com.alticor.magic.GeneralFunctions.close();
+			
+			//Test Results//
 			if(bStatus){
 				Reports.logResults(LogStatus.PASS,"Tests Passed","MAGIC_BusinessEntity");
 			}
@@ -92,7 +95,7 @@ public class MAGIC_BusinessEntity {
 				Reports.logResults(LogStatus.FAIL,"Tests Failed","MAGIC_BusinessEntity");
 			}
 			
-			com.alticor.magic.GeneralFunctions.close();
+		
 		   }
 
 		   }

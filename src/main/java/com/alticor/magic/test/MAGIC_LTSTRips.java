@@ -1,16 +1,14 @@
 package com.alticor.magic.test;
+
+import com.alticor.magic.GeneralFunctions;
+import com.alticor.magic.report.Reports;
+import com.relevantcodes.extentreports.LogStatus;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import com.alticor.magic.test.pages.Reports;
-
-import com.relevantcodes.extentreports.LogStatus;
-import com.alticor.magic.GeneralFunctions;
 
 public class MAGIC_LTSTRips {
 
@@ -18,14 +16,11 @@ public class MAGIC_LTSTRips {
 	
 	List<String> sPeriod=null;
     boolean bStatus=false;
-	//sPeriod=new ArrayList<String>();//
 	
-	@BeforeMethod
+	@Before
 	public void setUp() throws Exception {
     	Reports.setTestCaseName("MA 5744");
-    	
-    	//Open Browser and launch application//
-	bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
+    	bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
 		if(bStatus){
         	System.out.println("browser launched sucessfully");
         }	
@@ -37,7 +32,7 @@ public class MAGIC_LTSTRips {
 		sPeriod.add("082016");
 		}	  
 	
-	@AfterMethod
+	@After
 	 public void tearDown() throws Exception {
 		 Reports.endTest();
 	 }
@@ -49,62 +44,62 @@ public class MAGIC_LTSTRips {
 			for(String sPeriod:sPeriod){
 			GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"), "010");
 			if(bStatus){
-	        	System.out.println("AFF-Pass");
+	        	System.out.println("Entered AFF");
 	        }	
 	        else{
-	        	System.out.println("AFF-Fail");
+	        	System.out.println("Unable to enter AFF");
 	        }
 			
 	      GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "670");
 			if(bStatus){
-	        	System.out.println("Abo-Pass");
+	        	System.out.println("Entered Abo");
 	        }	
 	        else{
-	        	System.out.println("Abo-Fail");
+	        	System.out.println("Unable to enter Abo");
 	        }
 
 			
 			GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),sPeriod);
 			if(bStatus){
-	        	System.out.println("Period-Pass");
+	        	System.out.println("Enter Period");
 	        }	
 	        else{
-	        	System.out.println("Period-Fail");
+	        	System.out.println("Cannot enter Period");
 	        }
 			
 			GeneralFunctions.clickElement(By.id("SubmitButton"));
 			if(bStatus){
-	        	System.out.println("Submit-Pass");
+	        	System.out.println("Clicked on Submit");
 	        }	
 	        else{
-	        	System.out.println("Submit-Fail");
+	        	System.out.println("Canot Click on Submit");
 	        }
 			
 	        //Inquiry//
 			GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));
 			if(bStatus){
-	        	System.out.println("Inqiry-Pass");
+	        	System.out.println("Clicked on Inqiry");
 	        }	
 	        else{
-	        	System.out.println("Inquiry-Fail");
+	        	System.out.println("Cannot Click on Inquiry");
 	        }
 			
 			//Inquiry-->GIP//
 			GeneralFunctions.clickElement(By.xpath("//span[text()='GIP']"));
 			if(bStatus){
-	        	System.out.println("GIP-Pass");
+	        	System.out.println("Click on GIP");
 	        }	
 	        else{
-	        	System.out.println("GIP-Fail");
+	        	System.out.println("Cannot Click on GIP");
 	        }
 			
 			//Inquiry-->GIP-->LTS//
 			bStatus=GeneralFunctions.clickElement(By.linkText("LTS"));
 	        if(bStatus){
-			System.out.println("LTS-Pass");
+			System.out.println("Clicked on LTS");
 	        }	
 	        else{
-	        	System.out.println("LTS-Fail");
+	        	System.out.println("Cannot Click on LTS");
 	        }
 			
 			//Test Case:Validating LTS Trips//
@@ -151,13 +146,17 @@ public class MAGIC_LTSTRips {
 
 		        }
 				}
+			
+			com.alticor.magic.GeneralFunctions.close();
+			
+			//Test Results//
 			if(bStatus){
 				Reports.logResults(LogStatus.PASS,"Test Pass","LTS Trips");
 			}
 			else{
 				Reports.logResults(LogStatus.FAIL,"Test Fail","LTS Trips");
 			}
-			com.alticor.magic.GeneralFunctions.close();
+			
 		}
 		}
 

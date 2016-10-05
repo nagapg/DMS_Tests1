@@ -1,136 +1,121 @@
+/*Open IE 11 and navigate to beta
+ * Go to Processing-->Batch Processing-->Batch Search
+ * Expected:Enter batch Search number and click on orange links*/
+
 package com.alticor.magic.test;
-import java.util.List;
 
-import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import com.alticor.magic.test.pages.Reports;
-
-import com.relevantcodes.extentreports.LogStatus;
 import com.alticor.magic.GeneralFunctions;
+import com.alticor.magic.report.Reports;
+import com.relevantcodes.extentreports.LogStatus;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
 
 public class MAGIC_BatchSearch {
 
 	/** Init variables */
     boolean bStatus=false;
 	
-	
-	@BeforeMethod
+	@Before
 	public void setUp() throws Exception {
 		Reports.setTestCaseName("MAGIC_BatchSearch");
 		bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
 		if(bStatus){
-        	System.out.println("Application-Pass");
+        	System.out.println("Navigated to beta");
         }	
         else{
-        	System.out.println("Application-Fail");
+        	System.out.println("Cannot navigate to beta");
         }
 		}
 
 	
-	  @AfterMethod
+	  @After
       public void tearDown() throws Exception {
 	  Reports.endTest();
 	   }
 	
 	  @Test
 	  public void test() {
+		  
 			//Processing//
 			bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[3]"));
 	        if(bStatus){
-	        	System.out.println("Processing-Pass");
+	        	System.out.println("Click on Processing");
 	        }	
 	        else{
-	        	System.out.println("Processing-Fail");
+	        	System.out.println("Cannot Click on Processing");
 	        }
 	   		
 	   	  //Processing-->Batch Processing//
 	   			bStatus=GeneralFunctions.clickElement(By.xpath("//span[text()='Batch Processing']"));
 	   	        if(bStatus){
-	   			System.out.println("Batch Processing-Pass");
+	   			System.out.println("Click on Batch Processing");
 	   	        }	
 	   	        else{
-	   	        	System.out.println("Batch Processing-Fail");
+	   	        	System.out.println("Cannot Click on Batch Processing");
 	   	        }
 	   			
 	   	        //Processing-->Batch Processing-->Batch Search//
 	   	        bStatus=GeneralFunctions.clickElement(By.linkText("Batch Search"));   
 	   	       if(bStatus){
-	   			System.out.println("Batch Search-Pass");
+	   			System.out.println("Click on Batch Search");
 	   	       }	
 	   	       else{
-	   	       	System.out.println("Batch Search-Fail");
+	   	       	System.out.println("Cannot Click on Batch Search");
 	   	       }
 	   	       
-	   	     
-	   	       
-	   		 
-	   	    bStatus=GeneralFunctions.enterTextToElement(By.name("searchBatchNumber"), "18848");
+	   	     bStatus=GeneralFunctions.enterTextToElement(By.name("searchBatchNumber"), "18848");
 	   			if(bStatus){
-	   	        	System.out.println("Enter Batch Number-Pass");
+	   	        	System.out.println("Enter Batch Number");
 	   	        }	
 	   	        else{
-	   	        	System.out.println("Enter Batch Number-Fail");
+	   	        	System.out.println("Cannot Enter Batch Number");
 	   	        }
 	   			
 	   			bStatus=GeneralFunctions.clickElement(By.id("viewButton"));
 	   			if(bStatus){
-	   	        	System.out.println("Submit-Pass");
+	   	        	System.out.println("Click on Submit");
 	   	        }	
 	   	        else{
-	   	        	System.out.println("Submit-Fail");
+	   	        	System.out.println("Cannot Click on Submit");
 	   	        }
 	   			
-	   			
-	   		  // bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='viewTableDiv']/table/tbody/tr[2]/td[2]/a/span/b"));//s
-	   			//bStatus=GeneralFunctions.clickElement(By.linkText("18848"));//
-	   			
-	   			bStatus=GeneralFunctions.clickElementByJavascriptExecutor(By.linkText("18848"));
+	   		bStatus=GeneralFunctions.clickElementByJavascriptExecutor(By.linkText("18848"));
 	   			if(bStatus){
-	   			System.out.println("Orange Link Click-Pass");
+	   			System.out.println("Click on Orange Link");
 	   	       }	
 	   	       else{
-	   	       	System.out.println("Orange Link Click-Fail");
+	   	       	System.out.println("Cannot Click on Orange Link");
 	   	       }
-	   			
-	   			
-	   		 try {
+	   			try {
 	 			Thread.sleep(6000);
 	 		} catch (InterruptedException e) {
 	 			// TODO Auto-generated catch block
 	 			e.printStackTrace();
 	 		}
 	   	
-	   		 
-	   	  // bStatus=GeneralFunctions.clickElement(By.xpath("//img[@tip='Back to Batch Search screen']"));//
-	   		bStatus=GeneralFunctions.clickElementByJavascriptExecutor(By.xpath("//img[@tip='Back to Batch Search screen']"));
+	   	bStatus=GeneralFunctions.clickElementByJavascriptExecutor(By.xpath("//img[@tip='Back to Batch Search screen']"));
 	   		 if(bStatus){
-			System.out.println("Back Button-Pass");
+			System.out.println("Click on Back Button");
 	       }	
 	       else{
-	       	System.out.println("Back Button-Fail");
+	       	System.out.println("Cannot Click on Back Button");
 	       }
-	   		 
-	   		 
-	   		 try {
+	   		  try {
 	  			Thread.sleep(6000);
 	  		} catch (InterruptedException e) {
 	  			// TODO Auto-generated catch block
 	  			e.printStackTrace();
 	  		}
-	    	
+	   		 com.alticor.magic.GeneralFunctions.close();
 	   		 
+	   		 //Test Results//
 	   		 if (bStatus) {
 	             Reports.logResults(LogStatus.PASS, "Test Passed", " MAGIC_BatchSearch");
 
 	         } else {
 	             Reports.logResults(LogStatus.FAIL, "Test Failed", " MAGIC_BatchSearch");
 	         }
-	         com.alticor.magic.GeneralFunctions.close();
-
-	   		
-
-	     }
+	        }
 	   }

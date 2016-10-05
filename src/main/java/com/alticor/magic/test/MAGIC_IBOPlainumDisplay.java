@@ -5,24 +5,21 @@
  *  Expected 2>Both Platinum and sponsor should be equal*/
 
 package com.alticor.magic.test;
-import java.util.List;
 
-import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import com.alticor.magic.test.pages.Reports;
-
-import com.relevantcodes.extentreports.LogStatus;
 import com.alticor.magic.GeneralFunctions;
+import com.alticor.magic.report.Reports;
+import com.relevantcodes.extentreports.LogStatus;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
 
 public class MAGIC_IBOPlainumDisplay {
 
 /** Init variables */
   boolean bStatus=false;
   
-  @BeforeMethod
+  @Before
 	public void setUp() throws Exception {
 		Reports.setTestCaseName("MAGIC_IBOPlainumDisplay");
 		bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
@@ -34,7 +31,7 @@ public class MAGIC_IBOPlainumDisplay {
       }
 		}
   
-  @AfterMethod
+  @After
   public void tearDown() throws Exception {
   Reports.endTest();
    }

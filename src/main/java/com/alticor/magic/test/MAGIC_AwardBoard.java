@@ -1,15 +1,15 @@
+/*Open IE 11 and navigate to beta
+ * Go to Maintenance-->Award Board 
+ * Expected:Enter Notes*/
 package com.alticor.magic.test;
-import java.util.List;
 
-import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import com.alticor.magic.test.pages.Reports;
-
-import com.relevantcodes.extentreports.LogStatus;
 import com.alticor.magic.GeneralFunctions;
+import com.alticor.magic.report.Reports;
+import com.relevantcodes.extentreports.LogStatus;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
 
 public class MAGIC_AwardBoard {
 
@@ -17,7 +17,7 @@ public class MAGIC_AwardBoard {
     private boolean bStatus=false;
     final private String sExpNote="Test Note";
     
-    @BeforeMethod
+    @Before
 	public void setUp() throws Exception {
 		Reports.setTestCaseName("MAGIC_AwardBoard");
 		bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
@@ -30,7 +30,7 @@ public class MAGIC_AwardBoard {
 		}
 
 	
-	  @AfterMethod
+	  @After
       public void tearDown() throws Exception {
 	  Reports.endTest();
 	   }
@@ -55,8 +55,7 @@ public class MAGIC_AwardBoard {
 	           }
 	   		
 	           
-			
-	        //Maintenance//
+			//Maintenance//
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
 			if(bStatus){
 	        	System.out.println("Maintanence Click-Pass");
@@ -101,15 +100,13 @@ public class MAGIC_AwardBoard {
 		           	System.out.println("Note Select-Fail");
 		           }
 		        
-		        
-		       bStatus= GeneralFunctions.enterTextToElement(By.id("createNoteTextArea"),sExpNote);
+		        bStatus= GeneralFunctions.enterTextToElement(By.id("createNoteTextArea"),sExpNote);
 		        if(bStatus){
 		    		System.out.println("Enter Note-Pass");
 		           }	
 		           else{
 		           	System.out.println("Enter Note-Fail");
 		           }
-		        
 		        
 		        bStatus=GeneralFunctions.clickElement(By.id("saveButton"));
 		        if(bStatus){
@@ -118,8 +115,6 @@ public class MAGIC_AwardBoard {
 		           else{
 		           	System.out.println("Save-Fail");
 		           }
-		        
-		        
 		        
 		        bStatus=GeneralFunctions.clickElement(By.id("addButton"));
 		        if(bStatus){
@@ -147,8 +142,7 @@ public class MAGIC_AwardBoard {
 		           	System.out.println("Note Select-Fail");
 		           }
 		        
-		        
-		       bStatus= GeneralFunctions.enterTextToElement(By.id("createNoteTextArea"),sExpNote);
+		          bStatus= GeneralFunctions.enterTextToElement(By.id("createNoteTextArea"),sExpNote);
 		        if(bStatus){
 		    		System.out.println("Enter Note-Pass");
 		           }	
@@ -156,17 +150,13 @@ public class MAGIC_AwardBoard {
 		           	System.out.println("Enter Note-Fail");
 		           }
 		        
-		        
-		        bStatus=GeneralFunctions.clickElement(By.id("saveButton"));
+		         bStatus=GeneralFunctions.clickElement(By.id("saveButton"));
 		        if(bStatus){
 		    		System.out.println("Save-Pass");
 		           }	
 		           else{
 		           	System.out.println("Save-Fail");
 		           }
-		        
-		        
-		        
 		        
 		        bStatus=GeneralFunctions.clickElement(By.id("editButton"));
 		        if(bStatus){
@@ -184,8 +174,7 @@ public class MAGIC_AwardBoard {
 		        	System.out.println("Reason Code Select-Fail");
 		        }
 		         
-		        
-		       bStatus= GeneralFunctions.clickElement(By.xpath("//div[@id='reasonCodeList']/table/tbody/tr/td"));
+		         bStatus= GeneralFunctions.clickElement(By.xpath("//div[@id='reasonCodeList']/table/tbody/tr/td"));
 		        if(bStatus){
 		    		System.out.println("Note Select-Pass");
 		           }	
@@ -193,8 +182,7 @@ public class MAGIC_AwardBoard {
 		           	System.out.println("Note Select-Fail");
 		           }
 		        
-		        
-		       bStatus= GeneralFunctions.enterTextToElement(By.id("createNoteTextArea"),sExpNote);
+		        bStatus= GeneralFunctions.enterTextToElement(By.id("createNoteTextArea"),sExpNote);
 		        if(bStatus){
 		    		System.out.println("Enter Note-Pass");
 		           }	
@@ -211,17 +199,8 @@ public class MAGIC_AwardBoard {
 		           	System.out.println("Save-Fail");
 		           }
 		        
-		        /* bStatus= GeneralFunctions.getText(By.className("successMessage")).equalsIgnoreCase(sTranscSuccessMsg);
-		        if(bStatus){
-		 		System.out.println("Message Validated-Pass");
-		        }	
-		        else{
-		        	System.out.println("Message Validated-Fail");
-		        }*/
-		        
-		        //Delete the note//
-		        
-		        bStatus=GeneralFunctions.clickElement(By.id("deleteButton"));
+		       //Delete the note//
+		         bStatus=GeneralFunctions.clickElement(By.id("deleteButton"));
 		        if(bStatus){
 		    		System.out.println("Delete-Pass");
 		           }	
@@ -229,8 +208,7 @@ public class MAGIC_AwardBoard {
 		           	System.out.println("Delete-Fail");
 		           }
 		        
-		        
-		        //Click on Ok//
+		         //Click on Ok//
 		        GeneralFunctions.driver.switchTo().alert().accept();
 		        if(bStatus){
 		    		System.out.println("Ok-Pass");
@@ -239,7 +217,8 @@ public class MAGIC_AwardBoard {
 		        	   System.out.println("Ok-Fail");
 		           }
 		        
-		      
+		        com.alticor.magic.GeneralFunctions.close();
+		        
 		        //reporting//
 		        if (bStatus) {
 		            Reports.logResults(LogStatus.PASS, "Test Passed", "MAGIC_AwardBoard");
@@ -247,7 +226,7 @@ public class MAGIC_AwardBoard {
 		        } else {
 		            Reports.logResults(LogStatus.FAIL, "Test Failed", "MAGIC_AwardBoard");
 		        }
-		        com.alticor.magic.GeneralFunctions.close();
+		        
 
 		  		
 

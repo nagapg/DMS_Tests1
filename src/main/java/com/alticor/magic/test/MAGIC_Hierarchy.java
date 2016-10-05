@@ -4,14 +4,14 @@
  * Expected 2>Click on any Links*/
 
 package com.alticor.magic.test;
-import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import com.alticor.magic.test.pages.Reports;
 
-import com.relevantcodes.extentreports.LogStatus;
 import com.alticor.magic.GeneralFunctions;
+import com.alticor.magic.report.Reports;
+import com.relevantcodes.extentreports.LogStatus;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
 
 public class MAGIC_Hierarchy {
 
@@ -19,7 +19,7 @@ public class MAGIC_Hierarchy {
     private boolean bStatus=false;
     
     
-    @BeforeMethod
+    @Before
 	public void setUp() throws Exception {
 		Reports.setTestCaseName("MAGIC_Hierarchy");
 		bStatus=GeneralFunctions.openChormeBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
@@ -32,7 +32,7 @@ public class MAGIC_Hierarchy {
 		}
 
 	
-	  @AfterMethod
+	  @After
       public void tearDown() throws Exception {
 	  Reports.endTest();
 	   }
@@ -64,7 +64,6 @@ public class MAGIC_Hierarchy {
 	           }
 	   		
           //Maintenance//
-			
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
 			if(bStatus){
 	        	System.out.println("Clicked on Maintanence");
@@ -73,7 +72,7 @@ public class MAGIC_Hierarchy {
 	        	System.out.println("Cannot Click on Maintanence ");
 	        }
 	   		
-	  //Maintenance-->Admin//
+	     //Maintenance-->Admin//
 			bStatus=GeneralFunctions.clickElement(By.xpath("//span[text()='Admin']"));
 			if(bStatus){
 	        	System.out.println("Clicked on Admin");
@@ -142,10 +141,7 @@ public class MAGIC_Hierarchy {
 	        else{
 	        	System.out.println("Cannot Click on the Link");
 	        }
-	        
-	      
-	        
-	        try {
+	         try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -161,9 +157,7 @@ public class MAGIC_Hierarchy {
 	        	System.out.println("Cannot Click on Collapse All");
 	        }
 	        
-	        
-			//GeneralFunctions.close();//
-	        com.alticor.magic.GeneralFunctions.close();
+	       com.alticor.magic.GeneralFunctions.close();
 			
 			//Test Results//
 			 if (bStatus) {
