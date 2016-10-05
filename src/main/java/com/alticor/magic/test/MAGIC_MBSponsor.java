@@ -1,16 +1,15 @@
 package com.alticor.magic.test;
-import java.util.List;
 
-import org.testng.annotations.Test;
+import com.alticor.magic.GeneralFunctions;
+import com.alticor.magic.report.Reports;
+import com.relevantcodes.extentreports.LogStatus;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import com.alticor.magic.test.pages.Reports;
-
-import com.relevantcodes.extentreports.LogStatus;
-import com.alticor.magic.GeneralFunctions;
+import java.util.List;
 
 public class MAGIC_MBSponsor {
 
@@ -21,20 +20,20 @@ public class MAGIC_MBSponsor {
 	final private String sExpNote="Test Note";
 	
 	
-	@BeforeMethod
+	@Before
 	public void setUp() throws Exception {
 		Reports.setTestCaseName("MAGIC_MBSponsor");
 		bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
 		if(bStatus){
-        	System.out.println("Application-Pass");
+        	System.out.println("Navigated to beta");
         }	
         else{
-        	System.out.println("Application-Fail");
+        	System.out.println("Cannot navigate to beta");
         }
 		}
 
 	
-	  @AfterMethod
+	  @After
       public void tearDown() throws Exception {
 	  Reports.endTest();
 	   }
@@ -43,77 +42,73 @@ public class MAGIC_MBSponsor {
 	  public void test() {
 		  GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"), "220");
 			if(bStatus){
-	        	System.out.println("Aff-Pass");
+	        	System.out.println("Entered Aff");
 	        }	
 	        else{
-	        	System.out.println("Aff-Fail");
+	        	System.out.println("Cannot enter Aff");
 	        }
 			
 	      
 			GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "1000293");
 			if(bStatus){
-	        	System.out.println("Abo-Pass");
+	        	System.out.println("Entered Abo");
 	        }	
 	        else{
-	        	System.out.println("Abo-Fail");
+	        	System.out.println("Cannot enter Abo");
 	        }
-			
-			
 			
 			bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022015");
 			if(bStatus){
-	        	System.out.println("Period-Pass");
+	        	System.out.println("Entered Period");
 	        }	
 	        else{
-	        	System.out.println("Period-Fail");
+	        	System.out.println("Cannot enter Period");
 	        }
 			
 			
 			bStatus=GeneralFunctions.clickElement(By.id("SubmitButton"));
 			if(bStatus){
-	        	System.out.println("submit-Pass");
+	        	System.out.println("Clicked on submit");
 	        }	
 	        else{
-	        	System.out.println("submit-Fail");
+	        	System.out.println("Cannot click on submit");
 	        }
 			
 	        //Maintenance//
-			
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
 			if(bStatus){
-	        	System.out.println("Maintanence Click-Pass");
+	        	System.out.println("Clicked on Maintanence");
 	        	}	
 	        else{
-	        	System.out.println("Maintanence Click-Fail");
+	        	System.out.println("Cannot click on Maintanence");
 	        }
 			
 			 //Maintenance-->LOS//
-			
 			bStatus=GeneralFunctions.clickElement(By.xpath("//span[text()='LOS']"));
 			if(bStatus){
-	        	System.out.println("LOS  click-Pass");
+	        	System.out.println("Clicked on  LOS");
 	        }	
 	        else{
-	        	System.out.println("LOS  click-Fail");
+	        	System.out.println("Cannot Clicked on LOS");
 	        }
 			
 			 //Maintenance-->LOS-->Sponsor change//
 			bStatus=GeneralFunctions.clickElement(By.xpath("//span[text()='Sponsor Change']"));
 	        if(bStatus){
-			System.out.println("sponsor change click-Pass");
+			System.out.println("Clicked on  sponsor change");
 	        }	
 	        else{
-	        	System.out.println("sponsor change click-Fail");
+	        	System.out.println("Cannot Click on  sponsor change");
 	        }
 			
 	        
 	      //Maintenance-->LOS-->Sponsor change-->MB Sponsor//
 	        bStatus=GeneralFunctions.clickElement(By.linkText("Multi-Business Sponsor"));   
 	       if(bStatus){
-			System.out.println("MB Sponsor-Pass");
+			System.out.println("Clicked on MB Sponsor");
 	       }	
 	       else{
-	       	System.out.println("MB Sponsor-Fail");
+	       	System.out.println("Cannot Click on MB Sponsor");
 	       }
 
 	       
@@ -159,18 +154,18 @@ public class MAGIC_MBSponsor {
 	       
 	       bStatus=GeneralFunctions.clickElement(By.id("submitButton"));
 	       if(bStatus){
-			System.out.println("Submit-Pass");
+			System.out.println("Clicked on Submit");
 	       }	
 	       else{
-	       	System.out.println("Submit-Fail");
+	       	System.out.println("Cannot Click on Submit");
 	       }
 	       
 	       bStatus= GeneralFunctions.getText(By.className("successMessage")).equalsIgnoreCase(sSuccessValidationMsg);
 	       if(bStatus){
-			System.out.println("Message Verify-Pass");
+			System.out.println("Message Verified");
 	       }	
 	       else{
-	       	System.out.println("Message Verify-Fail");
+	       	System.out.println("Message cannot be  Verified");
 	       }
 	       
 	       bStatus=GeneralFunctions.clickElement(By.xpath("//img[@tip='Select Reason Code']"));
@@ -276,15 +271,16 @@ public class MAGIC_MBSponsor {
 	       	System.out.println("Delete-Fail");
 	       }
 	      
+	       com.alticor.magic.GeneralFunctions.close();
 	       
-	       
+	       //Test Results//
 	       if (bStatus) {
 	           Reports.logResults(LogStatus.PASS, "Test Passed", "MAGIC_MBSponsor");
 
 	       } else {
 	           Reports.logResults(LogStatus.FAIL, "Test Failed", "MAGIC_MBSponsor");
 	       }
-	       com.alticor.magic.GeneralFunctions.close();
+	      
 
 	 		
 
