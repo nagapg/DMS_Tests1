@@ -2,15 +2,13 @@
 
 package com.alticor.magic.test;
 
-import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import com.alticor.magic.test.pages.Reports;
-
-import com.relevantcodes.extentreports.LogStatus;
 import com.alticor.magic.GeneralFunctions;
-
+import com.alticor.magic.report.Reports;
+import com.relevantcodes.extentreports.LogStatus;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
 
 public class MAGIC_LSReqd {
 	/** Init variables */
@@ -19,7 +17,7 @@ public class MAGIC_LSReqd {
 	boolean bStatus=false;
 
 	
-	@BeforeMethod
+	@Before
 	public void setUp() throws Exception {
     	Reports.setTestCaseName("MA 6482");
     	
@@ -33,7 +31,7 @@ public class MAGIC_LSReqd {
         }
 	}
 		
-		@AfterMethod
+		@After
 		 public void tearDown() throws Exception {
 			 Reports.endTest();
 		 }
@@ -43,61 +41,61 @@ public class MAGIC_LSReqd {
 		  public void test() {
 				GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"), "430");
 				if(bStatus){
-		        	System.out.println("AFF-Pass");
+		        	System.out.println("Entered AFF");
 		        }	
 		        else{
-		        	System.out.println("AFF-Fail");
+		        	System.out.println("Cannot enter AFF");
 		        }
 				
 		      GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "22");
 				if(bStatus){
-		        	System.out.println("Abo-Pass");
+		        	System.out.println("Enter Abo");
 		        }	
 		        else{
-		        	System.out.println("Abo-Fail");
+		        	System.out.println("Cannot enter Abo");
 		        }
 
 				GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"082015");
 				if(bStatus){
-		        	System.out.println("Period-Pass");
+		        	System.out.println("Enter Period");
 		        }	
 		        else{
-		        	System.out.println("Period-Fail");
+		        	System.out.println("Cannot enter Period");
 		        }
 				
 				GeneralFunctions.clickElement(By.id("SubmitButton"));
 				if(bStatus){
-		        	System.out.println("Submit-Pass");
+		        	System.out.println("Click on Submit");
 		        }	
 		        else{
-		        	System.out.println("Submit-Fail");
+		        	System.out.println("Cannot click on Submit");
 		        }
 				
 		        //Inquiry//
 				GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));
 				if(bStatus){
-		        	System.out.println("Inqiry-Pass");
+		        	System.out.println("Click on Inqiry");
 		        }	
 		        else{
-		        	System.out.println("Inquiry-Fail");
+		        	System.out.println("Click on Inquiry");
 		        }
 				
 				//Inquiry-->GIP//
 				GeneralFunctions.clickElement(By.xpath("//span[text()='GIP']"));
 				if(bStatus){
-		        	System.out.println("GIP-Pass");
+		        	System.out.println("Click on GIP");
 		        }	
 		        else{
-		        	System.out.println("GIP-Fail");
+		        	System.out.println("Click on GIP");
 		        }
 				
 				//Inquiry-->GIP-->LTS//
 				bStatus=GeneralFunctions.clickElement(By.linkText("LTS"));
 		        if(bStatus){
-				System.out.println("LTS-Pass");
+				System.out.println("Click on LTS");
 		        }	
 		        else{
-		        	System.out.println("LTS-Fail");
+		        	System.out.println("Click on LTS");
 		        }
 
 		      
@@ -128,17 +126,19 @@ public class MAGIC_LSReqd {
 		    			       	System.out.println("Unable to capture LS Req");
 		    			       }
 		    				
+		    				 com.alticor.magic.GeneralFunctions.close();
+		    				 
+		    				 //Test Results//
 		    				 if (bStatus) {
 			           Reports.logResults(LogStatus.PASS, "Test Passed", "MAGIC_LSReqd");
 
 			       } else {
 			           Reports.logResults(LogStatus.FAIL, "Test Failed", "MAGIC_LSReqd");
 			       }
-			       com.alticor.magic.GeneralFunctions.close();
-
-
-}
+			      }
 		}
+
+
 
 
 
