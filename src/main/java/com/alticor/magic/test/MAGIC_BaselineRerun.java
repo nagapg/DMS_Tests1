@@ -1,25 +1,27 @@
+/*Open IE 11 and navigate to beta
+ * Enter Aff:430,Abo:225,Period:082016
+ * Go to Maintenance-->GIP-->Baseline Rerun
+ * Expected 1>APIND should be visible
+ * Expected 2>Upon submit success message should get*/
+
 package com.alticor.magic.test;
-import java.util.List;
 
-import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import com.alticor.magic.test.pages.Reports;
-
-import com.relevantcodes.extentreports.LogStatus;
 import com.alticor.magic.GeneralFunctions;
-
+import com.alticor.magic.report.Reports;
+import com.relevantcodes.extentreports.LogStatus;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
 
 public class MAGIC_BaselineRerun {
 
 	/** Init variables */
-	final private String sSuccessValidationMsg="GIP Baseline Recalcs triggered Successfully, Will be Notified via Email when it’s Processed.";
+	final private String sSuccessValidationMsg="GIP Baseline Recalcs triggered Successfully, Will be Notified via Email when itâ€™s Processed.";
 	private boolean bStatus=false;
 	 
 	
-	@BeforeMethod
+	@Before
 	public void setUp() throws Exception {
 		Reports.setTestCaseName("MAGIC_BaselineRerun");
 		bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
@@ -32,7 +34,7 @@ public class MAGIC_BaselineRerun {
 		}
 
 	
-	  @AfterMethod
+	  @After
       public void tearDown() throws Exception {
 	  Reports.endTest();
 	   }
@@ -41,37 +43,37 @@ public class MAGIC_BaselineRerun {
 	  public void test() {
 		  GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"), "430");
 			if(bStatus){
-	        	System.out.println("Aff-Pass");
+	        	System.out.println("Enter Aff");
 	        }	
 	        else{
-	        	System.out.println("Aff-Fail");
+	        	System.out.println("Cannot Enter Aff");
 	        }
 			
 	     
 			GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "225");
 			if(bStatus){
-	        	System.out.println("Abo-Pass");
+	        	System.out.println("Enter Abo");
 	        }	
 	        else{
-	        	System.out.println("Abo-Fail");
+	        	System.out.println("Cannot Enter Abo");
 	        }
 
 			
 			bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"082016");
 			if(bStatus){
-	        	System.out.println("Period-Pass");
+	        	System.out.println("Enter Period");
 	        }	
 	        else{
-	        	System.out.println("Period-Fail");
+	        	System.out.println("Cannot Enter Period");
 	        }
 			
 			
 			bStatus=GeneralFunctions.clickElement(By.id("SubmitButton"));
 			if(bStatus){
-	        	System.out.println("Submit-Pass");
+	        	System.out.println("Enter Submit");
 	        }	
 	        else{
-	        	System.out.println("Submit-Fail");
+	        	System.out.println("Cannot Enter Submit");
 	        }
 			
 
@@ -79,19 +81,19 @@ public class MAGIC_BaselineRerun {
 			 //Maintenance//
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
 			if(bStatus){
-	        	System.out.println("Maintanence-Pass");
+	        	System.out.println("Click on Maintanence");
 	        }	
 	        else{
-	        	System.out.println("Maintanence-Fail");
+	        	System.out.println("Cannot Click on Maintanence");
 	        }
 			
 			//Maintenance-->GIP//
 			bStatus=GeneralFunctions.clickElementByJavascriptExecutor(By.xpath(".//*[@id='SubMenu2']/a[14]/span[1]"));
 			if(bStatus){
-	        	System.out.println("GIP-Pass");
+	        	System.out.println("Click on GIP");
 	        }	
 	        else{
-	        	System.out.println("GIP-Fail");
+	        	System.out.println("Cannot Click on GIP");
 	        }
 			
 			
@@ -99,57 +101,59 @@ public class MAGIC_BaselineRerun {
 	        //Maintenance-->GIP-->Baseline Rerun//
 	        bStatus=GeneralFunctions.clickElement(By.linkText("Baseline Rerun"));   
 	       if(bStatus){
-			System.out.println("Baseline Rerun-Pass");
+			System.out.println("Click on Baseline Rerun");
 	       }	
 	       else{
-	       	System.out.println("Baseline Rerun-Fail");
+	       	System.out.println("Cannot Click on Baseline Rerun");
 	       }
 	       
 	    
 	       GeneralFunctions.enterTextToElement(By.id("effPerfYear"), "2016");
 			if(bStatus){
-	        	System.out.println("Enter Eff PY-Pass");
+	        	System.out.println("Enter Eff PY");
 	        }	
 	        else{
-	        	System.out.println("Enter Eff PY-Fail");
+	        	System.out.println("Cannot Enter Eff PY");
 	        }
 
 			
 			bStatus=GeneralFunctions.clickElementByJavascriptExecutor(By.id("userInfoDiv"));
 			if(bStatus){
-	        	System.out.println("Drop down selection-Pass");
+	        	System.out.println("Click Drop down selection");
 	        }	
 	        else{
-	        System.out.println("Drop down selection-Fail");
+	        System.out.println("Cannot Click Drop down selection");
 	        }
 			
 			
 			bStatus=GeneralFunctions.verifyVisibilityOFElement(By.linkText("APIND"));
 			if(bStatus){
-	        	System.out.println("APIND Visible-Pass");
+	        	System.out.println("APIND is Visible");
 	        }	
 	        else{
-	        System.out.println("APIND Visible-Fail");
+	        System.out.println("APIND is not Visible");
 	        }
 			
 			
 			bStatus=GeneralFunctions.clickElement(By.id("rerunBaselineButton"));
 			if(bStatus){
-	        	System.out.println("Submit Rerun-Pass");
+	        	System.out.println("Click on Submit Rerun");
 	        }	
 	        else{
-	        System.out.println("Submit Rerun-Fail");
+	        System.out.println("Cannot Click on Submit Rerun");
 	        }
 		 
 			
 			
 			bStatus= GeneralFunctions.getText(By.id("successMsgDiv")).equalsIgnoreCase(sSuccessValidationMsg);;
 		       if(bStatus){
-				System.out.println("Rerun-Pass");
+				System.out.println("Capture Rerun");
 		       }	
 		       else{
-		       	System.out.println("Rerun-Pass");
+		       	System.out.println("Cannot Capture Rerun");
 		       }
+		       
+		       com.alticor.magic.GeneralFunctions.close();
 		       
 		       if (bStatus) {
 		           Reports.logResults(LogStatus.PASS, "Test Passed", "MAGIC_BaselineRerun");
@@ -157,7 +161,7 @@ public class MAGIC_BaselineRerun {
 		       } else {
 		           Reports.logResults(LogStatus.FAIL, "Test Failed", "MAGIC_BaselineRerun");
 		       }
-		       com.alticor.magic.GeneralFunctions.close();
+		     
 
 		 		
 
