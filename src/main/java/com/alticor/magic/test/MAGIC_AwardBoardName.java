@@ -24,7 +24,7 @@ public class MAGIC_AwardBoardName {
 	  
 	  @Before
 		public void setUp() throws Exception {
-			Reports.setTestCaseName("MAGIC_AnnualBonusScreen ");
+			Reports.setTestCaseName("MAGIC_AwardBoardName ");
 			bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
 			if(bStatus){
 	      	System.out.println("Navigated to beta");
@@ -306,10 +306,10 @@ public class MAGIC_AwardBoardName {
 							
 							//Test Reports//
 							 if (bStatus) {
-						            Reports.logResults(LogStatus.PASS, "Test Pass", "MAGIC_AnnualBonusScreen");
+						            Reports.logResults(LogStatus.PASS, "Test Pass", "MAGIC_AwardBoardName");
 
 						        } else {
-						            Reports.logResults(LogStatus.FAIL, "Test Fail", "MAGIC_AnnualBonusScreen");
+						            Reports.logResults(LogStatus.FAIL, "Test Fail", "MAGIC_AwardBoardName");
 						        }
 					        	
 					        }
