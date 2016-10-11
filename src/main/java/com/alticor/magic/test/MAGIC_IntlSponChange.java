@@ -298,4 +298,3 @@ GeneralFunctions.driver.switchTo().alert().accept();
 	}
 	  
 	  
-	  
