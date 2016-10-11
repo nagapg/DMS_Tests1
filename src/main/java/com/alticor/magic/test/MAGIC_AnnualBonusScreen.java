@@ -1,21 +1,21 @@
 /*Open IE 11 and navigate to Omega
- *Enter Aff:170/Abo:1707163545
+ *Enter 170/1707163545
  *Go to Inquiry-->Annuals-->Annual Bonus
  *Expected:Screen should appear without error display */
 
 package com.alticor.magic.test;
 
-import com.alticor.magic.GeneralFunctions;
-import com.alticor.magic.report.Reports;
-import com.relevantcodes.extentreports.LogStatus;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
+import com.alticor.magic.GeneralFunctions;
+import com.alticor.magic.test.pages.Reports;
+import com.relevantcodes.extentreports.LogStatus;
 public class MAGIC_AnnualBonusScreen {
 
-      /** Init variables */
+/** Init variables */
 	  boolean bStatus=false;
 	  
 	  @Before
@@ -110,3 +110,4 @@ public class MAGIC_AnnualBonusScreen {
 		    		
 }
 }
+

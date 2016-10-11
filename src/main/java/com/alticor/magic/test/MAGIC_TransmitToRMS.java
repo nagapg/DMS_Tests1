@@ -1,7 +1,7 @@
 package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
-import com.alticor.magic.report.Reports;
+import com.alticor.magic.test.pages.Reports;
 import com.relevantcodes.extentreports.LogStatus;
 import org.junit.After;
 import org.junit.Before;
@@ -29,7 +29,7 @@ public class MAGIC_TransmitToRMS {
 	
 	  @After
       public void tearDown() throws Exception {
-	  Reports.endTest();
+		  Reports.endTest();
 	   }
 	
 	  @Test
@@ -131,7 +131,7 @@ public class MAGIC_TransmitToRMS {
 	        
 	        com.alticor.magic.GeneralFunctions.close();
 	        
-	        if (bStatus) {
+	    if (bStatus) {
 	            Reports.logResults(LogStatus.PASS, "Test Passed", "MAGIC_TransmitToRMS");
 
 	        } else {

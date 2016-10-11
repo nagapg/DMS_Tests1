@@ -3,7 +3,7 @@
 package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
-import com.alticor.magic.report.Reports;
+import com.alticor.magic.test.pages.Reports;
 import com.relevantcodes.extentreports.LogStatus;
 import org.junit.After;
 import org.junit.Before;
@@ -19,7 +19,7 @@ public class MAGIC_LSReqd {
 	
 	@Before
 	public void setUp() throws Exception {
-    	Reports.setTestCaseName("MA 6482");
+		Reports.setTestCaseName("MA 6482");
     	
     	//Open Browser and launch application//
 	bStatus=GeneralFunctions.openIEBrowser("https://magic-lambda/EBS_UI_Web/Magic");
@@ -33,7 +33,7 @@ public class MAGIC_LSReqd {
 		
 		@After
 		 public void tearDown() throws Exception {
-			 Reports.endTest();
+		Reports.endTest();
 		 }
 		
 		

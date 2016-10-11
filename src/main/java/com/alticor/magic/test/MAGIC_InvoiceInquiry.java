@@ -1,7 +1,7 @@
 package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
-import com.alticor.magic.report.Reports;
+import com.alticor.magic.test.pages.Reports;
 import com.relevantcodes.extentreports.LogStatus;
 import org.junit.After;
 import org.junit.Before;
@@ -15,7 +15,7 @@ public class MAGIC_InvoiceInquiry {
     
     @Before
 	public void setUp() throws Exception {
-		Reports.setTestCaseName("MAGIC_InvoiceInquiry");
+    	Reports.setTestCaseName("MAGIC_InvoiceInquiry");
 		bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
 		if(bStatus){
         	System.out.println("Navigated to beta");
@@ -28,7 +28,7 @@ public class MAGIC_InvoiceInquiry {
 	
 	  @After
       public void tearDown() throws Exception {
-	  Reports.endTest();
+		  Reports.endTest();
 	   }
 	
 	  @Test

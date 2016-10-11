@@ -1,7 +1,7 @@
 package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
-import com.alticor.magic.report.Reports;
+import com.alticor.magic.test.pages.Reports;
 import com.relevantcodes.extentreports.LogStatus;
 import org.junit.After;
 import org.junit.Before;
@@ -19,7 +19,7 @@ public class MAGIC_LTSTRips {
 	
 	@Before
 	public void setUp() throws Exception {
-    	Reports.setTestCaseName("MA 5744");
+		Reports.setTestCaseName("MA 5744");
     	bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
 		if(bStatus){
         	System.out.println("browser launched sucessfully");
@@ -34,7 +34,7 @@ public class MAGIC_LTSTRips {
 	
 	@After
 	 public void tearDown() throws Exception {
-		 Reports.endTest();
+		Reports.endTest();
 	 }
 	
 	  

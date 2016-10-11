@@ -6,7 +6,8 @@
 package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
-import com.alticor.magic.report.Reports;
+//import com.alticor.magic.report.Reports;//
+import com.alticor.magic.test.pages.Reports;
 import com.relevantcodes.extentreports.LogStatus;
 import org.junit.After;
 import org.junit.Before;
@@ -34,7 +35,7 @@ public class MAGIC_Hierarchy {
 	
 	  @After
       public void tearDown() throws Exception {
-	  Reports.endTest();
+	 Reports.endTest();
 	   }
 	
 	  @Test
