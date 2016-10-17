@@ -5,25 +5,62 @@
 package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
+import com.alticor.magic.pages.MagicPage;
 import com.alticor.magic.test.pages.Reports;
+import com.alticor.okta.OktaLogin;
+import com.alticor.prowl.AmwayProwlRunner;
+import com.alticor.prowl.WebDriverManager;
+import com.alticor.prowl.provider.EndpointProvider;
 import com.relevantcodes.extentreports.LogStatus;
 
-import org.junit.After;
-
-import org.junit.Before;
-
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
-
-
+import org.junit.rules.ErrorCollector;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
- public class MAGIC_MissingDetails {
+@RunWith(AmwayProwlRunner.class) public class MAGIC_MissingDetails {
 	
+	static WebDriver driver;
+    static MagicPage magicPage;
+    static OktaLogin oktaLogin;
+    @Rule public ErrorCollector collector = new ErrorCollector();
+
+    @BeforeClass public static void setup() {
+    	
+    	Reports.setTestCaseName("MAGIC_MissingDetails");
+        String baseUrl = EndpointProvider.getEndpoint();
+        driver = WebDriverManager.getInstance().getDriver();
+
+        oktaLogin = new OktaLogin(driver, null);
+        oktaLogin.login("cmns559",
+            "our49pot");// TODO: Make this grab password from environment variables
+        driver.getTitle();
+
+        magicPage = new MagicPage(driver, null);
+        magicPage.setBaseUrl(baseUrl);
+
+        magicPage.aboLookup("010", "9995", "072016");
+    }
+
+    @AfterClass public static void tearDown() {
+        WebDriverManager.getInstance().close();
+        Reports.endTest();
+    }
+
+    /*@Test public void testPageTitle() {
+        MagicFAA faa = new MagicFAA(driver, null);
+        faa.navigate();
+        collector.checkThat("Page Title", driver.getTitle(), equalTo(faa.pageTitle()));
+    }*/
 	
 	/** Init variables */
     boolean bStatus=false;
-    
-    @Before public void setUp() throws Exception {
+
+   /* @Before public void setUp() throws Exception {
    Reports.setTestCaseName("MAGIC_MissingDetails");
 		bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
 		if(bStatus){
@@ -35,13 +72,13 @@ import org.openqa.selenium.By;
 		}
 
 	
-	  @After public void tearDown() throws Exception {
+    @After public void tearDown() throws Exception {
 		  Reports.endTest();
-	   }
+	   }*/
 	
 	  @Test
 	  public void test() {
-		  //Enter values//
+		  /*Enter values//
 			bStatus=GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"), "010");
 			if(bStatus){
 	        	System.out.println("Passed Aff");
@@ -73,8 +110,8 @@ import org.openqa.selenium.By;
 	        }	
 	        else{
 	        	System.out.println("Cannot Click on Submit");
-	        }
-			
+	        }*/
+		  GeneralFunctions.driver=driver;
 			 //Payment inquiry//
 			bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[4]"));
 					if(bStatus){
