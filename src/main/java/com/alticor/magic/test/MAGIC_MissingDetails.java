@@ -1,7 +1,3 @@
-/*Open IE 11 and navigate to beta
- * Go to Invoice details page
- * Click on the amount 
- * Expected:Amount details should display*/
 package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
@@ -12,7 +8,6 @@ import com.alticor.prowl.AmwayProwlRunner;
 import com.alticor.prowl.WebDriverManager;
 import com.alticor.prowl.provider.EndpointProvider;
 import com.relevantcodes.extentreports.LogStatus;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Rule;
@@ -42,7 +37,6 @@ import org.openqa.selenium.WebDriver;
 
         magicPage = new MagicPage(driver, null);
         magicPage.setBaseUrl(baseUrl);
-
         magicPage.aboLookup("010", "9995", "072016");
     }
 
@@ -57,7 +51,7 @@ import org.openqa.selenium.WebDriver;
         collector.checkThat("Page Title", driver.getTitle(), equalTo(faa.pageTitle()));
     }*/
 	
-	/** Init variables */
+	/** Declare variables */
     boolean bStatus=false;
 
    /* @Before public void setUp() throws Exception {
@@ -111,7 +105,9 @@ import org.openqa.selenium.WebDriver;
 	        else{
 	        	System.out.println("Cannot Click on Submit");
 	        }*/
+		  
 		  GeneralFunctions.driver=driver;
+		  
 			 //Payment inquiry//
 			bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[4]"));
 					if(bStatus){

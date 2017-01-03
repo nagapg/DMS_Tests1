@@ -1,29 +1,55 @@
-
-/*Open IE 11 and navigate to beta
- * Enter Aff:010/Abo:670 and Click on submit
- * Go to Maintenance-->Award Board
- * Scenario 1>Check the Check box and do not change name Expected:Capture the text
- * Scenario 2>Check the Check box and change the name Expected:Capture the text
- * Scenario 3>Change the name only Expected:Capture the text
- * Scenario 4>Do not change anything Expected:message pops up */
-
 package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
+import com.alticor.magic.pages.MagicPage;
 import com.alticor.magic.test.pages.Reports;
+import com.alticor.okta.OktaLogin;
+import com.alticor.prowl.AmwayProwlRunner;
+import com.alticor.prowl.WebDriverManager;
+import com.alticor.prowl.provider.EndpointProvider;
 import com.relevantcodes.extentreports.LogStatus;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ErrorCollector;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
-public class MAGIC_AwardBoardName {
+@RunWith(AmwayProwlRunner.class)  public class MAGIC_AwardBoardName {
 	
-	/** Init variables */
+	static WebDriver driver;
+    static MagicPage magicPage;
+    static OktaLogin oktaLogin;
+    @Rule public ErrorCollector collector = new ErrorCollector();
+
+    @BeforeClass public static void setup() {
+    	Reports.setTestCaseName("MAGIC_AwardBoardName");
+        String baseUrl = EndpointProvider.getEndpoint();
+        driver = WebDriverManager.getInstance().getDriver();
+
+        oktaLogin = new OktaLogin(driver, null);
+        oktaLogin.login("cmns559",
+            "our49pot");// TODO: Make this grab password from environment variables
+        driver.getTitle();
+
+        magicPage = new MagicPage(driver, null);
+        magicPage.setBaseUrl(baseUrl);
+        magicPage.aboLookup("010", "9995", "072016");
+    }
+
+    @AfterClass public static void tearDown() {
+        WebDriverManager.getInstance().close();
+        Reports.endTest();
+    }
+    
+	
+	/** Declare variables */
 	  boolean bStatus=false;
 	  final private String sExpNote="Test Note";
 	  
-	  @Before
+	  /*@Before
 		public void setUp() throws Exception {
 			Reports.setTestCaseName("MAGIC_AwardBoardName ");
 			bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
@@ -38,11 +64,11 @@ public class MAGIC_AwardBoardName {
 	  @After
 	  public void tearDown() throws Exception {
 	 Reports.endTest();
-	   }
+	   }*/
 	  
 	  @Test
 	  public void test() {
-			bStatus= GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"), "010");
+		/*	bStatus= GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"), "010");
 			if(bStatus){
 	        	System.out.println("Entered Aff");
 	        }	
@@ -64,7 +90,9 @@ public class MAGIC_AwardBoardName {
 	        }	
 	        else{
 	        	System.out.println("Cannot Click on Submit");
-	        }
+	        }*/
+		  
+		  GeneralFunctions.driver=driver;
 		
 			//Maintenance//
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));

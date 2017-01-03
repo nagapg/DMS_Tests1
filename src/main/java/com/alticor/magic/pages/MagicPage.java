@@ -101,7 +101,7 @@ public class MagicPage extends AbstractPageObject {
         if (period != null) {
             DynamicElement per = periodInputField();
             per.clear();
-            per.sendKeys();
+            per.sendKeys(period);
         }
 
         mainSubmitButton().click();
