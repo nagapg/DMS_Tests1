@@ -49,49 +49,12 @@ import org.openqa.selenium.WebDriver;
       /** Declare variables */
 	  boolean bStatus=false;
 	  
-	 /* @Before
-		public void setUp() throws Exception {
-			Reports.setTestCaseName("MAGIC_AnnualBonusScreen ");
-			bStatus=GeneralFunctions.openIEBrowser("https://magic-omega/EBS_UI_Web/Magic");
-			if(bStatus){
-	      	System.out.println("Navigated to Omega");
-	      }	
-	      else{
-	      	System.out.println("Cannot Navigate to Omega");
-	      }
-			}*/
+	
 	  
-	 /* @After
-	  public void tearDown() throws Exception {
-	  Reports.endTest();
-	   }*/
 	  
 	  @Test
 	  public void test() {
-			/*bStatus= GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"), "170");
-			if(bStatus){
-	        	System.out.println("Entered Aff");
-	        }	
-	        else{
-	        	System.out.println("Cannot Enter Aff");
-	        }
 			
-			bStatus=GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "1707163545");
-			if(bStatus){
-	        	System.out.println("Entered Abo");
-	        }	
-	        else{
-	        	System.out.println("Cannot Enter Abo");
-	        }
-			
-			bStatus=GeneralFunctions.clickElement(By.id("SubmitButton"));
-			if(bStatus){
-	        	System.out.println("Clicked on Submit");
-	        }	
-	        else{
-	        	System.out.println("Cannot Click on Submit");
-	        }*/
-		  
 		  GeneralFunctions.driver=driver;
 			
 		   //Inquiry//
