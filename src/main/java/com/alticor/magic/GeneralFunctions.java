@@ -35,6 +35,8 @@ public class GeneralFunctions {
 	private static final String Select = null;
 	public static WebDriver driver;
 	public static String sErrMsg="";
+	
+	
 	/******************************************
 	 * FunctionName  :clickElementByJavascriptExecutor
 	 * Purpose       : JavaScript Executor
@@ -59,7 +61,8 @@ public static boolean clickElementByJavascriptExecutor(WebElement objLocator){
 		}catch(Exception e){};
 		return false;
 		}
-	/******************************************
+	
+/******************************************
 	 * FunctionName  :clickElement
 	 * Purpose       : element click
 	 *
@@ -81,6 +84,7 @@ public static boolean clickElementByJavascriptExecutor(WebElement objLocator){
 			return false;
 		}
 	}
+    
 /******************************************
 	 * FunctionName  :enterTextToElement
 	 * Purpose       : enters text to element
@@ -101,6 +105,7 @@ public static boolean clickElementByJavascriptExecutor(WebElement objLocator){
 			return false;
 		}
 	}
+	
 /******************************************
 	 * FunctionName  :verifyVisibilityOFElement
 	 * Purpose       : existence of the element
@@ -116,6 +121,7 @@ return true;
 			return false;
 		}
 	}
+	
 /******************************************
 	 * FunctionName  :getElemetList
 	 * Purpose       : get list of elements
@@ -135,6 +141,7 @@ return true;
 			return null;
 		}
 	}
+	
 /******************************************
 	 * FunctionName  :getText
 	 * Purpose       : get text
@@ -155,6 +162,7 @@ public static String getText(By objLocator)
 			return null;
 		}
 	}
+
 /******************************************
 	 * FunctionName  :fileUpload
 	 * Purpose       : uploads a file
@@ -192,6 +200,7 @@ public static String getText(By objLocator)
 			return false;
 		}
 	}
+	
 /******************************************
 	 * FunctionName  :openIEBrowser
 	 * Purpose       : opens IE browser
@@ -210,12 +219,13 @@ public static String getText(By objLocator)
             cap.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS,true);
             
 			cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS,true);
-            //cap.setCapability(InternetExplorerDriver.HOST,true);//
+			            //cap.setCapability(InternetExplorerDriver.HOST,true);//
             
 			driver=new InternetExplorerDriver(cap);
 			driver.get(sURL);
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
+			//driver.navigate().to("javascript:document.getElementById('overridelink').click()");//
 			return true;
 		}catch(Exception e)
 		{
@@ -223,6 +233,7 @@ public static String getText(By objLocator)
 			return false;
 		}
 	}
+	
 /******************************************
 	 * FunctionName  :openChormeBrowser
 	 * Purpose       : opens chrome browser
@@ -244,6 +255,7 @@ public static String getText(By objLocator)
 		}
 
 }
+	
 /******************************************
 	 * FunctionName  :close
 	 * Purpose       :closes the browser
@@ -254,6 +266,7 @@ public static void close() {
 //driver.close();//
 driver.quit();
 		}
+
 /******************************************
 	 * FunctionName  :gotoframe
 	 * Purpose       :Frames
@@ -264,6 +277,7 @@ public static boolean gotoframe(By xpath) {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 /******************************************
  * FunctionName  :activeElement
  * Purpose       : element active 
@@ -279,6 +293,7 @@ return true;
 		return false;
 	}
 }
+
 /******************************************
  * FunctionName  :display
  * Purpose       : display element
@@ -295,6 +310,7 @@ return true;
 	}
 	
 }
+
 /******************************************
  * FunctionName  :Wait
  * Purpose       :Waits
@@ -305,6 +321,7 @@ public static void waittime() {
 	// TODO Auto-generated method stub
 	 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 }
+
 /******************************************
 * FunctionName  : FindElement
 * * Purpose       :finding an element
@@ -325,6 +342,7 @@ public static boolean FindElement(By objLocator) {
 		return false;
 	}
 }
+
 /******************************************
 * FunctionName  : DropDown
 * * Purpose       :Selecting 
@@ -344,6 +362,7 @@ public static  boolean  DropDown(By objLocator,String sval) {
 		return false;
 	}
 }
+
 /******************************************
  * FunctionName  :getTitle
  * Purpose       : Capture the title
