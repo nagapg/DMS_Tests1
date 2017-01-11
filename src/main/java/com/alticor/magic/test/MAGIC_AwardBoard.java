@@ -1,3 +1,7 @@
+/*Expected:Navigate to MAGIC AwardBoard 
+Enter Note 
+Delete Note*/
+
 package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
@@ -37,7 +41,7 @@ import org.openqa.selenium.WebDriver;
 
         magicPage = new MagicPage(driver, null);
         magicPage.setBaseUrl(baseUrl);
-        magicPage.aboLookup("010", "9995", "072016");
+        magicPage.aboLookup("010", "9995", "012017");
     }
 
     @AfterClass public static void tearDown() {
