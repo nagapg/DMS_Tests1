@@ -1,3 +1,5 @@
+//Expected:Click the check box and check the visibility of the check box in Transmit to RMS SCreen//
+
 package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
@@ -17,7 +19,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-@RunWith(AmwayProwlRunner.class) public class MAGIC_TransmitToRMS {
+@RunWith(AmwayProwlRunner.class) public class MAGIC_TransmitToRMSTest {
 	
 	static WebDriver driver;
     static MagicPage magicPage;
@@ -25,8 +27,7 @@ import org.openqa.selenium.WebDriver;
     @Rule public ErrorCollector collector = new ErrorCollector();
 
     @BeforeClass public static void setup() {
-    	
-    	Reports.setTestCaseName("MAGIC_TransmitToRMS");
+    	Reports.setTestCaseName("MAGIC_TransmitToRMSTest");
         String baseUrl = EndpointProvider.getEndpoint();
         driver = WebDriverManager.getInstance().getDriver();
 
@@ -48,58 +49,11 @@ import org.openqa.selenium.WebDriver;
 	/** Declare variables */
     boolean bStatus=false;
 	
-	
-	/*@Before
-	public void setUp() throws Exception {
-		Reports.setTestCaseName("MAGIC_TransmitToRMS");
-		bStatus=GeneralFunctions.openIEBrowser("https://magic-beta:9446/EBS_UI_Web/Magic");
-		if(bStatus){
-        	System.out.println("Navigated to beta");
-        }	
-        else{
-        	System.out.println("Cannot Navigate to beta");
-        }
-		}
-
-	
-	  @After
-      public void tearDown() throws Exception {
-		  Reports.endTest();
-	   }*/
-	
-	  @Test
+	 @Test
 	  public void test() {
-		  /*GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"), "010");
-			if(bStatus){
-	        	System.out.println("Entered Aff");
-	        }	
-	        else{
-	        	System.out.println("Cannot Enter Aff");
-	        }
-			
-	     
+		    GeneralFunctions.driver=driver;
 
-			bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"082015");
-			if(bStatus){
-	        	System.out.println("Enter Period");
-	        }	
-	        else{
-	        	System.out.println("Cannot Enter Period");
-	        }
-			
-			
-			bStatus=GeneralFunctions.clickElement(By.id("SubmitButton"));
-			if(bStatus){
-	        	System.out.println("click on Submit");
-	        }	
-	        else{
-	        	System.out.println("Cannot click on Submit");
-	        }*/
-		  
-		  GeneralFunctions.driver=driver;
-
-			
-			 //Processing//
+			//Processing//
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[3]"));
 			if(bStatus){
 	        	System.out.println("click on Processing");
@@ -128,8 +82,7 @@ import org.openqa.selenium.WebDriver;
 		
 	        
 	        //Click the check box//
-
-			bStatus=GeneralFunctions.clickElement(By.id("rowSelectedIN3"));
+          bStatus=GeneralFunctions.clickElement(By.id("rowSelectedIN3"));
 	        if(bStatus){
 			System.out.println("click on Checkbox");
 	        }	
@@ -137,10 +90,7 @@ import org.openqa.selenium.WebDriver;
 	        	System.out.println("Cannot click on Checkbox ");
 	        }
 	        
-	        
-          //Wait//
-	        
-	        try {
+	         try {
 	    		Thread.sleep(9000);
 	    	} catch (InterruptedException e) {
 	    		// TODO Auto-generated catch block
@@ -169,14 +119,10 @@ import org.openqa.selenium.WebDriver;
 	        com.alticor.magic.GeneralFunctions.close();
 	        
 	    if (bStatus) {
-	            Reports.logResults(LogStatus.PASS, "Test Passed", "MAGIC_TransmitToRMS");
+	            Reports.logResults(LogStatus.PASS, "Test Passed", "MAGIC_TransmitToRMSTest");
 
 	        } else {
-	            Reports.logResults(LogStatus.FAIL, "Test Failed", "MAGIC_TransmitToRMS");
+	            Reports.logResults(LogStatus.FAIL, "Test Failed", "MAGIC_TransmitToRMSTest");
 	        }
-	      
-
-	  		
-
-	    }
+	      }
 	  }
