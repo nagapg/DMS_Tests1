@@ -1,14 +1,17 @@
 package com.alticor.magic.test.pages;
 
 import java.text.SimpleDateFormat;
+
 import java.util.Calendar;
 import java.util.HashMap;
 
+import io.swarmauto.driverextended.*;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import com.Log;
 
-public class Reports {
+public abstract class Reports implements Report{
 
 	//File Name
 	public static String sResultantFileName;
@@ -72,6 +75,57 @@ public class Reports {
 	public static void endTest() {
 		objXtn.endTest(objXTest);
 		objXtn.close();
+	}
+
+	
+	public  void prepReporting() {
+		// TODO Auto-generated method stub
+		Log.startTestCase(stest);
+		
+	}
+
+	@Override
+	public void validate(String text, boolean passFail, boolean positiveCheck, byte[] screenShot) {
+		
+
+		validate(text,passFail);
+		
+	}
+
+	@Override
+	public void validate(String text, boolean passFail, boolean positiveCheck) {
+
+		validate(text,passFail);
+		
+	}
+
+	@Override
+	public void validate(String text, boolean passFail) {
+		switch (Boolean.toString(passFail)) {
+		case "true":				
+			Log.info(text);
+			this.logResults(LogStatus.PASS, text, Boolean.toString(passFail));
+			break;
+
+		case "false":
+			Log.error(text);
+			this.logResults(LogStatus.FAIL, text, Boolean.toString(passFail));
+			break;
+		}
+		
+	}
+
+	@Override
+	public void writeStep(String text) {
+		Log.info(text);
+		this.logResults(LogStatus.INFO, text,"");
+		
+	}
+
+	@Override
+	public void writeReport() {
+		Log.endTestCase(stest);
+		
 	}
 
 

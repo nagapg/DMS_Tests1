@@ -10,7 +10,7 @@ import java.sql.SQLException;
 /**
  * Created by harolddost on 4/15/16.
  */
-public class ProwlDBReport implements Report {
+public class ProwlDBReport implements Report  {
 
     private static final int TIMEOUT = 10;
 

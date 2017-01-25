@@ -6,6 +6,7 @@ import io.swarmauto.driverextended.DynamicElement;
 import io.swarmauto.driverextended.Report;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 
 public class OktaLogin extends AbstractPageObject {
 
@@ -23,16 +24,16 @@ public class OktaLogin extends AbstractPageObject {
     private OktaLogin() {
     }
 
-    public DynamicElement userNameInputField() {
-        return getDynamicElement().addSearch(By.id("user-signin"));
+    public WebElement userNameInputField() {
+        return driver.findElement(By.id("input26"));
     }
 
-    public DynamicElement passwordInputField() {
-        return getDynamicElement().addSearch(By.id("pass-signin"));
+    public WebElement passwordInputField() {
+        return driver.findElement(By.id("input33"));
     }
 
-    public DynamicElement submitButton() {
-        return getDynamicElement().addSearch(By.id("signin-button"));
+    public WebElement submitButton() {
+        return driver.findElement(By.linkText("Sign In"));
     }
 
     public void login(String username, String password) {
@@ -65,4 +66,5 @@ public class OktaLogin extends AbstractPageObject {
     @Override public void setPath(String s) {
         throw new UnsupportedOperationException();
     }
+    
 }
