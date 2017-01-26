@@ -25,15 +25,17 @@ public class OktaLogin extends AbstractPageObject {
     }
 
     public WebElement userNameInputField() {
-        return driver.findElement(By.id("input26"));
+        return new DynamicElement(driver,"username").addSearch(By.id("input26"));
+    	//return driver.findElement(By.id("input26"));
+        
     }
 
     public WebElement passwordInputField() {
-        return driver.findElement(By.id("input33"));
+        return new DynamicElement(driver,"Password").addSearch(By.id("input33"));
     }
 
     public WebElement submitButton() {
-        return driver.findElement(By.linkText("Sign In"));
+        return new DynamicElement(driver,"Submit Button").addSearch(By.xpath("//input[@value='Sign In']"));
     }
 
     public void login(String username, String password) {

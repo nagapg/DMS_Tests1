@@ -18,6 +18,8 @@ import org.junit.rules.ErrorCollector;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 
 
 @RunWith(AmwayProwlRunner.class) public class MAGIC_AnnualBonusScreen {
@@ -32,13 +34,15 @@ import org.openqa.selenium.WebDriver;
         String baseUrl = EndpointProvider.getEndpoint();
         driver = WebDriverManager.getInstance().getDriver();
 
-        oktaLogin = new OktaLogin(driver, null);
+        oktaLogin = new OktaLogin(driver, Reports.ResultObject);
         oktaLogin.login("cmns559",
             "our49pot");// TODO: Make this grab password from environment variables
         driver.getTitle();
 
-        magicPage = new MagicPage(driver, null);
+        magicPage = new MagicPage(driver, Reports.ResultObject);
         magicPage.setBaseUrl(baseUrl);
+
+	
         magicPage.aboLookup("010", "9995", "012017");
     }
     

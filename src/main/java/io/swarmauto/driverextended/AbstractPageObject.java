@@ -12,6 +12,7 @@ public abstract class AbstractPageObject implements PageObject{
 
    
     public void navigate(WebDriver webDriver, String page) {
+    	System.out.println("Navigating to: " + page);
         webDriver.navigate().to(page);
     }
 
@@ -27,6 +28,7 @@ public abstract class AbstractPageObject implements PageObject{
 
     
     public void navigate() {
+    	System.out.println("Navigating to: " + getPageUrl());
         navigate(getPageUrl());
     }
 

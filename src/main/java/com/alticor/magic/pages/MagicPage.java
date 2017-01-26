@@ -83,9 +83,11 @@ public class MagicPage extends AbstractPageObject {
         return getDynamicElement().addSearch(By.className("login-as-container"));
     }
 
+
     public void aboLookup(String affiliateNumber, String aboNumber, String period) {
         navigate();
 
+       
         if (affiliateNumber != null) {
             DynamicElement aff = affiliateInputField();
             aff.clear();

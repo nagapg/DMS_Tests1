@@ -3,43 +3,44 @@ package io.swarmauto.driverextended;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+
+import com.google.common.base.Function;
 
 public class DynamicElement implements WebElement
 {
     private WebDriver driver;
     private WebElement rootElement;
-	private String displayName = null;
-	private Report report;
+	private String displayName = "";
+	
 
     private ArrayList<By> searchOptions = new ArrayList<By>();
     
 
     public DynamicElement() {
         // No setup necessary
+    	System.out.println("Empty Dynamic Element Constructor");
     }
  
 
-    public DynamicElement(WebDriver driver, String DisplayName) {
-        this(driver, null, DisplayName);
-    }
-/*
-    public DynamicElement(WebDriver driver, Report report) {
-        this(driver, report, rootElement.getTagName());
-    }
-*/
-    public DynamicElement(WebDriver driver, Report report, String displayName) {
+    public DynamicElement(WebDriver driver, String displayName) {
+    	System.out.println("Defining DE,  Driver: " + driver.toString() +" DE Name: " + displayName);
         this.driver = driver;
-        this.report = new SafeReport(report);
+        this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         this.displayName = displayName;
         
     }
 
     private DynamicElement(WebDriver driver, WebElement foundrootElement) {
+    	System.out.println("Defining DE,  Driver: " + driver.toString() +" DE Name: " + foundrootElement.getText());
         this.rootElement = foundrootElement;
         this.driver = driver;
+        this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         displayName = foundrootElement.getTagName();
     }
 
@@ -58,30 +59,49 @@ public class DynamicElement implements WebElement
      */
     public WebElement returnRoot()
     {
+    	
     	this.displayName = rootElement.getTagName();
         return rootElement;
     }
 
   
     public void clear() {
+    	System.out.println("Clearing a field");
+    	System.out.println("Clearing DE,  Driver: " + driver.toString() +" DE Name: " + displayName);
         this.find();
         this.rootElement.clear();
-        report.writeStep("Clear element " + displayName);
+       
         
     }
 
     
     public void click() {
+    	System.out.println("Clicking a Field");
+    	System.out.println("Clicking DE,  Driver: " + driver.toString() +" DE Name: " + displayName);
         this.find();
         this.rootElement.click();
-        this.report.writeStep("Click element " + displayName);
+      
         
     }
 
    
     public WebElement findElement(By by) {
-        rootElement = rootElement.findElement(by);
-        return rootElement;
+    	// Waiting 30 seconds for an element to be present on the page, checking
+    	// for its presence once every 5 seconds.
+    	Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+    	    .withTimeout(30, TimeUnit.SECONDS)
+    	    .pollingEvery(5, TimeUnit.SECONDS)
+    	    .ignoring(NoSuchElementException.class);
+
+    	WebElement foo = wait.until(new Function<WebDriver, WebElement>() 
+    	{
+    	  public WebElement apply(WebDriver driver) {
+    		  rootElement = rootElement.findElement(by);
+    		  System.out.println("Finding an Element");
+    	        return rootElement;
+    	}
+    	});
+       return foo;
     }
 
     
@@ -129,6 +149,7 @@ public class DynamicElement implements WebElement
 
 
     public boolean isDisplayed() {
+    	System.out.println("Checking to see if it is displayed");
         this.find();
         return this.rootElement.isDisplayed();
     }
@@ -149,14 +170,16 @@ public class DynamicElement implements WebElement
     public void sendKeys(CharSequence... arg0) {
         this.find();
         this.rootElement.sendKeys(arg0);
-        report.writeStep("Send Keys (" + arg0 + ") to  element " + displayName);
+        System.out.println("Sending Key " + arg0);
+    
         
     }
     
     public void sendKeys(String argument){
     	this.find();
     	this.rootElement.sendKeys(argument);
-    	report.writeStep("Send Keys (" + argument + ") to element " + displayName);
+    	System.out.println("Sending Key " + argument);
+    	
     	
     }
 
@@ -164,11 +187,13 @@ public class DynamicElement implements WebElement
     public void submit() {
         this.find();
         this.rootElement.submit();
-        report.writeStep("Submit element " + displayName);
+        System.out.println("Submit");
+     
        
     }
+      
 
-    public DynamicElement findDynamicElement(By by)
+    private DynamicElement findDynamicElement(By by)
     {
         return new DynamicElement(driver, rootElement.findElement(by));
     }
@@ -226,24 +251,22 @@ public class DynamicElement implements WebElement
     }
 
     private DynamicElement find()  {
+    	System.out.println("Finding DE,  Driver: " + driver.toString() +" DE Name: " + displayName);
         if(rootElement == null || elementStale())
         {
             for (By currentBy: searchOptions)
             {
                 try{
                     rootElement = driver.findElement(currentBy);
+                    System.out.println("Found Element DE,  Driver: " + driver.toString() +" By " + currentBy);
                     return this;
                 }
                 catch(Exception e)
                 {
+                	System.out.println("Didn't Find DE,  Driver: " + driver.toString() +" Attempted By: " + currentBy);
                 	continue;
                 }
             }
-
-            report.validate("Could not find the element " + displayName, false);
- 
-
-
 
             return null;
             //(throw new Exception("Element Not Found" + displayName));
@@ -257,8 +280,18 @@ public class DynamicElement implements WebElement
 		return null;
 	}
 
+	
 	public Rectangle getRect() {
+
+
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+
+
+
+	 
+
+	
 }

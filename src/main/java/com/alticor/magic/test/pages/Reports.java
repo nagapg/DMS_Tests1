@@ -15,7 +15,8 @@ public abstract class Reports implements Report{
 
 	//File Name
 	public static String sResultantFileName;
-	
+	//Test Result Object (Prowl)
+	public static TestReport ResultObject;
 	// Functionality List
 	public static HashMap<String, String> map = new HashMap();
 	// Initate object for Xtent reporter
@@ -50,6 +51,8 @@ public abstract class Reports implements Report{
 		sResultantFileName="Report/Results"+sTimeStamp+".html";
 		System.out.println(sResultantFileName);
 		Reports.setUpstartTest(stest);
+		ResultObject = new TestReport(stest);
+		
 	}
 
 	public static void  setUpstartTest(String testName) {
@@ -101,6 +104,8 @@ public abstract class Reports implements Report{
 
 	@Override
 	public void validate(String text, boolean passFail) {
+		
+		ResultObject.AddStep(new StepReport(text,passFail));
 		switch (Boolean.toString(passFail)) {
 		case "true":				
 			Log.info(text);
@@ -113,18 +118,21 @@ public abstract class Reports implements Report{
 			break;
 		}
 		
+		
 	}
 
 	@Override
 	public void writeStep(String text) {
 		Log.info(text);
 		this.logResults(LogStatus.INFO, text,"");
+		ResultObject.AddStep(new StepReport(text,true));
 		
 	}
 
 	@Override
 	public void writeReport() {
 		Log.endTestCase(stest);
+		ResultObject.CloseRun();
 		
 	}
 

@@ -4,6 +4,7 @@ import com.alticor.prowl.UnsupportedBrowserException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -15,12 +16,18 @@ public class DriverProvider {
     }
 
     public static WebDriver getFirefoxDriver() {
-        WebDriver driver = new FirefoxDriver();
-
-        System.setProperty("webdriver.firefox.driver","drivers/geckodriver.exe");
         
+
+        System.setProperty("webdriver.gecko.driver","drivers/geckodriver.exe");
+        FirefoxProfile p = new	FirefoxProfile();
+        p.setAcceptUntrustedCertificates(true);
+        p.setAssumeUntrustedCertificateIssuer(false);
+        WebDriver driver = new FirefoxDriver(p);
+        DesiredCapabilities cap = new DesiredCapabilities();
+        cap.setCapability("ACCEPT_SSL_CERTS", true);
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
+      
         configureDriver(driver);
 
         return driver;
@@ -87,6 +94,6 @@ public class DriverProvider {
      */
     public static WebDriver getDriver() {
         String browser = System.getenv("BROWSER");
-        return getDriver(browser == null ? "ie" : browser);
+        return getDriver(browser == null ? "chrome" : browser);
     }
 }
