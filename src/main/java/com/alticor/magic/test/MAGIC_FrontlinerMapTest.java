@@ -1,64 +1,65 @@
-//Expected:Navigate to Frontliner Map Screen//
+//Expected:Display MAGIC Frontliner Map Screen//
 
 package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
-import com.alticor.magic.report.Reports;
+import com.alticor.magic.pages.MagicPage;
+import com.alticor.magic.test.pages.Reports;
+import com.alticor.okta.OktaLogin;
+import com.alticor.prowl.AmwayProwlRunner;
+import com.alticor.prowl.WebDriverManager;
+import com.alticor.prowl.provider.EndpointProvider;
 import com.relevantcodes.extentreports.LogStatus;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ErrorCollector;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+@RunWith(AmwayProwlRunner.class) public class MAGIC_FrontlinerMapTest {
+
+    static WebDriver driver;
+    static MagicPage magicPage;
+    static OktaLogin oktaLogin;
+    @Rule public ErrorCollector collector = new ErrorCollector();
+
+    @BeforeClass public static void setup() {
+    	
+    	Reports.setTestCaseName("FrontlinerMapTest");
+        String baseUrl = EndpointProvider.getEndpoint();
+        driver = WebDriverManager.getInstance().getDriver();
+
+        oktaLogin = new OktaLogin(driver, null);
+        oktaLogin.login("cmns559",
+            "our49pot");// TODO: Make this grab password from environment variables
+        driver.getTitle();
+
+        magicPage = new MagicPage(driver, null);
+        magicPage.setBaseUrl(baseUrl);
+        magicPage.aboLookup("010", "9995", "062016");
+    }
+
+    @AfterClass public static void tearDown() {
+        WebDriverManager.getInstance().close();
+        Reports.endTest();
+    }
 
 
-import org.junit.Test;
 
-public class MAGIC_FrontlinerMapTest {
+
+
 	/** Declare variables */
-    private boolean bStatus=false;
+	boolean bStatus;
 
-    @Before
-   	public void setUp() throws Exception {
-   		Reports.setTestCaseName("MAGIC_AwardBoard");
-   		bStatus=GeneralFunctions.openIEBrowser("https://magic-gamma:9452/EBS_UI_Web/Magic");
-   		GeneralFunctions.clickElement(By.id("overridelink"));
+	@Test public void test() {
 
-   		if(bStatus){
-           	System.out.println("Application-Pass");
-           }	
-           else{
-           	System.out.println("Application-Fail");
-           }
-   		}
+      GeneralFunctions.driver=driver;
 
-   	
-   	  @After
-         public void tearDown() throws Exception {
-   	 Reports.endTest();
-   	   }
-
-   	  
-   	@Test
-	  public void test() {
-		  
-		GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"),"9995");
-	   		if(bStatus){
-	           	System.out.println("Abo-Pass");
-	           }	
-	           else{
-	           	System.out.println("Abo-Fail");
-	           }
-	   	
-	   		
-	   		bStatus=GeneralFunctions.clickElement(By.id("SubmitButton"));
-	   		if(bStatus){
-	           	System.out.println("submit-Pass");
-	           }	
-	           else{
-	           	System.out.println("submit-Fail");
-	           }
-	   		
-	   		bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='IboDashboardMapExpand']/div[5]/a"));
+			//click on frontliner map//
+		  bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='IboDashboardMapExpand']/div[5]/a"));
 	  	  if (bStatus) {
 	            System.out.println("Navigated to Frontliner Map Screen");
 	        } else {
@@ -79,15 +80,16 @@ public class MAGIC_FrontlinerMapTest {
 	        } else {
 	            System.out.println("Actual:Cannot display Frontliner Map Screen");
 	        }
-	  	  com.alticor.magic.GeneralFunctions.close();
-	   if (bStatus) {
-	            Reports.logResults(LogStatus.PASS, "Test Passed", "MAGIC_AwardBoard");
+	
+	  	com.alticor.magic.GeneralFunctions.close();
+	  	
+	   	//Test Reports//
+	        if (bStatus) {
+	            Reports.logResults(LogStatus.PASS, "Test Passed", "FrontlinerMapTest");
 
 	        } else {
-	            Reports.logResults(LogStatus.FAIL, "Test Failed", "MAGIC_AwardBoard");
+	            Reports.logResults(LogStatus.FAIL, "Test Failed", "FrontlinerMapTest");
 	        }
+	  	  
 	       }
 	  }
-
-
-	
