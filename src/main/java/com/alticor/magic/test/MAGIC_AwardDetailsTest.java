@@ -75,6 +75,7 @@ import org.openqa.selenium.WebDriver;
       	System.out.println("Actual:AwardDetails not displayed");
       }
 		
+ 		//Close the browser//
  	com.alticor.magic.GeneralFunctions.close();
  		
      //Test Reports//
