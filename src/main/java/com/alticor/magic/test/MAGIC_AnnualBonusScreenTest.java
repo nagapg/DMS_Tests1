@@ -22,7 +22,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
 
-@RunWith(AmwayProwlRunner.class) public class MAGIC_AnnualBonusScreen {
+@RunWith(AmwayProwlRunner.class) public class MAGIC_AnnualBonusScreenTest {
 	
 	static WebDriver driver;
     static MagicPage magicPage;

@@ -21,7 +21,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-@RunWith(AmwayProwlRunner.class) public class MAGIC_AwardBoard {
+@RunWith(AmwayProwlRunner.class) public class MAGIC_AwardBoardTest {
 	
 	static WebDriver driver;
     static MagicPage magicPage;

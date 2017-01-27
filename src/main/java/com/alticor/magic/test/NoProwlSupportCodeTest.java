@@ -130,6 +130,7 @@ public void test() {
 	        }
 			
 			 com.alticor.magic.GeneralFunctions.close();
+			 
 			
 			//Test Results// 
 			if (bStatus) {
