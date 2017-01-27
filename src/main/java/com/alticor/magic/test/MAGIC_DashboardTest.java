@@ -1,4 +1,5 @@
-//Expected:Navigate to MAGIC Dashboard//
+//Expected:Navigate to  MAGIC Dashboard Screen//
+
 package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
@@ -20,14 +21,14 @@ import org.openqa.selenium.WebDriver;
 
 @RunWith(AmwayProwlRunner.class) public class MAGIC_DashboardTest {
 	
-	static WebDriver driver;
+    static WebDriver driver;
     static MagicPage magicPage;
     static OktaLogin oktaLogin;
     @Rule public ErrorCollector collector = new ErrorCollector();
 
     @BeforeClass public static void setup() {
     	
-    	Reports.setTestCaseName("MAGIC_Dashboard");
+    	Reports.setTestCaseName("DashboardTest");
         String baseUrl = EndpointProvider.getEndpoint();
         driver = WebDriverManager.getInstance().getDriver();
 
@@ -38,7 +39,7 @@ import org.openqa.selenium.WebDriver;
 
         magicPage = new MagicPage(driver, null);
         magicPage.setBaseUrl(baseUrl);
-        magicPage.aboLookup("010", "9995", "072016");
+        magicPage.aboLookup("010", "9995", "062016");
     }
 
     @AfterClass public static void tearDown() {
@@ -49,29 +50,11 @@ import org.openqa.selenium.WebDriver;
     /** Declare variables */
     private boolean bStatus=false;
 	
-	 
-	/* @Before public void setUp() throws Exception {
-	        Reports.setTestCaseName("MAGIC_Dashboard");
-	       bStatus = GeneralFunctions.openIEBrowser("https://magic-gamma:9452/EBS_UI_Web/Magic");
-          GeneralFunctions.clickElement(By.id("overridelink"));
-	        if (bStatus) {
-	            System.out.println("Navigated to Environment");
-	        } else {
-	            System.out.println("Cannot navigate to Environment");
-	        }
-	    }*/
+     @Test public void test() {
 
-	  @Test public void test() {
-		 /* bStatus =GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "9995");
-		  if (bStatus) {
-	            System.out.println("ABO entered");
-	        } else {
-	            System.out.println("Cannot enter ABO");
-	        }*/
-	    
-		  GeneralFunctions.driver=driver;
-		  
-		  //Click on Dashboard//
+	GeneralFunctions.driver=driver;
+
+		  //click on Dashboard//
 	  bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='verticleMenuExpand']/div[4]"));
 	  if (bStatus) {
           System.out.println("Navigated to Dashboard");
@@ -95,20 +78,14 @@ import org.openqa.selenium.WebDriver;
       }
 	  
 	  
-	  com.alticor.magic.GeneralFunctions.close();
+com.alticor.magic.GeneralFunctions.close();
 		
 		//Test Reports//
-		 if (bStatus) {
-	            Reports.logResults(LogStatus.PASS, "Test Pass", "MAGIC_Dashboard");
+	if (bStatus) {
+	            Reports.logResults(LogStatus.PASS, "Test Pass", "DashboardTest");
 
 	        } else {
-	            Reports.logResults(LogStatus.FAIL, "Test Fail", "MAGIC_Dashboard");
+	            Reports.logResults(LogStatus.FAIL, "Test Fail", "DashboardTest");
 	        }
 }
-
-/*@After public void afterTest() {
-	Reports.endTest();
-}*/
-	  
 }
-
