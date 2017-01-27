@@ -29,6 +29,7 @@ public class Reports {
     private static String sTimeStamp;
     private static boolean timeStampCreated = false;
     private static ExtentTest objXTest;
+    public static TestReport CurrentTest;
 
     //public static void setFunctionality(/*String sFunctionality,*/String sTestCaseName) {
     public static void setTestCaseName(/*String sFunctionality,*/String sTestCaseName) {
@@ -50,7 +51,9 @@ public class Reports {
     }
 
     public static void setUpstartTest(String testName) {
+    	
         objXtn = new ExtentReports(sResultantFileName, false);
+        //TODO: need to setup new test object but if one isn't in the system environment make new one instead of looking for existing
 
         objXTest = objXtn.startTest(testName);
 

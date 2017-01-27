@@ -2,13 +2,15 @@ package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
 import com.alticor.magic.report.Reports;
+import com.alticor.prowl.AmwayProwlRunner;
 import com.relevantcodes.extentreports.LogStatus;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 
-public class NoProwlSupportCodeTest {
+@RunWith(AmwayProwlRunner.class)public class NoProwlSupportCodeTest {
 
 	/** Declare variables */
 	boolean bStatus;

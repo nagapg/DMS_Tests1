@@ -16,7 +16,7 @@ public class AmwayProwlRunner extends BlockJUnit4ClassRunner {
         // Setup Report
 
         notifier.addListener(new AfterFailureScreenshotHook());
-
+        System.out.println(" The Pattern is:" + System.getenv("windir"));
         super.run(notifier);
     }
 }
