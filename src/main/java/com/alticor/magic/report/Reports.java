@@ -3,6 +3,7 @@ package com.alticor.magic.report;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import com.sun.jna.platform.win32.Guid.GUID;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -53,8 +54,19 @@ public class Reports {
     public static void setUpstartTest(String testName) {
     	
         objXtn = new ExtentReports(sResultantFileName, false);
+        
         //TODO: need to setup new test object but if one isn't in the system environment make new one instead of looking for existing
 
+        if (System.getenv("TestID") != null){
+        	
+        CurrentTest = new TestReport(testName,new Parms(), GUID.fromString(System.getenv("TestID")));
+        
+        }
+        else{
+        	currentTest = new TestReport(testName, new Parms())
+        }
+    	
+        
         objXTest = objXtn.startTest(testName);
 
 

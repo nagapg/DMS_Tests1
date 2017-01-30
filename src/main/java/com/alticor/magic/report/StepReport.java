@@ -4,8 +4,6 @@ package com.alticor.magic.report;
 
 import java.util.Date;
 
-import org.openqa.selenium.WebDriver;
-
 import com.sun.jna.platform.win32.Guid.GUID;
 
 
@@ -29,16 +27,7 @@ public class StepReport {
     private String BURL;
     private String ENV;
     private String TID;
-    /**
-     * Returns a webdriver based on the environment variable BROWSER. The default for this is to use Firefox for now
-     *
-     * @return Configured WebDriver
-     
-    public static WebDriver getDriver() {
-        String browser = System.getenv("BROWSER");
-        return getDriver(browser == null ? "chrome" : browser);
-    }
-    */
+
     
     public StepReport(String stepText, GUID testID){
     	this(stepText, testID, true, "0",null);     	 
