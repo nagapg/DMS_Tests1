@@ -2,15 +2,18 @@ package com.alticor.magic.report;
 
 
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import com.sun.jna.platform.win32.Guid.GUID;
 
+
+
 public class TestReport {
 	
 	
-    public GUID RunID; 
-    public GUID ID; 
+    public String RunID; 
+    public String ID; 
     public String Name; 
     public Date StartTime ;
     public Date EndTime; 
@@ -20,8 +23,10 @@ public class TestReport {
     public String Browser; 
     public String TaskID; 
     
+    public ArrayList<StepReport> steps = new ArrayList<StepReport>(); 
+    
 
-    public TestReport(String name, Parms par, GUID TestID)
+    public TestReport(String name, Parms par, String TestID)
     {
         BaseURL = par.BaseURL;
         ID = TestID;
@@ -33,6 +38,8 @@ public class TestReport {
         RunID = par.RunID;
         Browser = par.Browser;
         PreReport(par);
+  
+        steps.add(new StepReport("Test Start",ID));
     }
 
     public TestReport(String name, Parms par)
@@ -49,7 +56,7 @@ public class TestReport {
         Browser = par.Browser;
         if ((par.TestID == null))
         {
-            ID = GUID.newGuid();
+            ID = GUID.newGuid().toGuidString();
         }
         else
         {
@@ -79,6 +86,20 @@ public class TestReport {
     	//TODO: setup Closure of test if it  was created with in the test if not leave it open for other process to close
         //DatabaseActions.ProwlDBPostTest(this);
     }
+    
+    public void AddStep(StepReport testStep)
+    {
+    	    	
+    	try{
+    		steps.add(testStep);
+    	}
+    	catch(Exception e)
+    	{
+    		e.printStackTrace();
+    	}
+    	
+    }
+    
 	
 
 }

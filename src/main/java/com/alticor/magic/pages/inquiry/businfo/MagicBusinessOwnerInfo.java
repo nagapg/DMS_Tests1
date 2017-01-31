@@ -1,6 +1,8 @@
 package com.alticor.magic.pages.inquiry.businfo;
 
 import com.alticor.magic.pages.MagicPage;
+import com.alticor.magic.report.TestReport;
+
 import io.swarmauto.driverextended.DynamicElement;
 import io.swarmauto.driverextended.Report;
 import org.openqa.selenium.By;
@@ -8,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 
 public class MagicBusinessOwnerInfo extends MagicPage {
 
-    public MagicBusinessOwnerInfo(WebDriver d, Report r) {
+    public MagicBusinessOwnerInfo(WebDriver d, TestReport r) {
         super(d, r, "/EBS_UI_Web/BusinessOwnerInfo");
     }
 

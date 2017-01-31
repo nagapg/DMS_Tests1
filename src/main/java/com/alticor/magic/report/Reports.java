@@ -59,31 +59,62 @@ public class Reports {
 
         if (System.getenv("TestID") != null){
         	
-        CurrentTest = new TestReport(testName,new Parms(), GUID.fromString(System.getenv("TestID")));
+        CurrentTest = new TestReport(testName,new Parms(), GUID.fromString(System.getenv("TestID")).toGuidString());
         
         }
         else{
-        	currentTest = new TestReport(testName, new Parms())
+        	CurrentTest = new TestReport(testName, new Parms());
         }
     	
         
         objXTest = objXtn.startTest(testName);
-
+        System.out.println("Is this Test in the DB? " + DatabaseConnect.ProwlDBTestExist(CurrentTest));
 
     }
 
     public static void logResults(LogStatus status, String stepName, String StepDes) {
         objXTest.log(status, stepName, StepDes);
+        
+        switch (status)
+        {
+        case PASS:
+        case SKIP:
+        case INFO:
+        CurrentTest.AddStep(new StepReport(stepName,CurrentTest.ID));
+        break;
+        
+        case FAIL:
+        case ERROR:
+        case FATAL:	
+        	CurrentTest.AddStep(new StepReport(stepName,CurrentTest.ID,false));
+        	break;
+        }
     }
 
     public static void logResults(LogStatus status, String stepName, String StepDes,
         String screenshot) {
         objXTest.log(status, stepName, StepDes);
+        
+        switch (status)
+        {
+        case PASS:
+        case SKIP:
+        case INFO:
+        CurrentTest.AddStep(new StepReport(stepName,CurrentTest.ID));
+        break;
+        
+        case FAIL:
+        case ERROR:
+        case FATAL:	
+        	CurrentTest.AddStep(new StepReport(stepName,CurrentTest.ID,false));
+        	break;
+        }
     }
 
     public static void endTest() {
         objXtn.endTest(objXTest);
         objXtn.close();
+        CurrentTest.Close();
     }
 
 

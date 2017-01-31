@@ -5,9 +5,11 @@ import io.swarmauto.driverextended.Report;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import com.alticor.magic.report.TestReport;
+
 public class MagicDashboard extends MagicPage {
 
-    public MagicDashboard(WebDriver d, Report r) {
+    public MagicDashboard(WebDriver d, TestReport r) {
         super(d, r, "/EBS_UI_Web/Magic");
     }
 

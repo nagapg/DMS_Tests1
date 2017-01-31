@@ -1,6 +1,8 @@
 package com.alticor.magic.pages;
 
-import com.alticor.magic.report.DummyReport;
+import com.alticor.magic.report.Reports;
+import com.alticor.magic.report.TestReport;
+
 import io.swarmauto.driverextended.AbstractPageObject;
 import io.swarmauto.driverextended.DynamicElement;
 import io.swarmauto.driverextended.Report;
@@ -20,15 +22,15 @@ public class MagicPage extends AbstractPageObject {
         path = MAGIC_HOME;
     }
 
-    public MagicPage(WebDriver d, Report r) {
+    public MagicPage(WebDriver d, TestReport r) {
         this(d, r, MAGIC_HOME);
     }
 
-    public MagicPage(WebDriver d, Report r, String p) {
+    public MagicPage(WebDriver d, TestReport r, String p) {
         path = p;
         driver = d;
         if (r == null) {
-            report = new DummyReport();
+            report = Reports.CurrentTest;
         } else {
             report = r;
         }
@@ -65,6 +67,7 @@ public class MagicPage extends AbstractPageObject {
 
     public DynamicElement affiliateInputField() {
         return getDynamicElement().addSearch(By.id("selectedAffLeftContainer"));
+        
     }
 
     public DynamicElement aboNumberInputField() {
@@ -85,7 +88,7 @@ public class MagicPage extends AbstractPageObject {
 
 
     public void aboLookup(String affiliateNumber, String aboNumber, String period) {
-        navigate();
+        driver.navigate();
 
        
         if (affiliateNumber != null) {

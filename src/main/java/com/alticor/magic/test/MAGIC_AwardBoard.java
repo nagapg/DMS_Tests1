@@ -6,7 +6,7 @@ package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
 import com.alticor.magic.pages.MagicPage;
-import com.alticor.magic.test.pages.Reports;
+import com.alticor.magic.report.Reports;
 import com.alticor.okta.OktaLogin;
 import com.alticor.prowl.AmwayProwlRunner;
 import com.alticor.prowl.WebDriverManager;

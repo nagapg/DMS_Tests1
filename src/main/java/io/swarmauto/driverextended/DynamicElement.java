@@ -10,38 +10,41 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
+import com.alticor.magic.report.Reports;
+import com.alticor.magic.report.StepReport;
 import com.google.common.base.Function;
 
 public class DynamicElement implements WebElement
 {
     private WebDriver driver;
     private WebElement rootElement;
-	private String displayName = "";
+   
+	
 	
 
     private ArrayList<By> searchOptions = new ArrayList<By>();
     
-
+/*
     public DynamicElement() {
         // No setup necessary
     	System.out.println("Empty Dynamic Element Constructor");
     }
- 
+ */
 
-    public DynamicElement(WebDriver driver, String displayName) {
-    	System.out.println("Defining DE,  Driver: " + driver.toString() +" DE Name: " + displayName);
+    public DynamicElement(WebDriver driver) {
+    	
         this.driver = driver;
         this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        this.displayName = displayName;
+        Reports.CurrentTest.AddStep(new StepReport(this.driver.toString(),Reports.CurrentTest.ID));
         
     }
 
     private DynamicElement(WebDriver driver, WebElement foundrootElement) {
-    	System.out.println("Defining DE,  Driver: " + driver.toString() +" DE Name: " + foundrootElement.getText());
+    	Reports.CurrentTest.AddStep(new StepReport("Defining DE,  Driver: " + driver.toString() +" DE Name: " + foundrootElement.getText(),Reports.CurrentTest.ID));
         this.rootElement = foundrootElement;
         this.driver = driver;
         this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        displayName = foundrootElement.getTagName();
+        
     }
 
     public DynamicElement addSearch(By byToAdd) {
@@ -58,16 +61,18 @@ public class DynamicElement implements WebElement
      * @return current
      */
     public WebElement returnRoot()
-    {
+    {   	
     	
-    	this.displayName = rootElement.getTagName();
         return rootElement;
     }
 
   
     public void clear() {
     	System.out.println("Clearing a field");
-    	System.out.println("Clearing DE,  Driver: " + driver.toString() +" DE Name: " + displayName);
+    	Reports.CurrentTest.AddStep(
+    			new StepReport("Clearing "+ this +",  Driver: " + driver.toString(),
+    					Reports.CurrentTest.ID)
+    			);
         this.find();
         this.rootElement.clear();
        
@@ -76,8 +81,7 @@ public class DynamicElement implements WebElement
 
     
     public void click() {
-    	System.out.println("Clicking a Field");
-    	System.out.println("Clicking DE,  Driver: " + driver.toString() +" DE Name: " + displayName);
+    	Reports.CurrentTest.AddStep(new StepReport("Click",Reports.CurrentTest.ID));
         this.find();
         this.rootElement.click();
       
@@ -251,19 +255,19 @@ public class DynamicElement implements WebElement
     }
 
     private DynamicElement find()  {
-    	System.out.println("Finding DE,  Driver: " + driver.toString() +" DE Name: " + displayName);
+    	
         if(rootElement == null || elementStale())
         {
             for (By currentBy: searchOptions)
             {
                 try{
                     rootElement = driver.findElement(currentBy);
-                    System.out.println("Found Element DE,  Driver: " + driver.toString() +" By " + currentBy);
+                    Reports.CurrentTest.AddStep(new StepReport("Found Element,  Driver: " + driver.toString() +" By " + currentBy,Reports.CurrentTest.ID));
                     return this;
                 }
                 catch(Exception e)
                 {
-                	System.out.println("Didn't Find DE,  Driver: " + driver.toString() +" Attempted By: " + currentBy);
+                	Reports.CurrentTest.AddStep(new StepReport("Didn't Find element,  Driver: " + driver.toString() +" Attempted By: " + currentBy,Reports.CurrentTest.ID,false));
                 	continue;
                 }
             }
