@@ -65,10 +65,10 @@ public class Reports {
         else{
         	CurrentTest = new TestReport(testName, new Parms());
         }
-    	
+    
         
         objXTest = objXtn.startTest(testName);
-        System.out.println("Is this Test in the DB? " + DatabaseConnect.ProwlDBTestExist(CurrentTest));
+        
 
     }
 

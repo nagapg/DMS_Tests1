@@ -2,7 +2,8 @@ package com.alticor.magic.report;
 
 
 
-import java.util.Date;
+import java.sql.Timestamp;
+import java.util.Calendar;
 
 
 
@@ -11,7 +12,7 @@ public class StepReport {
 	
     public String ID;// { get; set; }
     public String TestID;// { get; set; }
-    public Date DateTime; // { get; set; }
+    public Timestamp DateTime; // { get; set; }
     public String StepText; // { get; set; }
     public boolean PassFail; // { get; set; }
     public String AppVersion; // { get; set; }
@@ -36,7 +37,8 @@ public class StepReport {
     public StepReport(String stepText, String testID, boolean passFail, String ApplicationVersion, byte[] screenShoot)
     {
        
-        DateTime = new Date();
+    	Calendar currenttime = Calendar.getInstance();
+        DateTime = new Timestamp((currenttime.getTime()).getTime());
         StepText = stepText;
         PassFail = passFail;
         TestID = testID;
@@ -51,6 +53,7 @@ public class StepReport {
     private void Report()
     {
     
+    	DatabaseConnect.ProwlDBStoreStep(this);
     	System.out.println(ID + " : " + StepText +" : " +  PassFail  );
     	//System.out.println("TestID:" + TestID);
 

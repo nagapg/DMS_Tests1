@@ -3,7 +3,8 @@ package com.alticor.magic.report;
 
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
+import java.sql.Timestamp;
 
 import com.sun.jna.platform.win32.Guid.GUID;
 
@@ -15,8 +16,8 @@ public class TestReport {
     public String RunID; 
     public String ID; 
     public String Name; 
-    public Date StartTime ;
-    public Date EndTime; 
+    public Timestamp StartTime ;
+    public Timestamp EndTime; 
     public boolean PassFail; 
     
     public String BaseURL; 
@@ -30,7 +31,10 @@ public class TestReport {
     {
         BaseURL = par.BaseURL;
         ID = TestID;
-        StartTime = new Date();
+        Calendar currenttime = Calendar.getInstance();
+        StartTime = new Timestamp((currenttime.getTime()).getTime());
+
+        
         
         Name = name;
         
@@ -47,7 +51,8 @@ public class TestReport {
         BaseURL = par.BaseURL;
         
          
-        StartTime = new Date();
+        Calendar currenttime = Calendar.getInstance();
+        StartTime = new Timestamp((currenttime.getTime()).getTime());
        
         Name = name;
         
@@ -67,7 +72,8 @@ public class TestReport {
 
     public void Close()
     {
-        EndTime = new Date();
+    	Calendar currenttime = Calendar.getInstance();
+        EndTime = new Timestamp((currenttime.getTime()).getTime());
 
         // determine if the test was a pass or fail 
 
@@ -77,6 +83,15 @@ public class TestReport {
 
     private void PreReport(Parms par)
     {
+    	if(!DatabaseConnect.ProwlDBTestExist(this))
+    	{
+    		System.out.println("Test Not Found in DB Creating Record for " + this.ID);
+    		DatabaseConnect.ProwlDBPreTest(this, par);
+    	}
+    	else
+    	{
+    	   System.out.println("Test found in DB.  Using Identified record " + this.ID);
+    	}
     	//TODO: setup Database connections to write or retrieve test info from prowl
         //DatabaseActions.ProwlDBPreTest(this, par);
     }
@@ -84,7 +99,7 @@ public class TestReport {
     private void Report()
     {
     	//TODO: setup Closure of test if it  was created with in the test if not leave it open for other process to close
-        //DatabaseActions.ProwlDBPostTest(this);
+        DatabaseConnect.ProwlDBPostTest(this);
     }
     
     public void AddStep(StepReport testStep)

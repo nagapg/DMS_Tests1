@@ -34,9 +34,29 @@ public class Parms {
 	        }
 	        
 	        this.CallingIP = System.getenv("CallingIP");
+	        if(this.CallingIP == null){
+	        
+	        	this.CallingIP = "";
+	        
+	        }
 	        this. BaseURL = System.getenv("BaseURL");
+	        if(this.BaseURL == null){
+		        
+	        	this.BaseURL = "";
+	        
+	        }
 	        this.Env = System.getenv("Environment");
+	        if(this.Env == null){
+		        
+	        	this.Env = "";
+	        
+	        }
 	        this.Browser = System.getenv("Browser");
+	        if(this.Browser == null){
+		        
+	        	this.Browser = "";
+	        
+	        }
 	        
 	        }
 	        /*
