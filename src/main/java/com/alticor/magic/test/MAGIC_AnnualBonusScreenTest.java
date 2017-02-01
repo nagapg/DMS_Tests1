@@ -4,7 +4,7 @@ package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
 import com.alticor.magic.pages.MagicPage;
-import com.alticor.magic.test.pages.Reports;
+import com.alticor.magic.report.Reports;
 import com.alticor.okta.OktaLogin;
 import com.alticor.prowl.AmwayProwlRunner;
 import com.alticor.prowl.WebDriverManager;
@@ -34,12 +34,12 @@ import org.openqa.selenium.support.ui.Wait;
         String baseUrl = EndpointProvider.getEndpoint();
         driver = WebDriverManager.getInstance().getDriver();
 
-        oktaLogin = new OktaLogin(driver, Reports.ResultObject);
+        oktaLogin = new OktaLogin(driver, Reports.CurrentTest);
         oktaLogin.login("cmns559",
             "our49pot");// TODO: Make this grab password from environment variables
         driver.getTitle();
 
-        magicPage = new MagicPage(driver, Reports.ResultObject);
+        magicPage = new MagicPage(driver, Reports.CurrentTest);
         magicPage.setBaseUrl(baseUrl);
 
 	
