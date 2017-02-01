@@ -3,6 +3,7 @@ package com.alticor.magic.report;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import com.sun.jna.platform.win32.Guid.GUID;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -29,6 +30,7 @@ public class Reports {
     private static String sTimeStamp;
     private static boolean timeStampCreated = false;
     private static ExtentTest objXTest;
+    public static TestReport CurrentTest;
 
     //public static void setFunctionality(/*String sFunctionality,*/String sTestCaseName) {
     public static void setTestCaseName(/*String sFunctionality,*/String sTestCaseName) {
@@ -50,25 +52,69 @@ public class Reports {
     }
 
     public static void setUpstartTest(String testName) {
+    	
         objXtn = new ExtentReports(sResultantFileName, false);
+        
+        //TODO: need to setup new test object but if one isn't in the system environment make new one instead of looking for existing
 
+        if (System.getenv("TestID") != null){
+        	
+        CurrentTest = new TestReport(testName,new Parms(), GUID.fromString(System.getenv("TestID")).toGuidString());
+        
+        }
+        else{
+        	CurrentTest = new TestReport(testName, new Parms());
+        }
+    
+        
         objXTest = objXtn.startTest(testName);
-
+        
 
     }
 
     public static void logResults(LogStatus status, String stepName, String StepDes) {
         objXTest.log(status, stepName, StepDes);
+        
+        switch (status)
+        {
+        case PASS:
+        case SKIP:
+        case INFO:
+        CurrentTest.AddStep(new StepReport(stepName,CurrentTest.ID));
+        break;
+        
+        case FAIL:
+        case ERROR:
+        case FATAL:	
+        	CurrentTest.AddStep(new StepReport(stepName,CurrentTest.ID,false));
+        	break;
+        }
     }
 
     public static void logResults(LogStatus status, String stepName, String StepDes,
         String screenshot) {
         objXTest.log(status, stepName, StepDes);
+        
+        switch (status)
+        {
+        case PASS:
+        case SKIP:
+        case INFO:
+        CurrentTest.AddStep(new StepReport(stepName,CurrentTest.ID));
+        break;
+        
+        case FAIL:
+        case ERROR:
+        case FATAL:	
+        	CurrentTest.AddStep(new StepReport(stepName,CurrentTest.ID,false));
+        	break;
+        }
     }
 
     public static void endTest() {
         objXtn.endTest(objXTest);
         objXtn.close();
+        CurrentTest.Close();
     }
 
 

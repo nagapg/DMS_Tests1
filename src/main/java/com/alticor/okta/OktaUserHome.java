@@ -1,9 +1,10 @@
 package com.alticor.okta;
 
-import com.alticor.magic.report.DummyReport;
+import com.alticor.magic.report.Reports;
+import com.alticor.magic.report.TestReport;
+
 import io.swarmauto.driverextended.AbstractPageObject;
 import io.swarmauto.driverextended.DynamicElement;
-import io.swarmauto.driverextended.Report;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -11,10 +12,10 @@ public class OktaUserHome extends AbstractPageObject {
 
     private final String pageUrl = "https://amway.okta.com/app/UserHome";
 
-    public OktaUserHome(WebDriver d, Report r) {
+    public OktaUserHome(WebDriver d, TestReport r) {
         driver = d;
         if (r == null) {
-            report = new DummyReport();
+            report = Reports.CurrentTest;
         } else {
             report = r;
         }

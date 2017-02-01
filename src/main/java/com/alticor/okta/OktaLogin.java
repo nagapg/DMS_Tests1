@@ -1,9 +1,10 @@
 package com.alticor.okta;
 
-import com.alticor.magic.report.DummyReport;
+import com.alticor.magic.report.Reports;
+import com.alticor.magic.report.TestReport;
+
 import io.swarmauto.driverextended.AbstractPageObject;
 import io.swarmauto.driverextended.DynamicElement;
-import io.swarmauto.driverextended.Report;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.*;
@@ -12,10 +13,10 @@ public class OktaLogin extends AbstractPageObject {
 
     private String baseUrl = "https://amway.okta.com";
 
-    public OktaLogin(WebDriver d, Report r) {
+    public OktaLogin(WebDriver d, TestReport r) {
         driver = d;
         if (r == null) {
-            report = new DummyReport();
+            report = Reports.CurrentTest;
         } else {
             report = r;
         }
@@ -25,17 +26,17 @@ public class OktaLogin extends AbstractPageObject {
     }
 
     public WebElement userNameInputField() {
-        return new DynamicElement(driver,"username").addSearch(By.id("input26"));
+        return new DynamicElement(driver).addSearch(By.id("input26"));
     	//return driver.findElement(By.id("input26"));
         
     }
 
     public WebElement passwordInputField() {
-        return new DynamicElement(driver,"Password").addSearch(By.id("input33"));
+        return new DynamicElement(driver).addSearch(By.id("input33"));
     }
 
     public WebElement submitButton() {
-        return new DynamicElement(driver,"Submit Button").addSearch(By.xpath("//input[@value='Sign In']"));
+        return new DynamicElement(driver).addSearch(By.xpath("//input[@value='Sign In']"));
     }
 
     public void login(String username, String password) {

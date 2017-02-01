@@ -1,18 +1,21 @@
 package io.swarmauto.driverextended;
 
 import org.openqa.selenium.WebDriver;
-import io.swarmauto.driverextended.Reports.*;
+import com.alticor.magic.report.Reports;
+import com.alticor.magic.report.StepReport;
+import com.alticor.magic.report.TestReport;
+
 /**
  * Created by harolddost on 4/5/16.
  */
 public abstract class AbstractPageObject implements PageObject{
 
     protected WebDriver driver;
-    protected Report report;
+    protected TestReport report;
 
    
     public void navigate(WebDriver webDriver, String page) {
-    	System.out.println("Navigating to: " + page);
+    	report.AddStep(new StepReport("Navigating to: " + page,report.ID));
         webDriver.navigate().to(page);
     }
 
@@ -28,7 +31,7 @@ public abstract class AbstractPageObject implements PageObject{
 
     
     public void navigate() {
-    	System.out.println("Navigating to: " + getPageUrl());
+    	report.AddStep(new StepReport("Navigating to: " + getPageUrl(),report.ID));
         navigate(getPageUrl());
     }
 
@@ -39,7 +42,7 @@ public abstract class AbstractPageObject implements PageObject{
     
     
     public DynamicElement getDynamicElement() {
-        return new DynamicElement();
+        return new DynamicElement(driver);
     }
 
 
