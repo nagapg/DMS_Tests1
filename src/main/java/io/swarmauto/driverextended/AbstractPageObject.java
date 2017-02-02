@@ -11,7 +11,7 @@ import com.alticor.magic.report.TestReport;
 public abstract class AbstractPageObject implements PageObject{
 
     protected WebDriver driver;
-    protected TestReport report;
+    protected TestReport report = Reports.CurrentTest;
 
    
     public void navigate(WebDriver webDriver, String page) {
@@ -31,7 +31,7 @@ public abstract class AbstractPageObject implements PageObject{
 
     
     public void navigate() {
-    	report.AddStep(new StepReport("Navigating to: " + getPageUrl(),report.ID));
+    	
         navigate(getPageUrl());
     }
 

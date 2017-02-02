@@ -5,6 +5,7 @@ package com.alticor.magic.test;
 import com.alticor.magic.GeneralFunctions;
 import com.alticor.magic.pages.MagicPage;
 import com.alticor.magic.report.Reports;
+import com.alticor.magic.report.StepReport;
 import com.alticor.okta.OktaLogin;
 import com.alticor.prowl.AmwayProwlRunner;
 import com.alticor.prowl.WebDriverManager;
@@ -17,6 +18,8 @@ import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 
@@ -33,15 +36,29 @@ static WebDriver driver;
     	Reports.setTestCaseName("VolumesTest");
         String baseUrl = EndpointProvider.getEndpoint();
         driver = WebDriverManager.getInstance().getDriver();
-
-        oktaLogin = new OktaLogin(driver, null);
-        oktaLogin.login("cmns559",
-            "our49pot");// TODO: Make this grab password from environment variables
-        driver.getTitle();
-
-        magicPage = new MagicPage(driver, null);
-        magicPage.setBaseUrl(baseUrl);
-        magicPage.aboLookup("010", "9995", "062016");
+        try{
+		
+	
+	
+	        oktaLogin = new OktaLogin(driver, null);
+	        oktaLogin.login("cmns559","our49pot");// TODO: Make this grab password from environment variables
+	      
+	
+	
+	        magicPage = new MagicPage(driver, null);
+	       
+			// magicPage.setBaseUrl("https://magic-beta/EBS_UI_Web/Magic");
+	        for (int waittime = 0; waittime < 1000000; waittime++){
+	         System.out.println("Waiting");
+	        }
+	        
+	        magicPage.aboLookup("010", "9995", "062016");
+	        
+		}
+        catch(Exception e){
+        	Reports.CurrentTest.AddStep(new StepReport("Unexpected Failure During Setup Class: " + e.getMessage(), false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+        	throw e;
+        }
     }
     
     @AfterClass public static void tearDown() {

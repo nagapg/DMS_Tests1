@@ -14,7 +14,7 @@ public class NoProwlSupportCodeTest {
 	boolean bStatus;
 	
 	    @Before public void setUp() throws Exception {
-        Reports.setTestCaseName("MAGIC_MissingDetails");
+        Reports.setTestCaseName("MAGIC_MissingDetails_noProwl");
        bStatus = GeneralFunctions.openIEBrowser("https://magic-gamma:9452/EBS_UI_Web/Magic");
       GeneralFunctions.clickElement(By.id("overridelink"));
         if (bStatus) {

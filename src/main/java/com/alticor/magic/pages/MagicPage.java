@@ -5,7 +5,6 @@ import com.alticor.magic.report.TestReport;
 
 import io.swarmauto.driverextended.AbstractPageObject;
 import io.swarmauto.driverextended.DynamicElement;
-import io.swarmauto.driverextended.Report;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -43,6 +42,7 @@ public class MagicPage extends AbstractPageObject {
 
     @Override public void setBaseUrl(String baseUrl) {
         this.baseUrl = baseUrl;
+        navigate(baseUrl);
     }
 
     @Override public String getPath() {
@@ -93,19 +93,19 @@ public class MagicPage extends AbstractPageObject {
        
         if (affiliateNumber != null) {
             DynamicElement aff = affiliateInputField();
-            aff.clear();
+           // aff.clear();
             aff.sendKeys(affiliateNumber);
         }
 
         if (aboNumber != null) {
             DynamicElement aboNum = aboNumberInputField();
-            aboNum.clear();
+           // aboNum.clear();
             aboNum.sendKeys(aboNumber);
         }
 
         if (period != null) {
             DynamicElement per = periodInputField();
-            per.clear();
+           // per.clear();
             per.sendKeys(period);
         }
 

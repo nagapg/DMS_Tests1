@@ -119,7 +119,7 @@ public static boolean ProwlDBPostTest(TestReport report)
 }
 
 public static boolean ProwlDBStoreStep(StepReport report){
-	
+	boolean CallSuccessful = false;
 	try{
 		CallableStatement call = connect().prepareCall("{call QTB19000_SELENIUM_TST_RSULT_APP.dbo.QTP19020_STEP_RSULT_DTL_ISRT(?,?,?,?,?,?,?,?,?,?,?)}");
         
@@ -135,12 +135,28 @@ public static boolean ProwlDBStoreStep(StepReport report){
         call.setString("@pc_AGENT_IP_ADR_TXT", ""); // needs to be implemented in the future
         call.setString("@pc_APP_RLSE_VERSN_ID", "null");
         
-        return call.execute();
+        CallSuccessful =  call.execute();
+        
+        if(report.ScreenShoot != null){
+        	
+        	CallableStatement StoreCsreenShot = connect().prepareCall("{call QTB19000_SELENIUM_TST_RSULT_APP.dbo.QTP19021_TEST_STEP_IMG_INS(?,?,?)}");
+        	StoreCsreenShot.setString("@pcTEST_STEP_ID", report.ID);
+        	StoreCsreenShot.setString("@pcPAGE_IMG_ID", report.ID + "_ScreenShot");
+        	StoreCsreenShot.setBytes("@pcPage_IMG_TXT", report.ScreenShoot);
+        	
+        	CallSuccessful = StoreCsreenShot.execute();
+        	
+        }
+        
+        return CallSuccessful;
+        	
 	}
 	catch(Exception e){
 		e.printStackTrace();
 		return false;
 	}
+		
+	
 	
 }
 

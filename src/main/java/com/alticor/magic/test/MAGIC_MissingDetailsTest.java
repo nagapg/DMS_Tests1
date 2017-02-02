@@ -37,6 +37,7 @@ import org.openqa.selenium.WebDriver;
 
         magicPage = new MagicPage(driver, null);
         magicPage.setBaseUrl(baseUrl);
+        
         magicPage.aboLookup("010", "9995", "072016");
     }
 

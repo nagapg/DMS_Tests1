@@ -11,8 +11,8 @@ import org.openqa.selenium.*;
 
 public class OktaLogin extends AbstractPageObject {
 
-    private String baseUrl = "https://amway.okta.com";
-
+//    private String baseUrl = "https://amway.okta.com";
+private String baseUrl = "https://magic-beta/EBS_UI_Web/Magic";
     public OktaLogin(WebDriver d, TestReport r) {
         driver = d;
         if (r == null) {
@@ -43,7 +43,7 @@ public class OktaLogin extends AbstractPageObject {
         navigate();
         userNameInputField().sendKeys(username);
         passwordInputField().sendKeys(password);
-        submitButton().click();
+        submitButton().submit();
     }
 
     @Override public void setup() {

@@ -8,26 +8,26 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 //import org.apache.bcel.generic.Select;//
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
+
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.Augmenter;
+
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.mongodb.MapReduceCommand.OutputType;
-import com.sun.jna.platform.FileUtils;
+
+import com.alticor.magic.report.Reports;
+import com.alticor.magic.report.StepReport;
+
 
 public class GeneralFunctions {
 
@@ -72,15 +72,18 @@ public static boolean clickElementByJavascriptExecutor(WebElement objLocator){
 		try{
 			if(verifyVisibilityOFElement(objLocator)){
 				driver.findElement(objLocator).click();
+				Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator, true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 				return true;
 			}
 			else{
+				Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " Element Not Visible", false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 				return false;
 			}
 
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
+			Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false));
 			return false;
 		}
 	}
@@ -102,6 +105,7 @@ public static boolean clickElementByJavascriptExecutor(WebElement objLocator){
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
+			Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 			return false;
 		}
 	}
@@ -118,6 +122,7 @@ return true;
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
+			Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 			return false;
 		}
 	}
@@ -138,6 +143,7 @@ return true;
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
+			Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 			return null;
 		}
 	}
@@ -159,6 +165,7 @@ public static String getText(By objLocator)
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
+			Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 			return null;
 		}
 	}
@@ -197,6 +204,7 @@ public static String getText(By objLocator)
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
+			Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 			return false;
 		}
 	}
@@ -225,11 +233,14 @@ public static String getText(By objLocator)
 			driver.get(sURL);
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
+			
 			//driver.navigate().to("javascript:document.getElementById('overridelink').click()");//
+			Reports.CurrentTest.AddStep(new StepReport("Open Browser " + driver, true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 			return true;
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
+			Reports.CurrentTest.AddStep(new StepReport("Open Broswr Failed: "  + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 			return false;
 		}
 	}
@@ -284,12 +295,13 @@ public static boolean gotoframe(By xpath) {
  *
  * *****************************************/
 public static boolean activeElement(By objLocator)
-{
+{//TODO: Shouldn't this function actully do something?
 	try{
 return true;
 	}catch(Exception e)
 	{
 		sErrMsg=e.getMessage();
+		Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 		return false;
 	}
 }
@@ -300,7 +312,7 @@ return true;
  *
  * *****************************************/
 public static boolean display(By objLocator)
-{
+{//TODO: What does this do?
 	try{
 return true;
 	}catch(Exception e)
@@ -332,13 +344,16 @@ public static boolean FindElement(By objLocator) {
 	try{
 		if(verifyVisibilityOFElement(objLocator)){
 		driver.findElement(objLocator).clear();
+		Reports.CurrentTest.AddStep(new StepReport("Clear Element" + objLocator,true));
 		driver.findElement(objLocator);
+		Reports.CurrentTest.AddStep(new StepReport("Found Element" + objLocator,true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 		return true;
 		}
 		return false;
 	}catch(Exception e)
 	{
 		sErrMsg=e.getMessage();
+		Reports.CurrentTest.AddStep(new StepReport("Could not Find Element: " + objLocator + " " + sErrMsg, false));
 		return false;
 	}
 }
@@ -354,11 +369,13 @@ public static  boolean  DropDown(By objLocator,String sval) {
 		if(verifyVisibilityOFElement(objLocator)){
 			Select a=new Select( driver.findElement(objLocator));
 			a.selectByValue(sval);
+			Reports.CurrentTest.AddStep(new StepReport("Selected " + sval,true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 			}
 		return true;
 	}catch(Exception e)
 	{
 		sErrMsg=e.getMessage();
+		Reports.CurrentTest.AddStep(new StepReport("Failed to Locate Dropdown by: "  + objLocator + " " + sErrMsg,false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 		return false;
 	}
 }
@@ -372,6 +389,7 @@ public static  boolean  DropDown(By objLocator,String sval) {
 public static String getTitle(By objLocator)
 {
 	String text= driver.getTitle();
+	Reports.CurrentTest.AddStep(new StepReport("Page Title is:" + text,true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 	return text;
 	}
 
@@ -383,13 +401,16 @@ public static String getTitle(By objLocator)
 public void switchToFrame(int frame) {
 	try {
 		driver.switchTo().frame(frame);
-System.out.println("Navigated to frame with id " + frame);
+		System.out.println("Navigated to frame with id " + frame);
+		Reports.CurrentTest.AddStep(new StepReport("Navigated to frame with id " + frame,true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 	} catch (NoSuchFrameException e) {
 		System.out.println("Unable to locate frame with id " + frame
 				+ e.getStackTrace());
+		Reports.CurrentTest.AddStep(new StepReport("Unable to locate frame with id" + frame + e.getStackTrace(),false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 	} catch (Exception e) {
 		System.out.println("Unable to navigate to frame with id " + frame
 				+ e.getStackTrace());
+		Reports.CurrentTest.AddStep(new StepReport("Unable to navigate to frame with id " + frame+ e.getStackTrace(), false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 	}
 }
 
