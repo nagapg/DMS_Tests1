@@ -18,7 +18,7 @@ public class DriverProvider {
     public static WebDriver getFirefoxDriver() {
         
 
-        System.setProperty("webdriver.gecko.driver","drivers/geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver","geckodriver.exe");
         FirefoxProfile p = new	FirefoxProfile();
         p.setAcceptUntrustedCertificates(true);
         p.setAssumeUntrustedCertificateIssuer(false);
@@ -35,7 +35,7 @@ public class DriverProvider {
 
     public static WebDriver getChromeDriver() {
     	
-		System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","chromedriver.exe");
 		WebDriver driver=new ChromeDriver();
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
@@ -47,7 +47,7 @@ public class DriverProvider {
     }
 
     public static WebDriver getIEDriver() {
-        System.setProperty("webdriver.ie.driver","drivers/IEDriverServer.exe");
+        System.setProperty("webdriver.ie.driver","IEDriverServer.exe");
 		DesiredCapabilities cap=new DesiredCapabilities();
 		cap.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
 		cap.setCapability(InternetExplorerDriver.UNEXPECTED_ALERT_BEHAVIOR, true);

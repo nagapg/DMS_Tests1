@@ -119,5 +119,5 @@
         </profile>
     </profiles>
     <artifactId>AmwayMagicTests</artifactId>
-    <version>1</version>
+    <version>snapshot</version>
 </project>
