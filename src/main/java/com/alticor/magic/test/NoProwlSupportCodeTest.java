@@ -14,9 +14,9 @@ public class NoProwlSupportCodeTest {
 	boolean bStatus;
 	
 	    @Before public void setUp() throws Exception {
-        Reports.setTestCaseName("MAGIC_MissingDetails_noProwl");
-       bStatus = GeneralFunctions.openIEBrowser("https://magic-gamma:9452/EBS_UI_Web/Magic");
-      GeneralFunctions.clickElement(By.id("overridelink"));
+        Reports.setTestCaseName("MAGIC_NoProwlCodeTest");
+       bStatus = GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
+     // GeneralFunctions.clickElement(By.id("overridelink"));//
         if (bStatus) {
             System.out.println("Navigated to Environment");
         } else {
@@ -32,7 +32,7 @@ public class NoProwlSupportCodeTest {
 @Test
 public void test() {
 	
-	  //Enter values//
+	  //Enter Aff//
 	bStatus=GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"), "010");
 	if(bStatus){
     	System.out.println("Passed Aff");
@@ -41,6 +41,7 @@ public void test() {
     	System.out.println("Cannot Pass Aff");
     }
 	
+	//enter Abo//
 	bStatus=GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "9995");
 	if(bStatus){
     	System.out.println("Passed Abo");
@@ -68,8 +69,8 @@ public void test() {
   
   
   
-	 //Payment inquiry//
-	bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[4]"));
+	 //Click on Payment Inquiry//
+	bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[3]"));
 			if(bStatus){
 	        	System.out.println("Clicked on Payment Inquiry");
 	        }	
@@ -77,6 +78,12 @@ public void test() {
 	        	System.out.println("Cannot Click on Payment Inquiry");
 	        }
 			
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			//Payment Inquiry-->Invoice Inquiry//
 			bStatus=GeneralFunctions.clickElement(By.linkText("Invoice Inquiry"));
 			if(bStatus){
@@ -86,6 +93,13 @@ public void test() {
 	        	System.out.println("Cannot Click on Invoice Inquiry");
 	        }
 			
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='invoiceABODataTable']/tbody/tr[2]/td[10]/span/b"));
 			if(bStatus){
 	        	System.out.println("Clicked on Orange Link");
@@ -94,6 +108,12 @@ public void test() {
 	        	System.out.println("Cannot Click on Orange Link click");
 	        }
 			
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			//Validating the Expected//
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='viewTableDiv']/table/tbody/tr[2]/td[4]/span/b"));
 			if(bStatus){
@@ -102,16 +122,27 @@ public void test() {
 	        else{
 	        	System.out.println("Cannot display Amount Details");
 	        }
-
-          //Capture the screen//
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        //Capture the screen//
 			bStatus=GeneralFunctions.verifyVisibilityOFElement(By.xpath(".//*[@id='div0']/table/tbody/tr[2]/td[1]/div/table/tbody/tr[1]/td[2]"));
 				if(bStatus){
 				System.out.println("Values present");
-       }
-        else{
-       System.out.println("Values not present");
-      }
-				
+     }
+      else{
+     System.out.println("Values not present");
+    }
+			
+				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				//Close the Screen//
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='div0']/table/tbody/tr[1]/td/table/tbody/tr/td[2]/img"));
 			if(bStatus){
