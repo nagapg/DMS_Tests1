@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-@RunWith(AmwayProwlRunner.class) public class MAGIC_InvoiceInquiry {
+@RunWith(AmwayProwlRunner.class) public class MAGIC_InvoiceInquiryTest {
 	static WebDriver driver;
     static MagicPage magicPage;
     static OktaLogin oktaLogin;

@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-@RunWith(AmwayProwlRunner.class) public class MAGIC_BatchSearch {
+@RunWith(AmwayProwlRunner.class) public class MAGIC_BatchSearchTest {
 	
 	static WebDriver driver;
     static MagicPage magicPage;

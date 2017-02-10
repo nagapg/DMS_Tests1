@@ -20,7 +20,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-@RunWith(AmwayProwlRunner.class) public class MAGIC_BatchProcessing {
+@RunWith(AmwayProwlRunner.class) public class MAGIC_BatchProcessingTest {
 
 	static WebDriver driver;
     static MagicPage magicPage;

@@ -18,7 +18,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-@RunWith(AmwayProwlRunner.class) public class MAGIC_Hierarchy {
+@RunWith(AmwayProwlRunner.class) public class MAGIC_HierarchyTest {
 	
 	static WebDriver driver;
     static MagicPage magicPage;
