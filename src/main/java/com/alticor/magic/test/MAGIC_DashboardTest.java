@@ -54,7 +54,7 @@ import org.openqa.selenium.WebDriver;
 
 	GeneralFunctions.driver=driver;
 	
-	 //click on Dashboard//
+	 //click on Dash board//
 	  bStatus =GeneralFunctions.clickElement(By.linkText("Dashboard"));
 	  if (bStatus) {
         System.out.println("Navigated to Dashboard");
