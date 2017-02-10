@@ -33,7 +33,8 @@ public class WebDriverManager {
     }
 
     public synchronized void close() {
-        driver.close();
+        
+       driver.quit();
         driver = null;
     }
 }

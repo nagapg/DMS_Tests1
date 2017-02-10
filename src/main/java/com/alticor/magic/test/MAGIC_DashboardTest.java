@@ -4,7 +4,7 @@ package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
 import com.alticor.magic.pages.MagicPage;
-import com.alticor.magic.test.pages.Reports;
+import com.alticor.magic.report.Reports;
 import com.alticor.okta.OktaLogin;
 import com.alticor.prowl.AmwayProwlRunner;
 import com.alticor.prowl.WebDriverManager;
@@ -18,8 +18,6 @@ import org.junit.rules.ErrorCollector;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-import static org.hamcrest.CoreMatchers.equalTo;
 
 @RunWith(AmwayProwlRunner.class) public class MAGIC_DashboardTest {
 	

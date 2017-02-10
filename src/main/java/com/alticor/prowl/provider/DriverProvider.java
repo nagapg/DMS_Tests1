@@ -17,18 +17,29 @@ public class DriverProvider {
 
     public static WebDriver getFirefoxDriver() {
         
-
-        System.setProperty("webdriver.gecko.driver","geckodriver.exe");
+          
         FirefoxProfile p = new	FirefoxProfile();
         p.setAcceptUntrustedCertificates(true);
         p.setAssumeUntrustedCertificateIssuer(false);
-        WebDriver driver = new FirefoxDriver(p);
-        DesiredCapabilities cap = new DesiredCapabilities();
-        cap.setCapability("ACCEPT_SSL_CERTS", true);
-        driver.manage().deleteAllCookies();
+       
+        
+
+      
+       System.setProperty("webdriver.gecko.driver","geckodriver.exe");
+       
+       DesiredCapabilities cap =  DesiredCapabilities.firefox();
+       //cap.setCapability(FirefoxDriver.MARIONETTE, true);
+       //cap.setCapability("acceptSslCerts", true);
+       //cap.setCapability("trustAllSSLCertificates", true);
+       cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS,true);
+       cap.setCapability(FirefoxDriver.PROFILE, p);      
+       
+        WebDriver driver = new FirefoxDriver(cap);
+
+        
         driver.manage().window().maximize();
       
-        configureDriver(driver);
+      // configureDriver(driver);
 
         return driver;
     }
@@ -36,10 +47,16 @@ public class DriverProvider {
     public static WebDriver getChromeDriver() {
     	
 		System.setProperty("webdriver.chrome.driver","chromedriver.exe");
-		WebDriver driver=new ChromeDriver();
+
+		DesiredCapabilities cap = DesiredCapabilities.chrome();
+		cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS,true);
+		
+		
+		WebDriver driver=new ChromeDriver(cap);
+		
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
-        
+	
 
         configureDriver(driver);
 
@@ -94,6 +111,6 @@ public class DriverProvider {
      */
     public static WebDriver getDriver() {
         String browser = System.getenv("BROWSER");
-        return getDriver(browser == null ? "chrome" : browser);
+        return getDriver(browser == null ? "ie" : browser);
     }
 }
