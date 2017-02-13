@@ -69,13 +69,16 @@ public void test() {
     }
   
 	//Click on Awards//
-		bStatus=GeneralFunctions.clickElementByJavascriptExecutor(By.xpath(".//*[@id='IboDashboardAwardsdiv']/div/a[1]"));
+	bStatus=GeneralFunctions.clickElement(By.linkText("Awards"));
 	if(bStatus){
-  	System.out.println("Clicked on Awards link");
-  	}	
-  else{
-  	System.out.println("Cannot Click on Awards link");
-  }
+    	System.out.println("Clicked on Awards");
+    }	
+    else{
+    	System.out.println("Cannot Click on Awards");
+    }
+  
+	
+	
 	
 		//Validating the Expected//
 	String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('AwdHistExpand')/x:div[1]"));
