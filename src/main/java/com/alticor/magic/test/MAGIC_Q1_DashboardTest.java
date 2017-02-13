@@ -66,15 +66,7 @@ public void test() {
     	System.out.println("Cannot Click on Submit");
     }
   
-	//click on Dash board//
-	  bStatus =GeneralFunctions.clickElement(By.linkText("Dashboard"));
-	  if (bStatus) {
-      System.out.println("Navigated to Dashboard");
-  } else {
-      System.out.println("Cannot Navigate to Dashboard");
-  }
-
-	  //Validating the Expected//
+		  //Validating the Expected//
    String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('ABOInfo')/x:table/x:tbody/x:tr[2]/x:td[2]"));
 	   System.out.println("The Output is:"  +ExpVal);
 	  
