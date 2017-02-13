@@ -14,9 +14,8 @@ public class MAGIC_Q1_DashboardTest {
 	boolean bStatus;
 	
 	    @Before public void setUp() throws Exception {
-        Reports.setTestCaseName("MAGIC_NoProwlCodeTest");
+        Reports.setTestCaseName("MAGIC_Q1_DashboardTest");
        bStatus = GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
-     // GeneralFunctions.clickElement(By.id("overridelink"));//
         if (bStatus) {
             System.out.println("Navigated to Environment");
         } else {
