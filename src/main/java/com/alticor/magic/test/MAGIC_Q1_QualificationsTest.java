@@ -3,83 +3,117 @@
 package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
-import com.alticor.magic.pages.MagicPage;
 import com.alticor.magic.report.Reports;
-import com.alticor.okta.OktaLogin;
-import com.alticor.prowl.AmwayProwlRunner;
-import com.alticor.prowl.WebDriverManager;
-import com.alticor.prowl.provider.EndpointProvider;
 import com.relevantcodes.extentreports.LogStatus;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Rule;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.rules.ErrorCollector;
-import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 
+ public class MAGIC_Q1_QualificationsTest {
 
-@RunWith(AmwayProwlRunner.class) public class MAGIC_QualificationsTest {
-
-static WebDriver driver;
-    static MagicPage magicPage;
-    static OktaLogin oktaLogin;
-    @Rule public ErrorCollector collector = new ErrorCollector();
-
-
- @BeforeClass public static void setup() {
-    	Reports.setTestCaseName("QualificationsTest");
-        String baseUrl = EndpointProvider.getEndpoint();
-        driver = WebDriverManager.getInstance().getDriver();
-
-        oktaLogin = new OktaLogin(driver, null);
-        oktaLogin.login("cmns559",
-            "our49pot");// TODO: Make this grab password from environment variables
-        driver.getTitle();
-
-        magicPage = new MagicPage(driver, null);
-        magicPage.setBaseUrl(baseUrl);
-        magicPage.aboLookup("010", "9995", "062016");
-    }
-    
-    @AfterClass public static void tearDown() {
-        WebDriverManager.getInstance().close();
-        Reports.endTest();
-    }
-
-
-	/** Declare variables */
-	boolean bStatus;
-
- @Test public void test() {
-			
-		  GeneralFunctions.driver=driver;
-	
-		  //Click on Qualifications link on dashboard//
-	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='IboDashboardAwardsdiv']/div/a[2]"));
-	if(bStatus){
-  	System.out.println("Clicked on Qualifications link");
-  	}	
-  else{
-  	System.out.println("Cannot Click on Qualifications link");
-  }
-	
-
-	
-	
-	//Validating the Qualifications screen//
-		bStatus=GeneralFunctions.verifyVisibilityOFElement(By.xpath(".//*[@id='IboDashboardAwardsExpand']/div[2]/table/tbody/tr[1]/td[1]"));
-		if(bStatus){
-  	System.out.println("Expected:Qualifications present");
-  	}	
-  else{
-  	System.out.println("Actual:Qualifications not present");
-  }
-	
-	
+	 /** Declare variables */
+	    private boolean bStatus=false;
+	    
+	    @Before public void setUp() throws Exception {
+	        Reports.setTestCaseName("MAGIC_Q1_QualificationsTest");
+	       bStatus = GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
+	    if (bStatus) {
+	            System.out.println("Navigated to Environment");
+	        } else {
+	            System.out.println("Cannot navigate to Environment");
+	        }
+	    }
+	  
+		    @After public void afterTest() {
+		        Reports.endTest();
+		    }
 		
+		  
+	@Test
+	public void test() {
+		
+		  //Enter Aff//
+		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"), "010");
+		if(bStatus){
+	    	System.out.println("Passed Aff");
+	    }	
+	    else{
+	    	System.out.println("Cannot Pass Aff");
+	    }
+		
+		//enter Abo//
+		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "9995");
+		if(bStatus){
+	    	System.out.println("Passed Abo");
+	    }	
+	    else{
+	    	System.out.println("Cannot Pass Abo");
+	    }
+		
+	   bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"012017");
+		if(bStatus){
+	    	System.out.println("Passed Period");
+	    }	
+	    else{
+	    	System.out.println("Cannot Pass Period");
+	    }
+		
+		
+		bStatus=GeneralFunctions.clickElement(By.id("SubmitButton"));
+		if(bStatus){
+	    	System.out.println("Clicked on Submit");
+	    }	
+	    else{
+	    	System.out.println("Cannot Click on Submit");
+	    }
+		
+		  try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		  
+		//Inquiry//
+			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
+	        if(bStatus){
+	        	System.out.println("Click on Inquiry");
+	        }	
+	        else{
+	        	System.out.println("Cannot Click on Inquiry");
+	        }
+	   		
+	   	  //Inquiry-->Awards//
+	   			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[1]/span[1]"));
+	   	        if(bStatus){
+	   			System.out.println("Click on Awards");
+	   	        }	
+	   	        else{
+	   	        	System.out.println("Cannot Click on Awards");
+	   	        }
+	   			
+	   	
+		  
+		  //Click on Qualification//
+		  
+	   	     bStatus=GeneralFunctions.clickElement(By.linkText("Qualifications"));
+	   	        if(bStatus){
+	   			System.out.println("Click on Qualifications");
+	   	        }	
+	   	        else{
+	   	        	System.out.println("Cannot Click on Qualifications");
+	   	        }
+	   			
+	  
+		  
+		
+//Validating the Expected//
+String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('IboDashboardAwardsExpand')/x:div[1]"));
+ System.out.println("The Output is:"  +ExpVal);
+
+
 	com.alticor.magic.GeneralFunctions.close();
 		
 		//Reports//

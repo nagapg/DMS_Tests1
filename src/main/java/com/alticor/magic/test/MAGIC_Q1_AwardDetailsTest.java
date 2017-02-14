@@ -68,18 +68,38 @@ public void test() {
     	System.out.println("Cannot Click on Submit");
     }
   
-	//Click on Awards//
-	bStatus=GeneralFunctions.clickElement(By.linkText("Awards"));
-	if(bStatus){
-    	System.out.println("Clicked on Awards");
+	//Inquiry//
+	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
+    if(bStatus){
+    	System.out.println("Click on Inquiry");
     }	
     else{
-    	System.out.println("Cannot Click on Awards");
+    	System.out.println("Cannot Click on Inquiry");
     }
+		
+	  //Inquiry-->Awards//
+			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[1]/span[1]"));
+	        if(bStatus){
+			System.out.println("Click on Awards");
+	        }	
+	        else{
+	        	System.out.println("Cannot Click on Awards");
+	        }
+			
+	
   
-	
-	
-	
+  //Click on Award Details//
+  
+	     bStatus=GeneralFunctions.clickElement(By.linkText("Award Details"));
+	        if(bStatus){
+			System.out.println("Click on Award Details");
+	        }	
+	        else{
+	        	System.out.println("Cannot Click on Award Details");
+	        }
+			
+
+
 		//Validating the Expected//
 	String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('AwdHistExpand')/x:div[1]"));
 		System.out.println("The Award Details Screen is "+ ExpVal);
