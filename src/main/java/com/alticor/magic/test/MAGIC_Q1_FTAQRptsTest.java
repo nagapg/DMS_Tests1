@@ -69,7 +69,7 @@ import org.openqa.selenium.By;
 	    }
 	  	
 		//Reports//
-		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));
+		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[4]"));
         if(bStatus){
         	System.out.println("Click on Reports");
         }	
@@ -107,10 +107,13 @@ import org.openqa.selenium.By;
    	       	System.out.println("Cannot Click on First Time Award Qual Rpts");
    	       }
    	       
+   	 
+  
    	 //Validating the Expected//
    	       String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='searchBoxDiv']/div[1]"));
    		   System.out.println("The Output is:"  +ExpVal);
    		  
+   	  
    	       com.alticor.magic.GeneralFunctions.close();
 	   			
 	   			//Test Reports//
