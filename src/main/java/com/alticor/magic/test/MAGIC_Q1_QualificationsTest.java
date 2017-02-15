@@ -69,15 +69,17 @@ import org.openqa.selenium.By;
 	    	System.out.println("Cannot Click on Submit");
 	    }
 		
-		  try {
+		 	 try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		
+
 		  
 		//Inquiry//
-			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
+			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));
 	        if(bStatus){
 	        	System.out.println("Click on Inquiry");
 	        }	
@@ -106,12 +108,12 @@ import org.openqa.selenium.By;
 	   	        	System.out.println("Cannot Click on Qualifications");
 	   	        }
 	   			
-	  
-		  
-		
+
 //Validating the Expected//
 String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('IboDashboardAwardsExpand')/x:div[1]"));
  System.out.println("The Output is:"  +ExpVal);
+
+
 
 
 	com.alticor.magic.GeneralFunctions.close();
