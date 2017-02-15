@@ -15,12 +15,12 @@ public class MAGIC_Q1_DashboardTest {
 	
 	  @Before public void setUp() throws Exception {
         Reports.setTestCaseName("MAGIC_Q1_DashboardTest");
-      /* bStatus = GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
+      bStatus = GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
         if (bStatus) {
             System.out.println("Navigated to Environment");
         } else {
             System.out.println("Cannot navigate to Environment");
-        }*/
+        }
     }
   
 	    @After public void afterTest() {
