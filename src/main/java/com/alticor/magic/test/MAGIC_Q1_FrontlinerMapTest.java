@@ -68,7 +68,7 @@ public void test() {
     	System.out.println("Cannot Click on Submit");
     }
 	
-	  try {
+	    try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -76,7 +76,7 @@ public void test() {
 		}
 	  
 	//Inquiry//
-		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
+		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));
       if(bStatus){
       	System.out.println("Click on Inquiry");
       }	
@@ -93,6 +93,8 @@ public void test() {
 	        	System.out.println("Cannot Click on Map");
 	        }
 			
+	
+		
 //Validating the Expected//
 	  	  bStatus =GeneralFunctions.verifyVisibilityOFElement(By.xpath(".//*[@id='LosMapExpand']/div"));
 	  	  try {
@@ -106,6 +108,7 @@ public void test() {
 	        } else {
 	            System.out.println("Actual:Cannot display Frontliner Map Screen");
 	        }
+	
 	
 	  	com.alticor.magic.GeneralFunctions.close();
 	  	
