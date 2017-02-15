@@ -68,14 +68,21 @@ public void test() {
     	System.out.println("Cannot Click on Submit");
     }
   
+	 try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
 	//Inquiry//
-	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
-    if(bStatus){
-    	System.out.println("Click on Inquiry");
-    }	
-    else{
-    	System.out.println("Cannot Click on Inquiry");
-    }
+		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));
+     if(bStatus){
+     	System.out.println("Click on Inquiry");
+     }	
+     else{
+     	System.out.println("Cannot Click on Inquiry");
+     }
 		
 	  //Inquiry-->Awards//
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[1]/span[1]"));
@@ -87,10 +94,9 @@ public void test() {
 	        }
 			
 	
-  
-  //Click on Award Details//
-  
-	     bStatus=GeneralFunctions.clickElement(By.linkText("Award Details"));
+	  
+	  //Click on Award Details//
+	    bStatus=GeneralFunctions.clickElement(By.linkText("Award Details"));
 	        if(bStatus){
 			System.out.println("Click on Award Details");
 	        }	
@@ -99,11 +105,11 @@ public void test() {
 	        }
 			
 
-
 		//Validating the Expected//
 	String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('AwdHistExpand')/x:div[1]"));
 		System.out.println("The Award Details Screen is "+ ExpVal);
 		
+	
 		//Close the browser//
  	  com.alticor.magic.GeneralFunctions.close();
  		
