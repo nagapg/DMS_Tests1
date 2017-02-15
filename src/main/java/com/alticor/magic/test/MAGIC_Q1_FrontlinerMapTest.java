@@ -43,14 +43,14 @@ public void test() {
     }
 	
 	//enter Abo//
-	bStatus=GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "9995");
-	if(bStatus){
-    	System.out.println("Passed Abo");
-    }	
-    else{
-    	System.out.println("Cannot Pass Abo");
-    }
-	
+		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "9995");
+		if(bStatus){
+	    	System.out.println("Passed Abo");
+	    }	
+	    else{
+	    	System.out.println("Cannot Pass Abo");
+	    }
+		
    bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"012017");
 	if(bStatus){
     	System.out.println("Passed Period");
