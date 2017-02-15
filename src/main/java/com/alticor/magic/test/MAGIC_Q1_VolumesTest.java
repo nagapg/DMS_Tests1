@@ -67,25 +67,26 @@ import org.openqa.selenium.By;
 	    else{
 	    	System.out.println("Cannot Click on Submit");
 	    }
-	  	
-		//click on Dash board//
-		  bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]/text"));
+	  		 try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		
+   
+	  
+	//click on Volumes link//
+		  bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='quickglancediv']/div[2]/a[1]"));
 		  if (bStatus) {
-	          System.out.println("Navigated to Dashboard");
-	      } else {
-	          System.out.println("Cannot Navigate to Dashboard");
+	          System.out.println("Navigated to Volumes");
+	      } 
+		  else {
+	          System.out.println("Cannot Navigate to Volumes");
 	      }
-		  
-		//click on Volumes link//
-			  bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='collapsibleQuickGlanceContent']/div[3]/a[2]"));
-			  if (bStatus) {
-		          System.out.println("Navigated to Volumes");
-		      } 
-			  else {
-		          System.out.println("Cannot Navigate to Volumes");
-		      }
 
-			  
+		  
 			  //Validating the Expected//
 		       String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='IboBonusDtlBar']"));
 			   System.out.println("The Output is:"  +ExpVal);
