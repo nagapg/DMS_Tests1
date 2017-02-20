@@ -1,4 +1,4 @@
-//Expected:Navigate to MAGIC Annual Bonus Screen//
+//Prowl Supported Code//
 
 package com.alticor.magic.test;
 
@@ -43,7 +43,7 @@ import org.openqa.selenium.support.ui.Wait;
         magicPage.setBaseUrl(baseUrl);
 
 	
-        magicPage.aboLookup("010", "9995", "012017");
+        magicPage.aboLookup("010", "9995", null);
     }
     
     @AfterClass public static void tearDown() {
@@ -59,8 +59,40 @@ import org.openqa.selenium.support.ui.Wait;
 	  public void test() {
 			
 		  GeneralFunctions.driver=driver;
+		  
+		  //Inquiry//
+			bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));
+	        if(bStatus){
+	        	System.out.println("Click on Inquiry");
+	        }	
+	        else{
+	        	System.out.println("Cannot Click on Inquiry");
+	        }
+	   		
+	   	 //Inquiry-->Awards//
+	    bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[1]/span[1]"));
+	   	if(bStatus){
+	   	System.out.println("Click on Awards");
+	   	        }	
+	   	        else{
+	   	        	System.out.println("Cannot Click on Awards");
+	   	        }
+	   			
+	   	 //Click on Award Details//
+		      bStatus=GeneralFunctions.clickElement(By.linkText("Award Details"));
+	   	        if(bStatus){
+	   			System.out.println("Click on Award Details");
+	   	        }	
+	   	        else{
+	   	        	System.out.println("Cannot Click on Award Details");
+	   	        }
+	   			
+       //Validating the Expected//
+	       String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('AwdHistExpand')/x:div[1]"));
+	      System.out.println("The Award Details Screen is "+ ExpVal);
+	
 			
-		   //Inquiry//
+		/*   //Inquiry//
 			GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));
 			if(bStatus){
 	        	System.out.println("Inquiry displayed");
@@ -94,7 +126,7 @@ import org.openqa.selenium.support.ui.Wait;
 				       }	
 				       else{
 				       	System.out.println("Actual:Cannot Load Annual Bonus Screen");
-				       }
+				       }*/
 		     
 		     com.alticor.magic.GeneralFunctions.close();
 				
