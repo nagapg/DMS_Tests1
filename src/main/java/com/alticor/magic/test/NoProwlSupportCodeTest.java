@@ -1,3 +1,5 @@
+//Basic Junit code to test the Run//
+
 package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
@@ -11,66 +13,80 @@ import org.openqa.selenium.By;
 public class NoProwlSupportCodeTest {
 
 	/** Declare variables */
-	boolean bStatus;
+	  private boolean bStatus=false;
 	
-	    @Before public void setUp() throws Exception {
-        Reports.setTestCaseName("MAGIC_NoProwlCodeTest");
-       bStatus = GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
-     // GeneralFunctions.clickElement(By.id("overridelink"));//
-        if (bStatus) {
-            System.out.println("Navigated to Environment");
-        } else {
-            System.out.println("Cannot navigate to Environment");
-        }
-    }
-  
-	    @After public void afterTest() {
-	        Reports.endTest();
-	    }
-	
+	@Before public void setUp() throws Exception {
+        //Open Browser and Navigate to Gamma//
+		  bStatus = GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
+
+		  if (bStatus) {
+	            System.out.println("Navigated to Environment");
+	        } else {
+	            System.out.println("Cannot navigate to Environment");
+	        }
+	    
 	  
-@Test
-public void test() {
-	
-	  //Enter Aff//
-	bStatus=GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"), "010");
-	if(bStatus){
-    	System.out.println("Passed Aff");
-    }	
-    else{
-    	System.out.println("Cannot Pass Aff");
-    }
-	
-	//enter Abo//
-	bStatus=GeneralFunctions.enterTextToElement(By.id("selectedIboNumber"), "9995");
-	if(bStatus){
-    	System.out.println("Passed Abo");
-    }	
-    else{
-    	System.out.println("Cannot Pass Abo");
-    }
-	
-   bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"072016");
-	if(bStatus){
-    	System.out.println("Passed Period");
-    }	
-    else{
-    	System.out.println("Cannot Pass Period");
-    }
-	
-	
-	bStatus=GeneralFunctions.clickElement(By.id("SubmitButton"));
-	if(bStatus){
-    	System.out.println("Clicked on Submit");
-    }	
-    else{
-    	System.out.println("Cannot Click on Submit");
-    }
-  
-  
-  
+		
+    	 try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+    	 
+	@After public void afterTest() {
+  	       
+  	        Reports.endTest();
+  	    }
+  	  
+
+	  @Test
+	public void test() {
+		
+		  //Enter Aff:010//
+		  bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
+		  if (bStatus) {
+	    System.out.println("AFF entered");
+	    } else {
+	    System.out.println("Cannot enter AFF");
+	   }
+		  
+		//Enter Abo:9995//
+		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
+		  if (bStatus) {
+	      System.out.println("ABO entered");
+	      } else {
+	      System.out.println("Cannot enter ABO");
+	     }
+		  
+	  //Enter Period:012017//
+	  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"012017");
+			if(bStatus){
+	      	System.out.println("Entered Period");
+	      }	
+	      else{
+	      	System.out.println("Cannot Enter Period");
+	      }
+
+	    //Click on submit//
+			  bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
+			  if (bStatus) {
+		        System.out.println("Click on Submit");
+		    } else {
+		        System.out.println("Cannot click on submit");
+		    }
+			  
+		 try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+
 	 //Click on Payment Inquiry//
-	bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[3]"));
+	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[4]"));
 			if(bStatus){
 	        	System.out.println("Clicked on Payment Inquiry");
 	        }	
@@ -160,15 +176,16 @@ public void test() {
 	        	System.out.println("Cannot Click on Back Button");
 	        }
 			
+			
 			 com.alticor.magic.GeneralFunctions.close();
 			 
 			
 			//Test Results// 
 			if (bStatus) {
-		          Reports.logResults(LogStatus.PASS, "Test Passed", "MAGIC_MissingDetails");
+		          Reports.logResults(LogStatus.PASS, "Test Passed", "NoProwlSupportCodeTest");
 
 		      } else {
-		          Reports.logResults(LogStatus.FAIL, "Test Failed", "MAGIC_MissingDetails");
+		          Reports.logResults(LogStatus.FAIL, "Test Failed", "NoProwlSupportCodeTest");
 		      }
 		     
 
