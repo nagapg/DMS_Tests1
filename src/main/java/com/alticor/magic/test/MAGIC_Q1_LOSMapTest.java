@@ -71,15 +71,15 @@ public void test() {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
-		//Reports//
-		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));
-     if(bStatus){
-     	System.out.println("Click on Reports");
-     }	
-     else{
-     	System.out.println("Cannot Click on Reports");
-     }
+			//Reports//
+			//	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));//
+				  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[4]"));
+		        if(bStatus){
+		        	System.out.println("Click on Reports");
+		        }	
+		        else{
+		        	System.out.println("Cannot Click on Reports");
+		        }
 		
            //Reports-->ABO Reports//
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu4']/a[2]/span[1]"));
