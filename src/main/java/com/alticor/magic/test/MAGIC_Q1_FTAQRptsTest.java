@@ -68,13 +68,15 @@ import org.openqa.selenium.By;
 				    }
 					
 				//Reports//
-					bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));
-			        if(bStatus){
-			        	System.out.println("Click on Reports");
-			        }	
-			        else{
-			        	System.out.println("Cannot Click on Reports");
-			        }
+		//	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));//
+			  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[4]"));
+	        if(bStatus){
+	        	System.out.println("Click on Reports");
+	        }	
+	        else{
+	        	System.out.println("Cannot Click on Reports");
+	        }
+	   		
 			   		
 			      
 			   	  //Reports-->Qualification Reports//
