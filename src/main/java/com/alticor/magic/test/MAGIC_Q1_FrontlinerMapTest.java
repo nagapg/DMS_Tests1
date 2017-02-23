@@ -67,8 +67,9 @@ public void test() {
 		        System.out.println("Cannot click on submit");
 		    }
 			
-			  //Inquiry//
-				bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));
+			 //Inquiry//
+			//bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));//
+			  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));
 		        if(bStatus){
 		        	System.out.println("Click on Inquiry");
 		        }	
