@@ -74,13 +74,15 @@ import org.openqa.selenium.By;
 				}
 			
 			//Click on Volumes link//
-			  bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='collapsibleQuickGlanceContent']/div[3]/a[2]"));
-			  if (bStatus) {
-		          System.out.println("Navigated to Volumes");
-		      } 
-			  else {
-		          System.out.println("Cannot Navigate to Volumes");
-		      }
+		 // bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='collapsibleQuickGlanceContent']/div[3]/a[2]"));//
+		  bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='quickglancediv']/div[2]/a[1]"));
+		  if (bStatus) {
+	          System.out.println("Navigated to Volumes");
+	      } 
+		  else {
+	          System.out.println("Cannot Navigate to Volumes");
+	      }
+
 
 			  try {
 					Thread.sleep(3000);
