@@ -66,14 +66,16 @@ import org.openqa.selenium.By;
 		        System.out.println("Cannot click on submit");
 		    }
 			  
-			  //Inquiry//
-				bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));
-		        if(bStatus){
-		        	System.out.println("Click on Inquiry");
-		        }	
-		        else{
-		        	System.out.println("Cannot Click on Inquiry");
-		        }
+			   //Inquiry//
+		//	bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));//
+			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));
+	        if(bStatus){
+	        	System.out.println("Click on Inquiry");
+	        }	
+	        else{
+	        	System.out.println("Cannot Click on Inquiry");
+	        }
+	   	
 		   		
 		   	       //Inquiry-->Awards//
 		           bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[1]/span[1]"));
