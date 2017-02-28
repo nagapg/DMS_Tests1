@@ -18,8 +18,7 @@ import org.junit.rules.ErrorCollector;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
+
 
 
 @RunWith(AmwayProwlRunner.class) public class MAGIC_AnnualBonusScreenTest {
