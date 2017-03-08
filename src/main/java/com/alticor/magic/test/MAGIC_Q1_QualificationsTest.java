@@ -77,8 +77,8 @@ import org.openqa.selenium.By;
 						}
 					
 					 //Inquiry//
-				//bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));//
-				  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));
+				bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));
+				 // bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));//
 			        if(bStatus){
 			        	System.out.println("Click on Inquiry");
 			        }	
