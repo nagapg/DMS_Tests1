@@ -50,7 +50,7 @@ import org.openqa.selenium.By;
 	     }
 		  
 		  //Enter Period:012017//
-		  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"012017");
+		  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
 			if(bStatus){
 	      	System.out.println("Entered Period");
 	      }	
@@ -74,8 +74,8 @@ import org.openqa.selenium.By;
 				}
 			
 			//Click on Volumes link//
-		 // bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='collapsibleQuickGlanceContent']/div[3]/a[2]"));//
-		  bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='quickglancediv']/div[2]/a[1]"));
+		  bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='collapsibleQuickGlanceContent']/div[3]/a[2]"));
+		 // bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='quickglancediv']/div[2]/a[1]"));//
 		  if (bStatus) {
 	          System.out.println("Navigated to Volumes");
 	      } 
