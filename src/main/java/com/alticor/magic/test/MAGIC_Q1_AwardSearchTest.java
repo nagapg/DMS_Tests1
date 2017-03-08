@@ -78,7 +78,8 @@ import org.openqa.selenium.By;
 	   	
 		   		
 		   	       //Inquiry-->Awards//
-		           bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[1]/span[1]"));
+		         //  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[1]/span[1]"));//
+		 bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[3]/span[1]"));
 		   	        if(bStatus){
 		   			System.out.println("Click on Awards");
 		   	        }	
