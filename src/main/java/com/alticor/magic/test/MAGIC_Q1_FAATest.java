@@ -78,7 +78,8 @@ public void test() {
 		   		
 		   		
 		   	     //Inquiry-->Annuals//
-		   			bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='SubMenu1']/a[2]"));
+		   			//bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='SubMenu1']/a[2]"));//
+	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[4]/span[1]"));
 		   	        if(bStatus){
 		   			System.out.println("Click on Annuals");
 		   	        }	
