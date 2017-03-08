@@ -49,8 +49,8 @@ public void test() {
 	      System.out.println("Cannot enter ABO");
 	  }
 		  
-		  //Enter Period:012017//
-		  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"012017");
+		  //Enter Period:022017//
+		  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
 			if(bStatus){
 	      	System.out.println("Entered Period");
 	      }	
