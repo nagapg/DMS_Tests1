@@ -86,8 +86,8 @@ public class NoProwlSupportCodeTest {
 			
 
 	//Click on Payment Inquiry//
-	//bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[4]"));//
-	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[3]"));
+	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[4]"));
+	//bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[3]"));//
 			if(bStatus){
 	        	System.out.println("Clicked on Payment Inquiry");
 	        }	
