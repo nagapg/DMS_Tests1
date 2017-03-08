@@ -49,8 +49,8 @@ import org.openqa.selenium.By;
 	      System.out.println("Cannot enter ABO");
 	  }
 		  
-		  //Enter Period:012017//
-		  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"012017");
+		  //Enter Period:022017//
+		  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
 			if(bStatus){
 	      	System.out.println("Entered Period");
 	      }	
@@ -67,8 +67,8 @@ import org.openqa.selenium.By;
 		    }
 			  
 			   //Inquiry//
-		//	bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));//
-			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));
+		bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));
+			//bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));//
 	        if(bStatus){
 	        	System.out.println("Click on Inquiry");
 	        }	
