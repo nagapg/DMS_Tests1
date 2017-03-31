@@ -23,8 +23,8 @@ public class MAGICDashboard {
         Reports.endTest();
     }
 	
-	@Given("^Open browser and Navigate to MAGIC$")
-	public void Open_browser_and_Navigate_to_MAGIC() throws Throwable{
+	@Given("^Open browser and Navigate to MAGIC1$")
+	public void Open_browser_and_Navigate_to_MAGIC1() throws Throwable{
 		GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
 		try {
 			Thread.sleep(3000);
