@@ -108,12 +108,13 @@ if (bStatus) {
 Reports.logResults(LogStatus.PASS, "Test Passed", "MAGICQualifiations");
 }
 else {
-Reports.logResults(LogStatus.FAIL, "Test Failed", "MAGICQualifiations ");
+Reports.logResults(LogStatus.FAIL, "Test Failed", "MAGICQualifiations");
 }
 
 
 }
 
 }
+
 
 
