@@ -16,7 +16,7 @@ public class MAGICDashboard {
 	boolean bStatus;
 	
 	@Before public void beforeTest() {
-		Reports.setTestCaseName("MAGIC_DashboardTest");
+		Reports.setTestCaseName("MAGICDashboard ");
     }
 	
 	@After public void afterTest() {
@@ -79,13 +79,11 @@ public void Values_Entered_and_clicked_on_submit() throws Throwable{
 		 //Validating the Expected//
 	       String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id(\"ABOInfo\")/x:table/x:tbody/x:tr[2]/x:td[2]"));
 		   System.out.println("The Output is:"  +ExpVal);
-		  
-		  com.alticor.magic.GeneralFunctions.close();
-		 
-		  if (bStatus) {
-	            Reports.logResults(LogStatus.PASS, "Test Pass", "DashboardTest");
+		   com.alticor.magic.GeneralFunctions.close();
+		 if (bStatus) {
+	            Reports.logResults(LogStatus.PASS, "Test Pass", "MAGICDashboard ");
      } else {
-	            Reports.logResults(LogStatus.FAIL, "Test Fail", "DashboardTest");
+	            Reports.logResults(LogStatus.FAIL, "Test Fail", "MAGICDashboard ");
 	        }
 	}
 	}
