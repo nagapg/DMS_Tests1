@@ -9,3 +9,6 @@ import cucumber.api.junit.Cucumber;
 glue={"stepDefinition"},
 plugin={"html:target/cucumber-html-report"})
 		
+public class MA9732 {
+
+}
