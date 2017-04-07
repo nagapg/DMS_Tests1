@@ -48,8 +48,8 @@ public void test() {
       System.out.println("Cannot enter ABO");
      }
 	  
-  //Enter Period:082016//
-  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"082016");
+  //Enter Period:042017//
+  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"042017");
 		if(bStatus){
       	System.out.println("Entered Period");
       }	
@@ -90,9 +90,7 @@ public void test() {
      	System.out.println("Cannot Click on GIP");
      }
 		
-		
-		
-     //Maintenance-->GIP-->Baseline Rerun//
+	  //Maintenance-->GIP-->Baseline Rerun//
      bStatus=GeneralFunctions.clickElement(By.linkText("Baseline Rerun"));   
     if(bStatus){
 		System.out.println("Click on Baseline Rerun");
@@ -102,7 +100,7 @@ public void test() {
     }
     
 
-GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='effPerfYear']"),"2016");
+    bStatus=GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='effPerfYear']"),"2016");
 if(bStatus){
 	System.out.println("Enter Eff PY");
 }	
@@ -118,8 +116,6 @@ if(bStatus){
 else{
 System.out.println("Cannot Click on Submit Rerun");
 }
-
-
 try {
 	Thread.sleep(3000);
 } catch (InterruptedException e) {
@@ -127,13 +123,11 @@ try {
 	e.printStackTrace();
 }
 
-
 //Capture the Result1//
 String ExpVal2=GeneralFunctions.getText(By.xpath(".//*[@id='successMsgDiv']"));
   System.out.println("The Output is:"  +ExpVal2);
 
-
-  com.alticor.magic.GeneralFunctions.close();
+com.alticor.magic.GeneralFunctions.close();
 	
   //Test Reports//
  if (bStatus) {
