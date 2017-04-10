@@ -27,16 +27,16 @@ private String baseUrl = "https://magic-beta/EBS_UI_Web/Magic";
 
     public WebElement userNameInputField() {
         return new DynamicElement(driver).addSearch(By.id("input26"));
-    	//return driver.findElement(By.id("input26"));
-        
-    }
+    	 }
 
     public WebElement passwordInputField() {
         return new DynamicElement(driver).addSearch(By.id("input33"));
     }
 
     public WebElement submitButton() {
-        return new DynamicElement(driver).addSearch(By.xpath("//input[@value='Sign In']"));
+       // return new DynamicElement(driver).addSearch(By.xpath("//input[@value='Sign In']"));//
+        return new DynamicElement(driver).addSearch(By.xpath(".//*[@id='form17']/div[2]/input"));
+        
     }
 
     public void login(String username, String password) {
