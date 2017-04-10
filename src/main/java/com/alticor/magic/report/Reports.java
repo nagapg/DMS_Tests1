@@ -63,7 +63,7 @@ public class Reports {
     
         
         objXTest = objXtn.startTest(testName);
-        
+        objXTest.log(LogStatus.INFO,"TestID = " + CurrentTest.ID + " RunID =" +CurrentTest.RunID);
 
     }
 
