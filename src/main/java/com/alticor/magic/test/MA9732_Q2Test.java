@@ -8,13 +8,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-public class MAGIC_Q2_BaselineRerunTest {
+public class MA9732_Q2Test {
 	
 	 /** Declare variables */
    private boolean bStatus=false;
    
    @Before public void setUp() throws Exception {
-       Reports.setTestCaseName("MAGIC_Q2_BaselineRerunTest");
+       Reports.setTestCaseName("MA9732_Q2Test");
        
        //Open Browser Navigate to Gamma//
       bStatus = GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
@@ -131,9 +131,9 @@ com.alticor.magic.GeneralFunctions.close();
 	
  //Test Reports//
 if (bStatus) {
-      Reports.logResults(LogStatus.PASS, "Test Passed", "MAGIC_Q2_BaselineRerunTest");
+      Reports.logResults(LogStatus.PASS, "Test Passed", "MA9732_Q2Test");
 } else {
-      Reports.logResults(LogStatus.FAIL, "Test Failed", "MAGIC_Q2_BaselineRerunTest");
+      Reports.logResults(LogStatus.FAIL, "Test Failed", "MA9732_Q2Test");
   }
 }
 }
