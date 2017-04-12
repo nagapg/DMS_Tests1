@@ -240,7 +240,8 @@ public static String getText(By objLocator)
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
-			Reports.CurrentTest.AddStep(new StepReport("Open Broswr Failed: "  + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+			
+			Reports.CurrentTest.AddStep(new StepReport("Open Broswr Failed: "  + " " + sErrMsg, false, null));
 			return false;
 		}
 	}
@@ -301,7 +302,7 @@ return true;
 	}catch(Exception e)
 	{
 		sErrMsg=e.getMessage();
-		Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+		Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,null));
 		return false;
 	}
 }
@@ -346,7 +347,7 @@ public static boolean FindElement(By objLocator) {
 		driver.findElement(objLocator).clear();
 		Reports.CurrentTest.AddStep(new StepReport("Clear Element" + objLocator,true));
 		driver.findElement(objLocator);
-		Reports.CurrentTest.AddStep(new StepReport("Found Element" + objLocator,true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+		Reports.CurrentTest.AddStep(new StepReport("Found Element" + objLocator,true,null));
 		return true;
 		}
 		return false;
@@ -375,7 +376,7 @@ public static  boolean  DropDown(By objLocator,String sval) {
 	}catch(Exception e)
 	{
 		sErrMsg=e.getMessage();
-		Reports.CurrentTest.AddStep(new StepReport("Failed to Locate Dropdown by: "  + objLocator + " " + sErrMsg,false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+		Reports.CurrentTest.AddStep(new StepReport("Failed to Locate Dropdown by: "  + objLocator + " " + sErrMsg,false,null));
 		return false;
 	}
 }
