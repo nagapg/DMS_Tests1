@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-@RunWith(AmwayProwlRunner.class)  public class MA9732_WithProwlCode {
+@RunWith(AmwayProwlRunner.class)  public class MA9732_WithProwlCodeTest {
 	static WebDriver driver;
     static MagicPage magicPage;
     static OktaLogin oktaLogin;
