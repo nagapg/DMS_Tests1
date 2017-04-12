@@ -15,7 +15,7 @@ public class Parms {
 	        
 	        public Parms(){
 	        try{	
-	        this.RunID = GUID.fromString(System.getenv("RunID")).toGuidString();
+	        this.RunID = GUID.fromString(System.getProperty("RunID")).toGuidString();
 	        }
 	        catch(NullPointerException e)
 	        {
@@ -23,7 +23,7 @@ public class Parms {
 	        	this.RunID = "00000000-0000-0000-0000-000000000000";
 	        }
 	        try{
-	        this.TestID = GUID.fromString(System.getenv("TestID")).toGuidString();
+	        this.TestID = GUID.fromString(System.getProperty("TestID")).toGuidString();
 	        
 	        }
 	        catch(NullPointerException ex){
@@ -33,25 +33,25 @@ public class Parms {
 	        	
 	        }
 	        
-	        this.CallingIP = System.getenv("CallingIP");
+	        this.CallingIP = System.getProperty("CallingIP");
 	        if(this.CallingIP == null){
 	        
 	        	this.CallingIP = "";
 	        
 	        }
-	        this. BaseURL = System.getenv("BaseURL");
+	        this. BaseURL = System.getProperty("BaseURL");
 	        if(this.BaseURL == null){
 		        
 	        	this.BaseURL = "";
 	        
 	        }
-	        this.Env = System.getenv("Environment");
+	        this.Env = System.getProperty("Environment");
 	        if(this.Env == null){
 		        
 	        	this.Env = "";
 	        
 	        }
-	        this.Browser = System.getenv("Browser");
+	        this.Browser = System.getProperty("Browser");
 	        if(this.Browser == null){
 		        
 	        	this.Browser = "";
