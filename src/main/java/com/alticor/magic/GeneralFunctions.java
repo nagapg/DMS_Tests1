@@ -105,7 +105,7 @@ public static boolean clickElementByJavascriptExecutor(WebElement objLocator){
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
-			Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+		Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 			return false;
 		}
 	}

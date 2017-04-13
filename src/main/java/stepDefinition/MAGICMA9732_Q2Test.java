@@ -46,11 +46,12 @@ public class MAGICMA9732_Q2Test {
 		}
 	}
 	
-	@Given("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" entered Click on submit and Go to  Maintenance GIP  Baseline Rerun$")
-public void aff_abo_period_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseline_Rerun(String aff,String abo,String period) throws Throwable{
+	@Given("values entered Click on submit and Go to  Maintenance GIP  Baseline Rerun$")
+public void values_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseline_Rerun() throws Throwable{
+		
 		
 	
-		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),aff);
+		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"430");
 		  if (bStatus) {
 	    System.out.println("AFF entered");
 	} else {
@@ -58,7 +59,7 @@ public void aff_abo_period_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Bas
 	}
 		  
 	
-		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),abo);
+		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"46");
 		  if (bStatus) {
 	      System.out.println("ABO entered");
 	  } else {
@@ -66,7 +67,7 @@ public void aff_abo_period_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Bas
 	  }
 		  
 	
-		  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),period);
+		  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"042017");
 			if(bStatus){
 	      	System.out.println("Entered Period");
 	      }	
@@ -74,18 +75,14 @@ public void aff_abo_period_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Bas
 	      	System.out.println("Cannot Enter Period");
 	      }
          
-	
-			
-			  bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
+	 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 			  if (bStatus) {
 		        System.out.println("Click on Submit");
 		    } else {
 		        System.out.println("Cannot click on submit");
 		    }
 
-	
-
-		//Maintenance//
+	//Maintenance//
 		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[3]"));
 		if(bStatus){
         	System.out.println("Click on Maintanence");
@@ -113,34 +110,9 @@ public void aff_abo_period_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Bas
        }
 }
 
-
-	
-	//Validating Scenario-2//
-	@Given("^User is in Baseline Rerun Screen$")
-	public void User_is_in_Baseline_Rerun_Screen() throws Throwable{
-		
-		 String Screen=GeneralFunctions.getTitle(By.xpath(".//*[@id='rerunDiv']/div"));
-		   System.out.println("User is in :"  +Screen);
-		  }
-	
-	
-	@Given("^Enter eff PY 2016$")
-	public void  Enter_eff_PY_2016() throws Throwable{
-		
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+	@Given("^Enter eff PY$")
+	public void  Enter_eff_PY() throws Throwable{
 		bStatus=GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='effPerfYear']"),"2016");
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		if(bStatus){
         	System.out.println("Enter Eff PY");
         }	
@@ -150,8 +122,7 @@ public void aff_abo_period_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Bas
 	}
 		@When("^Click on Rerun button$")
 		public void  Click_on_Rerun_button() throws Throwable{
-		
-bStatus=GeneralFunctions.clickElement(By.id("rerunBaselineButton"));
+		bStatus=GeneralFunctions.clickElement(By.id("rerunBaselineButton"));
 		if(bStatus){
         	System.out.println("Click on Submit Rerun");
         }	
@@ -175,11 +146,7 @@ try {
 		 System.out.println("##########Expected-Result########################");
 		   System.out.println(Sucess);
 		   System.out.println("###############################################");
-	}	
-	
-	@And("^Close the browser$")
-	public void Close_the_browser() throws Throwable{   
-		com.alticor.magic.GeneralFunctions.close();
+	com.alticor.magic.GeneralFunctions.close();
 	        }
 	
 }
