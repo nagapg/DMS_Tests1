@@ -25,15 +25,18 @@ public class OktaUserHome extends AbstractPageObject {
     }
 
     public DynamicElement userNameInputField() {
-        return getDynamicElement().addSearch(By.id("user-signin"));
+      //  return getDynamicElement().addSearch(By.id("user-signin"));//
+    	 return getDynamicElement().addSearch(By.id("input26"));
     }
 
     public DynamicElement passwordInputField() {
-        return getDynamicElement().addSearch(By.id("pass-signin"));
+       // return getDynamicElement().addSearch(By.id("pass-signin"));//
+    	 return getDynamicElement().addSearch(By.id("input33"));
     }
 
     public DynamicElement submitButton() {
-        return getDynamicElement().addSearch(By.id("signin-button"));
+       // return getDynamicElement().addSearch(By.id("signin-button"));//
+    	 return getDynamicElement().addSearch(By.id("Sign In"));
     }
 
     public void login(String username, String password) {
