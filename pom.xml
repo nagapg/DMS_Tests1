@@ -3,7 +3,7 @@
     <groupId>com.amway.magic</groupId>
     
     <properties>
-        <cucumber.version>1.2.0</cucumber.version>
+        <cucumber.version>1.2.5</cucumber.version>
     </properties>
     
     <build>
