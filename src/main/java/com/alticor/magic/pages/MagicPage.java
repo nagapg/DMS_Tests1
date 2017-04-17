@@ -93,7 +93,7 @@ public class MagicPage extends AbstractPageObject {
        
         if (affiliateNumber != null) {
             DynamicElement aff = affiliateInputField();
-           // aff.clear();
+            aff.clear();
             aff.sendKeys(affiliateNumber);
         }
 
