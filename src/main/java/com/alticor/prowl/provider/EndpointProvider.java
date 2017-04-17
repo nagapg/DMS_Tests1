@@ -8,7 +8,7 @@ public class EndpointProvider {
         String baseUrl = null;
 
         if (target == null) {
-            target = "magic.dev";
+            target = "magic.qa";
         }
         return EndpointRegistry.getEndpoint(target);
     }

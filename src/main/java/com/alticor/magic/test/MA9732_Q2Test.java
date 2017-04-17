@@ -2,13 +2,15 @@ package com.alticor.magic.test;
 
 import com.alticor.magic.GeneralFunctions;
 import com.alticor.magic.report.Reports;
+import com.alticor.prowl.AmwayProwlRunner;
 import com.relevantcodes.extentreports.LogStatus;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 
-public class MA9732_Q2Test {
+ public class MA9732_Q2Test {
 	
 	 /** Declare variables */
    private boolean bStatus=false;

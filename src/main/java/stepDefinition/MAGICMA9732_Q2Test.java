@@ -46,12 +46,12 @@ public class MAGICMA9732_Q2Test {
 		}
 	}
 	
-	@Given("values entered Click on submit and Go to  Maintenance GIP  Baseline Rerun$")
-public void values_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseline_Rerun() throws Throwable{
+	@Given("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" entered Click on submit and Go to  Maintenance GIP  Baseline Rerun$")
+public void aff_abo_period_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseline_Rerun(String aff,String abo,String per) throws Throwable{
 		
 		
 	
-		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"430");
+		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),aff);
 		  if (bStatus) {
 	    System.out.println("AFF entered");
 	} else {
@@ -59,7 +59,7 @@ public void values_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseline_Re
 	}
 		  
 	
-		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"46");
+		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),abo);
 		  if (bStatus) {
 	      System.out.println("ABO entered");
 	  } else {
@@ -67,7 +67,7 @@ public void values_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseline_Re
 	  }
 		  
 	
-		  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"042017");
+		  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),per);
 			if(bStatus){
 	      	System.out.println("Entered Period");
 	      }	
@@ -146,6 +146,10 @@ try {
 		 System.out.println("##########Expected-Result########################");
 		   System.out.println(Sucess);
 		   System.out.println("###############################################");
+	}
+	
+		   @And("^Close MAGIC Gamma$")
+		   public void Close_MAGIC_Gamma() throws Throwable{   
 	com.alticor.magic.GeneralFunctions.close();
 	        }
 	

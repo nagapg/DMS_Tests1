@@ -27,8 +27,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
         driver = WebDriverManager.getInstance().getDriver();
 
         oktaLogin = new OktaLogin(driver, null);
-        oktaLogin.login("cmns559",
-            "our49pot");// TODO: Make this grab password from environment variables
+        oktaLogin.login("cmns559","our49pot");
+        
         driver.getTitle();
 
         magicPage = new MagicPage(driver, null);
