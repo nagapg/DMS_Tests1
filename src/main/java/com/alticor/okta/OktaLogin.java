@@ -26,19 +26,19 @@ private String baseUrl = "https://magic-gamma/EBS_UI_Web/Magic";
     }
 
     public WebElement userNameInputField() {
-       // return new DynamicElement(driver).addSearch(By.id("input26"));//
-    	return new DynamicElement(driver).addSearch(By.id("selectedAffLeftContainer"));
+       return new DynamicElement(driver).addSearch(By.id("input26"));
+    	//return new DynamicElement(driver).addSearch(By.id("selectedAffLeftContainer"));//
     	 }
 
     public WebElement passwordInputField() {
-      //  return new DynamicElement(driver).addSearch(By.id("input33"));//
-    	return new DynamicElement(driver).addSearch(By.id("selectedIboNumber"));
+       return new DynamicElement(driver).addSearch(By.id("input33"));
+    	//return new DynamicElement(driver).addSearch(By.id("selectedIboNumber"));//
     }
 
     public WebElement submitButton() {
-       // return new DynamicElement(driver).addSearch(By.xpath("//input[@value='Sign In']"));//
+       return new DynamicElement(driver).addSearch(By.xpath("//input[@value='Sign In']"));
         //return new DynamicElement(driver).addSearch(By.xpath(".//*[@id='form17']/div[2]/input"));//
-    	return new DynamicElement(driver).addSearch(By.xpath(".//*[@id='SubmitButton']"));
+    	//return new DynamicElement(driver).addSearch(By.xpath(".//*[@id='SubmitButton']"));//
         
     }
 
