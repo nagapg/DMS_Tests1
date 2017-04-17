@@ -1,11 +1,7 @@
 package stepDefinition;
 
-import org.junit.After;
 import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
-import com.alticor.magic.report.Reports;
-import com.relevantcodes.extentreports.LogStatus;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
