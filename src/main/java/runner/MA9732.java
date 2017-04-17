@@ -6,7 +6,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features={"src/test/resources/cucumber/MA9732.feature"},
-glue={"stepDefinition"},
+glue={"com.alticor.magic.test"},
 plugin={"html:target/cucumber-html-report"})
 		
 public class MA9732 {

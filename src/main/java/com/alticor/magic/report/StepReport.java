@@ -30,7 +30,7 @@ public class StepReport {
     }
 	
 	public StepReport(String stepText,boolean passFail){
-		this(stepText,Reports.CurrentTest.ID,passFail,"0",null);
+	//	this(stepText,Reports.CurrentTest.ID,passFail,"0",null);//
 	}
 
     public StepReport(String stepText, String testID, boolean passFail, String ApplicationVersion){
@@ -38,7 +38,7 @@ public class StepReport {
     	this(stepText,testID,passFail,ApplicationVersion ,null);
     }
     public StepReport(String stepText, boolean passFail, byte[] screenShoot){
-    	this(stepText,Reports.CurrentTest.ID,passFail,"0",screenShoot);
+    	//this(stepText,Reports.CurrentTest.ID,passFail,"0",screenShoot);//
     }
     
     public StepReport(String stepText, String testID, boolean passFail, String ApplicationVersion, byte[] screenShoot)
