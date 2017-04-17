@@ -10,5 +10,4 @@ glue={"com.alticor.magic.test"},
 plugin={"html:target/cucumber-html-report"})
 		
 public class MA9732 {
-
 }

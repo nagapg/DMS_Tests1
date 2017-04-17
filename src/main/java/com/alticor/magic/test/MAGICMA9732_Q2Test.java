@@ -21,44 +21,31 @@ public class MAGICMA9732_Q2Test {
 		} else {
 		    System.out.println("Cannot Navigated to MAGIC QA");
 		}
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	
+		
 	//Okta Login//
 	GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
 	GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input33']"),"our49pot");
 	GeneralFunctions.clickElement(By.xpath(".//*[@id='form17']/div[2]/input"));
-	
-	try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	@Given("^aff abo per entered Click on submit and Go to  Maintenance GIP  Baseline Rerun$")
-public void aff_abo_per_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseline_Rerun() throws Throwable{
+}
+
+	@Given("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" entered Click on submit and Go to  Maintenance GIP  Baseline Rerun$")
+public void aff_abo_per_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseline_Rerun(String aff,String abo,String period) throws Throwable{
 		
-		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"430");
+		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),aff);
 		  if (bStatus) {
 	    System.out.println("AFF entered");
 	} else {
 	    System.out.println("Cannot enter AFF");
 	}
 		  
-	bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"46");
+	bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),abo);
 		  if (bStatus) {
 	      System.out.println("ABO entered");
 	  } else {
 	      System.out.println("Cannot enter ABO");
 	  }
 		  
-	 bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"042017");
+	 bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),period);
 			if(bStatus){
 	      	System.out.println("Entered Period");
 	      }	
@@ -99,17 +86,11 @@ public void aff_abo_per_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseli
        else{
        	System.out.println("Cannot Click on Baseline Rerun");
        }
-       
-       try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-}
+       }
 
 	@Given("^Enter eff PY$")
 	public void  Enter_eff_PY() throws Throwable{
+		
 		bStatus=GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='effPerfYear']"),"2016");
 		if(bStatus){
         	System.out.println("Enter Eff PY");
@@ -118,7 +99,8 @@ public void aff_abo_per_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseli
         	System.out.println("Cannot Enter Eff PY");
         }
 	}
-		@When("^Click on Rerun button$")
+	
+	@When("^Click on Rerun button$")
 		public void  Click_on_Rerun_button() throws Throwable{
 		bStatus=GeneralFunctions.clickElement(By.id("rerunBaselineButton"));
 		if(bStatus){
@@ -127,14 +109,7 @@ public void aff_abo_per_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseli
         else{
         System.out.println("Cannot Click on Submit Rerun");
         }
-		
-try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-	}
 	
 	@Then("^Capture the success message$")
 	public void Capture_the_success_message() throws Throwable{
@@ -148,10 +123,8 @@ try {
 	
 		   @And("^Close MAGIC Gamma$")
 		   public void Close_MAGIC_Gamma() throws Throwable{   
-	//com.alticor.magic.GeneralFunctions.close();//
-			   com.alticor.magic.GeneralFunctions.close();
+	       com.alticor.magic.GeneralFunctions.close();
 	        }
-	
-}
+	}
 
 
