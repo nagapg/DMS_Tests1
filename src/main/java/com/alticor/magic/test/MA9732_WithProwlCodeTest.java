@@ -30,13 +30,13 @@ import org.openqa.selenium.WebDriver;
         driver = WebDriverManager.getInstance().getDriver();
 
         oktaLogin = new OktaLogin(driver, null);
-       // oktaLogin.login("cmns559","our49pot");//
+       oktaLogin.login("cmns559","our49pot");
      
         driver.getTitle();
 
         magicPage = new MagicPage(driver, null);
         magicPage.setBaseUrl(baseUrl);
-        magicPage.aboLookup("430", "46", null);
+        magicPage.aboLookup("430", "46", "042017");
     }
     
     @AfterClass public static void tearDown() {
