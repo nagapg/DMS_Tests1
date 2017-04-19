@@ -1,87 +1,85 @@
-//Expected:Navigate to MAGIC Line Of Spons Map Screen//
 package com.alticor.magic.test;
 
+import org.junit.After;
+import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
 import com.alticor.magic.report.Reports;
 import com.relevantcodes.extentreports.LogStatus;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.By;
+import cucumber.api.java.Before;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class MAGIC_Q1_LOSMapTest {
+
+	/** Declare variables */
+	boolean bStatus;
 	
-	 /** Declare variables */
-    private boolean bStatus=false;
-    
-    @Before public void setUp() throws Exception {
-        Reports.setTestCaseName("MAGIC_Q1_LOSMapTest ");
-        //Open Browser Navigate to Gamma//
-       bStatus = GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
-        if (bStatus) {
-            System.out.println("Navigated to Environment");
-        } else {
-            System.out.println("Cannot navigate to Environment");
-        }
+/*	@Before public void beforeTest() {
+		Reports.setTestCaseName("MAGICLOSMap");
     }
-  
-	    @After public void afterTest() {
-	        Reports.endTest();
-	    }
 	
-@Test
-public void test() {
+	@After public void afterTest() {
+        Reports.endTest();
+    }*/
 	
+	@Given("^Open browser and Navigate to MAGIC7$")
+	public void Open_browser_and_Navigate_to_MAGIC7() throws Throwable{
+		GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+@When("^navigated to LOS Map Screen$")
+public void navigated_to_LOS_Map_Screen() throws Throwable{
 	  //Enter Aff:010//
 	  bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
 	  if (bStatus) {
-    System.out.println("AFF entered");
-    } else {
-    System.out.println("Cannot enter AFF");
-   }
-	  
-	//Enter Abo:9995//
+  System.out.println("AFF entered");
+  } else {
+  System.out.println("Cannot enter AFF");
+ }
+	  //Enter Abo:9995//
 	bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
 	  if (bStatus) {
-      System.out.println("ABO entered");
-      } else {
-      System.out.println("Cannot enter ABO");
-     }
-	  
-  //Enter Period:022017//
-  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
+    System.out.println("ABO entered");
+    } else {
+    System.out.println("Cannot enter ABO");
+   }
+	  //Enter Period:022017//
+bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
 		if(bStatus){
-      	System.out.println("Entered Period");
-      }	
-      else{
-      	System.out.println("Cannot Enter Period");
-      }
-
-    //Click on submit//
+    	System.out.println("Entered Period");
+    }	
+    else{
+    	System.out.println("Cannot Enter Period");
+    }
+//Click on submit//
 		  bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 		  if (bStatus) {
 	        System.out.println("Click on Submit");
 	    } else {
 	        System.out.println("Cannot click on submit");
 	    }
-		  
-	 try {
+		  try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			//Reports//
+		//Reports//
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));
-			//	  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[4]"));//
-		        if(bStatus){
-		        	System.out.println("Click on Reports");
-		        }	
-		        else{
-		        	System.out.println("Cannot Click on Reports");
-		        }
-		
-           //Reports-->ABO Reports//
+		    if(bStatus){
+	        	System.out.println("Click on Reports");
+	        }	
+	        else{
+	        	System.out.println("Cannot Click on Reports");
+	        }
+		 //Reports-->ABO Reports//
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu4']/a[2]/span[1]"));
 	        if(bStatus){
 			System.out.println("Click on ABO Reports");
@@ -89,9 +87,7 @@ public void test() {
 	        else{
 	        	System.out.println("Cannot Click on ABO Reports");
 	        }
-	        
-
-	     //Reports-->ABO Reports-->Line Of Spon Maps Rpts//
+	         //Reports-->ABO Reports-->Line Of Spon Maps Rpts//
 	        bStatus=GeneralFunctions.clickElement(By.linkText("Line of Sponsorship Maps"));   
 	       if(bStatus){
 			System.out.println("Click on Line Of Spon Maps Rpts");
@@ -99,25 +95,26 @@ public void test() {
 	       else{
 	       	System.out.println("Cannot Click on Line Of Spon Maps Rpts");
 	       }
-	       
-       //Validating the Expected//
-	       String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='searchBoxDiv']/div[1]"));
-		   System.out.println("The Output is:"  +ExpVal);
-		  
-         com.alticor.magic.GeneralFunctions.close();
-			        
-	   			//Reports//
-	   			 if (bStatus) {
-	   		            Reports.logResults(LogStatus.PASS, "Test Pass", "LineofsponMapTest");
+	       }
 
-	   		        } else {
-	   		            Reports.logResults(LogStatus.FAIL, "Test Fail", "LineofsponMapTest");
-	   		        }
-	   		
-	   	}
-	   	}
 
-	  
+@Then("^Capture MAGIC LOS Map$")
+public void Capture_MAGIC_LOS_Map() throws Throwable{//Validating the Expected//
+    String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='searchBoxDiv']/div[1]"));
+	   System.out.println("The Output is:"  +ExpVal);
+	  com.alticor.magic.GeneralFunctions.close();
+		    /*    if (bStatus) {
+		            Reports.logResults(LogStatus.PASS, "Test Pass", "MAGICLOSMap");
+} 
+		        else
+		        {
+		            Reports.logResults(LogStatus.FAIL, "Test Fail", "MAGICLOSMap");
+		        }*/
+		}
+	}
+
+
+
 
 
 

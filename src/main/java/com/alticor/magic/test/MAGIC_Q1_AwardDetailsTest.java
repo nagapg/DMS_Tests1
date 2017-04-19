@@ -1,98 +1,93 @@
-//Expected:Naviagate to  MAGIC Award details Screen//
 package com.alticor.magic.test;
 
+import org.junit.After;
+import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
 import com.alticor.magic.report.Reports;
 import com.relevantcodes.extentreports.LogStatus;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.By;
+import cucumber.api.java.Before;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
- public class MAGIC_Q1_AwardDetailsTest {
+public class MAGIC_Q1_AwardDetailsTest {
 
-   /** Declare variables */
-    private boolean bStatus=false;
-    
-    @Before public void setUp() throws Exception {
-        Reports.setTestCaseName("MAGIC_Q1_AwardDetailsTest");
-        //Open Browser Navigate to Gamma//
-       bStatus = GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
-        if (bStatus) {
-            System.out.println("Navigated to Environment");
-        } else {
-            System.out.println("Cannot navigate to Environment");
-        }
+	/** Declare variables */
+	boolean bStatus;
+	
+	/*@Before public void beforeTest() {
+		Reports.setTestCaseName("MAGICAwardDetails");
     }
-  
-	    @After public void afterTest() {
-	        Reports.endTest();
-	    }
 	
-@Test
-public void test() {
+	@After public void afterTest() {
+        Reports.endTest();
+    }*/
 	
-	  //Enter Aff:010//
+	@Given("^Open browser and Navigate to MAGIC2$")
+	public void Open_browser_and_Navigate_to_MAGIC2() throws Throwable{
+		GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+@When("^navigated to Award Details Screen$")
+public void navigated_to_Award_Details_Screen() throws Throwable{
+	//Enter Aff:010//
 	  bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
 	  if (bStatus) {
-    System.out.println("AFF entered");
-    } else {
-    System.out.println("Cannot enter AFF");
-   }
-	  
-	//Enter Abo:9995//
+  System.out.println("AFF entered");
+  } else {
+  System.out.println("Cannot enter AFF");
+ }
+	  //Enter Abo:9995//
 	bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
 	  if (bStatus) {
-      System.out.println("ABO entered");
-      } else {
-      System.out.println("Cannot enter ABO");
-     }
-	  
-  //Enter Period:022017//
-  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
+    System.out.println("ABO entered");
+    } else {
+    System.out.println("Cannot enter ABO");
+   }
+	  //Enter Period:022017//
+bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
 		if(bStatus){
-      	System.out.println("Entered Period");
-      }	
-      else{
-      	System.out.println("Cannot Enter Period");
-      }
-
-    //Click on submit//
+    	System.out.println("Entered Period");
+    }	
+    else{
+    	System.out.println("Cannot Enter Period");
+    }
+//Click on submit//
 		  bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 		  if (bStatus) {
 	        System.out.println("Click on Submit");
 	    } else {
 	        System.out.println("Cannot click on submit");
 	    }
-		  
-	 try {
+		  try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
-		    //Inquiry//
-			bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));
-			  //bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));//
-		        if(bStatus){
-		        	System.out.println("Click on Inquiry");
-		        }	
-		        else{
-		        	System.out.println("Cannot Click on Inquiry");
-		        }
-	   		
-	   	 //Inquiry-->Awards//
-	   // bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[1]/span[1]"));//
-	 bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[3]/span[1]"));
+		//Inquiry//
+		bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));
+		    if(bStatus){
+	        	System.out.println("Click on Inquiry");
+	        }	
+	        else{
+	        	System.out.println("Cannot Click on Inquiry");
+	        }
+	   		 //Inquiry-->Awards//
+	      bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[3]/span[1]"));
 	   	if(bStatus){
 	   	System.out.println("Click on Awards");
 	   	        }	
 	   	        else{
 	   	        	System.out.println("Cannot Click on Awards");
 	   	        }
-	   			
-	   	 //Click on Award Details//
+	   			//Click on Award Details//
 		      bStatus=GeneralFunctions.clickElement(By.linkText("Award Details"));
 	   	        if(bStatus){
 	   			System.out.println("Click on Award Details");
@@ -100,20 +95,23 @@ public void test() {
 	   	        else{
 	   	        	System.out.println("Cannot Click on Award Details");
 	   	        }
-	   			
-         //Validating the Expected//
-	       String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('AwdHistExpand')/x:div[1]"));
-	      System.out.println("The Award Details Screen is "+ ExpVal);
-	
-   		com.alticor.magic.GeneralFunctions.close();
- 		
-     //Test Reports//
-    if (bStatus) {
-          Reports.logResults(LogStatus.PASS, "Test Passed", "MAGIC_AwardDetailsTest");
-    } else {
-          Reports.logResults(LogStatus.FAIL, "Test Failed", "MAGIC_AwardDetailsTest");
-      }
-   }
 }
+	   	     
+@Then("^Capture MAGIC Award Details$")
+	   	    public void Capture_MAGIC_Award_Details() throws Throwable{
+	   	    	 //Validating the Expected//
+	  	       String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('AwdHistExpand')/x:div[1]"));
+	  	      System.out.println("The Award Details Screen is "+ ExpVal);
+	  	com.alticor.magic.GeneralFunctions.close();
+	   			/* if (bStatus) {
+	   		            Reports.logResults(LogStatus.PASS, "Test Pass", "MAGICAwardDetails ");
+	   	     } else {
+	   		            Reports.logResults(LogStatus.FAIL, "Test Fail", "MAGICAwardDetails ");
+	   		        }*/
+	   		}
+	   		}
+	   		    
+
+
 
 

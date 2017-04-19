@@ -7,7 +7,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class MAGICMA9732_Q2Test {
+public class MAGIC_Q2_MA9732Test {
 	
 	/** Declare variables */
 	boolean bStatus;
@@ -126,5 +126,6 @@ public void aff_abo_per_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseli
 	       com.alticor.magic.GeneralFunctions.close();
 	        }
 	}
+
 
 

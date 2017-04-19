@@ -1,123 +1,120 @@
-//Expected:Navigate to  MAGIC Qualification Screen//
-
 package com.alticor.magic.test;
 
+import org.junit.After;
+import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
 import com.alticor.magic.report.Reports;
 import com.relevantcodes.extentreports.LogStatus;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.By;
+import cucumber.api.java.Before;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
+public class MAGIC_Q1_QualificationsTest {
 
- public class MAGIC_Q1_QualificationsTest {
-
-	 /** Declare variables */
-	    private boolean bStatus=false;
-	    
-	    @Before public void setUp() throws Exception {
-	        Reports.setTestCaseName("MAGIC_Q1_QualificationsTest");
-	        //Open Browser and navigate to Gamma//
-	       bStatus = GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
-	    if (bStatus) {
-	            System.out.println("Navigated to Environment");
-	        } else {
-	            System.out.println("Cannot navigate to Environment");
-	        }
+	/** Declare variables */
+	boolean bStatus;
+	
+	/*@Before public void beforeTest() {
+		Reports.setTestCaseName("MAGICQualifiations");
+    }
+	
+	@After public void afterTest() {
+        Reports.endTest();
+    }*/
+	
+	@Given("^Open browser and Navigate to MAGIC8$")
+	public void Open_browser_and_Navigate_to_MAGIC8() throws Throwable{
+		GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+@When("^navigated to Qualifications Screen$")
+public void navigated_to_Qualifications_Screen() throws Throwable{
+	//Enter Aff:010//
+	bStatus =GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"),"010");
+	  if (bStatus) {
+    System.out.println("AFF entered");
+} else {
+    System.out.println("Cannot enter AFF");
+}
+	  //Enter Abo:9995//
+	bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
+	  if (bStatus) {
+      System.out.println("ABO entered");
+  } else {
+      System.out.println("Cannot enter ABO");
+  }
+	  //Enter Period:022017//
+	  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
+		if(bStatus){
+      	System.out.println("Entered Period");
+      }	
+      else{
+      	System.out.println("Cannot Enter Period");
+      }
+//Click on submit//
+		  bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
+		  if (bStatus) {
+	        System.out.println("click on Submit");
+	    } else {
+	        System.out.println("Cannot click on submit");
 	    }
-	  
-		    @After public void afterTest() {
-		        Reports.endTest();
-		    }
-		
-		  
-	@Test
-	public void test() {
-		
-		//Enter Aff:010//
-				bStatus =GeneralFunctions.enterTextToElement(By.id("selectedAffLeftContainer"),"010");
-				  if (bStatus) {
-			    System.out.println("AFF entered");
-			} else {
-			    System.out.println("Cannot enter AFF");
+		 try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-				  
-				//Enter Abo:9995//
-				bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
-				  if (bStatus) {
-			      System.out.println("ABO entered");
-			  } else {
-			      System.out.println("Cannot enter ABO");
-			  }
-				  
-				  //Enter Period:022017//
-				  bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
-					if(bStatus){
-			      	System.out.println("Entered Period");
-			      }	
-			      else{
-			      	System.out.println("Cannot Enter Period");
-			      }
-
-				//Click on submit//
-					  bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
-					  if (bStatus) {
-				        System.out.println("click on Submit");
-				    } else {
-				        System.out.println("Cannot click on submit");
-				    }
-					
-					  
-					  try {
-							Thread.sleep(3000);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					
-					 //Inquiry//
-				bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));
-				 // bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));//
-			        if(bStatus){
-			        	System.out.println("Click on Inquiry");
-			        }	
-			        else{
-			        	System.out.println("Cannot Click on Inquiry");
-			        }
-			   		
-				   	       //Inquiry-->Awards//
-				          bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[3]/span[1]"));
-				   	        if(bStatus){
-				   			System.out.println("Click on Awards");
-				   	        }	
-				   	        else{
-				   	        	System.out.println("Cannot Click on Awards");
-				   	        }
-				   			
-				   	    //Click on Qualification//
-					     bStatus=GeneralFunctions.clickElement(By.linkText("Qualifications"));
-				   	        if(bStatus){
-				   			System.out.println("Click on Qualifications");
-				   	        }	
-				   	        else{
-				   	        	System.out.println("Cannot Click on Qualifications");
-				   	        }
-				   			
-		      //Validating the Expected//
-		            String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('IboDashboardAwardsExpand')/x:div[1]"));
-			        System.out.println("The Output is:"  +ExpVal);
-			
-	       com.alticor.magic.GeneralFunctions.close();
-		
-		//Reports//
-     if (bStatus) {
-	            Reports.logResults(LogStatus.PASS, "Test Passed", "QualificationsTest");
-
-	        } else {
-	            Reports.logResults(LogStatus.FAIL, "Test Failed", "QualificationsTest");
-	        }
-
-			
+		//Inquiry//
+			bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));
+		        if(bStatus){
+		        	System.out.println("Click on Inquiry");
+		        }	
+		        else{
+		        	System.out.println("Cannot Click on Inquiry");
+		        }
+		         //Inquiry-->Awards//
+		      bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[3]/span[1]"));
+	   	        if(bStatus){
+	   			System.out.println("Click on Awards");
+	   	        }	
+	   	        else{
+	   	        	System.out.println("Cannot Click on Awards");
+	   	        }
+	   			//Click on Qualification//
+		     bStatus=GeneralFunctions.clickElement(By.linkText("Qualifications"));
+	   	        if(bStatus){
+	   			System.out.println("Click on Qualifications");
+	   	        }	
+	   	        else{
+	   	        	System.out.println("Cannot Click on Qualifications");
+	   	        }
 }
+
+
+@Then("^Capture MAGIC Qualifications$")
+public void Capture_MAGIC_Qualifications() throws Throwable{
+	 //Validating the Expected//
+    String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('IboDashboardAwardsExpand')/x:div[1]"));
+    System.out.println("The Output is:"  +ExpVal);
+com.alticor.magic.GeneralFunctions.close();
+/*if (bStatus) {
+Reports.logResults(LogStatus.PASS, "Test Passed", "MAGICQualifiations");
 }
+else {
+Reports.logResults(LogStatus.FAIL, "Test Failed", "MAGICQualifiations");
+}*/
+
+
+}
+
+}
+
+
+
