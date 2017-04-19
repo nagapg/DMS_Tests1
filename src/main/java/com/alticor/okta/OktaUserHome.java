@@ -50,27 +50,27 @@ public class OktaUserHome extends AbstractPageObject {
         return "Amway Single Sign-on - My Applications";
     }
 
-    @Override public void setup() {
+    public void setup() {
 
     }
 
-    @Override public void tearDown() {
+    public void tearDown() {
 
     }
 
-    @Override public String getBaseUrl() {
+    public String getBaseUrl() {
         return null;
     }
 
-    @Override public void setBaseUrl(String s) {
+    public void setBaseUrl(String s) {
 
     }
 
-    @Override public String getPath() {
+    public String getPath() {
         return null;
     }
 
-    @Override public void setPath(String s) {
+    public void setPath(String s) {
 
     }
 }

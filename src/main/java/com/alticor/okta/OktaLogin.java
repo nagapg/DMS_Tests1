@@ -49,27 +49,27 @@ private String baseUrl = "https://magic-gamma/EBS_UI_Web/Magic";
         submitButton().submit();
     }
 
-    @Override public void setup() {
+    public void setup() {
 
     }
 
-    @Override public void tearDown() {
+    public void tearDown() {
 
     }
 
-    @Override public String getBaseUrl() {
+    public String getBaseUrl() {
         return baseUrl;
     }
 
-    @Override public void setBaseUrl(String s) {
+    public void setBaseUrl(String s) {
         this.baseUrl = s;
     }
 
-    @Override public String getPath() {
+    public String getPath() {
         return "/login/default";
     }
 
-    @Override public void setPath(String s) {
+    public void setPath(String s) {
         throw new UnsupportedOperationException();
     }
     

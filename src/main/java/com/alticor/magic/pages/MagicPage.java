@@ -36,28 +36,28 @@ public class MagicPage extends AbstractPageObject {
 
     }
 
-    @Override public String getBaseUrl() {
+    public String getBaseUrl() {
         return baseUrl;
     }
 
-    @Override public void setBaseUrl(String baseUrl) {
+    public void setBaseUrl(String baseUrl) {
         this.baseUrl = baseUrl;
         navigate(baseUrl);
     }
 
-    @Override public String getPath() {
+    public String getPath() {
         return path;
     }
 
-    @Override public void setPath(String s) {
+    public void setPath(String s) {
         throw new UnsupportedOperationException();
     }
 
-    @Override public void setup() {
+    public void setup() {
         // Place Setup
     }
 
-    @Override public void tearDown() {
+    public void tearDown() {
         // Place Tear Down
     }
 

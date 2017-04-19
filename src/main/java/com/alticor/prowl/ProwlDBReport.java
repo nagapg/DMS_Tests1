@@ -16,7 +16,7 @@ public class ProwlDBReport implements Report  {
 
     private Connection connection;
 
-    @Override public void prepReporting() {
+    public void prepReporting() {
         connection = getConnection();
     }
 
@@ -24,19 +24,19 @@ public class ProwlDBReport implements Report  {
         return null; // TODO: Finish writing this.
     }
 
-    @Override public void validate(String s, boolean b, boolean b1, byte[] bytes) {
+    public void validate(String s, boolean b, boolean b1, byte[] bytes) {
 
     }
 
-    @Override public void validate(String s, boolean b, boolean b1) {
+    public void validate(String s, boolean b, boolean b1) {
 
     }
 
-    @Override public void validate(String s, boolean b) {
+    public void validate(String s, boolean b) {
 
     }
 
-    @Override public void writeStep(String s) {
+    public void writeStep(String s) {
         String statement = "";
         PreparedStatement ps = null;
         try {
@@ -60,7 +60,7 @@ public class ProwlDBReport implements Report  {
         }
     }
 
-    @Override public void writeReport() {
+    public void writeReport() {
 
     }
 }

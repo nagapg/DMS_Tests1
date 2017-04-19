@@ -100,7 +100,7 @@ public class DynamicElement implements WebElement
     }
 
    
-    public WebElement findElement(By by) {
+    public WebElement findElement(final By by) {
     	// Waiting 30 seconds for an element to be present on the page, checking
     	// for its presence once every 5 seconds.
     	Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)

@@ -1,6 +1,5 @@
 package com.alticor.prowl.provider;
 
-import com.alticor.prowl.UnsupportedBrowserException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -91,8 +90,9 @@ public class DriverProvider {
     }
 
     public static WebDriver getDriver(String browser) {
+		return null;
 
-        switch (browser) {
+      /*switch (browser) {
             case "chrome":
                 return DriverProvider.getChromeDriver();
             case "firefox":
@@ -100,8 +100,8 @@ public class DriverProvider {
             case "ie":
                 return DriverProvider.getIEDriver();
             default:
-                throw new UnsupportedBrowserException(browser);
-        }
+                throw new Exception(browser);
+        }*/
     }
 
     /**
@@ -110,7 +110,7 @@ public class DriverProvider {
      * @return Configured WebDriver
      */
     public static WebDriver getDriver() {
-        String browser = System.getenv("BROWSER");
+        String browser = System.getenv("ie");
         return getDriver(browser == null ? "ie" : browser);
     }
 }
