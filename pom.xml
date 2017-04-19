@@ -40,7 +40,8 @@
                 
                 <configuration>
                 <includes>
-                <exclude>**/*MA9732.java</exclude>
+                <exclude>**/*MA9732Test.java</exclude>
+                <exclude>**/*RunnerTest.java</exclude>
                 </includes>
                 </configuration>
                 
