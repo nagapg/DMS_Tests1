@@ -6,7 +6,7 @@ Scenario Outline:
       And Enter eff PY 
       When Click on Rerun button 
       Then Capture the success message
-      And Close MAGIC Gamma
+      And Close MAGICGamma
     
     Examples:
      | aff | abo | period |

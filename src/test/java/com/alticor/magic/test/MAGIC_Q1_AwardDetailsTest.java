@@ -1,11 +1,9 @@
 package com.alticor.magic.test;
 
-import org.junit.After;
 import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
-import com.alticor.magic.report.Reports;
-import com.relevantcodes.extentreports.LogStatus;
-import cucumber.api.java.Before;
+
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -14,14 +12,6 @@ public class MAGIC_Q1_AwardDetailsTest {
 
 	/** Declare variables */
 	boolean bStatus;
-	
-	/*@Before public void beforeTest() {
-		Reports.setTestCaseName("MAGICAwardDetails");
-    }
-	
-	@After public void afterTest() {
-        Reports.endTest();
-    }*/
 	
 	@Given("^Open browser and Navigate to MAGIC2$")
 	public void Open_browser_and_Navigate_to_MAGIC2() throws Throwable{
@@ -36,6 +26,7 @@ public class MAGIC_Q1_AwardDetailsTest {
 	
 @When("^navigated to Award Details Screen$")
 public void navigated_to_Award_Details_Screen() throws Throwable{
+	
 	//Enter Aff:010//
 	  bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
 	  if (bStatus) {
@@ -50,6 +41,7 @@ public void navigated_to_Award_Details_Screen() throws Throwable{
     } else {
     System.out.println("Cannot enter ABO");
    }
+	  
 	  //Enter Period:022017//
 bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
 		if(bStatus){
@@ -58,6 +50,7 @@ bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
     else{
     	System.out.println("Cannot Enter Period");
     }
+		
 //Click on submit//
 		  bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 		  if (bStatus) {
@@ -71,6 +64,7 @@ bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		  
 		//Inquiry//
 		bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));
 		    if(bStatus){
@@ -79,6 +73,7 @@ bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
 	        else{
 	        	System.out.println("Cannot Click on Inquiry");
 	        }
+		    
 	   		 //Inquiry-->Awards//
 	      bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[3]/span[1]"));
 	   	if(bStatus){
@@ -87,6 +82,7 @@ bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
 	   	        else{
 	   	        	System.out.println("Cannot Click on Awards");
 	   	        }
+	   	
 	   			//Click on Award Details//
 		      bStatus=GeneralFunctions.clickElement(By.linkText("Award Details"));
 	   	        if(bStatus){
@@ -99,17 +95,17 @@ bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
 	   	     
 @Then("^Capture MAGIC Award Details$")
 	   	    public void Capture_MAGIC_Award_Details() throws Throwable{
+	
 	   	    	 //Validating the Expected//
 	  	       String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('AwdHistExpand')/x:div[1]"));
 	  	      System.out.println("The Award Details Screen is "+ ExpVal);
-	  	com.alticor.magic.GeneralFunctions.close();
-	   			/* if (bStatus) {
-	   		            Reports.logResults(LogStatus.PASS, "Test Pass", "MAGICAwardDetails ");
-	   	     } else {
-	   		            Reports.logResults(LogStatus.FAIL, "Test Fail", "MAGICAwardDetails ");
-	   		        }*/
-	   		}
-	   		}
+}
+
+	  	    @And("^Close MAGIC Gamma2$")
+			   public void Close_MAGIC_Gamma2() throws Throwable{   
+		       com.alticor.magic.GeneralFunctions.close();
+		        }
+		}
 	   		    
 
 

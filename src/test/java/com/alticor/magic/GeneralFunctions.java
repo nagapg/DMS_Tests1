@@ -27,6 +27,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import com.alticor.magic.report.Reports;
 import com.alticor.magic.report.StepReport;
+import com.cucumber.listener.Reporter;
 
 
 public class GeneralFunctions {
@@ -72,11 +73,11 @@ public static boolean clickElementByJavascriptExecutor(WebElement objLocator){
 		try{
 			if(verifyVisibilityOFElement(objLocator)){
 				driver.findElement(objLocator).click();
-				Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator, true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+				//Reporter.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator, true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 				return true;
 			}
 			else{
-				Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " Element Not Visible", false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+			//	Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " Element Not Visible", false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 				return false;
 			}
 
@@ -122,7 +123,7 @@ return true;
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
-			Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+	//		Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 			return false;
 		}
 	}
@@ -143,7 +144,7 @@ return true;
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
-			Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+			//Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 			return null;
 		}
 	}
@@ -204,7 +205,7 @@ public static String getText(By objLocator)
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
-			Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+		//	Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 			return false;
 		}
 	}
@@ -235,7 +236,7 @@ public static String getText(By objLocator)
 			driver.manage().window().maximize();
 			
 			//driver.navigate().to("javascript:document.getElementById('overridelink').click()");//
-			Reports.CurrentTest.AddStep(new StepReport("Open Browser " + driver, true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+		//	Reports.CurrentTest.AddStep(new StepReport("Open Browser " + driver, true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 			return true;
 		}catch(Exception e)
 		{
@@ -302,7 +303,7 @@ return true;
 	}catch(Exception e)
 	{
 		sErrMsg=e.getMessage();
-		Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,null));
+	//	Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,null));//
 		return false;
 	}
 }
@@ -345,16 +346,16 @@ public static boolean FindElement(By objLocator) {
 	try{
 		if(verifyVisibilityOFElement(objLocator)){
 		driver.findElement(objLocator).clear();
-		Reports.CurrentTest.AddStep(new StepReport("Clear Element" + objLocator,true));
+		//Reports.CurrentTest.AddStep(new StepReport("Clear Element" + objLocator,true));//
 		driver.findElement(objLocator);
-		Reports.CurrentTest.AddStep(new StepReport("Found Element" + objLocator,true,null));
+	//	Reports.CurrentTest.AddStep(new StepReport("Found Element" + objLocator,true,null));//
 		return true;
 		}
 		return false;
 	}catch(Exception e)
 	{
 		sErrMsg=e.getMessage();
-		Reports.CurrentTest.AddStep(new StepReport("Could not Find Element: " + objLocator + " " + sErrMsg, false));
+//		Reports.CurrentTest.AddStep(new StepReport("Could not Find Element: " + objLocator + " " + sErrMsg, false));//
 		return false;
 	}
 }
@@ -370,13 +371,13 @@ public static  boolean  DropDown(By objLocator,String sval) {
 		if(verifyVisibilityOFElement(objLocator)){
 			Select a=new Select( driver.findElement(objLocator));
 			a.selectByValue(sval);
-			Reports.CurrentTest.AddStep(new StepReport("Selected " + sval,true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+		//	Reports.CurrentTest.AddStep(new StepReport("Selected " + sval,true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 			}
 		return true;
 	}catch(Exception e)
 	{
 		sErrMsg=e.getMessage();
-		Reports.CurrentTest.AddStep(new StepReport("Failed to Locate Dropdown by: "  + objLocator + " " + sErrMsg,false,null));
+	//	Reports.CurrentTest.AddStep(new StepReport("Failed to Locate Dropdown by: "  + objLocator + " " + sErrMsg,false,null));//
 		return false;
 	}
 }
@@ -390,7 +391,7 @@ public static  boolean  DropDown(By objLocator,String sval) {
 public static String getTitle(By objLocator)
 {
 	String text= driver.getTitle();
-	Reports.CurrentTest.AddStep(new StepReport("Page Title is:" + text,true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+	//Reports.CurrentTest.AddStep(new StepReport("Page Title is:" + text,true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 	return text;
 	}
 
@@ -403,15 +404,15 @@ public void switchToFrame(int frame) {
 	try {
 		driver.switchTo().frame(frame);
 		System.out.println("Navigated to frame with id " + frame);
-		Reports.CurrentTest.AddStep(new StepReport("Navigated to frame with id " + frame,true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+	//	Reports.CurrentTest.AddStep(new StepReport("Navigated to frame with id " + frame,true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 	} catch (NoSuchFrameException e) {
 		System.out.println("Unable to locate frame with id " + frame
 				+ e.getStackTrace());
-		Reports.CurrentTest.AddStep(new StepReport("Unable to locate frame with id" + frame + e.getStackTrace(),false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+	//	Reports.CurrentTest.AddStep(new StepReport("Unable to locate frame with id" + frame + e.getStackTrace(),false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 	} catch (Exception e) {
 		System.out.println("Unable to navigate to frame with id " + frame
 				+ e.getStackTrace());
-		Reports.CurrentTest.AddStep(new StepReport("Unable to navigate to frame with id " + frame+ e.getStackTrace(), false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+	//	Reports.CurrentTest.AddStep(new StepReport("Unable to navigate to frame with id " + frame+ e.getStackTrace(), false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 	}
 }
 

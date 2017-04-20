@@ -121,8 +121,8 @@ public void aff_abo_per_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseli
 		   System.out.println("###############################################");
 	}
 	
-		   @And("^Close MAGIC Gamma$")
-		   public void Close_MAGIC_Gamma() throws Throwable{   
+		   @And("^Close MAGICGamma$")
+		   public void Close_MAGICGamma() throws Throwable{   
 	       com.alticor.magic.GeneralFunctions.close();
 	        }
 	}
