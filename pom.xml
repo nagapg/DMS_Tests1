@@ -37,12 +37,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.18.1</version>
                 
-                <configuration>
-                <includes>
-                <exclude>**/*MA9732Test.java</exclude>
-                  <exclude>**/*RunnerTest.java</exclude>
-                </includes>
-                </configuration>
+               
                 
            </plugin>
 
