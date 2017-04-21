@@ -85,7 +85,9 @@ public void navigated_to_volumes_Screen() throws Throwable{
 @Then("^Capture MAGIC Volumes$")
 public void Capture_MAGIC_Volumes() throws Throwable{ 
     String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='IboBonusDtlBar']"));
+    System.out.println("##########Expected-Result########################");
 	   System.out.println("The Output is:"  +ExpVal);
+	   System.out.println("##############################################");
 }
 
 @And("^Close MAGIC Gamma9$")

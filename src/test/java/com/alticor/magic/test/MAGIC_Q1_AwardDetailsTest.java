@@ -98,7 +98,9 @@ bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
 	
 	   	    	 //Validating the Expected//
 	  	       String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('AwdHistExpand')/x:div[1]"));
+	  	     System.out.println("##########Expected-Result########################");
 	  	      System.out.println("The Award Details Screen is "+ ExpVal);
+	  	    System.out.println("###############################################");
 }
 
 	  	    @And("^Close MAGIC Gamma2$")

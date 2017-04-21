@@ -105,7 +105,9 @@ public void Capture_MAGIC_FAA() throws Throwable{
 	
 	 //Validating the Expected//
        String ExpVal=GeneralFunctions.getTitle(By.xpath("//*[@id='faaDiv']/div"));
+       System.out.println("##########Expected-Result########################");
 	   System.out.println("The Output is:"  +ExpVal);
+	   System.out.println("###############################################");
 }
 
 @And("^Close MAGIC Gamma4$")

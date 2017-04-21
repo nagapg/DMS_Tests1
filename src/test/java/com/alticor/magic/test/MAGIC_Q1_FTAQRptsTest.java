@@ -101,7 +101,9 @@ public void Capture_MAGIC_FTAQRpts() throws Throwable{
 	
 	  //Validating the Expected//
        String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='searchBoxDiv']/div[1]"));
+       System.out.println("##########Expected-Result########################");
 	   System.out.println("The Output is:"  +ExpVal);
+	   System.out.println("###############################################");
 }
 
 @And("^Close MAGIC Gamma6$")

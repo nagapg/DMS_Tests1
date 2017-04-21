@@ -99,7 +99,9 @@ public void Capture_MAGIC_Qualifications() throws Throwable{
 	
 	 //Validating the Expected//
     String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('IboDashboardAwardsExpand')/x:div[1]"));
+    System.out.println("##########Expected-Result########################");
     System.out.println("The Output is:"  +ExpVal);
+    System.out.println("###############################################");
 }
 
 @And("^Close MAGIC Gamma8$")
