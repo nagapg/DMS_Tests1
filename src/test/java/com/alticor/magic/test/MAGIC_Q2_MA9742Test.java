@@ -56,8 +56,8 @@ public class MAGIC_Q2_MA9742Test {
 		  
 	}
 	
-		  @Then("^Capture Platinum value and sponsor value and values Match$")
-			public void Capture_Platinum_value_and_sponsor_value_and_values_Match() throws Throwable{
+		  @Then("^Capture Platinum value and sponsor value$")
+			public void Capture_Platinum_value_and_sponsor_value() throws Throwable{
 		
 			  //Capture Platinum Value from Dashboard//
 			   String plat=GeneralFunctions.getText(By.xpath(".//*[@id='ABOInfo']/table/tbody/tr[3]/td[5]/a"));
@@ -67,7 +67,7 @@ public class MAGIC_Q2_MA9742Test {
 				String sponsor=GeneralFunctions.getText(By.xpath(".//*[@id='ABOInfo']/table/tbody/tr[4]/td[2]/a"));
 				System.out.println("The Sponsor value is      "  +  sponsor);
 				
-		     if(plat.equals(sponsor)){
+		/*     if(plat.equals(sponsor)){
 		    	 System.out.println("###########Result#######################");
 					System.out.println("Platinum and Sponsor are equal");
 					 System.out.println("#####################################");		
@@ -77,7 +77,7 @@ public class MAGIC_Q2_MA9742Test {
 					 System.out.println("###########Expected-Result#######################");
 					System.out.println("Platinum and Sponsor are not equal");
 					 System.out.println("################################################");
-				}
+				}*/
 		  
 		  GeneralFunctions.close();
 }		 			
