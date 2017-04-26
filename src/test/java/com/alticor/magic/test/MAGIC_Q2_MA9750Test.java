@@ -13,35 +13,23 @@ public class MAGIC_Q2_MA9750Test {
 
 	@Given("^Go to MAGIC Gamma$")
 	public void Go_to_MAGIC_Gamma() throws Throwable {
-		GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
+		
+		bStatus=GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
 		if (bStatus) {
 		    System.out.println("Navigated to MAGIC QA");
 		} else {
 		    System.out.println("Cannot Navigated to MAGIC QA");
 		}
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	
+		
 	//Okta Login//
 	GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
 	GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input33']"),"our49pot");
 	GeneralFunctions.clickElement(By.xpath(".//*[@id='form17']/div[2]/input"));
 	
-	try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
 	}
 	
-
-
-	@When("^aff abo period entered and Click on submit$")
+@When("^aff abo period entered and Click on submit$")
 	public void aff_abo_period_entered_and_Click_on_submit() throws Throwable {
 		try {
 			Thread.sleep(3000);

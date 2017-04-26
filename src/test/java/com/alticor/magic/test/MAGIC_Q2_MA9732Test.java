@@ -12,23 +12,24 @@ public class MAGIC_Q2_MA9732Test {
 	/** Declare variables */
 	boolean bStatus;
 	
+	
 @Given("^Open Browser and Navigate to MAGIC Gamma$")
 	public void Open_Browser_and_Navigate_to_MAGIC_Gamma() throws Throwable{
 		
-		GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
-		if (bStatus) {
-		    System.out.println("Navigated to MAGIC QA");
-		} else {
-		    System.out.println("Cannot Navigated to MAGIC QA");
-		}
-		
+	bStatus =GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
+	 if (bStatus) {
+		  System.out.println("Navigated to MAGIC Gamma");
+		  } else {
+		  System.out.println("Cannot Navigated to MAGIC Gamma");
+		 }
+
 	//Okta Login//
 	GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
 	GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input33']"),"our49pot");
 	GeneralFunctions.clickElement(By.xpath(".//*[@id='form17']/div[2]/input"));
 }
 
-	@Given("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" entered Click on submit and Go to  Maintenance GIP  Baseline Rerun$")
+@Given("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" entered Click on submit and Go to  Maintenance GIP  Baseline Rerun$")
 public void aff_abo_per_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseline_Rerun(String aff,String abo,String period) throws Throwable{
 		
 		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),aff);
@@ -124,8 +125,8 @@ public void aff_abo_per_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseli
 		   @And("^Close MAGICGamma$")
 		   public void Close_MAGICGamma() throws Throwable{   
 	       com.alticor.magic.GeneralFunctions.close();
-	        }
-	}
-
-
+	     
+	     
+	      	}
+	      }
 

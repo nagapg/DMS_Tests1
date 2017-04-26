@@ -14,13 +14,19 @@ public class MAGIC_Q1_DashboardTest {
 	
 @Given("^Open browser and Navigate to MAGIC1$")
 	public void Open_browser_and_Navigate_to_MAGIC1() throws Throwable{
-		GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
+	bStatus =GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
+		 if (bStatus) {
+			  System.out.println("Navigated to MAGIC Gamma");
+			  } else {
+			  System.out.println("Cannot Navigated to MAGIC Gamma");
+			 }
+		 
+		//Okta Login//
+			GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
+			GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input33']"),"our49pot");
+			GeneralFunctions.clickElement(By.xpath(".//*[@id='form17']/div[2]/input"));
+			
 	}
 	
 @When("^Values Entered and clicked on submit$")
