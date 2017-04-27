@@ -2,14 +2,11 @@ Feature: Validating  MA 9750
 
      Scenario:
        Given Go to MAGIC Gamma
-       When aff abo period entered and Click on submit
-       Then Select Reports Transacaction Reports Transaction Reports
-    
-     Scenario:
-      Given User Clicks on View
-      When Alert Message Pops Up
-      Then Click on ok
-       
+       When Values entered
+       And navigate 
+       And click view without values
+      Then Click on ok button
+     
        Scenario:
        Given User enters From Bonus Period
        When User Clicks on Clear 

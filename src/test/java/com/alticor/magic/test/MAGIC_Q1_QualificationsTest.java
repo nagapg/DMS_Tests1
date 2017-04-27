@@ -72,8 +72,9 @@ public void navigated_to_Qualifications_Screen() throws Throwable{
 			}
 		 
 		//Inquiry//
-			bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));
-		        if(bStatus){
+		//	bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));//
+		  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));     
+		 if(bStatus){
 		        	System.out.println("Click on Inquiry");
 		        }	
 		        else{

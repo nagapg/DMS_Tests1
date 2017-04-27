@@ -73,6 +73,7 @@ public void navigated_to_volumes_Screen() throws Throwable{
 			}
 		    
 		//Click on Volumes link//
+			// bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='collapsibleQuickGlanceContent']/div[3]/a[2]"));//
 			 bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='collapsibleQuickGlanceContent']/div[3]/a[2]"));
 			  if (bStatus) {
 		          System.out.println("Navigated to Volumes");

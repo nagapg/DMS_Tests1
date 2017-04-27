@@ -71,8 +71,9 @@ bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
 			}
 		  
 		//Reports//
-			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));
-		    if(bStatus){
+		//	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));//
+		bStatus=GeneralFunctions.clickElement(By.xpath(".//[@id='topMenu']/div/a[4]")); 
+		  if(bStatus){
 	        	System.out.println("Click on Reports");
 	        }	
 	        else{

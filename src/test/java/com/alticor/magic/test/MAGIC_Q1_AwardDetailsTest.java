@@ -71,7 +71,8 @@ bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"022017");
 			}
 		  
 		//Inquiry//
-		bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));
+		//bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));-When Dashboard is on menu//
+		  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));
 		    if(bStatus){
 	        	System.out.println("Click on Inquiry");
 	        }	

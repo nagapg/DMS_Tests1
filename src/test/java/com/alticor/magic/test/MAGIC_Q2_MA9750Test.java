@@ -29,8 +29,8 @@ public class MAGIC_Q2_MA9750Test {
 	
 	}
 	
-@When("^aff abo period entered and Click on submit$")
-	public void aff_abo_period_entered_and_Click_on_submit() throws Throwable {
+@When("^Values entered$")
+	public void Values_entered() throws Throwable {
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -68,12 +68,13 @@ public class MAGIC_Q2_MA9750Test {
 		    }
 }
 
-	@Then("^Select Reports Transacaction Reports Transaction Reports$")
-	public void select_Reports_Transacaction_Reports_Transaction_Reports() throws Throwable {
+	@When("^navigate$")
+	public void navigate() throws Throwable {
 	   
 		//Reports//
-		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));
-	    if(bStatus){
+	//	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));//
+		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[4]"));
+	  if(bStatus){
 	    	System.out.println("Click on Reports");
 	    }	
 	    else{
@@ -113,12 +114,15 @@ public class MAGIC_Q2_MA9750Test {
 		}
 	   System.out.println("##################################");
 	}
-	@Given("^User Clicks on View$")
-	public void User_Clicks_on_View() throws Throwable{
+	
+	@When("^click view without values$")
+	public void click_view_without_values() throws Throwable{
 		
 		  //Click on View//
-		   bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='formButtons']/table/tbody/tr/td[1]/button"));
-		    if(bStatus){
+		// bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='formButtons']/table/tbody/tr/td[1]/button"));//
+		 bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='ReportsButton']"));
+  
+		if(bStatus){
 		    	System.out.println("Click on View button");
 		    }	
 		    else{
@@ -126,21 +130,13 @@ public class MAGIC_Q2_MA9750Test {
 		    }
 	}  
 
-		    @When("^Alert Message Pops Up$")
-		    public void Alert_Message_Pops_Up() throws Throwable{
-		    	//Capture the pop up//
-		    	
-		    	}
-
-		   @Then ("^Click on ok$")
-		   public void Click_on_ok() throws Throwable{
-			   
-			   //Click on ok//
+		     @Then ("^Click on ok button$")
+		   public void Click_on_ok_button() throws Throwable{
 			   com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
 			   System.out.println("##################################");
 		   }
-		   
-		   
+		     
+		     
 		   @Given("^User enters From Bonus Period$")
 		   public void User_enters_From_Bonus_Period() throws Throwable{
 			 //Enter From Bonus Period Field//
@@ -156,8 +152,9 @@ public class MAGIC_Q2_MA9750Test {
 		   @When("^User Clicks on Clear$")
 		   public void User_Clicks_on_Clear() throws Throwable{
 			 //Click on Clear//
-				 bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='formButtons']/table/tbody/tr/td[2]/button"));
-				    if(bStatus){
+				// bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='formButtons']/table/tbody/tr/td[2]/button"));//
+				 bStatus=GeneralFunctions.clickElement(By.id("ClearButton"));
+				 if(bStatus){
 				    	System.out.println("Click on Clear button");
 				    }	
 				    else{
@@ -169,6 +166,7 @@ public class MAGIC_Q2_MA9750Test {
 		   public void Field_is_Cleared() throws Throwable{
 			 //Field is cleared//
 			   bStatus=GeneralFunctions.verifyVisibilityOFElement(By.xpath("//*[@id='searchTable']/tbody/tr[2]/td[2]/input"));
+			   //bStatus=GeneralFunctions.verifyVisibilityOFElement(By.id("ClearButton"));//
 				if(bStatus){
 				System.out.println("Field Cleared");
 	   }
@@ -185,6 +183,7 @@ public class MAGIC_Q2_MA9750Test {
 		   
 		   @When("^email check box is checked$")
 		   public void email_check_box_is_checked() throws Throwable{
+			   
 			   //Click on Schedule report//
 			   bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='scheduleReport']"));
 				if(bStatus){
@@ -244,6 +243,7 @@ public class MAGIC_Q2_MA9750Test {
 		        
 		        @Given("^Select Order Number$")
 		        public void Select_Order_Number() throws Throwable{
+		        	
 		        	//Select Order Number//
 					bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='searchTable']/tbody/tr[5]/td[2]/input"));
 					if(bStatus){
@@ -257,7 +257,8 @@ public class MAGIC_Q2_MA9750Test {
 		        @When("^Select Report View Excel$")
 		        public void Select_Report_View_Excel() throws Throwable{
 		        	//Select Report View Excel//
-					bStatus=GeneralFunctions.DropDown(By.xpath(".//*[@id='searchTable']/tbody/tr[6]/td[4]/select"), "EXCEL");
+					//bStatus=GeneralFunctions.DropDown(By.xpath(".//*[@id='searchTable']/tbody/tr[6]/td[4]/select"), "EXCEL");//
+					bStatus=GeneralFunctions.DropDown(By.xpath(".//*[@id='searchInputCol17']"), "EXCEL");
 					if(bStatus){
 			      	System.out.println("Select Report view as Excel");
 			      }	
@@ -289,8 +290,9 @@ public class MAGIC_Q2_MA9750Test {
 		        
 		        @Then("^Click on View$")
 		        public void Click_on_View() throws Throwable{
-		        	 bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='formButtons']/table/tbody/tr/td[1]/button"));
-					    if(bStatus){
+		        	// bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='formButtons']/table/tbody/tr/td[1]/button"));//
+		        	 bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='ReportsButton']"));    
+		        	if(bStatus){
 					    	System.out.println("Click on View button");
 					    }	
 					    else{

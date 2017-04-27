@@ -11,6 +11,8 @@ public class MAGIC_Q2_MA9742Test {
 
 	/** Declare variables */
 	boolean bStatus;
+	 String plat,sponsor;
+	 
 	
 	@Given("^user goes to Gamma$")
 	public void user_goes_to_Gamma () throws Throwable{
@@ -60,14 +62,14 @@ public class MAGIC_Q2_MA9742Test {
 			public void Capture_Platinum_value_and_sponsor_value() throws Throwable{
 		
 			  //Capture Platinum Value from Dashboard//
-			   String plat=GeneralFunctions.getText(By.xpath(".//*[@id='ABOInfo']/table/tbody/tr[3]/td[5]/a"));
+			    plat=GeneralFunctions.getText(By.xpath(".//*[@id='ABOInfo']/table/tbody/tr[3]/td[5]/a"));
 				System.out.println("The Platinum value is    "  +  plat);
 				
 				//Capturing Sponsor value from Dashboard//
-				String sponsor=GeneralFunctions.getText(By.xpath(".//*[@id='ABOInfo']/table/tbody/tr[4]/td[2]/a"));
+				sponsor=GeneralFunctions.getText(By.xpath(".//*[@id='ABOInfo']/table/tbody/tr[4]/td[2]/a"));
 				System.out.println("The Sponsor value is      "  +  sponsor);
 				
-		/*     if(plat.equals(sponsor)){
+				    if(plat!=null&&!plat.equals("sponsor")){
 		    	 System.out.println("###########Result#######################");
 					System.out.println("Platinum and Sponsor are equal");
 					 System.out.println("#####################################");		
@@ -77,9 +79,8 @@ public class MAGIC_Q2_MA9742Test {
 					 System.out.println("###########Expected-Result#######################");
 					System.out.println("Platinum and Sponsor are not equal");
 					 System.out.println("################################################");
-				}*/
-		  
-		  GeneralFunctions.close();
+				}
+				GeneralFunctions.close();
 }		 			
 } 
 		 	      	

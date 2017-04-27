@@ -68,8 +68,9 @@ public class MAGIC_Q1_AwardSearchTest {
 		    }
 			  
 		 //Inquiry//
-					bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));
-			        if(bStatus){
+				//	bStatus=GeneralFunctions.clickElement(By.xpath("//*[@id='topMenu']/div/a[2]"));-When Dashboard on menu//
+			  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));      
+			  if(bStatus){
 			        	System.out.println("Click on Inquiry");
 			        }	
 			        else{
