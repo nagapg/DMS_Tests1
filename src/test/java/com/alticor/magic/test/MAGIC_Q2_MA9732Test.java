@@ -12,26 +12,48 @@ public class MAGIC_Q2_MA9732Test {
 	/** Declare variables */
 	boolean bStatus;
 	
-	
 @Given("^Open Browser and Navigate to MAGIC Gamma$")
 	public void Open_Browser_and_Navigate_to_MAGIC_Gamma() throws Throwable{
 		
-	bStatus =GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
+	bStatus =GeneralFunctions.openFFBrowser("https://magic-gamma/EBS_UI_Web/Magic");
 	 if (bStatus) {
 		  System.out.println("Navigated to MAGIC Gamma");
 		  } else {
 		  System.out.println("Cannot Navigated to MAGIC Gamma");
-		 }
-
-	//Okta Login//
+		 } 
+	 try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	   com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
+	      try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	      //Okta Login//
 	GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
 	GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input33']"),"our49pot");
 	GeneralFunctions.clickElement(By.xpath(".//*[@id='form17']/div[2]/input"));
+	 try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 }
 
 @Given("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" entered Click on submit and Go to  Maintenance GIP  Baseline Rerun$")
 public void aff_abo_per_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseline_Rerun(String aff,String abo,String period) throws Throwable{
-		
+	 try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),aff);
 		  if (bStatus) {
 	    System.out.println("AFF entered");
@@ -92,7 +114,12 @@ public void aff_abo_per_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseli
 
 	@Given("^Enter eff PY$")
 	public void  Enter_eff_PY() throws Throwable{
-		
+		 try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		bStatus=GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='effPerfYear']"),"2016");
 		if(bStatus){
         	System.out.println("Enter Eff PY");

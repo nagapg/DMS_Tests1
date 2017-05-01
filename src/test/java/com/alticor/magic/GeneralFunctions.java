@@ -5,40 +5,27 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
-//import org.apache.bcel.generic.Select;//
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-
 import org.openqa.selenium.NoSuchFrameException;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-
-import com.alticor.magic.report.Reports;
-import com.alticor.magic.report.StepReport;
-import com.cucumber.listener.Reporter;
-
-
 public class GeneralFunctions {
-
-
-	private static final String Select = null;
+	
+    private static final String Select = null;
 	public static WebDriver driver;
 	public static String sErrMsg="";
 	
-	
-	/******************************************
+/******************************************
 	 * FunctionName  :clickElementByJavascriptExecutor
 	 * Purpose       : JavaScript Executor
 	 *
@@ -268,6 +255,32 @@ public static String getText(By objLocator)
 		}
 
 }
+	
+	
+	/******************************************
+	 * FunctionName  :openFFBrowser
+	 * Purpose       : opens chrome browser
+	 *
+	 * *****************************************/
+	public static boolean openFFBrowser(String sURL)
+	{
+		try{
+			System.setProperty("webdriver.firefox.marionette","geckodriver.exe");
+			driver=new FirefoxDriver();
+			driver.get(sURL);
+			driver.manage().deleteAllCookies();
+			driver.manage().window().maximize();
+			return true;
+		}catch(Exception e)
+		{
+			sErrMsg=e.getMessage();
+			System.out.println(sErrMsg);
+			e.printStackTrace();
+			return false;
+		}
+
+}
+	
 	
 /******************************************
 	 * FunctionName  :close

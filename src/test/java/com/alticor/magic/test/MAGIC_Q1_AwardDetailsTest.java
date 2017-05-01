@@ -15,23 +15,49 @@ public class MAGIC_Q1_AwardDetailsTest {
 	@Given("^Open browser and Navigate to MAGIC2$")
 	public void Open_browser_and_Navigate_to_MAGIC2() throws Throwable{
 		
-		bStatus =GeneralFunctions.openIEBrowser("https://magic-gamma/EBS_UI_Web/Magic");
+		bStatus =GeneralFunctions.openFFBrowser("https://magic-gamma/EBS_UI_Web/Magic");
 		 if (bStatus) {
 			  System.out.println("Navigated to MAGIC Gamma");
 			  } else {
 			  System.out.println("Cannot Navigated to MAGIC Gamma");
 			 }
 		 
+		 try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 
+	   com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
+	      try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 
 		//Okta Login//
 			GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
 			GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input33']"),"our49pot");
 			GeneralFunctions.clickElement(By.xpath(".//*[@id='form17']/div[2]/input"));
-			
+			 try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 	}
 	
 @When("^navigated to Award Details Screen$")
 public void navigated_to_Award_Details_Screen() throws Throwable{
-	
+	 try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	 
 	//Enter Aff:010//
 	  bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
 	  if (bStatus) {
@@ -39,6 +65,7 @@ public void navigated_to_Award_Details_Screen() throws Throwable{
   } else {
   System.out.println("Cannot enter AFF");
  }
+	  
 	  //Enter Abo:9995//
 	bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
 	  if (bStatus) {
