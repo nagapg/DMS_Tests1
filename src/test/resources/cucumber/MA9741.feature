@@ -1,9 +1,8 @@
 Feature: Testing  MA 9741
 
 Scenario Outline:
-       Given Open Browser 
-       And Navigate to QA
-       And "<aff>" "<abo>" <"period"> entered 
+       Given Open Browser and Navigate to QA
+       And "<aff>" "<abo>" "<per>" entered 
        And  Click on submit 
        And Payment Inquiry Invoice Inquiry is Selected
        When Click on Orange Link 
@@ -14,8 +13,8 @@ Scenario Outline:
        And Close QA
 
     Examples:
-     | aff | abo | period |
+     | aff | abo | per |
      | 010 | 9995 | 042017 |
-     | 430 | 46 | 042017 |
+     
      
      
