@@ -12,30 +12,56 @@ public class MAGIC_Q2_MA9732Test {
 	/** Declare variables */
 	boolean bStatus;
 	
-@Given("^Open Browser and Navigate to MAGIC Gamma$")
-	public void Open_Browser_and_Navigate_to_MAGIC_Gamma() throws Throwable{
+@Given("^User goes to MAGIC ValidateMA9732$")
+	public void User_goes_to_MAGIC_ValidateMA9732() throws Throwable{
 		
-	bStatus =GeneralFunctions.openFFBrowser("https://magic-gamma/EBS_UI_Web/Magic");
-	 if (bStatus) {
-		  System.out.println("Navigated to MAGIC Gamma");
-		  } else {
-		  System.out.println("Cannot Navigated to MAGIC Gamma");
-		 } 
 	 try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	   com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
-	      try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	      //Okta Login//
-	GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	 
+	 //Send to Server //
+	bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");
+	 if (bStatus) {
+		  System.out.println("Sent to Server");
+		  } else {
+		  System.out.println("Cannot Sent to Server");
+		 }
+	 try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	  }
+
+//Open MAGIC-QA//
+@When("^MAGIC is opened$")
+public void magic_is_opened() throws Throwable {
+	 bStatus =GeneralFunctions.openapp("https://magic-gamma/EBS_UI_Web/Magic");
+	 if (bStatus) {
+	        System.out.println("Navigated to MAGIC");
+	    } else {
+	        System.out.println("Cannot Navigate to MAGIC");
+	    }
+	 try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	 com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
+   try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	 
+//Okta Login//
+   GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
 	GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input33']"),"our49pot");
 	GeneralFunctions.clickElement(By.xpath(".//*[@id='form17']/div[2]/input"));
 	 try {

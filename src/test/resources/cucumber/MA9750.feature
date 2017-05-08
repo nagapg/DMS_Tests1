@@ -1,7 +1,7 @@
 Feature: Validating  MA 9750
 
      Scenario:
-       Given Go to MAGIC Gamma
+       Given  Given User goes to MAGIC_ValidateMA9750
        When Values entered
        And navigate 
        And click view without values

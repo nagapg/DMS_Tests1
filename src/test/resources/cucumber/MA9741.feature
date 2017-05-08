@@ -1,7 +1,7 @@
 Feature: Testing  MA 9741
 
 Scenario Outline:
-       Given Open Browser and Navigate to QA
+       Given  Given User goes to MAGIC_ValidateMA9741
        And "<aff>" "<abo>" "<per>" entered 
        And  Click on submit 
        And Payment Inquiry Invoice Inquiry is Selected

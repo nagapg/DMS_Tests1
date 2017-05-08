@@ -5,12 +5,16 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchFrameException;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,11 +22,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class GeneralFunctions {
 	
     private static final String Select = null;
 	public static WebDriver driver;
+	//static WebDriver driver1;//
 	public static String sErrMsg="";
 	
 /******************************************
@@ -144,13 +150,13 @@ return true;
 public static String getText(By objLocator)
 	{
 		try{
-
-		if(verifyVisibilityOFElement(objLocator) )
+if(verifyVisibilityOFElement(objLocator) )
 		{		String sText=driver.findElement(objLocator).getText();
 			return sText;
 		}
 		return null;
-		}catch(Exception e)
+		}
+		catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
 		//	Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
@@ -197,6 +203,26 @@ public static String getText(By objLocator)
 		}
 	}
 	
+	/******************************************
+	 * FunctionName  :openapp
+	 * Purpose       : Opens Application
+	 *
+	 * *****************************************/
+	public static boolean openapp(String appURL )
+	{
+		try{
+		driver.get(appURL);
+		driver.manage().deleteAllCookies();
+		driver.manage().window().maximize();
+			return true;
+	}
+		catch(Exception e)
+	{
+		sErrMsg=e.getMessage();
+		return false;
+	}
+}
+
 /******************************************
 	 * FunctionName  :openIEBrowser
 	 * Purpose       : opens IE browser
@@ -255,9 +281,42 @@ public static String getText(By objLocator)
 		}
 
 }
-	
-	
 	/******************************************
+	 * FunctionName  :openhubBrowser
+	 * Purpose       : opens browser in Hub
+	 * @return 
+	 *
+	 * *****************************************/
+	public static  boolean openhubBrowser(String nodeurl,String browser) throws MalformedURLException{
+		try{ 
+			
+		DesiredCapabilities caps = new DesiredCapabilities();	
+		 
+		//Browsers
+		 if(browser.equalsIgnoreCase("chrome"))
+		 caps = DesiredCapabilities.chrome();
+		 caps.setPlatform(Platform.VISTA);		
+		 
+		 if(browser.equalsIgnoreCase("firefox"))
+		 caps = DesiredCapabilities.firefox();
+		 caps.setPlatform(Platform.VISTA);
+		 
+		 if(browser.equalsIgnoreCase("internet explorer"))
+		 caps = DesiredCapabilities.internetExplorer();
+		 caps.setPlatform(Platform.VISTA);
+		 
+		 driver = new RemoteWebDriver(new URL(nodeurl), caps);
+		 
+		return true;
+	}
+		catch(Exception e)
+	{
+		sErrMsg=e.getMessage();
+		return false;
+	}
+
+}
+/******************************************
 	 * FunctionName  :openFFBrowser
 	 * Purpose       : opens chrome browser
 	 *
@@ -278,21 +337,27 @@ public static String getText(By objLocator)
 			e.printStackTrace();
 			return false;
 		}
-
 }
-	
 	
 /******************************************
 	 * FunctionName  :close
 	 * Purpose       :closes the browser
 	 *
 	 * *****************************************/
-public static void close() {
-		// TODO Auto-generated method stub
-//driver.close();//
+public static boolean close() {
+	try{
 driver.quit();
+return true;
 		}
-
+	catch(Exception e)
+	{
+		sErrMsg=e.getMessage();
+		System.out.println(sErrMsg);
+		e.printStackTrace();
+		return false;
+	}
+	
+}
 /******************************************
 	 * FunctionName  :gotoframe
 	 * Purpose       :Frames
@@ -300,17 +365,24 @@ driver.quit();
 	 *
 	 * *****************************************/
 public static boolean gotoframe(By xpath) {
-		// TODO Auto-generated method stub
+	try{
+		return true;
+	}
+	catch(Exception e)
+	{
+		sErrMsg=e.getMessage();
+		System.out.println(sErrMsg);
+		e.printStackTrace();
 		return false;
 	}
-
+}
 /******************************************
  * FunctionName  :activeElement
  * Purpose       : element active 
  *
  * *****************************************/
 public static boolean activeElement(By objLocator)
-{//TODO: Shouldn't this function actully do something?
+{
 	try{
 return true;
 	}catch(Exception e)
@@ -327,7 +399,7 @@ return true;
  *
  * *****************************************/
 public static boolean display(By objLocator)
-{//TODO: What does this do?
+{
 	try{
 return true;
 	}catch(Exception e)
@@ -335,8 +407,7 @@ return true;
 		sErrMsg=e.getMessage();
 		return false;
 	}
-	
-}
+	}
 
 /******************************************
  * FunctionName  :Wait
@@ -346,7 +417,7 @@ return true;
 
 public static void waittime() {
 	// TODO Auto-generated method stub
-	 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 }
 
 /******************************************
@@ -428,8 +499,6 @@ public void switchToFrame(int frame) {
 	//	Reports.CurrentTest.AddStep(new StepReport("Unable to navigate to frame with id " + frame+ e.getStackTrace(), false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 	}
 }
-
-
 
 /*close the main*/
 	}

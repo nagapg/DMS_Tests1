@@ -1,7 +1,7 @@
 Feature: Testing  MA 9732
 
 Scenario Outline:
-       Given Open Browser and Navigate to MAGIC Gamma
+       Given User goes to MAGIC ValidateMA9732
        And "<aff>" "<abo>" "<period>" entered Click on submit and Go to  Maintenance GIP  Baseline Rerun
       And Enter eff PY 
       When Click on Rerun button 
