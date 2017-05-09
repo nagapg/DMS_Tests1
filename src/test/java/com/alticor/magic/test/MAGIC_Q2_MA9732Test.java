@@ -16,7 +16,8 @@ public class MAGIC_Q2_MA9732Test {
 public void  User_is_in_Baseline_Rerun_Screen() throws Throwable{
 	
 	//Navigate to Server//
-	   bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
+ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
+		//bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");//
 	    if (bStatus) {
 	    System.out.println("Navigated to Server");
 	     } else {
@@ -31,8 +32,14 @@ public void  User_is_in_Baseline_Rerun_Screen() throws Throwable{
 	    System.out.println("Cannot Navigate to MAGIC");
 	    }
 	    
-		
-	  //  com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();//
+	    try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	  com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
 	   
 	    try {
 			Thread.sleep(3000);

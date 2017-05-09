@@ -18,7 +18,8 @@ String target;
 		
 	//Navigate to Server//
    bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
-    if (bStatus) {
+	//bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");//
+	if (bStatus) {
     System.out.println("Navigated to Server");
      } else {
      System.out.println("Cannot Navigate to Server");
@@ -32,8 +33,14 @@ String target;
     System.out.println("Cannot Navigate to MAGIC");
     }
     
-	
-  //  com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();//
+    try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+    
+  com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
    
     try {
 		Thread.sleep(3000);
