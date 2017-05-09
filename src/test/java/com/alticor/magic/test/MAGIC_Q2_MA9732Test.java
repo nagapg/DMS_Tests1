@@ -12,103 +12,108 @@ public class MAGIC_Q2_MA9732Test {
 	/** Declare variables */
 	boolean bStatus;
 	
-@Given("^User goes to MAGIC ValidateMA9732$")
-	public void User_goes_to_MAGIC_ValidateMA9732() throws Throwable{
+@Given("^User is in Baseline Rerun Screen$")
+public void  User_is_in_Baseline_Rerun_Screen() throws Throwable{
+	
+	//Navigate to Server//
+	   bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
+	    if (bStatus) {
+	    System.out.println("Navigated to Server");
+	     } else {
+	     System.out.println("Cannot Navigate to Server");
+	     }
 		
-	 try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	 
-	 //Send to Server //
-	bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");
-	 if (bStatus) {
-		  System.out.println("Sent to Server");
-		  } else {
-		  System.out.println("Cannot Sent to Server");
-		 }
-	 try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	  }
-
-//Open MAGIC-QA//
-@When("^MAGIC is opened$")
-public void magic_is_opened() throws Throwable {
+		//Navigate to MAGIC-QA//
 	 bStatus =GeneralFunctions.openapp("https://magic-gamma/EBS_UI_Web/Magic");
-	 if (bStatus) {
-	        System.out.println("Navigated to MAGIC");
+	    if (bStatus) {
+	    System.out.println("Navigated to MAGIC");
 	    } else {
-	        System.out.println("Cannot Navigate to MAGIC");
+	    System.out.println("Cannot Navigate to MAGIC");
 	    }
-	 try {
+	    
+		
+	  //  com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();//
+	   
+	    try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	 com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
-   try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	 
-//Okta Login//
-   GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
-	GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input33']"),"our49pot");
-	GeneralFunctions.clickElement(By.xpath(".//*[@id='form17']/div[2]/input"));
-	 try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-}
 
-@Given("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" entered Click on submit and Go to  Maintenance GIP  Baseline Rerun$")
-public void aff_abo_per_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseline_Rerun(String aff,String abo,String period) throws Throwable{
-	 try {
+	    //Okta Login//
+	  GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
+	  GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input33']"),"our49pot");
+	  GeneralFunctions.clickElement(By.xpath(".//*[@id='form17']/div[2]/input"));
+		
+	  try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),aff);
-		  if (bStatus) {
-	    System.out.println("AFF entered");
+
+		//Enter Aff//
+	  bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"430");
+	  if (bStatus) {
+	System.out.println("AFF entered");
 	} else {
-	    System.out.println("Cannot enter AFF");
+	System.out.println("Cannot enter AFF");
 	}
-		  
-	bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),abo);
-		  if (bStatus) {
-	      System.out.println("ABO entered");
-	  } else {
-	      System.out.println("Cannot enter ABO");
-	  }
-		  
-	 bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),period);
-			if(bStatus){
-	      	System.out.println("Entered Period");
-	      }	
-	      else{
-	      	System.out.println("Cannot Enter Period");
-	      }
-         
-	 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
-			  if (bStatus) {
-		        System.out.println("Click on Submit");
-		    } else {
-		        System.out.println("Cannot click on submit");
-		    }
 
+	  try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		  //Enter Abo:9995//
+	bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"46");
+	  if (bStatus) {
+	System.out.println("ABO entered");
+	} else {
+	System.out.println("Cannot enter ABO");
+	}
+	  
+	  try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		   //Enter Period:052017//
+	bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"052017");
+	               if(bStatus){
+	System.out.println("Entered Period");
+	}         
+	else{
+	System.out.println("Cannot Enter Period");
+	}
+	 
+	  try {
+	   				Thread.sleep(3000);
+	   			} catch (InterruptedException e) {
+	   				// TODO Auto-generated catch block
+	   				e.printStackTrace();
+	   			}
+	   		
+	       //Click on submit//
+	                 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
+	                 if (bStatus) {
+	        System.out.println("Click on Submit");
+	    } else {
+	        System.out.println("Cannot click on submit");
+	    }
+
+	                 try {
+	     				Thread.sleep(3000);
+	     			} catch (InterruptedException e) {
+	     				// TODO Auto-generated catch block
+	     				e.printStackTrace();
+	     			}
+	     		
 	//Maintenance//
 	//	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[3]"));//
 			  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
@@ -138,7 +143,7 @@ public void aff_abo_per_entered_Click_on_submit_and_Go_to_Maintenance_GIP_Baseli
        }
        }
 
-	@Given("^Enter eff PY$")
+	@When("^Enter eff PY$")
 	public void  Enter_eff_PY() throws Throwable{
 		 try {
 				Thread.sleep(3000);
