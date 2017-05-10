@@ -295,15 +295,15 @@ if(verifyVisibilityOFElement(objLocator) )
 		//Browsers
 		 if(browser.equalsIgnoreCase("chrome"))
 		 caps = DesiredCapabilities.chrome();
-	//	 caps.setPlatform(Platform.LINUX);		//
+	 caps.setPlatform(Platform.VISTA);		
 		 
 		 if(browser.equalsIgnoreCase("firefox"))
 		 caps = DesiredCapabilities.firefox();
-	//	 caps.setPlatform(Platform.LINUX);//
+	caps.setPlatform(Platform.VISTA);
 		 
 		 if(browser.equalsIgnoreCase("internet explorer"))
 		 caps = DesiredCapabilities.internetExplorer();
-	//	 caps.setPlatform(Platform.LINUX);//
+	caps.setPlatform(Platform.VISTA);
 		 
 		 driver = new RemoteWebDriver(new URL(nodeurl), caps);
 		 
