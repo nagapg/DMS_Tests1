@@ -12,80 +12,117 @@ public class MAGIC_Q2_MA9742Test {
 	boolean bStatus;
 	 String plat,sponsor;
 	 
-	@Given("^user goes to Gamma$")
-	public void user_goes_to_Gamma () throws Throwable{
+	@Given("^User is in Dashboard$")
+	public void User_is_in_Dashboard() throws Throwable{
 		
-    bStatus =GeneralFunctions.openFFBrowser("https://magic-gamma/EBS_UI_Web/Magic");
-		if (bStatus) {
-		    System.out.println("Navigated to MAGIC QA");
-		} else {
-		    System.out.println("Cannot Navigated to MAGIC QA");
-		}
-		 try {
+		//Navigate to Server//
+		   //bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");//
+			bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");
+			if (bStatus) {
+		    System.out.println("Navigated to Server");
+		     } else {
+		     System.out.println("Cannot Navigate to Server");
+		     }
+			
+			//Navigate to MAGIC-QA//
+		 bStatus =GeneralFunctions.openapp("https://magic-gamma/EBS_UI_Web/Magic");
+		    if (bStatus) {
+		    System.out.println("Navigated to MAGIC");
+		    } else {
+		    System.out.println("Cannot Navigate to MAGIC");
+		    }
+		    
+		    try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		   com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
-		   try {
+		    
+		  com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
+		   
+		    try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	      
-	 //Okta Login//
-	GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
-	GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input33']"),"our49pot");
-	GeneralFunctions.clickElement(By.xpath(".//*[@id='form17']/div[2]/input"));
-	
-	 try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	  }
-	
-	@When("^aff abo entered and click on submit$")
-	public void aff_abo_entered_and_click_on_submit() throws Throwable{
-		 try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		  
-		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"170");
-		  if (bStatus) {
-	    System.out.println("AFF entered");
-	} else {
-	    System.out.println("Cannot enter AFF");
-	}
-		  
-bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"3101003819");
-		  if (bStatus) {
-	      System.out.println("ABO entered");
-	  } else {
-	      System.out.println("Cannot enter ABO");
-	  }
-		 
-bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
-		  if (bStatus) {
-	        System.out.println("Click on Submit");
-	    } else {
-	        System.out.println("Cannot click on submit");
-	    }
+
+		    //Okta Login//
+		  GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
+		  GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input33']"),"our49pot");
+		  GeneralFunctions.clickElement(By.xpath(".//*[@id='form17']/div[2]/input"));
+			
 		  try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
+			//Enter Aff//
+		  bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
+		  if (bStatus) {
+		System.out.println("AFF entered");
+		} else {
+		System.out.println("Cannot enter AFF");
+		}
+
+		  try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			  //Enter Abo:9995//
+		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
+		  if (bStatus) {
+		System.out.println("ABO entered");
+		} else {
+		System.out.println("Cannot enter ABO");
+		}
+		  
+		  try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			   //Enter Period:052017//
+		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"052017");
+		               if(bStatus){
+		System.out.println("Entered Period");
+		}         
+		else{
+		System.out.println("Cannot Enter Period");
+		}
+		 
+		  try {
+		   				Thread.sleep(3000);
+		   			} catch (InterruptedException e) {
+		   				// TODO Auto-generated catch block
+		   				e.printStackTrace();
+		   			}
+		   		
+		       //Click on submit//
+		                 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
+		                 if (bStatus) {
+		        System.out.println("Click on Submit");
+		    } else {
+		        System.out.println("Cannot click on submit");
+		    }
+
+		                 try {
+		     				Thread.sleep(3000);
+		     			} catch (InterruptedException e) {
+		     				// TODO Auto-generated catch block
+		     				e.printStackTrace();
+		     			}
 	}
 	
-		  @Then("^Capture Platinum value and sponsor value$")
+	  @When("^Capture Platinum value and sponsor value$")
 			public void Capture_Platinum_value_and_sponsor_value() throws Throwable{
 		
 			  //Capture Platinum Value from Dashboard//
@@ -106,7 +143,11 @@ bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				
+	  }
+	  
+	  @Then("^Values should be same$")
+		public void Values_should_be_same() throws Throwable{
+	
 				    if(plat!=null&&!plat.equals("sponsor")){
 		    	 System.out.println("###########Result#######################");
 					System.out.println("Platinum and Sponsor are equal");
@@ -118,9 +159,19 @@ bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 					System.out.println("Platinum and Sponsor are not equal");
 					 System.out.println("################################################");
 				}
-				GeneralFunctions.close();
-}		 			
-} 
+	  }
+	  
+	  @Then("^Close Dashboard$")
+	  public void Close_Dashboard() throws Throwable {
+	  		
+	  	bStatus = GeneralFunctions.close();
+	          if (bStatus) {
+	               System.out.println("MAGIC Closed");
+	           } else {
+	               System.out.println("Cannot Close MAGIC");
+	           }
+	  }
+	  }
 		 	      	
 		 	      
 
