@@ -28,7 +28,6 @@ public class GeneralFunctions {
 	
     private static final String Select = null;
 	public static WebDriver driver;
-	//static WebDriver driver1;//
 	public static String sErrMsg="";
 	
 /******************************************
