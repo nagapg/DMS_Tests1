@@ -13,8 +13,9 @@ public class MAGIC_Q2_MA9741Test {
 	
 	@Given("^User is in Invoice Inquiry Screen$")
 	public void User_is_in_Invoice_Inquiry_Screen() throws Throwable {
+		
 		//Navigate to Server//
-		   //bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");//
+		 // bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");//
 			bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");
 			if (bStatus) {
 		    System.out.println("Navigated to Server");
@@ -248,9 +249,16 @@ public class MAGIC_Q2_MA9741Test {
 
 	@Then("^Close Invoice Screen$")
 	public void Close_Invoice_Screen() throws Throwable {
-		GeneralFunctions.close();
-	    }
+		bStatus = GeneralFunctions.close();
+          if (bStatus) {
+               System.out.println("MAGIC Closed");
+           } else {
+               System.out.println("Cannot Close MAGIC");
+           }
+  }
 }
+
+
 
 
 

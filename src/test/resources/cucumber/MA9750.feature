@@ -1,10 +1,8 @@
 Feature: Validating  MA 9750
 
      Scenario:
-       Given  Given User goes to MAGIC_ValidateMA9750
-       When Values entered
-       And navigate 
-       And click view without values
+       Given  User is in Transaction Reports Screen 
+       When Clicked view without values
       Then Click on ok button
      
        Scenario:
@@ -24,3 +22,4 @@ Feature: Validating  MA 9750
        When Select Report View Excel
        And Select Business Entity 
        Then Click on View
+       And Close 

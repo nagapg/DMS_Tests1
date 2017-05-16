@@ -1,23 +1,23 @@
 package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
+
 import com.alticor.magic.GeneralFunctions;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class MAGIC_Q2_MA9742Test {
-
+public class MAGIC_Q2_MA9739Test {
+	
 	/** Declare variables */
 	boolean bStatus;
-	 String plat,sponsor;
-	 
-	@Given("^User is in Dashboard$")
-	public void User_is_in_Dashboard() throws Throwable{
-		
+	
+	@Given("^User in Invoice Inquiry Screen$")
+	public void User_in_Invoice_Inquiry_Screen() throws Throwable {
 		//Navigate to Server//
-		   bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
-			//bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox")//;
+		 bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
+			//bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");//
 			if (bStatus) {
 		    System.out.println("Navigated to Server");
 		     } else {
@@ -61,12 +61,6 @@ public class MAGIC_Q2_MA9742Test {
 			}
 
 			//Enter Aff//
-		  try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		  bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
 		  if (bStatus) {
 		System.out.println("AFF entered");
@@ -126,58 +120,95 @@ public class MAGIC_Q2_MA9742Test {
 		     				// TODO Auto-generated catch block
 		     				e.printStackTrace();
 		     			}
-	}
-	
-	  @When("^Capture Platinum value and sponsor value$")
-			public void Capture_Platinum_value_and_sponsor_value() throws Throwable{
-		
-			  //Capture Platinum Value from Dashboard//
-			    plat=GeneralFunctions.getText(By.xpath(".//*[@id='ABOInfo']/table/tbody/tr[3]/td[5]/a"));
-				System.out.println("The Platinum value is    "  +  plat);
-				 try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				//Capturing Sponsor value from Dashboard//
-				sponsor=GeneralFunctions.getText(By.xpath(".//*[@id='ABOInfo']/table/tbody/tr[4]/td[2]/a"));
-				System.out.println("The Sponsor value is      "  +  sponsor);
-				 try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-	  }
-	  
-	  @Then("^Values should be same$")
-		public void Values_should_be_same() throws Throwable{
-	
-				    if(plat!=null&&!plat.equals("sponsor")){
-		    	 System.out.println("###########Result#######################");
-					System.out.println("Platinum and Sponsor are equal");
-					 System.out.println("#####################################");		
-		     }
-				else
-				{
-					 System.out.println("###########Expected-Result#######################");
-					System.out.println("Platinum and Sponsor are not equal");
-					 System.out.println("################################################");
+		     		
+		//Click on Payment Inquiry//
+		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[3]"));
+				if(bStatus){
+		        	System.out.println("Clicked on Payment Inquiry");
+		        }	
+		        else{
+		        	System.out.println("Cannot Click on Payment Inquiry");
+		        }
+				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-	  }
-	  
-	  @Then("^Close Dashboard$")
-	  public void Close_Dashboard() throws Throwable {
-	  		
-	  	bStatus = GeneralFunctions.close();
-	          if (bStatus) {
-	               System.out.println("MAGIC Closed");
-	           } else {
-	               System.out.println("Cannot Close MAGIC");
-	           }
-	  }
-	  }
-		 	      	
-		 	      
+				
+				//Payment Inquiry-->Invoice Inquiry//
+				bStatus=GeneralFunctions.clickElement(By.linkText("Invoice Inquiry"));
+				if(bStatus){
+		        	System.out.println("Click on Invoice Inquiry");
+		        }	
+		        else{
+		        	System.out.println("Cannot Click on Invoice Inquiry");
+		        }
+				
+				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+
+@When("^Orange link is clicked$")
+	public void orange_link_is_clicked() throws Throwable {
+	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='invoiceABODataTable']/tbody/tr[2]/td[10]/span/b"));
+	if(bStatus){
+    	System.out.println("Clicked on Orange Link");
+    }	
+    else{
+    	System.out.println("Cannot Click on Orange Link click");
+    }
+	
+	try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
+
+	@Then("^view bonus amount details$")
+	public void view_bonus_amount_details() throws Throwable {
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//Validating the Expected//
+		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='viewTableDiv']/table/tbody/tr[2]/td[4]/span/b"));
+		if(bStatus){
+        	System.out.println("Amount Details are displayed");
+        }	
+        else{
+        	System.out.println("Cannot display Amount Details");
+        }
+		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+
+	@Then("^Close browser$")
+	public void close_browser() throws Throwable {
+		bStatus = GeneralFunctions.close();
+          if (bStatus) {
+               System.out.println("Browser Closed");
+           } else {
+               System.out.println("Cannot Close Browser");
+           }
+  }
+}
+
+
+
+
 

@@ -17,8 +17,8 @@ String target;
 	public void User_is_in_LTS_Screen() throws Throwable {
 		
 	//Navigate to Server//
-   //bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");//
-	bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");
+   bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
+	//bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");//
 	if (bStatus) {
     System.out.println("Navigated to Server");
      } else {
@@ -62,6 +62,13 @@ String target;
 	}
 
 	//Enter Aff//
+  try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+
   bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"430");
   if (bStatus) {
 System.out.println("AFF entered");

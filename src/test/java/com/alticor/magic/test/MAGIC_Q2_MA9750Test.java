@@ -11,136 +11,181 @@ public class MAGIC_Q2_MA9750Test {
 	/** Declare variables */
 	boolean bStatus;
 
-	@Given("^Go to MAGIC Gamma$")
-	public void Go_to_MAGIC_Gamma() throws Throwable {
+	@Given("^User is in Transaction Reports Screen$")
+	public void User_is_in_Transaction_Reports_Screen() throws Throwable {
 		
-		bStatus=GeneralFunctions.openFFBrowser("https://magic-gamma/EBS_UI_Web/Magic");
-		if (bStatus) {
-		    System.out.println("Navigated to MAGIC QA");
-		} else {
-		    System.out.println("Cannot Navigated to MAGIC QA");
-		}
-		 try {
+		//Navigate to Server//
+		  bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
+//	bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");//
+			if (bStatus) {
+		    System.out.println("Navigated to Server");
+		     } else {
+		     System.out.println("Cannot Navigate to Server");
+		     }
+			
+			//Navigate to MAGIC-QA//
+		 bStatus =GeneralFunctions.openapp("https://magic-gamma/EBS_UI_Web/Magic");
+		    if (bStatus) {
+		    System.out.println("Navigated to MAGIC");
+		    } else {
+		    System.out.println("Cannot Navigate to MAGIC");
+		    }
+		    
+		    try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	   com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
-	      try {
+		    
+		  com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
+		   
+		    try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	
-	//Okta Login//
-	GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
-	GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input33']"),"our49pot");
-	GeneralFunctions.clickElement(By.xpath(".//*[@id='form17']/div[2]/input"));
-	 try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	
-	}
-	
-@When("^Values entered$")
-	public void Values_entered() throws Throwable {
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	
-		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
-	    if (bStatus) {
-	    System.out.println("AFF entered");
-	} else {
-	    System.out.println("Cannot enter AFF");
-	}
-		  
-	bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
+
+		    //Okta Login//
+		  GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
+		  GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input33']"),"our49pot");
+		  GeneralFunctions.clickElement(By.xpath(".//*[@id='form17']/div[2]/input"));
+			
+		  try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			//Enter Aff//
+		  try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		  bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
 		  if (bStatus) {
-	      System.out.println("ABO entered");
-	  } else {
-	      System.out.println("Cannot enter ABO");
-	  }
+		System.out.println("AFF entered");
+		} else {
+		System.out.println("Cannot enter AFF");
+		}
+
+		  try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			  //Enter Abo:9995//
+		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
+		  if (bStatus) {
+		System.out.println("ABO entered");
+		} else {
+		System.out.println("Cannot enter ABO");
+		}
 		  
-	 bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"042017");
-			if(bStatus){
-	      	System.out.println("Entered Period");
-	      }	
-	      else{
-	      	System.out.println("Cannot Enter Period");
-	      }
-       
-	 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
-			  if (bStatus) {
+		  try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			   //Enter Period:052017//
+		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"052017");
+		               if(bStatus){
+		System.out.println("Entered Period");
+		}         
+		else{
+		System.out.println("Cannot Enter Period");
+		}
+		 
+		  try {
+		   				Thread.sleep(3000);
+		   			} catch (InterruptedException e) {
+		   				// TODO Auto-generated catch block
+		   				e.printStackTrace();
+		   			}
+		   		
+		       //Click on submit//
+		                 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
+		                 if (bStatus) {
 		        System.out.println("Click on Submit");
 		    } else {
 		        System.out.println("Cannot click on submit");
 		    }
-}
 
-	@When("^navigate$")
-	public void navigate() throws Throwable {
-	   
-		//Reports//
-	//	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));//
-		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[4]"));
-	  if(bStatus){
-	    	System.out.println("Click on Reports");
-	    }	
-	    else{
-	    	System.out.println("Cannot Click on Reports");
-	    }
-	    
-	    //Reports-->Transaction Reports//
-	  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu4']/a[10]"));
-	    if(bStatus){
-		System.out.println("Click on Tranaction Reports");
-	    }	
-	    else{
-	    	System.out.println("Cannot Click on Tranaction Reports");
-	    }
-	    
-	    try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    
-	    //Reports-->Transaction Reports-->Transaction Reports//
-	    bStatus=GeneralFunctions.clickElementByJavascriptExecutor(By.linkText("Transaction Reports"));
-	   if(bStatus){
-		System.out.println("Click on Transaction Reports");
-	   }	
-	   else{
-	   	System.out.println("Cannot Click on Transaction Reports");
-	   }
-	   
-	   try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	   System.out.println("##################################");
+		                 try {
+		     				Thread.sleep(3000);
+		     			} catch (InterruptedException e) {
+		     				// TODO Auto-generated catch block
+		     				e.printStackTrace();
+		     			}
+		                 
+		               //Reports//
+		         		try {
+		         			Thread.sleep(3000);
+		         		} catch (InterruptedException e) {
+		         			// TODO Auto-generated catch block
+		         			e.printStackTrace();
+		         		}
+		         		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[4]"));
+		         	  if(bStatus){
+		         	    	System.out.println("Click on Reports");
+		         	    }	
+		         	    else{
+		         	    	System.out.println("Cannot Click on Reports");
+		         	    }
+		         	    
+		         	    //Reports-->Transaction Reports//
+		         	  try {
+		         			Thread.sleep(3000);
+		         		} catch (InterruptedException e) {
+		         			// TODO Auto-generated catch block
+		         			e.printStackTrace();
+		         		}
+		         	  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu4']/a[10]"));
+		         	    if(bStatus){
+		         		System.out.println("Click on Tranaction Reports");
+		         	    }	
+		         	    else{
+		         	    	System.out.println("Cannot Click on Tranaction Reports");
+		         	    }
+		         	    
+		         	    try {
+		         			Thread.sleep(3000);
+		         		} catch (InterruptedException e) {
+		         			// TODO Auto-generated catch block
+		         			e.printStackTrace();
+		         		}
+		         	    
+		         	    //Reports-->Transaction Reports-->Transaction Reports//
+		         	    bStatus=GeneralFunctions.clickElementByJavascriptExecutor(By.linkText("Transaction Reports"));
+		         	   if(bStatus){
+		         		System.out.println("Click on Transaction Reports");
+		         	   }	
+		         	   else{
+		         	   	System.out.println("Cannot Click on Transaction Reports");
+		         	   }
+		         	   
+		         	   try {
+		         			Thread.sleep(3000);
+		         		} catch (InterruptedException e) {
+		         			// TODO Auto-generated catch block
+		         			e.printStackTrace();
+		         		}
 	}
-	
-	@When("^click view without values$")
-	public void click_view_without_values() throws Throwable{
+		         	
+@When("^Clicked view without values$")
+	public void Clicked_view_without_values() throws Throwable{
 		
 		  //Click on View//
-		// bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='formButtons']/table/tbody/tr/td[1]/button"));//
 		 bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='ReportsButton']"));
-  
-		if(bStatus){
+  if(bStatus){
 		    	System.out.println("Click on View button");
 		    }	
 		    else{
@@ -151,7 +196,7 @@ public class MAGIC_Q2_MA9750Test {
 		     @Then ("^Click on ok button$")
 		   public void Click_on_ok_button() throws Throwable{
 			   com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
-			   System.out.println("##################################");
+			   System.out.println("Clicked on OK button");
 		   }
 		     
 		     
@@ -169,8 +214,8 @@ public class MAGIC_Q2_MA9750Test {
 		   
 		   @When("^User Clicks on Clear$")
 		   public void User_Clicks_on_Clear() throws Throwable{
-			 //Click on Clear//
-				// bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='formButtons']/table/tbody/tr/td[2]/button"));//
+			 
+			   //Click on Clear//
 				 bStatus=GeneralFunctions.clickElement(By.id("ClearButton"));
 				 if(bStatus){
 				    	System.out.println("Click on Clear button");
@@ -182,20 +227,18 @@ public class MAGIC_Q2_MA9750Test {
 		   
 		   @Then("^Field is Cleared$")
 		   public void Field_is_Cleared() throws Throwable{
+			   
 			 //Field is cleared//
 			   bStatus=GeneralFunctions.verifyVisibilityOFElement(By.xpath("//*[@id='searchTable']/tbody/tr[2]/td[2]/input"));
-			   //bStatus=GeneralFunctions.verifyVisibilityOFElement(By.id("ClearButton"));//
-				if(bStatus){
+			 if(bStatus){
 				System.out.println("Field Cleared");
 	   }
 	    else{
 	      System.out.println("Field Not Cleared");
 	}
-				 System.out.println("##################################");
-		   }
+				}
 		   
-
-		   @Given("^User again enters From Bonus Period$")
+  @Given("^User again enters From Bonus Period$")
 		   public void User_again_enters_From_Bonus_Period() throws Throwable{
 			   }
 		   
@@ -216,10 +259,7 @@ public class MAGIC_Q2_MA9750Test {
 		   public void User_email_is_populated() throws Throwable{
 			 //Capture User email//
 				String ExpVal=GeneralFunctions.getText(By.id(".//*[@id='emailingList']"));
-				 System.out.println("##########Expected-Result########################");
-			      System.out.println("The User email  is "+ ExpVal);
-			      System.out.println("###############################################");
-			      
+				 System.out.println("The User email  is "+ ExpVal);
 			      try {
 						Thread.sleep(3000);
 					} catch (InterruptedException e) {
@@ -230,6 +270,7 @@ public class MAGIC_Q2_MA9750Test {
 		   
 		  @Given("^User Selects To Bonus Period$")
 		  public void User_Selects_To_Bonus_Period() throws Throwable{
+			  
 			  //Select To Bonus Period//
 		      bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='searchTable']/tbody/tr[2]/td[4]/button/img"));
 		        if(bStatus){
@@ -242,6 +283,7 @@ public class MAGIC_Q2_MA9750Test {
 		  }   
 		        @Given("^Check Original ABO$")
 		        public void Check_Original_ABO() throws Throwable{
+		        	
 		        	  //Check Original ABO//
 			        bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='searchTable']/tbody/tr[1]/td[2]/input"));
 					if(bStatus){
@@ -274,8 +316,8 @@ public class MAGIC_Q2_MA9750Test {
 
 		        @When("^Select Report View Excel$")
 		        public void Select_Report_View_Excel() throws Throwable{
+		        	
 		        	//Select Report View Excel//
-					//bStatus=GeneralFunctions.DropDown(By.xpath(".//*[@id='searchTable']/tbody/tr[6]/td[4]/select"), "EXCEL");//
 					bStatus=GeneralFunctions.DropDown(By.xpath(".//*[@id='searchInputCol17']"), "EXCEL");
 					if(bStatus){
 			      	System.out.println("Select Report view as Excel");
@@ -287,6 +329,7 @@ public class MAGIC_Q2_MA9750Test {
 		        
 		        @When("^Select Business Entity$")
 		        public void Select_Business_Entity() throws Throwable{
+		        	
 		        	//Select Business Entity//
 				      bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='searchTable']/tbody/tr[1]/td[4]/button[1]/img"));
 				        if(bStatus){
@@ -308,7 +351,7 @@ public class MAGIC_Q2_MA9750Test {
 		        
 		        @Then("^Click on View$")
 		        public void Click_on_View() throws Throwable{
-		        	// bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='formButtons']/table/tbody/tr/td[1]/button"));//
+		        	
 		        	 bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='ReportsButton']"));    
 		        	if(bStatus){
 					    	System.out.println("Click on View button");
@@ -316,7 +359,18 @@ public class MAGIC_Q2_MA9750Test {
 					    else{
 					    	System.out.println("Cannot Click on View button");
 					    }
-					    System.out.println("##################################");
-					    GeneralFunctions.close();
-					     }
-		       }
+		        }
+					  
+		        	@Then("^Close$")
+		      	  public void Close() throws Throwable {
+		      	  		
+		      	  	bStatus = GeneralFunctions.close();
+		      	          if (bStatus) {
+		      	               System.out.println("MAGIC Closed");
+		      	           } else {
+		      	               System.out.println("Cannot Close MAGIC");
+		      	           }
+		      	  }
+}
+
+

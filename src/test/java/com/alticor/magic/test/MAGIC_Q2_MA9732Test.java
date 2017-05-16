@@ -16,8 +16,8 @@ public class MAGIC_Q2_MA9732Test {
 public void  User_is_in_Baseline_Rerun_Screen() throws Throwable{
 	
 	//Navigate to Server//
-//bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");//
-		bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");
+bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
+//		bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");//
 	    if (bStatus) {
 	    System.out.println("Navigated to Server");
 	     } else {
@@ -129,7 +129,6 @@ public void  User_is_in_Baseline_Rerun_Screen() throws Throwable{
 	     			}
 	     		
 	//Maintenance//
-	//	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[3]"));//
 			  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
 			  if(bStatus){
         	System.out.println("Click on Maintanence");
