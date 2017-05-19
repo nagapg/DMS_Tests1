@@ -287,24 +287,35 @@ if(verifyVisibilityOFElement(objLocator) )
 	 *
 	 * *****************************************/
 	public static  boolean openhubBrowser(String nodeurl,String browser) throws MalformedURLException{
-		try{ 
+		try{
 			
-		DesiredCapabilities caps = new DesiredCapabilities();	
-		 
-		//Browsers
+			DesiredCapabilities cap=new DesiredCapabilities();
+			DesiredCapabilities brow=new DesiredCapabilities();
+			
+			cap.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
+			cap.setCapability(InternetExplorerDriver.UNEXPECTED_ALERT_BEHAVIOR, true);
+            cap.setCapability(InternetExplorerDriver.NATIVE_EVENTS, false);
+            cap.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
+            cap.setCapability(InternetExplorerDriver.ENABLE_PERSISTENT_HOVERING,false);
+            cap.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS,true);
+            
+			cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS,true);
+			            //cap.setCapability(InternetExplorerDriver.HOST,true);//
+            	
+		 //Browsers//
 		 if(browser.equalsIgnoreCase("chrome"))
-		 caps = DesiredCapabilities.chrome();
-     //  caps.setPlatform(Platform.LINUX);	//
+		 brow = DesiredCapabilities.chrome();
+		 brow.setPlatform(Platform.LINUX);	
 		 
 		 if(browser.equalsIgnoreCase("firefox"))
-		 caps = DesiredCapabilities.firefox();
-	   //caps.setPlatform(Platform.LINUX);//
+			 brow = DesiredCapabilities.firefox();
+		 brow.setPlatform(Platform.LINUX);
 		 
 		 if(browser.equalsIgnoreCase("internet explorer"))
-		 caps = DesiredCapabilities.internetExplorer();
-       // caps.setPlatform(Platform.LINUX);//
+			 brow = DesiredCapabilities.internetExplorer();
+		 brow.setPlatform(Platform.LINUX);
 		 
-		 driver = new RemoteWebDriver(new URL(nodeurl), caps);
+		 driver = new RemoteWebDriver(new URL(nodeurl), brow);
 		 
 		return true;
 	}

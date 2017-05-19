@@ -15,8 +15,8 @@ public class MAGIC_Q2_MA9750Test {
 	public void User_is_in_Transaction_Reports_Screen() throws Throwable {
 		
 		//Navigate to Server//
-		 // bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");//
-bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");
+	bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
+//bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","chrome");//
 			if (bStatus) {
 		    System.out.println("Navigated to Server");
 		     } else {

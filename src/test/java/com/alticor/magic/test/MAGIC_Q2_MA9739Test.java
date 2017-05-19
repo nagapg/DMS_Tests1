@@ -14,8 +14,8 @@ public class MAGIC_Q2_MA9739Test {
 	@Given("^User in Invoice Inquiry Screen$")
 	public void User_in_Invoice_Inquiry_Screen() throws Throwable {
 		//Navigate to Server//
-		// bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");//
-			bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");
+		bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
+			//bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","chrome");//
 			if (bStatus) {
 		    System.out.println("Navigated to Server");
 		     } else {
