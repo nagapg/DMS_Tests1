@@ -9,7 +9,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(features="src/test/resources/cucumber/MAGICAppl.feature",
                  glue={"com.alticor.magic.test"},
-                plugin={"html:target/MAGIC_Q1_Screens"})
+                plugin={"html:target/MAGIC_Screens"})
 
 
 public class RunnerTest {
