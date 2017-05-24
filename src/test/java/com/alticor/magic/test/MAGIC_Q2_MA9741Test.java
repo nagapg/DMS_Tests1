@@ -15,30 +15,23 @@ public class MAGIC_Q2_MA9741Test {
 	public void User_is_in_Invoice_Inquiry_Screen() throws Throwable {
 		
 		//Navigate to Server//
-	bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
-	//	bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","chrome");//
-			if (bStatus) {
-		    System.out.println("Navigated to Server");
+bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
+//bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");//
+
+		if (bStatus) {
+		    System.out.println("Server Firefox-Pass");
 		     } else {
-		     System.out.println("Cannot Navigate to Server");
+		     System.out.println("Server Firefox-Fail");
 		     }
 			
 			//Navigate to MAGIC-QA//
 		 bStatus =GeneralFunctions.openapp("https://magic-gamma/EBS_UI_Web/Magic");
 		    if (bStatus) {
-		    System.out.println("Navigated to MAGIC");
+		    System.out.println("MAGIC_QA-Pass");
 		    } else {
-		    System.out.println("Cannot Navigate to MAGIC");
+		    System.out.println("MAGIC_QA-Fail");
 		    }
-		    
-		    try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		    
-		  com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
+		   //com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();//
 		   
 		    try {
 				Thread.sleep(3000);
@@ -48,10 +41,10 @@ public class MAGIC_Q2_MA9741Test {
 			}
 
 		    //Okta Login//
-		  GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
-		  GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input33']"),"our49pot");
-		  GeneralFunctions.clickElement(By.xpath(".//*[@id='form17']/div[2]/input"));
-			
+		    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
+		    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
+		    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
+		  	
 		  try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
@@ -68,9 +61,9 @@ public class MAGIC_Q2_MA9741Test {
 			}
 		  bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
 		  if (bStatus) {
-		System.out.println("AFF entered");
+		System.out.println("AFF-Pass");
 		} else {
-		System.out.println("Cannot enter AFF");
+		System.out.println("AFF-Fail");
 		}
 
 		  try {
@@ -83,9 +76,9 @@ public class MAGIC_Q2_MA9741Test {
 			  //Enter Abo:9995//
 		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
 		  if (bStatus) {
-		System.out.println("ABO entered");
+		System.out.println("ABO-Pass");
 		} else {
-		System.out.println("Cannot enter ABO");
+		System.out.println("ABO-Fail");
 		}
 		  
 		  try {
@@ -98,10 +91,10 @@ public class MAGIC_Q2_MA9741Test {
 			   //Enter Period:052017//
 		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"052017");
 		               if(bStatus){
-		System.out.println("Entered Period");
+		System.out.println("Period-Pass");
 		}         
 		else{
-		System.out.println("Cannot Enter Period");
+		System.out.println("Period-Fail");
 		}
 		 
 		  try {
@@ -114,9 +107,9 @@ public class MAGIC_Q2_MA9741Test {
 		       //Click on submit//
 		                 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 		                 if (bStatus) {
-		        System.out.println("Click on Submit");
+		        System.out.println("Submit-Pass");
 		    } else {
-		        System.out.println("Cannot click on submit");
+		        System.out.println("Submit-Fail");
 		    }
 
 		                 try {
@@ -129,10 +122,10 @@ public class MAGIC_Q2_MA9741Test {
 		//Click on Payment Inquiry//
 		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[3]"));
 				if(bStatus){
-		        	System.out.println("Clicked on Payment Inquiry");
+		        	System.out.println("Payment Inquiry-Pass");
 		        }	
 		        else{
-		        	System.out.println("Cannot Click on Payment Inquiry");
+		        	System.out.println("Payment Inquiry-Fail");
 		        }
 				try {
 					Thread.sleep(3000);
@@ -144,10 +137,10 @@ public class MAGIC_Q2_MA9741Test {
 				//Payment Inquiry-->Invoice Inquiry//
 				bStatus=GeneralFunctions.clickElement(By.linkText("Invoice Inquiry"));
 				if(bStatus){
-		        	System.out.println("Click on Invoice Inquiry");
+		        	System.out.println("Invoice Inquiry-Pass");
 		        }	
 		        else{
-		        	System.out.println("Cannot Click on Invoice Inquiry");
+		        	System.out.println("Invoice Inquiry-Fail");
 		        }
 				
 				try {
@@ -162,10 +155,10 @@ public class MAGIC_Q2_MA9741Test {
 	public void click_on_Orange_Link() throws Throwable {
 		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='invoiceABODataTable']/tbody/tr[2]/td[10]/span/b"));
 		if(bStatus){
-        	System.out.println("Clicked on Orange Link");
+        	System.out.println("Orange Link-Pass");
         }	
         else{
-        	System.out.println("Cannot Click on Orange Link click");
+        	System.out.println("Orange Link-Fail");
         }
 		
 		try {
@@ -187,10 +180,10 @@ public class MAGIC_Q2_MA9741Test {
 		//Validating the Expected//
 		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='viewTableDiv']/table/tbody/tr[2]/td[4]/span/b"));
 		if(bStatus){
-        	System.out.println("Amount Details are displayed");
+        	System.out.println("Amount Details-Pass");
         }	
         else{
-        	System.out.println("Cannot display Amount Details");
+        	System.out.println("Amount Details-Fail");
         }
 		try {
 			Thread.sleep(3000);
@@ -206,10 +199,10 @@ public class MAGIC_Q2_MA9741Test {
 		  //Capture the screen//
 		bStatus=GeneralFunctions.verifyVisibilityOFElement(By.xpath(".//*[@id='div0']/table/tbody/tr[1]/td/table/tbody/tr/td[1]/div"));
 			if(bStatus){
-			System.out.println("Values present");
+			System.out.println("Values present-Pass");
  }
   else{
- System.out.println("Values not present");
+ System.out.println("Values  present-Fail");
 }
 		try {
 				Thread.sleep(3000);
@@ -223,10 +216,10 @@ public class MAGIC_Q2_MA9741Test {
 	public void click_on_Cross_to_close() throws Throwable {
 		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='div0']/table/tbody/tr[1]/td/table/tbody/tr/td[2]/img"));
 		if(bStatus){
-        	System.out.println("Clicked on Cross");
+        	System.out.println("Click on Cross-Pass");
         }	
         else{
-        	System.out.println("Cannot Click on Cross");
+        	System.out.println("Click on Cross-Fail");
         }
 		try {
 			Thread.sleep(3000);
@@ -240,10 +233,10 @@ public class MAGIC_Q2_MA9741Test {
 	public void click_on_back_button() throws Throwable {
 		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='searchTable']/tbody/tr[13]/td[2]/button"));
 		if(bStatus){
-        	System.out.println("Clicked on back");
+        	System.out.println("Back-Pass");
         }	
         else{
-        	System.out.println("Cannot Click on Back");
+        	System.out.println("Back-Fail");
         }
 		try {
 			Thread.sleep(3000);
@@ -257,9 +250,9 @@ public class MAGIC_Q2_MA9741Test {
 	public void Close_Invoice_Screen() throws Throwable {
 		bStatus = GeneralFunctions.close();
           if (bStatus) {
-               System.out.println("MAGIC Closed");
+               System.out.println("MAGIC Closed-Pass");
            } else {
-               System.out.println("Cannot Close MAGIC");
+               System.out.println("Close MAGIC-Fail");
            }
   }
 }

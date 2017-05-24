@@ -17,29 +17,21 @@ public void  User_is_in_Baseline_Rerun_Screen() throws Throwable{
 	
 	//Navigate to Server//
 bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
-//bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","chrome");//
-	    if (bStatus) {
-	    System.out.println("Navigated to Server");
+//bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");//
+	if (bStatus) {
+	    System.out.println("Server Firefox-Pass");
 	     } else {
-	     System.out.println("Cannot Navigate to Server");
+	     System.out.println("Server Firefox-Fail");
 	     }
 		
 		//Navigate to MAGIC-QA//
 	 bStatus =GeneralFunctions.openapp("https://magic-gamma/EBS_UI_Web/Magic");
-	    if (bStatus) {
-	    System.out.println("Navigated to MAGIC");
+	  if (bStatus) {
+	    System.out.println("MAGIC_QA-Pass");
 	    } else {
-	    System.out.println("Cannot Navigate to MAGIC");
+	    System.out.println("MAGIC_QA-Fail");
 	    }
-	    
-	    try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-	  com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
+	   // com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();//
 	   
 	    try {
 			Thread.sleep(3000);
@@ -49,9 +41,10 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 		}
 
 	    //Okta Login//
-	  GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
-	  GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input33']"),"our49pot");
-	  GeneralFunctions.clickElement(By.xpath(".//*[@id='form17']/div[2]/input"));
+	    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
+	    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
+	    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
+	  	
 		
 	  try {
 			Thread.sleep(3000);
@@ -70,9 +63,9 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 		}
 	  bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"430");
 	  if (bStatus) {
-	System.out.println("AFF entered");
+	System.out.println("AFF-Pass");
 	} else {
-	System.out.println("Cannot enter AFF");
+	System.out.println("AFF-Fail");
 	}
 
 	  try {
@@ -85,9 +78,9 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 		  //Enter Abo:9995//
 	bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"46");
 	  if (bStatus) {
-	System.out.println("ABO entered");
+	System.out.println("ABO-Pass");
 	} else {
-	System.out.println("Cannot enter ABO");
+	System.out.println("ABO-Fail");
 	}
 	  
 	  try {
@@ -100,10 +93,10 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 		   //Enter Period:052017//
 	bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"052017");
 	               if(bStatus){
-	System.out.println("Entered Period");
+	System.out.println("Period-Pass");
 	}         
 	else{
-	System.out.println("Cannot Enter Period");
+	System.out.println("Period-Fail");
 	}
 	 
 	  try {
@@ -116,9 +109,9 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 	       //Click on submit//
 	                 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 	                 if (bStatus) {
-	        System.out.println("Click on Submit");
+	        System.out.println("Submit-Pass");
 	    } else {
-	        System.out.println("Cannot click on submit");
+	        System.out.println("Submit-Fail");
 	    }
 
 	                 try {
@@ -131,28 +124,28 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 	//Maintenance//
 			  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
 			  if(bStatus){
-        	System.out.println("Click on Maintanence");
+        	System.out.println("Maintanence-Pass");
         }	
         else{
-        	System.out.println("Cannot Click on Maintanence");
+        	System.out.println("Maintanence-Fail");
         }
 		
 		//Maintenance-->GIP//
 		bStatus=GeneralFunctions.clickElementByJavascriptExecutor(By.xpath(".//*[@id='SubMenu2']/a[14]/span[1]"));
 		if(bStatus){
-        	System.out.println("Click on GIP");
+        	System.out.println("GIP-Pass");
         }	
         else{
-        	System.out.println("Cannot Click on GIP");
+        	System.out.println("GIP-Fail");
         }
 		
       //Maintenance-->GIP-->Baseline Rerun//
         bStatus=GeneralFunctions.clickElement(By.linkText("Baseline Rerun"));   
        if(bStatus){
-		System.out.println("Click on Baseline Rerun");
+		System.out.println("Baseline Rerun-Pass");
        }	
        else{
-       	System.out.println("Cannot Click on Baseline Rerun");
+       	System.out.println("Baseline Rerun-Fail");
        }
        }
 
@@ -166,10 +159,10 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 			}
 		bStatus=GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='effPerfYear']"),"2016");
 		if(bStatus){
-        	System.out.println("Enter Eff PY");
+        	System.out.println("Eff PY-Pass");
         }	
         else{
-        	System.out.println("Cannot Enter Eff PY");
+        	System.out.println("Eff PY-Fail");
         }
 	}
 	
@@ -177,10 +170,10 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 		public void  Click_on_Rerun_button() throws Throwable{
 		bStatus=GeneralFunctions.clickElement(By.id("rerunBaselineButton"));
 		if(bStatus){
-        	System.out.println("Click on Submit Rerun");
+        	System.out.println("Submit Rerun-Pass");
         }	
         else{
-        System.out.println("Cannot Click on Submit Rerun");
+        System.out.println("Submit Rerun-Fail");
         }
 		}
 	
@@ -196,9 +189,11 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 	
 		   @And("^Close MAGICGamma$")
 		   public void Close_MAGICGamma() throws Throwable{   
-	       com.alticor.magic.GeneralFunctions.close();
-	     
-	     
-	      	}
-	      }
-
+			   bStatus = GeneralFunctions.close();
+		        if (bStatus) {
+		             System.out.println("MAGIC Closed-Pass");
+		         } else {
+		             System.out.println("Close MAGIC-Fail");
+		         }
+		}
+		}

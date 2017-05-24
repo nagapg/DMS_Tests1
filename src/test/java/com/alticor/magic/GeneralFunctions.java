@@ -11,14 +11,12 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -210,7 +208,8 @@ if(verifyVisibilityOFElement(objLocator) )
 	public static boolean openapp(String appURL )
 	{
 		try{
-		driver.get(appURL);
+			
+			driver.get(appURL);
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 			return true;
@@ -288,36 +287,30 @@ if(verifyVisibilityOFElement(objLocator) )
 	 * *****************************************/
 	public static  boolean openhubBrowser(String nodeurl,String browser) throws MalformedURLException{
 		try{
-			
-			DesiredCapabilities cap=new DesiredCapabilities();
 			DesiredCapabilities brow=new DesiredCapabilities();
-			
-			cap.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
-			cap.setCapability(InternetExplorerDriver.UNEXPECTED_ALERT_BEHAVIOR, true);
-            cap.setCapability(InternetExplorerDriver.NATIVE_EVENTS, false);
-            cap.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
-            cap.setCapability(InternetExplorerDriver.ENABLE_PERSISTENT_HOVERING,false);
-            cap.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS,true);
-            
-			cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS,true);
-			            //cap.setCapability(InternetExplorerDriver.HOST,true);//
-            	
-		 //Browsers//
+	
+			//Browsers//
 		 if(browser.equalsIgnoreCase("chrome"))
 		 brow = DesiredCapabilities.chrome();
-		 brow.setPlatform(Platform.LINUX);	
+	//brow.setPlatform(Platform.VISTA);	//
+	 brow.setPlatform(Platform.LINUX);
 		 
-		 if(browser.equalsIgnoreCase("firefox"))
-			 brow = DesiredCapabilities.firefox();
-		 brow.setPlatform(Platform.LINUX);
+		if(browser.equalsIgnoreCase("firefox"))
+			  brow = DesiredCapabilities.firefox();
+		brow.setCapability("marionette",true);
+		brow.setCapability("acceptInsecureCerts",true);
+		brow.setCapability("AcceptUntrustedCertificates",true);	
+      //  brow.setPlatform(Platform.VISTA);	//
+	 brow.setPlatform(Platform.LINUX);
 		 
-		 if(browser.equalsIgnoreCase("internet explorer"))
+	 if(browser.equalsIgnoreCase("internet explorer"))
 			 brow = DesiredCapabilities.internetExplorer();
-		 brow.setPlatform(Platform.LINUX);
-		 
-		 driver = new RemoteWebDriver(new URL(nodeurl), brow);
-		 
-		return true;
+	//brow.setPlatform(Platform.VISTA);	//
+	 brow.setPlatform(Platform.LINUX);
+	 
+		driver = new RemoteWebDriver(new URL(nodeurl), brow);
+			
+			return true;
 	}
 		catch(Exception e)
 	{
@@ -328,14 +321,14 @@ if(verifyVisibilityOFElement(objLocator) )
 }
 /******************************************
 	 * FunctionName  :openFFBrowser
-	 * Purpose       : opens chrome browser
+	 * Purpose       : opens Firefox browser
 	 *
 	 * *****************************************/
 	public static boolean openFFBrowser(String sURL)
 	{
 		try{
 			System.setProperty("webdriver.firefox.marionette","geckodriver.exe");
-			driver=new FirefoxDriver();
+			
 			driver.get(sURL);
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
@@ -464,7 +457,8 @@ public static  boolean  DropDown(By objLocator,String sval) {
 	try{
 		if(verifyVisibilityOFElement(objLocator)){
 			Select a=new Select( driver.findElement(objLocator));
-			a.selectByValue(sval);
+		//	a.selectByValue(sval);//
+			a.selectByVisibleText(sval);
 		//	Reports.CurrentTest.AddStep(new StepReport("Selected " + sval,true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 			}
 		return true;
@@ -510,7 +504,7 @@ public void switchToFrame(int frame) {
 	}
 }
 
-/*close the main*/
+//close the main//
 	}
 
 

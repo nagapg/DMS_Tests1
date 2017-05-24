@@ -13,46 +13,36 @@ public class MAGIC_Q1_AwardDetailsTest {
 	@Given("^User Selects AwardDetails$")
 	public void User_Selects_AwardDetails() throws Throwable{
 		
-		//Navigate to Server//
+		//Navigate to Server and to Browser//
 bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
-//bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","chrome");//
-			    if (bStatus) {
-			    System.out.println("Navigated to Server");
+// bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox")//;
+		 if (bStatus) {
+			    System.out.println("Server Firefox-Pass");
 			     } else {
-			     System.out.println("Cannot Navigate to Server");
+			     System.out.println("Server Firefox-Fail");
 			     }
 				
-		
-				//Navigate to MAGIC-QA//
+		//Navigate to MAGIC-QA//
 			 bStatus =GeneralFunctions.openapp("https://magic-gamma/EBS_UI_Web/Magic");
-			    if (bStatus) {
-			    System.out.println("Navigated to MAGIC");
+			   if (bStatus) {
+			    System.out.println("MAGIC_QA-Pass");
 			    } else {
-			    System.out.println("Cannot Navigate to MAGIC");
+			    System.out.println("MAGIC_QA-Fail");
 			    }
-			    
-			    try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
-			  com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
-			   
-			    try {
+			    	// com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();//
+			   try {
 					Thread.sleep(3000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
+			    
 			    //Okta Login//
-			  GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input26']"),"cmns559");
-			  GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='input33']"),"our49pot");
-			  GeneralFunctions.clickElement(By.xpath(".//*[@id='form17']/div[2]/input"));
-				
-			  try {
+			    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
+			    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
+			    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
+			  	
+				 try {
 					Thread.sleep(3000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
@@ -60,8 +50,7 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 				}
 
 				//Enter Aff//
-			  
-			  try {
+			   try {
 					Thread.sleep(3000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
@@ -69,9 +58,9 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 				}
 			  bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
 			  if (bStatus) {
-			System.out.println("AFF entered");
+			System.out.println("AFF-Pass");
 			} else {
-			System.out.println("Cannot enter AFF");
+			System.out.println("AFF-Fail");
 			}
 
 			  try {
@@ -84,9 +73,9 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 				  //Enter Abo:9995//
 			bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
 			  if (bStatus) {
-			System.out.println("ABO entered");
+			System.out.println("ABO-Pass");
 			} else {
-			System.out.println("Cannot enter ABO");
+			System.out.println("ABO-Fail");
 			}
 			  
 			  try {
@@ -99,10 +88,10 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 				   //Enter Period:052017//
 			bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"052017");
 			               if(bStatus){
-			System.out.println("Entered Period");
+			System.out.println("Period-Pass");
 			}         
 			else{
-			System.out.println("Cannot Enter Period");
+			System.out.println("Period-Fail");
 			}
 			 
 			  try {
@@ -115,9 +104,9 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 			       //Click on submit//
 			                 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 			                 if (bStatus) {
-			        System.out.println("Click on Submit");
+			        System.out.println("Submit-Pass");
 			    } else {
-			        System.out.println("Cannot click on submit");
+			        System.out.println("Submit-Fail");
 			    }
 
 			                 try {
@@ -130,28 +119,28 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 //Inquiry//
 		 bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));
 		    if(bStatus){
-	        	System.out.println("Click on Inquiry");
+	        	System.out.println("Inquiry-Pass");
 	        }	
 	        else{
-	        	System.out.println("Cannot Click on Inquiry");
+	        	System.out.println("Inquiry-Fail");
 	        }
 		    
 	   		 //Inquiry-->Awards//
 	      bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[3]/span[1]"));
 	   	if(bStatus){
-	   	System.out.println("Click on Awards");
+	   	System.out.println("Awards-Pass");
 	   	        }	
 	   	        else{
-	   	        	System.out.println("Cannot Click on Awards");
+	   	        	System.out.println("Awards-Fail");
 	   	        }
 	   	
 	   			//Click on Award Details//
 		      bStatus=GeneralFunctions.clickElement(By.linkText("Award Details"));
 	   	        if(bStatus){
-	   			System.out.println("Click on Award Details");
+	   			System.out.println("Award Details-Pass");
 	   	        }	
 	   	        else{
-	   	        	System.out.println("Cannot Click on Award Details");
+	   	        	System.out.println("Award Details-Fail");
 	   	        }
 	   	     try {
 					Thread.sleep(3000);
@@ -159,7 +148,6 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
 }
 	   	     
 @Then("^Navigated to Award Details$")
@@ -184,9 +172,9 @@ public void Close_AwardDetails() throws Throwable {
 		
 	bStatus = GeneralFunctions.close();
         if (bStatus) {
-             System.out.println("MAGIC Closed");
+             System.out.println("MAGIC Closed-Pass");
          } else {
-             System.out.println("Cannot Close MAGIC");
+             System.out.println("Close MAGIC-Fail");
          }
 }
 }
