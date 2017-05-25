@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(features={"src/test/resources/cucumber/MA9739.feature"},
 glue={"com.alticor.magic.test"},
-plugin={"json:target/cucumber1.json"})
+plugin={"json:target/cucumber_MA9739.json"})
 
 public class MA9732Test {
 }
