@@ -71,8 +71,8 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 				e.printStackTrace();
 			}
 
-			  //Enter Abo:9995//
-		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
+			  //Enter Abo//
+		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"5166282");
 		  if (bStatus) {
 		System.out.println("ABO-Pass");
 		} else {
@@ -86,8 +86,8 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 				e.printStackTrace();
 			}
 
-			   //Enter Period:052017//
-		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"052017");
+			   //Enter Period//
+		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"062017");
 		               if(bStatus){
 		System.out.println("Period-Pass");
 		}         

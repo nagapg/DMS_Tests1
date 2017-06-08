@@ -76,7 +76,7 @@ System.out.println("AFF-Fail");
 		e.printStackTrace();
 	}
 
-	  //Enter Abo:9995//
+	  //Enter Abo//
 bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"46");
   if (bStatus) {
 System.out.println("ABO-Pass");
@@ -91,8 +91,8 @@ System.out.println("ABO-Fail");
 		e.printStackTrace();
 	}
 
-	   //Enter Period:052017//
-bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"052017");
+	   //Enter Period//
+bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"062017");
                if(bStatus){
 System.out.println("Period-Pass");
 }         

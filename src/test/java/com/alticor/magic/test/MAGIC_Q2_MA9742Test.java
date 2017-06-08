@@ -73,7 +73,7 @@ public class MAGIC_Q2_MA9742Test {
 				e.printStackTrace();
 			}
 
-			  //Enter Abo:9995//
+			  //Enter Abo//
 		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
 		  if (bStatus) {
 		System.out.println("ABO-Pass");
@@ -88,8 +88,8 @@ public class MAGIC_Q2_MA9742Test {
 				e.printStackTrace();
 			}
 
-			   //Enter Period:052017//
-		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"052017");
+			   //Enter Period//
+		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"062017");
 		               if(bStatus){
 		System.out.println("Period-Pass");
 		}         
