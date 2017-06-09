@@ -169,8 +169,7 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 
 	@Then("^Close AwardSearch$")
 	public void Close_AwardSearch() throws Throwable {
-			
-		bStatus = GeneralFunctions.close();
+			bStatus = GeneralFunctions.close();
 	        if (bStatus) {
 	             System.out.println("MAGIC Closed-Pass");
 	         } else {
