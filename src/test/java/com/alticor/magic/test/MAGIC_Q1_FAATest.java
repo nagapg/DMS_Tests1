@@ -159,16 +159,14 @@ public class MAGIC_Q1_FAATest {
 					}
 				  }
 
-
 @Then("^Navigated to FAA$")
 public void Navigated_to_FAA() throws Throwable{
 	
 	//Validating the Expected//
-
-    String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='faaDiv']/div"));
+     String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='faaDiv']/div"));
     System.out.println("##########Expected-Result########################");
-	   System.out.println("The Output is:"  +ExpVal);
-	   System.out.println("###############################################");
+	System.out.println("The Output is:"  +ExpVal);
+	System.out.println("###############################################");
 	   try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {

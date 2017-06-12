@@ -117,14 +117,11 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 		     			}
 		                 }
 		     		
-
-	@Then("^Navigated to Dashboard$")
+@Then("^Navigated to Dashboard$")
     public void Navigated_to_Dashboard() throws Throwable{
 		
 		//Validating the Expected//
-
-	       //String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id(\"ABOInfo\")/x:table/x:tbody/x:tr[2]/x:td[2]"));//
-		String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='iboDashboard_collapsibleAboInformation']/div[1]"));
+           String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='iboDashboard_collapsibleAboInformation']/div[1]"));
 	       System.out.println("##########Expected-Result########################");
 		   System.out.println("The Output is:"  +ExpVal);
 		   System.out.println("###############################################");

@@ -1,4 +1,4 @@
-Feature: MAGIC Q1 Screens
+Feature: MAGIC  Screens
 
 Scenario:  Capture MAGIC Dashboard 
          Given User navigates to Dashboard  
