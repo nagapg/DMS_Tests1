@@ -43,8 +43,7 @@ public class MAGIC_Q1_VolumesTest {
 			    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 			    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
 			  	
-				
-			  try {
+				 try {
 					Thread.sleep(3000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
@@ -118,7 +117,7 @@ public class MAGIC_Q1_VolumesTest {
 			     				e.printStackTrace();
 			     			}
 			                 
-//Click on Volumes link//
+          //Click on Volumes link//
 			 bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='collapsibleQuickGlanceContent']/div[3]/a[2]"));
 			  if (bStatus) {
 		          System.out.println("Volumes-Pass");

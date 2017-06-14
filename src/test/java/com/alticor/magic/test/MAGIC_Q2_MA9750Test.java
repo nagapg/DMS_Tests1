@@ -250,6 +250,7 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 		   
 		   @Then("^User email is populated$")
 		   public void User_email_is_populated() throws Throwable{
+			   
 			 //Capture User email//
 				String ExpVal=GeneralFunctions.getText(By.id(".//*[@id='emailingList']"));
 				 System.out.println("The User email  is "+ ExpVal);
@@ -312,7 +313,6 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 		        	
 		        	//Select Report View Excel//
 					bStatus=GeneralFunctions.DropDown(By.xpath(".//*[@id='searchInputCol17']"), "EXCEL");
-					
 					if(bStatus){
 			      	System.out.println("Report view as Excel-Pass");
 			      }	

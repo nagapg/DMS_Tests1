@@ -110,15 +110,14 @@ public class MAGIC_Q1_QualificationsTest {
 			        System.out.println("Submit-Fail");
 			    }
 
-			                 try {
+			    try {
 			     				Thread.sleep(3000);
 			     			} catch (InterruptedException e) {
 			     				// TODO Auto-generated catch block
 			     				e.printStackTrace();
 			     			}
 			                 
-
-				//Inquiry//
+//Inquiry//
 	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));     
 		 if(bStatus){
 		        	System.out.println("Inquiry-Pass");
@@ -152,12 +151,10 @@ public class MAGIC_Q1_QualificationsTest {
 	 		}
 }
 
-
 @Then("^Navigated to Qualifications$")
 public void Navigated_to_Qualifications() throws Throwable{
 	
-
-	 //Validating the Expected//
+	//Validating the Expected//
     String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('IboDashboardAwardsExpand')/x:div[1]"));
     System.out.println("##########Expected-Result########################");
     System.out.println("The Output is:"  +ExpVal);

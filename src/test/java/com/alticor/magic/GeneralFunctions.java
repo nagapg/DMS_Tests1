@@ -420,7 +420,7 @@ return true;
 
 public static void waittime() {
 	// TODO Auto-generated method stub
-	 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	 driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 }
 
 /******************************************
