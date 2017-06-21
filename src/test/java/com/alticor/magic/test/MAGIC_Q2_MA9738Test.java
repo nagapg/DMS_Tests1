@@ -75,7 +75,7 @@ public class MAGIC_Q2_MA9738Test {
 					}
 
 					  //Enter Abo//
-				bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"5166282");
+				bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
 				  if (bStatus) {
 				System.out.println("ABO-Pass");
 				} else {
