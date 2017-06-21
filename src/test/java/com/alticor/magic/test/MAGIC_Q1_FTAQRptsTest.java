@@ -1,3 +1,5 @@
+//Validate MAGIC First Time Award Qual Rpts//
+
 package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
@@ -14,7 +16,7 @@ public class MAGIC_Q1_FTAQRptsTest {
 	public void User_Selects_FTAQRpts() throws Throwable{
 		
 		//Navigate to Server//
-	bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
+bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
 	//bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");//
 		if (bStatus) {
 			    System.out.println("Server Firefox-Pass");

@@ -1,4 +1,4 @@
-Feature: Testing  MA 9738
+Feature: Validate ILB Bank File
 
 Scenario:
        Given user is in MAGIC ILB Bank File Screen

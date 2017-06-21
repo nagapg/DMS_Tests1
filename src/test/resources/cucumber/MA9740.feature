@@ -1,4 +1,4 @@
-Feature: Validating MA 9740
+Feature: Validate LTS Screen
 
 Scenario:
       Given User is in LTS Screen

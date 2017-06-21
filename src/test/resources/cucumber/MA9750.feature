@@ -1,4 +1,4 @@
-Feature: Validating  MA 9750
+Feature: Validate  Transaction Reports Screen
 
      Scenario:
        Given  User is in Transaction Reports Screen 

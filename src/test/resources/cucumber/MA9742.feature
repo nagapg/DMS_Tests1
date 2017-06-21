@@ -1,4 +1,4 @@
-Feature: Validating MA 9742
+Feature: Validate Dashboard
 
 Scenario:
       Given  User is in Dashboard

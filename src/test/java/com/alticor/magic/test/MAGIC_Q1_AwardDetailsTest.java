@@ -1,3 +1,4 @@
+//Validate MAGIC Award Details//
 package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
@@ -14,8 +15,8 @@ public class MAGIC_Q1_AwardDetailsTest {
 	public void User_Selects_AwardDetails() throws Throwable{
 		
 		//Navigate to Server and to Browser//
-bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
-// bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox")//;
+     bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
+   //bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");//
 		 if (bStatus) {
 			    System.out.println("Server Firefox-Pass");
 			     } else {

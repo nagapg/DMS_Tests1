@@ -292,7 +292,7 @@ if(verifyVisibilityOFElement(objLocator) )
 			//Browsers//
 		 if(browser.equalsIgnoreCase("chrome"))
 		 brow = DesiredCapabilities.chrome();
-	//brow.setPlatform(Platform.VISTA);	//
+	//brow.setPlatform(Platform.VISTA);//	
 	 brow.setPlatform(Platform.LINUX);
 		 
 		if(browser.equalsIgnoreCase("firefox"))
@@ -300,13 +300,13 @@ if(verifyVisibilityOFElement(objLocator) )
 		brow.setCapability("marionette",true);
 		brow.setCapability("acceptInsecureCerts",true);
 		brow.setCapability("AcceptUntrustedCertificates",true);	
-      //  brow.setPlatform(Platform.VISTA);	//
+      // brow.setPlatform(Platform.VISTA);	//
 	 brow.setPlatform(Platform.LINUX);
 		 
 	 if(browser.equalsIgnoreCase("internet explorer"))
 			 brow = DesiredCapabilities.internetExplorer();
 	//brow.setPlatform(Platform.VISTA);	//
-	 brow.setPlatform(Platform.LINUX);
+	brow.setPlatform(Platform.LINUX);
 	 
 		driver = new RemoteWebDriver(new URL(nodeurl), brow);
 			

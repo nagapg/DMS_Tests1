@@ -1,4 +1,4 @@
-Feature: Testing  MA 9739
+Feature: Validate Invoice Inquiry Screen
 
 Scenario:
        Given User in Invoice Inquiry Screen

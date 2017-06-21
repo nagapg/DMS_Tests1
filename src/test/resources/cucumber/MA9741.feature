@@ -1,4 +1,4 @@
-Feature: Testing  MA 9741
+Feature: Validate Invoice Inquiry Screen
 
 Scenario:
        Given User is in Invoice Inquiry Screen

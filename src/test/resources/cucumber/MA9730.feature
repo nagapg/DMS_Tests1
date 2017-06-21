@@ -1,4 +1,4 @@
-Feature: Testing  MA 9730
+Feature: Validate  Annual Bonus Screen
 
 Scenario:
        Given MAGIC user is in Annual Bonus Screen

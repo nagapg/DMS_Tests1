@@ -1,3 +1,5 @@
+//Validate MAGIC Volumes//
+
 package com.alticor.magic.test;
 
 import org.openqa.selenium.By;

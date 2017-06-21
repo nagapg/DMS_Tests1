@@ -1,3 +1,5 @@
+//Validate Total Bonus in Annual Bonus Screen//
+
 package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
@@ -97,8 +99,7 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 	System.out.println("Period-Fail");
 	}
 	              
-	               
-	               //Click on submit//
+	           //Click on submit//
 	               try {
 	   				Thread.sleep(3000);
 	   			} catch (InterruptedException e) {
@@ -112,8 +113,7 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 	        System.out.println("Submit-Fail");
 	    }
 	               
-	                 
-	                 //Inquiry//
+	                   //Inquiry//
 	                 try {
 	     				Thread.sleep(3000);
 	     			} catch (InterruptedException e) {
@@ -190,6 +190,7 @@ public void  Click_on_Go() throws Throwable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	 
 	//Click on Go button//
     bStatus =GeneralFunctions.clickElement(By.id("goButton"));
     if (bStatus) {

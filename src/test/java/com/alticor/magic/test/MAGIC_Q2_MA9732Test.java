@@ -1,3 +1,5 @@
+//Validate  Baseline Rerun Screen//
+
 package com.alticor.magic.test;
 
 import org.openqa.selenium.By;

@@ -1,3 +1,5 @@
+//Validate Platinum value and sponsor value in Dash board//
+
 package com.alticor.magic.test;
 
 import org.openqa.selenium.By;

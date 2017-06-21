@@ -1,3 +1,5 @@
+//Validate MAGIC FAA//
+
 package com.alticor.magic.test;
 
 import org.openqa.selenium.By;

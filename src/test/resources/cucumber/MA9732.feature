@@ -1,4 +1,4 @@
-Feature: Testing  MA 9732
+Feature: Validate Baseline Rerun Screen
 
 Scenario:
        Given User is in Baseline Rerun Screen
