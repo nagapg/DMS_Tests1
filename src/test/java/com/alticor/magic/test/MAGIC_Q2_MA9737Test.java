@@ -156,7 +156,12 @@ try {
 	
 	@Then("^BE should be empty$")
 	public void BE_should_be_empty() throws Throwable {
-
+		   try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		bStatus=GeneralFunctions.driver.findElement(By.name("searchInputCol2")).getAttribute("value").isEmpty();
 		if(bStatus){
 			System.out.println("BE Field Empty-Pass");
