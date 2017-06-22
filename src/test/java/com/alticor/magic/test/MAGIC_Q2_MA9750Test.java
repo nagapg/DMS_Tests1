@@ -188,15 +188,15 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 		    }
 	}  
 
-		     @Then ("^Click on ok button$")
+		  @Then ("^Click on ok button$")
 		   public void Click_on_ok_button() throws Throwable{
 			   com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();
 			   System.out.println("OK button-Pass");
 		   }
 		     
-		     
-		   @Given("^User enters From Bonus Period$")
+		    @Given("^User enters From Bonus Period$")
 		   public void User_enters_From_Bonus_Period() throws Throwable{
+		    	
 			 //Enter From Bonus Period Field//
 			    bStatus=GeneralFunctions.enterTextToElement(By.name("searchInputCol4"),"022015");
 				if(bStatus){
@@ -255,7 +255,9 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 			   
 			 //Capture User email//
 				String ExpVal=GeneralFunctions.getText(By.id(".//*[@id='emailingList']"));
+				System.out.println("##################################");
 				 System.out.println("The User email  is "+ ExpVal);
+				 System.out.println("##################################");
 			      try {
 						Thread.sleep(3000);
 					} catch (InterruptedException e) {

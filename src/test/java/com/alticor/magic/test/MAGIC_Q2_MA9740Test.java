@@ -199,8 +199,10 @@ System.out.println("Trip and Target are equal");
 
 @Then("^Display the values$")
 		 public void Display_the_values() throws Throwable {
+	System.out.println("##########Expected-Result########################");
 			 System.out.println("The  Trip value is  : "  +  trip);
 			 System.out.println("The Target Value  is  :  "  +  target);
+			 System.out.println("###########################################");
 }
 
 @Then("^Close LTS Screen$")

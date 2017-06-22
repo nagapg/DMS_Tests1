@@ -127,7 +127,9 @@ public class MAGIC_Q2_MA9742Test {
 		
 			  //Capture Platinum Value from Dashboard//
 			    plat=GeneralFunctions.getText(By.xpath(".//*[@id='ABOInfo']/table/tbody/tr[3]/td[5]/a"));
+			    System.out.println("##########Expected-Result########################");
 				System.out.println("The Platinum value is    "  +  plat);
+				System.out.println("###############################################");
 				 try {
 						Thread.sleep(3000);
 					} catch (InterruptedException e) {

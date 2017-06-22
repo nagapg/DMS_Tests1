@@ -184,7 +184,7 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 		//Validating Expected//
 		 String Sucess=GeneralFunctions.getText(By.xpath(".//*[@id='successMsgDiv']"));
 		 System.out.println("##########Expected-Result########################");
-		   System.out.println(Sucess);
+		   System.out.println("The Message is " + Sucess);
 		   System.out.println("###############################################");
 	}
 	
