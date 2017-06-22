@@ -162,7 +162,7 @@ try {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		bStatus=GeneralFunctions.driver.findElement(By.name("searchInputCol2")).getAttribute("value").isEmpty();
+		bStatus=GeneralFunctions.driver.findElement(By.xpath(".//*[@id='searchInputCol2']")).getAttribute("value").isEmpty();
 		if(bStatus){
 			System.out.println("BE Field Empty-Pass");
 		}	
@@ -179,6 +179,12 @@ try {
 
 	@Then("^Drop down in BE$")
 	public void Drop_down_in_BE() throws Throwable {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		bStatus=GeneralFunctions.clickElement(By.name("searchButtonCol2"));
 		if(bStatus){
 			System.out.println("BE Drop Down list Visible-Pass");
