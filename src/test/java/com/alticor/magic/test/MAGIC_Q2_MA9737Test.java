@@ -162,14 +162,29 @@ try {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		bStatus=GeneralFunctions.driver.findElement(By.xpath(".//*[@id='searchInputCol2']")).getAttribute("value").isEmpty();
-		if(bStatus){
+		   
+	/*	bStatus=(GeneralFunctions.driver.findElement(By.xpath(".//*[@id='searchInputCol2']")).getAttribute("value").isEmpty());
+		if(bStatus)
+		{
 			System.out.println("BE Field Empty-Pass");
-		}	
-		else{
-			System.out.println("BE not Empty-Fail");
 		}
-try {
+		else
+		{
+			System.out.println("BE not Empty-Fail");
+		}*/
+		   
+		   //Capture BE Field//
+			String ExpVal=GeneralFunctions.getText(By.id(".//*[@id='searchInputCol2']"));
+			 System.out.println("##########Expected-Result########################");
+			 System.out.println("The BE Field  is empty");
+			 System.out.println("###############################################");
+		      try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		 try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
