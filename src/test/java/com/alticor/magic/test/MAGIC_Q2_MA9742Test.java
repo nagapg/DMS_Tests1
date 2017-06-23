@@ -172,6 +172,3 @@ public class MAGIC_Q2_MA9742Test {
 	           }
 	  }
 	  }
-		 	      	
-		 	      
-
