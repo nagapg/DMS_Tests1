@@ -240,6 +240,13 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 		   @When("^email check box is checked$")
 		   public void email_check_box_is_checked() throws Throwable{
 			   
+			   try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			   
 			   //Click on Schedule report//
 			   bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='scheduleReport']"));
 				if(bStatus){
@@ -252,8 +259,14 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 		   
 		   @Then("^User email is populated$")
 		   public void User_email_is_populated() throws Throwable{
+			   try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			   
-			 //Capture User email//
+		 //Capture User email//
 				String ExpVal=GeneralFunctions.getText(By.id(".//*[@id='emailingList']"));
 				System.out.println("##################################");
 				 System.out.println("The User email  is "+ ExpVal);
@@ -265,8 +278,8 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 						e.printStackTrace();
 					}
 		   }
-		   
-		  @Given("^User Selects To Bonus Period$")
+			     
+@Given("^User Selects To Bonus Period$")
 		  public void User_Selects_To_Bonus_Period() throws Throwable{
 			  
 			  //Select To Bonus Period//
