@@ -44,6 +44,8 @@ public class MAGIC_Q2_MA9738Test {
 			       	        }
 			       			
 			       			//Enter Period//
+			       			GeneralFunctions.waittime();
+			       			
 			       			bStatus=GeneralFunctions.enterTextToElement(By.name("period"),"022015");
 				               if(bStatus){
 				System.out.println("Period-Pass");
