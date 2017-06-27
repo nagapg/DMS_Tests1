@@ -1,10 +1,10 @@
-//Validate Audit Details in ILB Bank File Screen//
-
+/*Step 1>Navigate to ILB Bank File
+ * Step 2>Validate Audit Details
+ */
 package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -13,114 +13,11 @@ public class MAGIC_Q2_MA9738Test {
 	/** Declare variables */
 	boolean bStatus;
 	
-	@Given("^user is in MAGIC ILB Bank File Screen$")
-	public void user_is_in_MAGIC_ILB_Bank_File_Screen() throws Throwable {
+	@When("^ILB Bank File is selected$")
+	public void ILB_Bank_File_is_selected() throws Throwable {
 		
-		//Navigate to Hub//
-		bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
-		//bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");//
-			if (bStatus) {
-			    System.out.println("Hub Firefox-Pass");
-			     } else {
-			     System.out.println("Hub Firefox-Fail");
-			     }
-				
-				//Navigate to MAGIC-Gamma//
-			 bStatus =GeneralFunctions.openapp("https://magic-gamma/EBS_UI_Web/Magic");
-			  if (bStatus) {
-			    System.out.println("MAGIC_Gamma-Pass");
-			    } else {
-			    System.out.println("MAGIC_Gamma-Fail");
-			    }
-			   // com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();//
-			   
-			    try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
-			    //Okta Login//
-			    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
-			    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
-			    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
-			  	
-				 try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
-				//Enter Aff//
-				  try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				  bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
-				  if (bStatus) {
-				System.out.println("AFF-Pass");
-				} else {
-				System.out.println("AFF-Fail");
-				}
-
-				  try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
-					  //Enter Abo//
-				bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
-				  if (bStatus) {
-				System.out.println("ABO-Pass");
-				} else {
-				System.out.println("ABO-Fail");
-				}
-				  
-				  try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
-					   //Enter Period//
-				bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"062017");
-				               if(bStatus){
-				System.out.println("Period-Pass");
-				}         
-				else{
-				System.out.println("Period-Fail");
-				}
-				 
-				  try {
-				   				Thread.sleep(3000);
-				   			} catch (InterruptedException e) {
-				   				// TODO Auto-generated catch block
-				   				e.printStackTrace();
-				   			}
-				   		
-			       //Click on submit//
-			                 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
-			                 if (bStatus) {
-			        System.out.println("Submit-Pass");
-			    } else {
-			        System.out.println("Submit-Fail");
-			    }
- try {
-			     				Thread.sleep(3000);
-			     			} catch (InterruptedException e) {
-			     				// TODO Auto-generated catch block
-			     				e.printStackTrace();
-			     			}
-			     		
-			               //Processing//
-			       		  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));
+	//Processing//
+		 bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));
 			       			if(bStatus){
 			       	        	System.out.println("Processing-Pass");
 			       	        }	
@@ -138,7 +35,7 @@ public class MAGIC_Q2_MA9738Test {
 			       	        }
 			       			
 			       			//Processing-->Payments-->ILB bank file//
-			       			bStatus=GeneralFunctions.clickElement(By.linkText("ILB Bank File"));
+			       				bStatus=GeneralFunctions.clickElementByJavascriptExecutor(By.linkText("ILB Bank File"));
 			       			if(bStatus){
 			       	        	System.out.println("ILB Bank File-Pass");
 			       	        }	
@@ -146,14 +43,7 @@ public class MAGIC_Q2_MA9738Test {
 			       	        	System.out.println("ILB Bank File-Fail");
 			       	        }
 			       			
-			       			try {
-			    				Thread.sleep(4000);
-			    			} catch (InterruptedException e1) {
-			    				// TODO Auto-generated catch block
-			    				e1.printStackTrace();
-			    			}	
-			       			
-			       		//Enter Period//
+			       			//Enter Period//
 			       			bStatus=GeneralFunctions.enterTextToElement(By.name("period"),"022015");
 				               if(bStatus){
 				System.out.println("Period-Pass");
@@ -170,16 +60,12 @@ public class MAGIC_Q2_MA9738Test {
 			    	        else{
 			    	        System.out.println("Go-Fail");
 			    	        }
-			    			try {
-			    				Thread.sleep(4000);
-			    			} catch (InterruptedException e1) {
-			    				// TODO Auto-generated catch block
-			    				e1.printStackTrace();
-			    			}	
 			    			}
 
-	@When("^user selects Transmitted links$")
-	public void user_selects_Transmitted_links() throws Throwable {
+	@When("^select Transmitted links$")
+	public void select_Transmitted_links() throws Throwable {
+		
+		GeneralFunctions.waittime();
 		
 		//Click on Transmitted link//
 		bStatus=GeneralFunctions.clickElement(By.linkText("Transmitted"));
@@ -189,14 +75,10 @@ public class MAGIC_Q2_MA9738Test {
         else{
         System.out.println("Click Transmitted Link-Fail");
         }
-		 try {
-			Thread.sleep(6000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		 
-		//Click on Second Transmitted link//
+		
+		GeneralFunctions.waittime();
+		
+		 //Click on Second Transmitted link//
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='searchForm']/table/tbody/tr[2]/td[2]/span/b"));
 			if(bStatus){
 	        	System.out.println("Second Transmitted Link-Pass");
@@ -204,16 +86,12 @@ public class MAGIC_Q2_MA9738Test {
 	        else{
 	        System.out.println("Second Transmitted Link-Fail");
 	        }
-			 try {
-					Thread.sleep(6000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}	
-    	}
+			}
 
 	@Then("^user should be able to view audit details$")
 	public void user_should_be_able_to_view_audit_details() throws Throwable {
+		
+		GeneralFunctions.waittime();
 		
 		     //Expected:View Audit Details//
 				bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='divAuditDetails0']/table/tbody/tr[1]/td/table/tbody/tr/td[1]/div"));
@@ -223,12 +101,6 @@ public class MAGIC_Q2_MA9738Test {
 		        else{
 		        	System.out.println("Audit Details-Fail");
 		        }
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 				
 				//Click on Cross//
 				 bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='divAuditDetails0']/table/tbody/tr[1]/td/table/tbody/tr/td[2]/img"));
@@ -247,17 +119,5 @@ public class MAGIC_Q2_MA9738Test {
          else{
          	System.out.println("Click Back-Fail");
          }
-   	 
-	}
-
-	@Then("^Close MAGIC ILB Bank File Screen$")
-	public void close_MAGIC_ILB_Bank_File_Screen() throws Throwable {
-		
-		   bStatus = GeneralFunctions.close();
-	        if (bStatus) {
-	             System.out.println("MAGIC Closed-Pass");
-	         } else {
-	             System.out.println("Close MAGIC-Fail");
-	         }
-	}
-	}
+   	 	}
+}

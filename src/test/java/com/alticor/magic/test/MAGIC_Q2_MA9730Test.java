@@ -1,4 +1,6 @@
-//Validate Total Bonus in Annual Bonus Screen//
+/*Step 1>Navigate to Annual Bonus
+ * Step 2>Capture Total Bonus
+ */
 
 package com.alticor.magic.test;
 
@@ -46,7 +48,6 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 	    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
 	    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 	    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
-	    
 	    try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -68,7 +69,6 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 	System.out.println("AFF-Fail");
 	}
 	 
-	  
 	  //Enter Abo//
 	  try {
 			Thread.sleep(3000);
@@ -83,7 +83,6 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 	System.out.println("ABO-Fail");
 	}
 	
-	  
 	  //Enter Period//
 	  try {
 			Thread.sleep(3000);
@@ -113,7 +112,7 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 	        System.out.println("Submit-Fail");
 	    }
 	               
-	                   //Inquiry//
+	            //Inquiry//
 	                 try {
 	     				Thread.sleep(3000);
 	     			} catch (InterruptedException e) {
@@ -128,7 +127,6 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 	         	        	System.out.println("Inquiry-Fail");
 	         	        }
 	         	
-	         			
 	         			//Inquiry-->Annuals//
 	         			 try {
 	         				Thread.sleep(3000);
@@ -144,7 +142,6 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 	         	        	System.out.println("Annuals-Fail");
 	         	        }
 	         			
-	         			
 	         			//Inquiry-->Annuals-->Annual Bonus//
 	         			 try {
 	         				Thread.sleep(3000);
@@ -159,8 +156,7 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 	         	        else{
 	         	        	System.out.println("Annual Bonus-Fail");
 	         	        }
-	         	  
-}
+	         	  }
 
 @When("^PY is selected$")
 public void  PY_is_selected() throws Throwable{
@@ -179,7 +175,6 @@ public void  PY_is_selected() throws Throwable{
   else{
   	System.out.println("Select PY-Fail");
   }
-
 }
 
 @When("^Click on Go$")
@@ -200,7 +195,7 @@ System.out.println("Go Button-Fail");
 }
 }
 
-@When("^Capture Total Bonus$")
+@Then("^Capture Total Bonus$")
 public void  Capture_Total_Bonus() throws Throwable{
 	 try {
 			Thread.sleep(3000);
@@ -210,20 +205,18 @@ public void  Capture_Total_Bonus() throws Throwable{
 		}
 	 //Capture Total Bonus//
 	ExpVal=GeneralFunctions.getText(By.xpath(".//*[@id='searchBoxDiv']/table/tbody/tr[40]/td[8]"));
-	
-	 System.out.println("##########Expected-Result########################");
+	System.out.println("##########Expected-Result########################");
 	 System.out.println("The Total Bonus  is "+ ExpVal);
 	 System.out.println("###############################################");
-	
 }
 
-	     @And("^Close Annual Bonus Screen$")
-	      		   public void Close_Annual_Bonus_Screen() throws Throwable{   
-	      			   bStatus = GeneralFunctions.close();
-	      		        if (bStatus) {
-	      		             System.out.println("MAGIC Closed-Pass");
-	      		         } else {
-	      		             System.out.println("Close MAGIC-Fail");
-	      		         }
-	      		}
-	      		}
+@And("^Close Annual Bonus Screen$")
+public void Close_Annual_Bonus_Screen() throws Throwable{   
+	   bStatus = GeneralFunctions.close();
+     if (bStatus) {
+          System.out.println("MAGIC Closed-Pass");
+      } else {
+          System.out.println("Close MAGIC-Fail");
+      }
+}
+}		 

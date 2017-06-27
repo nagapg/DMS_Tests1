@@ -1,4 +1,6 @@
-//Validate  Baseline Rerun Screen//
+/*Step 1>Navigate to Baseline Rerun
+ * Step 2>Capture the success message
+ */
 
 package com.alticor.magic.test;
 
@@ -47,8 +49,7 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 	    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 	    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
 	  	
-		
-	  try {
+	 try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -197,4 +198,4 @@ bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firef
 		             System.out.println("Close MAGIC-Fail");
 		         }
 		}
-		}
+		}		 
