@@ -19,55 +19,60 @@ public class MAGIC_Q2_MA9732Test {
 	public void Open_Baseline_Rerun() throws Throwable {
 		
 	//Navigate to Server//
-			bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
-			//bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");//
-					if (bStatus) {
-					    System.out.println("Server Firefox-Pass");
-					     } else {
-					     System.out.println("Server Firefox-Fail");
-					     }
-						
-						//Navigate to MAGIC-QA//
-					 bStatus =GeneralFunctions.openapp("https://magic-gamma/EBS_UI_Web/Magic");
-					  if (bStatus) {
-					    System.out.println("MAGIC_QA-Pass");
-					    } else {
-					    System.out.println("MAGIC_QA-Fail");
-					    }
-					  try {
-							Thread.sleep(3000);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					   // com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();//
-					    //Okta Login//
-					    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
-					    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
-					    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
-					 
-					     //Enter Aff//
-					    try {
-							Thread.sleep(3000);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-		    bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
+	bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
+	//bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");//
+			if (bStatus) {
+			    System.out.println("Server Firefox-Pass");
+			     } else {
+			     System.out.println("Server Firefox-Fail");
+			     }
+				
+				//Navigate to MAGIC-QA//
+			 bStatus =GeneralFunctions.openapp("https://magic-gamma/EBS_UI_Web/Magic");
 			  if (bStatus) {
-			System.out.println("AFF-Pass");
-			} else {
-			System.out.println("AFF-Fail");
-			}
-
-			  //Enter Abo//
+			    System.out.println("MAGIC_QA-Pass");
+			    } else {
+			    System.out.println("MAGIC_QA-Fail");
+			    }
 			  try {
 					Thread.sleep(3000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
+			   // com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();//
+			    //Okta Login//
+			    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
+			    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
+			    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
+			    try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}	 
+			     //Enter Aff//
+			    try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}	   
+    bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"430");
+	  if (bStatus) {
+	System.out.println("AFF-Pass");
+	} else {
+	System.out.println("AFF-Fail");
+	}
+	  
+	  //Enter Abo//
+			  try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"46");
 			  if (bStatus) {
 			System.out.println("ABO-Pass");
 			} else {
@@ -141,12 +146,14 @@ public class MAGIC_Q2_MA9732Test {
        }	
        else{
        	System.out.println("Baseline Rerun-Fail");
-       }
+       }  
+      
        }
 
 @When("^Enter eff PY and Click Rerun$")
 	public void  Enter_eff_PY_and_Click_Rerun() throws Throwable{
-	  try {
+
+	 try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -158,13 +165,9 @@ public class MAGIC_Q2_MA9732Test {
         }	
         else{
         	System.out.println("Eff PY-Fail");
-        }
-		  try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+        	  }
+		 
+		
 	bStatus=GeneralFunctions.clickElement(By.id("rerunBaselineButton"));
 		if(bStatus){
         	System.out.println("Submit Rerun-Pass");
@@ -172,6 +175,12 @@ public class MAGIC_Q2_MA9732Test {
         else{
         System.out.println("Submit Rerun-Fail");
         }
+		try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	
 	@Then("^Capture success message$")
