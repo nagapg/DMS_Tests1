@@ -5,6 +5,8 @@ package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
+
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -13,8 +15,112 @@ public class MAGIC_Q2_MA9738Test {
 	/** Declare variables */
 	boolean bStatus;
 	
-	@When("^ILB Bank File is selected$")
-	public void ILB_Bank_File_is_selected() throws Throwable {
+	@Given("^Open ILB Bank File$")
+	public void Open_ILB_Bank_File() throws Throwable {
+		
+		//Navigate to Server//
+		bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
+		//bStatus =GeneralFunctions.openhubBrowser("http://usqa9914:4444/wd/hub","firefox");//
+				if (bStatus) {
+				    System.out.println("Server Firefox-Pass");
+				     } else {
+				     System.out.println("Server Firefox-Fail");
+				     }
+					
+					//Navigate to MAGIC-QA//
+				 bStatus =GeneralFunctions.openapp("https://magic-gamma/EBS_UI_Web/Magic");
+				  if (bStatus) {
+				    System.out.println("MAGIC_QA-Pass");
+				    } else {
+				    System.out.println("MAGIC_QA-Fail");
+				    }
+				   // com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();//
+				   
+				  try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				 
+				    //Okta Login//
+				    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
+				    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
+				    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
+				    try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+	
+//Enter Aff//
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	    bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
+		  if (bStatus) {
+		System.out.println("AFF-Pass");
+		} else {
+		System.out.println("AFF-Fail");
+		}
+
+		  try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		  
+			  //Enter Abo//
+		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
+		  if (bStatus) {
+		System.out.println("ABO-Pass");
+		} else {
+		System.out.println("ABO-Fail");
+		}
+		  
+		  try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		  
+			   //Enter Period//
+		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"062017");
+		               if(bStatus){
+		System.out.println("Period-Pass");
+		}         
+		else{
+		System.out.println("Period-Fail");
+		}
+		 
+		               try {
+		   				Thread.sleep(3000);
+		   			} catch (InterruptedException e) {
+		   				// TODO Auto-generated catch block
+		   				e.printStackTrace();
+		   			}
+		   		
+		       //Click on submit//
+		                 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
+		                 if (bStatus) {
+		        System.out.println("Submit-Pass");
+		    } else {
+		        System.out.println("Submit-Fail");
+		    }
+		                 
+		                 try {
+		     				Thread.sleep(3000);
+		     			} catch (InterruptedException e) {
+		     				// TODO Auto-generated catch block
+		     				e.printStackTrace();
+		     			}
 		
 	//Processing//
 		 bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));
@@ -64,12 +170,16 @@ public class MAGIC_Q2_MA9738Test {
 			    	        }
 			    			}
 
-	@When("^select Transmitted links$")
-	public void select_Transmitted_links() throws Throwable {
+	@When("^Transmitted links selected$")
+	public void Transmitted_links_selected() throws Throwable {
 		
-		GeneralFunctions.waittime();
-		
-		//Click on Transmitted link//
+	//Click on Transmitted link//
+		  try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		bStatus=GeneralFunctions.clickElement(By.linkText("Transmitted"));
 		if(bStatus){
         	System.out.println("Click Transmitted Link-Pass");
@@ -81,6 +191,12 @@ public class MAGIC_Q2_MA9738Test {
 		GeneralFunctions.waittime();
 		
 		 //Click on Second Transmitted link//
+		  try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='searchForm']/table/tbody/tr[2]/td[2]/span/b"));
 			if(bStatus){
 	        	System.out.println("Second Transmitted Link-Pass");
@@ -90,12 +206,10 @@ public class MAGIC_Q2_MA9738Test {
 	        }
 			}
 
-	@Then("^user should be able to view audit details$")
-	public void user_should_be_able_to_view_audit_details() throws Throwable {
+	@Then("^view audit details$")
+	public void view_audit_details() throws Throwable {
 		
-		GeneralFunctions.waittime();
-		
-		     //Expected:View Audit Details//
+	     //Expected:View Audit Details//
 				bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='divAuditDetails0']/table/tbody/tr[1]/td/table/tbody/tr/td[1]/div"));
 				if(bStatus){
 		        	System.out.println("Audit Details-Pass");
@@ -122,4 +236,15 @@ public class MAGIC_Q2_MA9738Test {
          	System.out.println("Click Back-Fail");
          }
    	 	}
-}
+
+	@Then("^Close ILB Bank File$")
+	public void  Close_ILB_Bank_File() throws Throwable {
+	  
+	  	bStatus = GeneralFunctions.close();
+	      if (bStatus) {
+	           System.out.println("MAGIC Closed-Pass");
+	       } else {
+	           System.out.println("Close MAGIC-Fail");
+	       }
+	}
+	}

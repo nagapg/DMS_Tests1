@@ -1,17 +1,11 @@
-Feature: Validate  Transaction Reports Screen
+Feature: Transaction Reports Screen
 
-    Scenario Outline:
-       Given User navigates to https://magic-gamma/EBS_UI_Web/Magic
-       And "<aff>" "<abo>" "<period>" submitted
-      When Transaction Reports is selected 
-     Then no values entered click on view
-      And Click on ok button
-      
-       Examples:
-      | aff   | abo   | period   |
-     | 010 | 9995 | 062017 |
-     
-       Scenario:
+    Scenario:
+      Given Open Transaction Reports
+     When Click View
+      Then Click Ok
+    
+    Scenario:
        Given User enters From Bonus Period
        When User Clicks on Clear 
        Then Field is Cleared
@@ -28,7 +22,7 @@ Feature: Validate  Transaction Reports Screen
        When Select Report View Excel
        And Select Business Entity 
        Then Click on View
-        And Close https://magic-gamma/EBS_UI_Web/Magic
+        And Close Transaction Reports
     
     
       
