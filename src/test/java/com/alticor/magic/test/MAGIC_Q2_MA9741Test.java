@@ -162,6 +162,12 @@ public class MAGIC_Q2_MA9741Test {
 			}
 		  
 		//Validating the Expected//
+		  try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='viewTableDiv']/table/tbody/tr[2]/td[4]/span/b"));
 		if(bStatus){
         	System.out.println("Amount Details-Pass");
@@ -186,6 +192,12 @@ public class MAGIC_Q2_MA9741Test {
 
 	@Then("^Click Cross$")
 	public void Click_Cross() throws Throwable {
+		 try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='div0']/table/tbody/tr[1]/td/table/tbody/tr/td[2]/img"));
 		if(bStatus){
         	System.out.println("Click on Cross-Pass");
