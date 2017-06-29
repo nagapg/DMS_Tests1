@@ -1,6 +1,6 @@
 Feature: Validate  Annual Bonus Screen
 
-Scenario Outline:
+Scenario:
         Given Open Annual Bonus
         When PY selected and Clicked  Go
        Then Capture Total Bonus
