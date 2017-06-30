@@ -1,4 +1,4 @@
-Feature: Validate ILB Alt Name Screen
+Feature: ILB Alt Name Screen
 
 Scenario:
        Given Open ILB Alt Name Screen

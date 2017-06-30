@@ -1,4 +1,4 @@
-Feature: Validate LTS Screen
+Feature: LTS Screen
 
 Scenario:
        Given Open LTS

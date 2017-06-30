@@ -1,4 +1,4 @@
-Feature: Validate Baseline Rerun Screen
+Feature: Baseline Rerun Screen
 
 Scenario:
        Given Open Baseline Rerun

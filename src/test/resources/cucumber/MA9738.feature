@@ -1,4 +1,4 @@
-Feature: Validate ILB Bank File
+Feature: ILB Bank File
 
 Scenario:
         Given Open ILB Bank File

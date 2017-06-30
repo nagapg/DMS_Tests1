@@ -1,4 +1,4 @@
-Feature: Validate Invoice Inquiry Screen
+Feature: Invoice Inquiry Screen
 
 Scenario:
        Given Open Invoice Inquiry

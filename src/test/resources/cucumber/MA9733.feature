@@ -1,4 +1,4 @@
-Feature: Validating Batch Search Screen
+Feature: Batch Search Screen
 
 Scenario:
         Given Open Batch Search 

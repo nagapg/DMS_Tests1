@@ -1,4 +1,4 @@
-Feature: Validate Dashboard
+Feature:  Dashboard
 
 Scenario:
        Given Open Dashboard

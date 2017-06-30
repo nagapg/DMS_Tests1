@@ -1,4 +1,4 @@
-Feature: Validate  Region Security Screen
+Feature: Region Security Screen
 
 Scenario:
          Given Open Region Security 

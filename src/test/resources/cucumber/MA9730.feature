@@ -1,4 +1,4 @@
-Feature: Validate  Annual Bonus Screen
+Feature: Annual Bonus Screen
 
 Scenario:
         Given Open Annual Bonus
