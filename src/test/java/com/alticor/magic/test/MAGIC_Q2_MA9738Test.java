@@ -68,8 +68,7 @@ public class MAGIC_Q2_MA9738Test {
 		} else {
 		System.out.println("AFF-Fail");
 		}
-
-		  try {
+ try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -83,8 +82,7 @@ public class MAGIC_Q2_MA9738Test {
 		} else {
 		System.out.println("ABO-Fail");
 		}
-		  
-		  try {
+		    try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -150,9 +148,13 @@ public class MAGIC_Q2_MA9738Test {
 			       	        }
 			       			
 			       			//Enter Period//
-			       			GeneralFunctions.waittime();
-			       			
-			       			bStatus=GeneralFunctions.enterTextToElement(By.name("period"),"022015");
+			       		  try {
+			  				Thread.sleep(3000);
+			  			} catch (InterruptedException e) {
+			  				// TODO Auto-generated catch block
+			  				e.printStackTrace();
+			  			}
+			       	bStatus=GeneralFunctions.enterTextToElement(By.name("period"),"022015");
 				               if(bStatus){
 				System.out.println("Period-Pass");
 				}         
@@ -168,6 +170,12 @@ public class MAGIC_Q2_MA9738Test {
 			    	        else{
 			    	        System.out.println("Go-Fail");
 			    	        }
+			    			  try {
+			    					Thread.sleep(3000);
+			    				} catch (InterruptedException e) {
+			    					// TODO Auto-generated catch block
+			    					e.printStackTrace();
+			    				}
 			    			}
 
 	@When("^Transmitted links selected$")
@@ -188,9 +196,7 @@ public class MAGIC_Q2_MA9738Test {
         System.out.println("Click Transmitted Link-Fail");
         }
 		
-		GeneralFunctions.waittime();
-		
-		 //Click on Second Transmitted link//
+	 //Click on Second Transmitted link//
 		  try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
