@@ -21,12 +21,15 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GeneralFunctions {
 	
-    private static final String Select = null;
+	private static final String Select = null;
 	public static WebDriver driver;
 	public static String sErrMsg="";
+	
 	
 /******************************************
 	 * FunctionName  :clickElementByJavascriptExecutor
@@ -229,7 +232,8 @@ if(verifyVisibilityOFElement(objLocator) )
 	public static boolean openIEBrowser(String sURL )
 	{
 		try{
-			System.setProperty("webdriver.ie.driver","IEDriverServer.exe");
+		//	System.setProperty("webdriver.ie.driver","IEDriverServer.exe");//
+			System.setProperty("webdriver.ie.driver","drivers/IEDriverServer.exe");
 			DesiredCapabilities cap=new DesiredCapabilities();
 			cap.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
 			cap.setCapability(InternetExplorerDriver.UNEXPECTED_ALERT_BEHAVIOR, true);
@@ -266,8 +270,9 @@ if(verifyVisibilityOFElement(objLocator) )
 	public static boolean openChormeBrowser(String sURL)
 	{
 		try{
-			System.setProperty("webdriver.chrome.driver","chromedriver.exe");
-			driver=new ChromeDriver();
+			//System.setProperty("webdriver.chrome.driver","chromedriver.exe");//
+			System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
+		driver=new ChromeDriver();
 			driver.get(sURL);
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
@@ -292,7 +297,7 @@ if(verifyVisibilityOFElement(objLocator) )
 			//Browsers//
 		 if(browser.equalsIgnoreCase("chrome"))
 		 brow = DesiredCapabilities.chrome();
-	//brow.setPlatform(Platform.VISTA);//	
+	//brow.setPlatform(Platform.VISTA);	//
 	 brow.setPlatform(Platform.LINUX);
 		 
 		if(browser.equalsIgnoreCase("firefox"))
@@ -300,13 +305,13 @@ if(verifyVisibilityOFElement(objLocator) )
 		brow.setCapability("marionette",true);
 		brow.setCapability("acceptInsecureCerts",true);
 		brow.setCapability("AcceptUntrustedCertificates",true);	
-      // brow.setPlatform(Platform.VISTA);	//
+      //  brow.setPlatform(Platform.VISTA);	//
 	 brow.setPlatform(Platform.LINUX);
 		 
 	 if(browser.equalsIgnoreCase("internet explorer"))
 			 brow = DesiredCapabilities.internetExplorer();
 	//brow.setPlatform(Platform.VISTA);	//
-	brow.setPlatform(Platform.LINUX);
+	 brow.setPlatform(Platform.LINUX);
 	 
 		driver = new RemoteWebDriver(new URL(nodeurl), brow);
 			
@@ -361,24 +366,7 @@ return true;
 	}
 	
 }
-/******************************************
-	 * FunctionName  :gotoframe
-	 * Purpose       :Frames
-	 * @return
-	 *
-	 * *****************************************/
-public static boolean gotoframe(By xpath) {
-	try{
-		return true;
-	}
-	catch(Exception e)
-	{
-		sErrMsg=e.getMessage();
-		System.out.println(sErrMsg);
-		e.printStackTrace();
-		return false;
-	}
-}
+
 /******************************************
  * FunctionName  :activeElement
  * Purpose       : element active 
@@ -417,10 +405,34 @@ return true;
  * Purpose       :Waits
  *
  * *****************************************/
-
 public static void waittime() {
 	// TODO Auto-generated method stub
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	try{
+driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+return;
+}catch(Exception e)
+	{
+		return;
+	}
+}
+
+/******************************************
+ * FunctionName  :ExplicitWait
+ * Purpose       :Waits
+ * @return 
+ *
+ * *****************************************/
+public static boolean ExplicitWait(By objLocator) {
+	WebDriverWait expwait=new WebDriverWait(driver,10);
+			
+	try{
+ //expwait.until(ExpectedConditions.alertIsPresent());//
+		expwait.until(ExpectedConditions.elementToBeClickable(objLocator));
+ return true;
+}catch(Exception e)
+	{
+		return false;
+	}
 }
 
 /******************************************
@@ -488,21 +500,57 @@ public static String getTitle(By objLocator)
  * Purpose       :Moving to particular frame
  *
  * *****************************************/
-public void switchToFrame(int frame) {
+public static void switchToFrame(String name) {
 	try {
-		driver.switchTo().frame(frame);
-		System.out.println("Navigated to frame with id " + frame);
-	//	Reports.CurrentTest.AddStep(new StepReport("Navigated to frame with id " + frame,true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
-	} catch (NoSuchFrameException e) {
-		System.out.println("Unable to locate frame with id " + frame
+		driver.switchTo().frame(name);
+		System.out.println("Navigated to frame with id " + name);
+		} 
+	catch (NoSuchFrameException e) {
+		System.out.println("Unable to locate frame with id " + name
 				+ e.getStackTrace());
-	//	Reports.CurrentTest.AddStep(new StepReport("Unable to locate frame with id" + frame + e.getStackTrace(),false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
-	} catch (Exception e) {
-		System.out.println("Unable to navigate to frame with id " + frame
+		} 
+	catch (Exception e) {
+		System.out.println("Unable to navigate to frame with id " + name
 				+ e.getStackTrace());
-	//	Reports.CurrentTest.AddStep(new StepReport("Unable to navigate to frame with id " + frame+ e.getStackTrace(), false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 	}
 }
+
+/*****************************************
+ * FunctionName  :getTagName
+ * Purpose       : get tagname
+ *
+ * *****************************************/
+public static String getTagName(By objLocator)
+{
+	try{
+if(verifyVisibilityOFElement(objLocator) )
+	{		
+	String sText=driver.findElement(objLocator).getTagName();
+		return sText;
+	}
+	return null;
+	}
+	catch(Exception e)
+	{
+		sErrMsg=e.getMessage();
+	return null;
+	}
+}
+
+/******************************************
+ * FunctionName  :Navigate
+ * Purpose       : Navigate Commands
+ * @return 
+ *
+ * *****************************************/
+public static String Navigate()
+{
+	driver.navigate().back();
+	//driver.navigate().forward();//
+	//driver.navigate().refresh();//
+	return sErrMsg;
+	}
+
 
 //close the main//
 	}
