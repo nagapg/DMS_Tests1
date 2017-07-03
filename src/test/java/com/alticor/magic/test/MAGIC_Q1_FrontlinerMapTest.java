@@ -174,5 +174,3 @@ public void  Close_Frontliner_Map() throws Throwable {
        }
 }
 }
-
-

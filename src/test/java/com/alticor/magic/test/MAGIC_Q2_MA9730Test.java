@@ -35,30 +35,15 @@ public class MAGIC_Q2_MA9730Test {
 						    } else {
 						    System.out.println("MAGIC_QA-Fail");
 						    }
-						  try {
-								Thread.sleep(3000);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
+						 GeneralFunctions.waittime();
 						   // com.alticor.magic.GeneralFunctions.driver.switchTo().alert().accept();//
 						    //Okta Login//
 						    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
 						    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 						    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
-						    try {
-								Thread.sleep(3000);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}	 
+						    GeneralFunctions.waittime(); 
 						     //Enter Aff//
-						    try {
-								Thread.sleep(3000);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}	   
+						    GeneralFunctions.waittime();	   
 			    bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
 				  if (bStatus) {
 				System.out.println("AFF-Pass");
@@ -67,12 +52,7 @@ public class MAGIC_Q2_MA9730Test {
 				}
 
 				  //Enter Abo//
-				  try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+				  GeneralFunctions.waittime();
 				bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"670");
 				  if (bStatus) {
 				System.out.println("ABO-Pass");
@@ -81,12 +61,7 @@ public class MAGIC_Q2_MA9730Test {
 				}
 				  
 				   //Enter Period//
-				  try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+				  GeneralFunctions.waittime();
 				bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"062017");
 				               if(bStatus){
 				System.out.println("Period-Pass");
@@ -104,12 +79,7 @@ public class MAGIC_Q2_MA9730Test {
 				    }
 				              
 	            //Inquiry//
-		                 try {
-								Thread.sleep(3000);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
+				                 GeneralFunctions.waittime();
 	    GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[1]"));
 	         			if(bStatus){
 	         	        	System.out.println("Inquiry-Pass");
@@ -119,12 +89,7 @@ public class MAGIC_Q2_MA9730Test {
 	         	        }
 	         	
 	         			//Inquiry-->Annuals//
-	         			  try {
-	  						Thread.sleep(3000);
-	  					} catch (InterruptedException e) {
-	  						// TODO Auto-generated catch block
-	  						e.printStackTrace();
-	  					}
+	         			GeneralFunctions.waittime();
 	         			GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu1']/a[4]/span[1]"));
 	         			if(bStatus){
 	         	        	System.out.println("Annuals-Pass");
@@ -134,12 +99,7 @@ public class MAGIC_Q2_MA9730Test {
 	         	        }
          			
 	         			//Inquiry-->Annuals-->Annual Bonus//
-	         			  try {
-	  						Thread.sleep(3000);
-	  					} catch (InterruptedException e) {
-	  						// TODO Auto-generated catch block
-	  						e.printStackTrace();
-	  					}
+	         			GeneralFunctions.waittime();
 	         			bStatus=GeneralFunctions.clickElement(By.linkText("Annual Bonus"));
 	         	        if(bStatus){
 	         			System.out.println("Annual Bonus-Pass");
@@ -153,12 +113,7 @@ public class MAGIC_Q2_MA9730Test {
 public void  PY_selected_and_Clicked_Go() throws Throwable{
 	
 	//Select PY:2016//
-	  try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	GeneralFunctions.waittime();
 	 bStatus=GeneralFunctions.DropDown(By.xpath(".//*[@id='searchBoxDiv']/form/div[2]/table/tbody/tr/td[2]/select"), "2016");
 	if(bStatus){
   	System.out.println("Select PY-Pass");
@@ -168,12 +123,7 @@ public void  PY_selected_and_Clicked_Go() throws Throwable{
   }
 
 //Click on Go button//
-	  try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	GeneralFunctions.waittime();
     bStatus =GeneralFunctions.clickElement(By.id("goButton"));
     if (bStatus) {
 System.out.println("Go Button-Pass");
@@ -186,12 +136,7 @@ System.out.println("Go Button-Fail");
 public void  Capture_Total_Bonus() throws Throwable{
 	
 		 //Capture Total Bonus//
-	  try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	GeneralFunctions.waittime();
 	ExpVal=GeneralFunctions.getText(By.xpath(".//*[@id='searchBoxDiv']/table/tbody/tr[40]/td[8]"));
 	System.out.println("##########Expected-Result########################");
 	 System.out.println("The Total Bonus  is "+ ExpVal);

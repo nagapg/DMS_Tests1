@@ -201,6 +201,3 @@ public void  Close_LOS_Map() throws Throwable {
        }
 }
 }
-
-
-

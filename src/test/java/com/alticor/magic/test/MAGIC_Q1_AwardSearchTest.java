@@ -178,7 +178,3 @@ public class MAGIC_Q1_AwardSearchTest {
 	       }
 	}
 	}
-
-
-
-	
