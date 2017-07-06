@@ -109,7 +109,7 @@ public class MAGIC_Q2_MA9730Test {
 	         	        }
 	         	  }
 
-@When("^PY selected and Clicked  Go$")
+@When("^PY selected and Clicked Go$")
 public void  PY_selected_and_Clicked_Go() throws Throwable{
 	
 	//Select PY:2016//
