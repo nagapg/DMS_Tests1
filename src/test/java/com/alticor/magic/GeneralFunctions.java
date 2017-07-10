@@ -355,6 +355,7 @@ if(verifyVisibilityOFElement(objLocator) )
 public static boolean close() {
 	try{
 driver.quit();
+		
 return true;
 		}
 	catch(Exception e)
