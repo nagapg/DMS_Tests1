@@ -195,15 +195,15 @@ public class MAGIC_Q2_MA9738Test {
         else{
         System.out.println("Click Transmitted Link-Fail");
         }
-		
-	 //Click on Second Transmitted link//
-		  try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='searchForm']/table/tbody/tr[2]/td[2]/span/b"));
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	 
+		//Click on Second Transmitted link//
+		  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='searchForm']/table/tbody/tr[2]/td[2]/span/b"));
 			if(bStatus){
 	        	System.out.println("Second Transmitted Link-Pass");
 	        }	
@@ -215,6 +215,12 @@ public class MAGIC_Q2_MA9738Test {
 	@Then("^view audit details$")
 	public void view_audit_details() throws Throwable {
 		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	     //Expected:View Audit Details//
 				bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='divAuditDetails0']/table/tbody/tr[1]/td/table/tbody/tr/td[1]/div"));
 				if(bStatus){
