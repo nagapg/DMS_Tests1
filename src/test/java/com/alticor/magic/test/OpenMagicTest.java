@@ -73,6 +73,12 @@ public class OpenMagicTest {
 								}
 
 								//Enter Abo//
+								  try {
+										Thread.sleep(3000);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 								bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),abo);
 								  if (bStatus) {
 								System.out.println("ABO-Pass");
@@ -81,6 +87,12 @@ public class OpenMagicTest {
 								}
 								  
 								  //Enter Period//
+								  try {
+										Thread.sleep(3000);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 								bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),per);
 								               if(bStatus){
 								System.out.println("Period-Pass");
@@ -90,13 +102,19 @@ public class OpenMagicTest {
 								}
 								 
 						//Click submit//
+								               try {
+								       			Thread.sleep(3000);
+								       		} catch (InterruptedException e) {
+								       			// TODO Auto-generated catch block
+								       			e.printStackTrace();
+								       		}
 						    bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 						           if (bStatus) {
 						  System.out.println("Submit-Pass");
 						} else {
 						  System.out.println("Submit-Fail");
 						}
-						         
+						                
 						    }
 						    
 						    @Then("^Close Gamma$")

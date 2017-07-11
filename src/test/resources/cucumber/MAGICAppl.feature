@@ -1,46 +1,99 @@
 Feature: MAGIC Screens
 
-Scenario:
-       Given Open MAGIC
-       Then Capture Dashboard
-       And Close MAGIC
+Scenario Outline:  
+         Given user navigates to GAMMA
+         And "<aff>" "<abo>" "<period>" entered and click on submit 
+         Then Capture Dashboard
+       And Close Gamma
+         
+         Examples:
+         | aff | abo | period |
+         | 010 | 9995 | 062017 |
     
-Scenario:
-       Given Open AwardDetails
+Scenario Outline:  
+         Given user navigates to GAMMA
+         And "<aff>" "<abo>" "<period>" entered and click on submit 
+         When navigated to AwardDetails
        Then Capture Award Details
-       And Close AwardDetails
+       And Close Gamma
+         
+         Examples:
+         | aff | abo | period |
+         | 010 | 9995 | 062017 |
 
-Scenario:
-       Given Open AwardSearch
+Scenario Outline:  
+         Given user navigates to GAMMA
+         And "<aff>" "<abo>" "<period>" entered and click on submit 
+         When navigated to AwardSearch
        Then Capture Award Search
-       And Close AwardSearch
+       And Close Gamma
+         
+         Examples:
+         | aff | abo | period |
+         | 010 | 9995 | 062017 |
      
-Scenario:
-       Given Open FAA
+Scenario Outline:  
+         Given user navigates to GAMMA
+         And "<aff>" "<abo>" "<period>" entered and click on submit 
+         When navigated to FAA
        Then Capture FAA
-       And Close FAA
+       And Close Gamma
+         
+         Examples:
+         | aff | abo | period |
+         | 010 | 9995 | 062017 |
 
-Scenario:
-       Given Open Frontliner Map
+Scenario Outline:  
+         Given user navigates to GAMMA
+         And "<aff>" "<abo>" "<period>" entered and click on submit 
+         When navigated to Frontliner Map
        Then Capture Frontliner Map
-       And Close Frontliner Map
+        And Close Gamma
+         
+         Examples:
+         | aff | abo | period |
+         | 010 | 9995 | 062017 |
 
- Scenario:
-       Given Open FTAQRpts
+ Scenario Outline:  
+         Given user navigates to GAMMA
+         And "<aff>" "<abo>" "<period>" entered and click on submit 
+         When navigated to FTAQRpts
        Then Capture FTAQRpts
-       And Close FTAQRpts
+      And Close Gamma
+         
+         Examples:
+         | aff | abo | period |
+         | 010 | 9995 | 062017 |
   
-Scenario:
-       Given Open LOS Map
+ Scenario Outline:  
+         Given user navigates to GAMMA
+         And "<aff>" "<abo>" "<period>" entered and click on submit 
+         When navigated to LOS Map
        Then Capture LOS Map
-       And Close LOS Map
+      And Close Gamma
+         
+         Examples:
+         | aff | abo | period |
+         | 010 | 9995 | 062017 |
        
-Scenario:
-       Given Open Qualifications
+ Scenario Outline:  
+         Given user navigates to GAMMA
+         And "<aff>" "<abo>" "<period>" entered and click on submit 
+         When navigated to Qualifications
        Then Capture Qualifications
-       And Close Qualifications
-        
-Scenario:
-       Given Open Volumes
+       And Close Gamma
+         
+         Examples:
+         | aff | abo | period |
+         | 010 | 9995 | 062017 |
+       
+ Scenario Outline:  
+         Given user navigates to GAMMA
+         And "<aff>" "<abo>" "<period>" entered and click on submit 
+         When navigated to Volumes
        Then Capture Volumes
-       And Close Volumes
+       And Close Gamma
+         
+         Examples:
+         | aff | abo | period |
+         | 010 | 9995 | 062017 |

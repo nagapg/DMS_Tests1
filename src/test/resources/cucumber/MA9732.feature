@@ -1,8 +1,13 @@
 Feature: Baseline Rerun Screen
 
-Scenario:
-       Given Open Baseline Rerun
-       When Enter eff PY and Click Rerun 
+  Scenario Outline:  
+         Given user navigates to GAMMA
+         And "<aff>" "<abo>" "<period>" entered and click on submit 
+         When navigated to Baseline Rerun
+       And Enter eff PY and Click Rerun 
        Then Capture success message
-       And Close Baseline Rerun
-  
+      And Close Gamma
+         
+         Examples:
+         | aff | abo | period |
+         | 430 | 46 | 062017 |

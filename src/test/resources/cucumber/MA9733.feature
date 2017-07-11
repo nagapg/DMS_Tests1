@@ -1,8 +1,13 @@
 Feature: Batch Search Screen
 
-Scenario:
-        Given Open Batch Search 
-       When Batch Transaction Inquiry is opened
+Scenario Outline:  
+         Given user navigates to GAMMA
+         And "<aff>" "<abo>" "<period>" entered and click on submit 
+         When navigated to Batch Search 
+       And Batch Transaction Inquiry is opened
        Then Click back Orange arrow
-       And Close Batch Search 
-      
+       And Close Gamma
+       
+      Examples:
+         | aff | abo | period |
+         | 010 | 670 | 062017 | 

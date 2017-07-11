@@ -1,7 +1,13 @@
 Feature: ILB Bank File
 
-Scenario:
-        Given Open ILB Bank File
-       When Transmitted links selected
+Scenario Outline:  
+         Given user navigates to GAMMA
+         And "<aff>" "<abo>" "<period>" entered and click on submit 
+         When navigated to ILB Bank File
+       And Transmitted links selected
       Then view audit details
-      And Close ILB Bank File
+      And Close Gamma
+         
+         Examples:
+         | aff | abo | period |
+         | 010 | 9995 | 062017 |
