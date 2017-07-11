@@ -66,6 +66,7 @@ public class MAGIC_Q1_FAATest {
 @Then("^Capture FAA$")
 public void Capture_FAA() throws Throwable{
 	
+	
 	//Validating the Expected//
 	String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='faaDiv']/div"));
    System.out.println("##########Expected-Result########################");
