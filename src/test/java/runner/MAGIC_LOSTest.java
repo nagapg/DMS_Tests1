@@ -5,10 +5,10 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="src/test/resources/cucumber/MAGICAppl.feature",
+@CucumberOptions(features="src/test/resources/cucumber/MAGIC_LOS.feature",
                  glue={"com.alticor.magic.test"},
-                plugin={"json:target/cucumber_MAGICScreens.json"})
+                plugin={"json:target/MAGIC_LOS.json"})
 
-public class RunnerTest {
+public class MAGIC_LOSTest {
 
 }

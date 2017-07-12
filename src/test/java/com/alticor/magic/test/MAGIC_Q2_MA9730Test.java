@@ -77,7 +77,7 @@ public class MAGIC_Q2_MA9730Test {
 				}
 				  
 				   //Enter Period//
-				 bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"062017");
+				 bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"072017");
 				               if(bStatus){
 				System.out.println("Period-Pass");
 				}         
