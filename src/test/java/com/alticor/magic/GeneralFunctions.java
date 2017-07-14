@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
@@ -552,12 +553,37 @@ public static String Navigate()
 	return sErrMsg;
 	}
 
+/******************************************
+ * FunctionName  :AlertActiveElement
+ * Purpose       : Alert Web element
+
+ * *****************************************/
+public static boolean AlertActiveElement() {
+    try {
+    driver.switchTo().activeElement().sendKeys(Keys.ENTER);
+return true;
+    } 
+    catch (Exception e) {
+        return false;
+    } 
+}
+
+/******************************************
+ * FunctionName  :AlertPopUp
+ * Purpose       : Alert 
+
+ * *****************************************/
+public static boolean AlertPopUp() {
+    try {
+        driver.switchTo().alert();
+       driver.switchTo().alert().accept();
+       driver.switchTo().defaultContent();
+ return true;
+    } 
+    catch (Exception e) {
+        return false;
+    } 
+}
 
 //close the main//
 	}
-
-
-
-
-
-
