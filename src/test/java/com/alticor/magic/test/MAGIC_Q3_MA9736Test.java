@@ -110,7 +110,7 @@ public class MAGIC_Q3_MA9736Test {
 				 			       
 				 			       //Enter ABO:9995//
 				 			      GeneralFunctions.waittime();
-				 			       bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='inputAboNumber']"),"9995");
+				 			       bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='inputAboNumber']"),"5166282");
 				 					  if (bStatus) {
 				 					System.out.println("ABO-Pass");
 				 					} else {
