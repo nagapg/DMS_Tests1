@@ -33,7 +33,7 @@ public class MAGIC_Q1_DashboardTest {
 						    } else {
 						    System.out.println("MAGIC_QA-Fail");
 						    }
-
+		
 						  try {
 								Thread.sleep(3000);
 							} catch (InterruptedException e) {
