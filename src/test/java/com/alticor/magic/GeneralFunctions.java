@@ -359,8 +359,8 @@ if(verifyVisibilityOFElement(objLocator) )
 	 * *****************************************/
 public static boolean close() {
 	try{
-		driver.close();
-//driver.quit();//
+		//driver.close();//
+driver.quit();
 		
 return true;
 		}
