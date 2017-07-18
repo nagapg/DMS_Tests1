@@ -47,23 +47,46 @@ public class MAGIC_Q3_MA9736Test {
 						    } else {
 						    System.out.println("MAGIC_QA-Fail");
 						    }
-						GeneralFunctions.waittime();
+						  try {
+								Thread.sleep(3000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						 
 						//Okta Login//
 						    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
 						    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 						    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
-						    GeneralFunctions.waittime();
+						    try {
+								Thread.sleep(3000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						 
 			
 		//Enter Aff//
-						    GeneralFunctions.waittime();
-				
+						    try {
+								Thread.sleep(3000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						 
 			    bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
 				  if (bStatus) {
 				System.out.println("AFF-Pass");
 				} else {
 				System.out.println("AFF-Fail");
 				}
-				  GeneralFunctions.waittime();
+				  try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				 
 					  //Enter Abo//
 				bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"5166282");
 				  if (bStatus) {
@@ -71,7 +94,13 @@ public class MAGIC_Q3_MA9736Test {
 				} else {
 				System.out.println("ABO-Fail");
 				}
-				  GeneralFunctions.waittime();
+				  try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				 
 					   //Enter Period//
 				bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"072017");
 				               if(bStatus){
@@ -80,7 +109,13 @@ public class MAGIC_Q3_MA9736Test {
 				else{
 				System.out.println("Period-Fail");
 				}
-				               GeneralFunctions.waittime();
+				               try {
+									Thread.sleep(3000);
+								} catch (InterruptedException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+							 
 				       //Click on submit//
 				                 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 				                 if (bStatus) {
@@ -88,7 +123,13 @@ public class MAGIC_Q3_MA9736Test {
 				    } else {
 				        System.out.println("Submit-Fail");
 				    }
-				                 GeneralFunctions.waittime();
+				                 try {
+										Thread.sleep(3000);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+								 
 				               //Maintenance//
 				 				bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
 				 				if(bStatus){
@@ -105,11 +146,23 @@ public class MAGIC_Q3_MA9736Test {
 				 			       }	
 				 			       else{
 				 			       	System.out.println("Alternate ILB Address-Fail");
-				 			       GeneralFunctions.waittime();
+				 			       try {
+										Thread.sleep(3000);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+								 
 				 			       }
 				 			       
 				 			       //Enter ABO:9995//
-				 			      GeneralFunctions.waittime();
+				 			      try {
+										Thread.sleep(3000);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+								 
 				 			       bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='inputAboNumber']"),"5166282");
 				 					  if (bStatus) {
 				 					System.out.println("ABO-Pass");
@@ -124,7 +177,13 @@ public class MAGIC_Q3_MA9736Test {
 				 		    } else {
 				 		        System.out.println("Go-Fail");
 				 	    }
-				 		                GeneralFunctions.waittime();
+				 		                try {
+											Thread.sleep(3000);
+										} catch (InterruptedException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										}
+									 
 				 		                 }
 
 @When("^name entered$")
@@ -143,7 +202,13 @@ bStatus=GeneralFunctions.clickElement(By.id("submitButton"));
      GeneralFunctions.AlertActiveElement();
 	
  //Enter Name//
-     GeneralFunctions.waittime();
+     try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	 
 bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='nameOne']"),"tester");
   if (bStatus) {
 System.out.println("Name-Pass");
@@ -198,7 +263,13 @@ if(bStatus){
     }
     
  //Re-enter Name//
-    GeneralFunctions.waittime();
+    try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+ 
 bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='nameOne']"),"tester");
   if (bStatus) {
 System.out.println("Name-Pass");
@@ -243,7 +314,13 @@ if(bStatus){
     }
     
    //Click on add button//
-    GeneralFunctions.waittime();
+    try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+ 
     	 bStatus=GeneralFunctions.clickElement(By.id("submitButton"));
 	        if(bStatus){
 	    		System.out.println("Add-Pass");
@@ -254,7 +331,13 @@ if(bStatus){
 	        	}
 	        
 	        //Expected 3>Capture Add Success message//
-	        GeneralFunctions.waittime();
+	        try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 
 	       String addmessg=GeneralFunctions.getText(By.xpath(".//*[@id='rightPane']/div[1]/div[4]/div[3]"));
 	       System.out.println("*************Add-Result********************");
 	      System.out.println("Add message is " + addmessg);
@@ -267,7 +350,13 @@ if(bStatus){
         	}	
         else{
         	System.out.println("Name Edit-Fail");
-        	GeneralFunctions.waittime();
+        	 try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			 
         }
 		
 		//Click on Update button//
@@ -277,12 +366,23 @@ if(bStatus){
            }	
            else{
            	System.out.println("Update-Fail");
-           	GeneralFunctions.waittime();
+            try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 
            }
         
      //Expected 4>Capture Update Success message//
-       
-        GeneralFunctions.waittime();
+        try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	 
         String updatemessg=GeneralFunctions.getText(By.xpath(".//*[@id='rightPane']/div[1]/div[4]/div[3]"));
         System.out.println("*************Update-Result********************");
        System.out.println("Update message is " + updatemessg);
@@ -300,7 +400,13 @@ if(bStatus){
            }	
            else{
            	System.out.println("Delete-Fail");
-           	GeneralFunctions.waittime();
+            try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 
            }
 
         //Accept the Pop Up//
@@ -308,7 +414,13 @@ if(bStatus){
 	  
 	//Expected 5>Capture Delete Success message//
 	 
-	  GeneralFunctions.waittime();
+	  try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	 
       String deletemessg=GeneralFunctions.getText(By.xpath(".//*[@id='rightPane']/div[1]/div[4]/div[3]"));
       System.out.println("*************Delete-Result********************");
      System.out.println("Delete message is " + deletemessg);
