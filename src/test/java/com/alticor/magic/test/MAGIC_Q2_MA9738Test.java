@@ -46,14 +46,8 @@ public class MAGIC_Q2_MA9738Test {
 				    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
 				    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 				    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
-				    try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-	
-//Enter Aff//
+				  
+	//Enter Aff//
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -67,28 +61,28 @@ public class MAGIC_Q2_MA9738Test {
 		} else {
 		System.out.println("AFF-Fail");
 		}
- try {
+
+			  //Enter Abo//
+		  try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-		  
-			  //Enter Abo//
+			}	   
 		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
 		  if (bStatus) {
 		System.out.println("ABO-Pass");
 		} else {
 		System.out.println("ABO-Fail");
 		}
-		    try {
+		 
+			   //Enter Period//
+		  try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-		  
-			   //Enter Period//
+			}	   
 		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"062017");
 		               if(bStatus){
 		System.out.println("Period-Pass");
@@ -97,14 +91,13 @@ public class MAGIC_Q2_MA9738Test {
 		System.out.println("Period-Fail");
 		}
 		 
-		               try {
-		   				Thread.sleep(3000);
-		   			} catch (InterruptedException e) {
-		   				// TODO Auto-generated catch block
-		   				e.printStackTrace();
-		   			}
-		   		
 		       //Click on submit//
+		               try {
+							Thread.sleep(3000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}	   
 		                 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 		                 if (bStatus) {
 		        System.out.println("Submit-Pass");
@@ -112,14 +105,14 @@ public class MAGIC_Q2_MA9738Test {
 		        System.out.println("Submit-Fail");
 		    }
 		                 
-		                 try {
-		     				Thread.sleep(3000);
-		     			} catch (InterruptedException e) {
-		     				// TODO Auto-generated catch block
-		     				e.printStackTrace();
-		     			}
-		
+		               
 	//Processing//
+		                 try {
+								Thread.sleep(3000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}	   
 		 bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));
 			       			if(bStatus){
 			       	        	System.out.println("Processing-Pass");
@@ -194,14 +187,14 @@ public class MAGIC_Q2_MA9738Test {
         else{
         System.out.println("Click Transmitted Link-Fail");
         }
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	 
+		
 		//Click on Second Transmitted link//
+		 try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		  bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='searchForm']/table/tbody/tr[2]/td[2]/span/b"));
 			if(bStatus){
 	        	System.out.println("Second Transmitted Link-Pass");
@@ -209,25 +202,18 @@ public class MAGIC_Q2_MA9738Test {
 	        else{
 	        System.out.println("Second Transmitted Link-Fail");
 	        }
-			try {
+			}
+
+	@Then("^view audit details$")
+	public void view_audit_details() throws Throwable {
+	
+	     //Expected:View Audit Details//
+		 try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			}
-
-	@Then("^view audit details$")
-	public void view_audit_details() throws Throwable {
-		
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	     //Expected:View Audit Details//
 				bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='divAuditDetails0']/table/tbody/tr[1]/td/table/tbody/tr/td[1]/div"));
 				if(bStatus){
 		        	System.out.println("Audit Details-Pass");

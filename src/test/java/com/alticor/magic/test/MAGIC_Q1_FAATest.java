@@ -46,21 +46,15 @@ public class MAGIC_Q1_FAATest {
 						    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
 						    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 						    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
+						    
 						    try {
 								Thread.sleep(3000);
 							} catch (InterruptedException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
-						    
-						     //Enter Aff//
-						    try {
-								Thread.sleep(3000);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}	     
-			    bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
+						    //Enter Aff//
+						  bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
 				  if (bStatus) {
 				System.out.println("AFF-Pass");
 				} else {
@@ -68,8 +62,13 @@ public class MAGIC_Q1_FAATest {
 				}
 
 				  //Enter Abo//
-				  GeneralFunctions.waittime();
-				bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"670");
+				  try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}	   
+				bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
 				  if (bStatus) {
 				System.out.println("ABO-Pass");
 				} else {
@@ -123,7 +122,7 @@ public class MAGIC_Q1_FAATest {
 			   	        	System.out.println("Annuals-Fail");
 			   	        }
 			   	      
-			   	    //Inquiry-->Awards-->FAA//
+			   	    //Inquiry-->Annuals-->FAA//
 			   	     try {
 			 			Thread.sleep(3000);
 			 		} catch (InterruptedException e) {
@@ -137,19 +136,13 @@ public class MAGIC_Q1_FAATest {
 			   	       else{
 			   	       	System.out.println("FAA-Fail");
 			   	       }
-				 }
+			   	   }
 
 @Then("^Capture FAA$")
 public void Capture_FAA() throws Throwable{
 	
 	//Validating the Expected//
-	 try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	String ExpVal=GeneralFunctions.getText(By.xpath(".//*[@id='faaInquiryForm']/table/tbody/tr/td[4]/select"));
+	String ExpVal=GeneralFunctions.getText(By.xpath(".//*[@id='faaDiv']/table[3]/tbody/tr[1]/td[8]"));
    System.out.println("##########Expected-Result########################");
 	System.out.println("The Output is:"  +ExpVal);
 	System.out.println("###############################################");

@@ -44,13 +44,7 @@ public class MAGIC_Q1_VolumesTest {
 						    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
 						    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 						    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
-						    try {
-								Thread.sleep(3000);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-						    
+						  
 						     //Enter Aff//
 						    try {
 								Thread.sleep(3000);

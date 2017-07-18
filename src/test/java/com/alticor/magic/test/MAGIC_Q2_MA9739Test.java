@@ -46,13 +46,7 @@ public class MAGIC_Q2_MA9739Test {
 				    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
 				    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 				    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
-				    try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-	
+				   
 //Enter Aff//
 		try {
 			Thread.sleep(3000);
@@ -68,29 +62,27 @@ public class MAGIC_Q2_MA9739Test {
 		System.out.println("AFF-Fail");
 		}
 
+		    //Enter Abo//
 		  try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-		  
-			  //Enter Abo//
+			}	   
 		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
 		  if (bStatus) {
 		System.out.println("ABO-Pass");
 		} else {
 		System.out.println("ABO-Fail");
 		}
-		  
+		
+			   //Enter Period//
 		  try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-		  
-			   //Enter Period//
+			}	   
 		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"072017");
 		               if(bStatus){
 		System.out.println("Period-Pass");
@@ -99,29 +91,27 @@ public class MAGIC_Q2_MA9739Test {
 		System.out.println("Period-Fail");
 		}
 		 
-		               try {
-		   				Thread.sleep(3000);
-		   			} catch (InterruptedException e) {
-		   				// TODO Auto-generated catch block
-		   				e.printStackTrace();
-		   			}
-		   		
 		       //Click on submit//
+		               try {
+							Thread.sleep(3000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}	   
 		                 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 		                 if (bStatus) {
 		        System.out.println("Submit-Pass");
 		    } else {
 		        System.out.println("Submit-Fail");
 		    }
-		                 
-		                 try {
-		     				Thread.sleep(3000);
-		     			} catch (InterruptedException e) {
-		     				// TODO Auto-generated catch block
-		     				e.printStackTrace();
-		     			}
-		                       
+		            
 					//Click on Payment Inquiry//
+		                 try {
+								Thread.sleep(3000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}	   
 		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[3]"));
 				if(bStatus){
 		        	System.out.println("Payment Inquiry-Pass");
@@ -131,6 +121,12 @@ public class MAGIC_Q2_MA9739Test {
 		        }
 				
 				//Payment Inquiry-->Invoice Inquiry//
+				 try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}	   
 				bStatus=GeneralFunctions.clickElement(By.linkText("Invoice Inquiry"));
 				if(bStatus){
 		        	System.out.println("Invoice Inquiry-Pass");
@@ -143,7 +139,12 @@ public class MAGIC_Q2_MA9739Test {
 @When("^Click Orange link$")
 	public void Click_orange_link() throws Throwable {
 	
-	GeneralFunctions.waittime();
+	 try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	   
 	
 	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='invoiceABODataTable']/tbody/tr[2]/td[10]/span/b"));
 	if(bStatus){
@@ -158,6 +159,12 @@ public class MAGIC_Q2_MA9739Test {
 	public void view_bonus_amount_details() throws Throwable {
 		
 		//Validating the Expected//
+		 try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	   
 		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='viewTableDiv']/table/tbody/tr[2]/td[4]/span/b"));
 		if(bStatus){
         	System.out.println("Amount Details-Pass");

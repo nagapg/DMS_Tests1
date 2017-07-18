@@ -184,6 +184,12 @@ public class MAGIC_Q2_MA9732Test {
 	public void Capture_success_message() throws Throwable{
 	
 		//Validating Expected//
+		 try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	   
 		 String Sucess=GeneralFunctions.getText(By.xpath(".//*[@id='successMsgDiv']"));
 		 System.out.println("##########Expected-Result########################");
 		   System.out.println("The Message is " + Sucess);

@@ -44,12 +44,7 @@ public class MAGIC_Q2_MA9750Test {
 				    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
 				    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 				    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
-				    try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+				   
 	
 //Enter Aff//
 		try {
@@ -66,27 +61,21 @@ public class MAGIC_Q2_MA9750Test {
 		System.out.println("AFF-Fail");
 		}
 
+		  
+			  //Enter Abo//
 		  try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-		  
-			  //Enter Abo//
+			}	   
 		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
 		  if (bStatus) {
 		System.out.println("ABO-Pass");
 		} else {
 		System.out.println("ABO-Fail");
 		}
-		  
-		  try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		 
 		  
 			   //Enter Period//
 		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"072017");
@@ -97,13 +86,6 @@ public class MAGIC_Q2_MA9750Test {
 		System.out.println("Period-Fail");
 		}
 		 
-		               try {
-		   				Thread.sleep(3000);
-		   			} catch (InterruptedException e) {
-		   				// TODO Auto-generated catch block
-		   				e.printStackTrace();
-		   			}
-		   		
 		       //Click on submit//
 		                 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 		                 if (bStatus) {
@@ -111,15 +93,14 @@ public class MAGIC_Q2_MA9750Test {
 		    } else {
 		        System.out.println("Submit-Fail");
 		    }
-		                 
+		           
+		//Reports//
 		                 try {
-		     				Thread.sleep(3000);
-		     			} catch (InterruptedException e) {
-		     				// TODO Auto-generated catch block
-		     				e.printStackTrace();
-		     			}
-		
-                //Reports//
+								Thread.sleep(3000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}	   
 		         	bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[4]"));
 		         	  if(bStatus){
 		         	    	System.out.println("Reports-Pass");
@@ -128,9 +109,13 @@ public class MAGIC_Q2_MA9750Test {
 		         	    	System.out.println("Reports-Fail");
 		         	    }
 		         	    
-		         	  GeneralFunctions.waittime();
-		         	  
-		         	    //Reports-->Transaction Reports//
+		         	//Reports-->Transaction Reports//
+		         	 try {
+							Thread.sleep(3000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}	   
 		         	   bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu4']/a[10]"));
 		         	    if(bStatus){
 		         		System.out.println("Tranaction Reports-Pass");
@@ -141,6 +126,12 @@ public class MAGIC_Q2_MA9750Test {
 		         	    
 		         	   
 		         	    //Reports-->Transaction Reports-->Transaction Reports//
+		         	   try {
+							Thread.sleep(3000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}	   
 		         	    bStatus=GeneralFunctions.clickElementByJavascriptExecutor(By.linkText("Transaction Reports"));
 		         	   if(bStatus){
 		         		System.out.println("Transaction Reports-Pass");
@@ -154,6 +145,12 @@ public class MAGIC_Q2_MA9750Test {
 	public void Click_View() throws Throwable{
 		
 		  //Click on View//
+	 try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		 bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='ReportsButton']"));
          if(bStatus){
 		    	System.out.println("View button-Pass");
@@ -231,6 +228,12 @@ public class MAGIC_Q2_MA9750Test {
 		   public void User_email_is_populated() throws Throwable{
 			 
 		       //Capture User email//
+			   try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}	   
 				String ExpVal=GeneralFunctions.getText(By.id(".//*[@id='emailingList']"));
 				System.out.println("##################################");
 				 System.out.println("The User email  is "+ ExpVal);
@@ -323,8 +326,7 @@ public class MAGIC_Q2_MA9750Test {
 					    }
 		        }
 
-
-		        @Then("^Close Transaction Reports$")
+ @Then("^Close Transaction Reports$")
 		    	public void  Close_Transaction_Reports() throws Throwable {
 		    	  
 		    	  	bStatus = GeneralFunctions.close();

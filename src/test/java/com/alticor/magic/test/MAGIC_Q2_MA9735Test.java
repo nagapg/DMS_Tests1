@@ -76,21 +76,26 @@ public class MAGIC_Q2_MA9735Test {
 			}
 		  
 			  //Enter Abo//
+		  try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	   
 		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
 		  if (bStatus) {
 		System.out.println("ABO-Pass");
 		} else {
 		System.out.println("ABO-Fail");
 		}
-		  
+		
+			   //Enter Period//
 		  try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-		  
-			   //Enter Period//
+			}	   
 		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"062017");
 		               if(bStatus){
 		System.out.println("Period-Pass");
@@ -99,14 +104,14 @@ public class MAGIC_Q2_MA9735Test {
 		System.out.println("Period-Fail");
 		}
 		 
-		               try {
-		   				Thread.sleep(3000);
-		   			} catch (InterruptedException e) {
-		   				// TODO Auto-generated catch block
-		   				e.printStackTrace();
-		   			}
-		   		
+		             
 		       //Click on submit//
+		               try {
+							Thread.sleep(3000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}	   
 		                 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 		                 if (bStatus) {
 		        System.out.println("Submit-Pass");
@@ -114,15 +119,14 @@ public class MAGIC_Q2_MA9735Test {
 		        System.out.println("Submit-Fail");
 		    }
 		                 
-		                 try {
-		     				Thread.sleep(3000);
-		     			} catch (InterruptedException e) {
-		     				// TODO Auto-generated catch block
-		     				e.printStackTrace();
-		     			}
-		                       
-	
+		                
 		//Maintenance//
+		                 try {
+								Thread.sleep(3000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}	   
 		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
 		if(bStatus){
         	System.out.println("Maintanence-Pass");
@@ -132,6 +136,12 @@ public class MAGIC_Q2_MA9735Test {
         }
    		
      //Maintenance-->Admin//
+		 try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	   
 		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='SubMenu2']/a[1]/span[1]"));
 		if(bStatus){
         	System.out.println("Admin-Pass");
@@ -141,6 +151,12 @@ public class MAGIC_Q2_MA9735Test {
         }
 		
 		 //Maintenance-->Admin-->Region Security//
+		 try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	   
 		bStatus=GeneralFunctions.clickElementByJavascriptExecutor(By.xpath(".//*[@id='SubMenu2_1']/a[2]/span[1]"));
         if(bStatus){
 		System.out.println("Region Security-Pass");
@@ -150,6 +166,12 @@ public class MAGIC_Q2_MA9735Test {
         }
 		
         //Maintenance-->Admin-->Region Security-->Region Security//
+        try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	   
         bStatus=GeneralFunctions.clickElement(By.linkText("Region Security"));   
         if(bStatus){
 		System.out.println("Region Security-Pass");
@@ -178,6 +200,12 @@ public class MAGIC_Q2_MA9735Test {
        }
      
         //Validating Expand All//
+       try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	   
      bStatus=GeneralFunctions.clickElementByJavascriptExecutor(By.xpath(".//*[@id='expandAll']"));   
        if(bStatus){
 		System.out.println("Expand All-Pass");

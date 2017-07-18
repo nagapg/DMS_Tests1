@@ -68,7 +68,12 @@ public class MAGIC_Q1_FrontlinerMapTest {
 				}
 
 				  //Enter Abo//
-				  GeneralFunctions.waittime();
+				  try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}	   
 				bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"670");
 				  if (bStatus) {
 				System.out.println("ABO-Pass");
@@ -129,12 +134,6 @@ public class MAGIC_Q1_FrontlinerMapTest {
 public void Capture_Frontliner_Map() throws Throwable{
 	
 	//Validating the Expected//
-	 try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	String ExpVal=GeneralFunctions.getText(By.xpath(".//*[@id='LosMapExpand']/div/span[1]"));
 	    System.out.println("##########Expected-Result########################");
 		   System.out.println("The Output is:"  +ExpVal);

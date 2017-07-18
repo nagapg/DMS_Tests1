@@ -44,20 +44,15 @@ public class MAGIC_Q2_MA9741Test {
 				    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
 				    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 				    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
+				  
 				    try {
 						Thread.sleep(3000);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}	 
+					}
 				     //Enter Aff//
-				    try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}	   
-	    bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
+				   bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
 		  if (bStatus) {
 		System.out.println("AFF-Pass");
 		} else {
@@ -154,14 +149,7 @@ public class MAGIC_Q2_MA9741Test {
 	@When("^Click Amount$")
 	public void click_Amount() throws Throwable {
 		
-		  try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		  
-		//Validating the Expected//
+		  //Validating the Expected//
 		  try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {

@@ -58,14 +58,7 @@ public class MAGIC_Q3_MA9736Test {
 						    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
 						    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 						    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
-						    try {
-								Thread.sleep(3000);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-						 
-			
+						   
 		//Enter Aff//
 						    try {
 								Thread.sleep(3000);
@@ -80,28 +73,28 @@ public class MAGIC_Q3_MA9736Test {
 				} else {
 				System.out.println("AFF-Fail");
 				}
+				  
+				  //Enter Abo//
 				  try {
 						Thread.sleep(3000);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}
-				 
-					  //Enter Abo//
+					}	   
 				bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"5166282");
 				  if (bStatus) {
 				System.out.println("ABO-Pass");
 				} else {
 				System.out.println("ABO-Fail");
 				}
+				 
+					   //Enter Period//
 				  try {
 						Thread.sleep(3000);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}
-				 
-					   //Enter Period//
+					}	   
 				bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"072017");
 				               if(bStatus){
 				System.out.println("Period-Pass");
@@ -109,13 +102,7 @@ public class MAGIC_Q3_MA9736Test {
 				else{
 				System.out.println("Period-Fail");
 				}
-				               try {
-									Thread.sleep(3000);
-								} catch (InterruptedException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								}
-							 
+				               
 				       //Click on submit//
 				                 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 				                 if (bStatus) {
@@ -123,14 +110,14 @@ public class MAGIC_Q3_MA9736Test {
 				    } else {
 				        System.out.println("Submit-Fail");
 				    }
+				                 
+				               //Maintenance//
 				                 try {
 										Thread.sleep(3000);
 									} catch (InterruptedException e) {
 										// TODO Auto-generated catch block
 										e.printStackTrace();
-									}
-								 
-				               //Maintenance//
+									}	   
 				 				bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
 				 				if(bStatus){
 				 		        	System.out.println("Maintanence-Pass");
@@ -140,20 +127,19 @@ public class MAGIC_Q3_MA9736Test {
 				 		        }
 				 				
 				 				//Maintenance-->Alternate ILB Address//
+				 				 try {
+										Thread.sleep(3000);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}	   
 				 				bStatus=GeneralFunctions.clickElement(By.linkText("Alternate ILB Address"));   
 				 			       if(bStatus){
 				 					System.out.println("Alternate ILB Address-Pass");
 				 			       }	
 				 			       else{
 				 			       	System.out.println("Alternate ILB Address-Fail");
-				 			       try {
-										Thread.sleep(3000);
-									} catch (InterruptedException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-								 
-				 			       }
+				 			      }
 				 			       
 				 			       //Enter ABO:9995//
 				 			      try {
@@ -177,18 +163,17 @@ public class MAGIC_Q3_MA9736Test {
 				 		    } else {
 				 		        System.out.println("Go-Fail");
 				 	    }
-				 		                try {
-											Thread.sleep(3000);
-										} catch (InterruptedException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										}
-									 
-				 		                 }
+				 		                }
 
 @When("^name entered$")
 	public void name_entered() throws Throwable {
 	  
+	 try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 bStatus=GeneralFunctions.clickElement(By.id("submitButton"));
     if(bStatus){
 		System.out.println("Add-Pass");
@@ -356,8 +341,7 @@ if(bStatus){
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			 
-        }
+			 }
 		
 		//Click on Update button//
         bStatus=GeneralFunctions.clickElement(By.id("changeButton"));
@@ -366,13 +350,6 @@ if(bStatus){
            }	
            else{
            	System.out.println("Update-Fail");
-            try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		 
            }
         
      //Expected 4>Capture Update Success message//
@@ -406,15 +383,13 @@ if(bStatus){
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		 
-           }
+		   }
 
         //Accept the Pop Up//
 	  GeneralFunctions.driver.switchTo().alert().accept();
 	  
 	//Expected 5>Capture Delete Success message//
-	 
-	  try {
+	 try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block

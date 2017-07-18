@@ -106,9 +106,13 @@ public class MAGIC_Q1_DashboardTest {
 		public void capture_Dashboard() throws Throwable {	
 				                	 
 		//Validating the Expected//
-		
-		
-           String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='iboDashboard_collapsibleAboInformation']/div[1]"));
+			 try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}	   
+		  String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='iboDashboard_collapsibleAboInformation']/div[1]"));
 	       System.out.println("##########Expected-Result########################");
 		   System.out.println("The Output is:"  +ExpVal);
 		   System.out.println("###############################################");
