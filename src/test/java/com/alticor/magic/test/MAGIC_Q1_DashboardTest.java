@@ -33,7 +33,7 @@ public class MAGIC_Q1_DashboardTest {
 						    } else {
 						    System.out.println("MAGIC_QA-Fail");
 						    }
-						 
+
 						  try {
 								Thread.sleep(3000);
 							} catch (InterruptedException e) {
@@ -45,20 +45,22 @@ public class MAGIC_Q1_DashboardTest {
 						    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
 						    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 						    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
-						    try {
-								Thread.sleep(3000);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
+
+							  try {
+									Thread.sleep(3000);
+								} catch (InterruptedException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 						    
 						     //Enter Aff//
-						    try {
-								Thread.sleep(3000);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}	     
+
+							  try {
+									Thread.sleep(3000);
+								} catch (InterruptedException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 			    bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
 				  if (bStatus) {
 				System.out.println("AFF-Pass");
@@ -67,7 +69,13 @@ public class MAGIC_Q1_DashboardTest {
 				}
 
 				  //Enter Abo//
-				  GeneralFunctions.waittime();
+
+				  try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"670");
 				  if (bStatus) {
 				System.out.println("ABO-Pass");
@@ -91,18 +99,15 @@ public class MAGIC_Q1_DashboardTest {
 				    } else {
 				        System.out.println("Submit-Fail");
 				    }
+				          //       GeneralFunctions.screenShot("Dashboard.png");//
 	}
 	
 		@Then("^Capture Dashboard$")
 		public void capture_Dashboard() throws Throwable {	
 				                	 
 		//Validating the Expected//
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		
            String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='iboDashboard_collapsibleAboInformation']/div[1]"));
 	       System.out.println("##########Expected-Result########################");
 		   System.out.println("The Output is:"  +ExpVal);
