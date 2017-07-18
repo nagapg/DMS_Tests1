@@ -238,7 +238,7 @@ if(verifyVisibilityOFElement(objLocator) )
 	{
 		try{
 		//	System.setProperty("webdriver.ie.driver","IEDriverServer.exe");//
-			System.setProperty("webdriver.ie.driver","drivers/IEDriverServer.exe");
+			System.setProperty("webdriver.ie.driver","IEDriverServer.exe");
 			DesiredCapabilities cap=new DesiredCapabilities();
 			cap.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
 			cap.setCapability(InternetExplorerDriver.UNEXPECTED_ALERT_BEHAVIOR, true);
@@ -276,7 +276,7 @@ if(verifyVisibilityOFElement(objLocator) )
 	{
 		try{
 			//System.setProperty("webdriver.chrome.driver","chromedriver.exe");//
-			System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","chromedriver.exe");
 		driver=new ChromeDriver();
 			driver.get(sURL);
 			driver.manage().deleteAllCookies();
@@ -359,7 +359,8 @@ if(verifyVisibilityOFElement(objLocator) )
 	 * *****************************************/
 public static boolean close() {
 	try{
-driver.quit();
+		driver.close();
+//driver.quit();//
 		
 return true;
 		}
