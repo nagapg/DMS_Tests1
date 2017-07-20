@@ -6,7 +6,6 @@ package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
@@ -54,7 +53,6 @@ public class MAGIC_Q1_DashboardTest {
 								}
 						    
 						     //Enter Aff//
-
 							  try {
 									Thread.sleep(3000);
 								} catch (InterruptedException e) {
@@ -69,8 +67,7 @@ public class MAGIC_Q1_DashboardTest {
 				}
 
 				  //Enter Abo//
-
-				  try {
+                   try {
 						Thread.sleep(3000);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
@@ -99,8 +96,7 @@ public class MAGIC_Q1_DashboardTest {
 				    } else {
 				        System.out.println("Submit-Fail");
 				    }
-				          //       GeneralFunctions.screenShot("Dashboard.png");//
-	}
+				    }
 	
 		@Then("^Capture Dashboard$")
 		public void capture_Dashboard() throws Throwable {	
@@ -112,7 +108,11 @@ public class MAGIC_Q1_DashboardTest {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}	   
-		  String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='iboDashboard_collapsibleAboInformation']/div[1]"));
+		  String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='iboDashboard_collapsibleAboInformation']/div[1]"))
+				  ;
+		  //Capture the Expected//
+		  GeneralFunctions.screenShot("Dashboard_Screenshot.png");
+		  
 	       System.out.println("##########Expected-Result########################");
 		   System.out.println("The Output is:"  +ExpVal);
 		   System.out.println("###############################################");
