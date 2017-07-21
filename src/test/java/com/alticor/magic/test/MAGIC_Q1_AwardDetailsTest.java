@@ -52,7 +52,7 @@ public class MAGIC_Q1_AwardDetailsTest {
 							}
 						    
 						     //Enter Aff//
-						    try {
+						    /*   try {
 								Thread.sleep(3000);
 							} catch (InterruptedException e) {
 								// TODO Auto-generated catch block
@@ -63,7 +63,7 @@ public class MAGIC_Q1_AwardDetailsTest {
 				System.out.println("AFF-Pass");
 				} else {
 				System.out.println("AFF-Fail");
-				}
+				}*/
 
 				  //Enter Abo//
 				  try {
@@ -72,7 +72,7 @@ public class MAGIC_Q1_AwardDetailsTest {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}	   
-				bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"670");
+				bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"900003");
 				  if (bStatus) {
 				System.out.println("ABO-Pass");
 				} else {
@@ -80,13 +80,13 @@ public class MAGIC_Q1_AwardDetailsTest {
 				}
 				  
 				   //Enter Period//
-				 bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"072017");
+				/* bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"072017");
 				               if(bStatus){
 				System.out.println("Period-Pass");
 				}         
 				else{
 				System.out.println("Period-Fail");
-				}
+				}*/
 				 
 				   		//Click on submit//
 				               bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
