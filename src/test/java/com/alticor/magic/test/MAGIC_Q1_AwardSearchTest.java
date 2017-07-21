@@ -6,10 +6,8 @@ package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class MAGIC_Q1_AwardSearchTest {
 	
@@ -155,9 +153,13 @@ public class MAGIC_Q1_AwardSearchTest {
 			e.printStackTrace();
 		}
 	       String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='searchBoxDivHeader']"));
-	       System.out.println("##########Expected-Result########################");
-		   System.out.println("The Output is:"  +ExpVal);
-		   System.out.println("###############################################");
+	       
+	       //Capture the Expected//
+	 	  GeneralFunctions.screenShot("AwardSearch_Screenshot.png");
+	 	  
+	       System.out.println("##########Expected-Result####");
+		   System.out.println(ExpVal);
+		   System.out.println("###########################");
 	}
 
 	@Then("^Close AwardSearch$")
