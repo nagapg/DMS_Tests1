@@ -6,10 +6,8 @@ package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class MAGIC_Q1_FAATest {
 	
@@ -53,6 +51,7 @@ public class MAGIC_Q1_FAATest {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
+						    
 						    //Enter Aff//
 						  bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
 				  if (bStatus) {
@@ -143,6 +142,11 @@ public void Capture_FAA() throws Throwable{
 	
 	//Validating the Expected//
 	String ExpVal=GeneralFunctions.getText(By.xpath(".//*[@id='faaDiv']/table[3]/tbody/tr[1]/td[8]"));
+	
+	  //Capture the Expected//
+	  GeneralFunctions.screenShot("FAA_Screenshot.png");
+	  
+
    System.out.println("##########Expected-Result########################");
 	System.out.println("The Output is:"  +ExpVal);
 	System.out.println("###############################################");
