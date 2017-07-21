@@ -6,7 +6,6 @@ package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -19,9 +18,9 @@ public class MAGIC_Q2_MA9739Test {
 	@Given("^user navigates to Invoice Inquiry$")
 	public void user_navigates_to_Invoice_Inquiry() throws Throwable {
 		
-		//Navigate to Server//
-		bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
-	if (bStatus) {
+		   //Navigate to Server//
+		    bStatus =GeneralFunctions.openhubBrowser("http://10.72.16.9:32768/wd/hub","firefox");
+	        if (bStatus) {
 				    System.out.println("Server Firefox-Pass");
 				     } else {
 				     System.out.println("Server Firefox-Fail");
@@ -47,7 +46,7 @@ public class MAGIC_Q2_MA9739Test {
 				    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 				    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
 				   
-//Enter Aff//
+   //Enter Aff//
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -112,7 +111,7 @@ public class MAGIC_Q2_MA9739Test {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}	   
-		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[3]"));
+		    bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[3]"));
 				if(bStatus){
 		        	System.out.println("Payment Inquiry-Pass");
 		        }	
@@ -166,6 +165,10 @@ public class MAGIC_Q2_MA9739Test {
 				e.printStackTrace();
 			}	   
 		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='viewTableDiv']/table/tbody/tr[2]/td[4]/span/b"));
+		
+		   //Capture the Expected//
+	 	  GeneralFunctions.screenShot("MA9739_Screenshot.png");
+	 	  
 		if(bStatus){
         	System.out.println("Amount Details-Pass");
         }	

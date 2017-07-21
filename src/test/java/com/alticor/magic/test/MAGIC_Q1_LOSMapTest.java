@@ -6,10 +6,8 @@ package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class MAGIC_Q1_LOSMapTest {
 
@@ -154,9 +152,14 @@ public void Capture_LOS_Map() throws Throwable{
 			e.printStackTrace();
 		}
 	String ExpVal=GeneralFunctions.getText(By.xpath(".//*[@id='selBar']/p/b"));
-    System.out.println("##########Expected-Result########################");
-	   System.out.println("The Output is:"  +ExpVal);
-	   System.out.println("##############################################");
+	
+	  //Capture the Expected//
+	  GeneralFunctions.screenShot("LOSMap_Screenshot.png");
+	  
+
+    System.out.println("##########Expected-Result###");
+	   System.out.println(ExpVal);
+	   System.out.println("########################");
 	  }
 
 @Then("^Close LOS Map$")

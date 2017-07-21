@@ -6,10 +6,8 @@ package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class MAGIC_Q1_QualificationsTest {
 
@@ -155,9 +153,14 @@ public void Capture_Qualifications() throws Throwable{
 		e.printStackTrace();
 	}
     String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('IboDashboardAwardsExpand')/x:div[1]"));
-    System.out.println("##########Expected-Result########################");
+    
+    //Capture the Expected//
+	  GeneralFunctions.screenShot("Qualifications_Screenshot.png");
+	  
+
+    System.out.println("##########Expected-Result###");
     System.out.println("The Output is:"  +ExpVal);
-    System.out.println("###############################################");
+    System.out.println("##########################");
    }
 
 @Then("^Close Qualifications$")

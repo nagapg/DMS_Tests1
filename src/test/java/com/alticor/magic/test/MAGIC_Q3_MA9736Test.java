@@ -59,7 +59,7 @@ public class MAGIC_Q3_MA9736Test {
 						    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 						    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
 						   
-		//Enter Aff//
+		         //Enter Aff//
 						    try {
 								Thread.sleep(3000);
 							} catch (InterruptedException e) {
@@ -324,9 +324,13 @@ if(bStatus){
 			}
 		 
 	       String addmessg=GeneralFunctions.getText(By.xpath(".//*[@id='rightPane']/div[1]/div[4]/div[3]"));
-	       System.out.println("*************Add-Result********************");
-	      System.out.println("Add message is " + addmessg);
-	      System.out.println("********************************************");
+	       
+	       //Capture the Expected//
+		 	  GeneralFunctions.screenShot("MA9736_Add_Screenshot.png");
+		 	  
+	       System.out.println("*************Add-Result******");
+	      System.out.println( addmessg);
+	      System.out.println("****************************");
 
       //Edit the name//
     	bStatus=GeneralFunctions.enterTextToElement(By.id("nameOne"),"TesterQA");
@@ -361,9 +365,13 @@ if(bStatus){
 		}
 	 
         String updatemessg=GeneralFunctions.getText(By.xpath(".//*[@id='rightPane']/div[1]/div[4]/div[3]"));
-        System.out.println("*************Update-Result********************");
-       System.out.println("Update message is " + updatemessg);
-       System.out.println("********************************************");
+        
+        //Capture the Expected//
+	 	  GeneralFunctions.screenShot("MA9736_Update_Screenshot.png");
+	 	  
+        System.out.println("*************Update-Result****");
+       System.out.println( updatemessg);
+       System.out.println("***************************");
 
 }
 
@@ -397,9 +405,13 @@ if(bStatus){
 		}
 	 
       String deletemessg=GeneralFunctions.getText(By.xpath(".//*[@id='rightPane']/div[1]/div[4]/div[3]"));
-      System.out.println("*************Delete-Result********************");
-     System.out.println("Delete message is " + deletemessg);
-     System.out.println("********************************************");
+      
+      //Capture the Expected//
+ 	  GeneralFunctions.screenShot("MA9736_Delete_Screenshot.png");
+ 	  
+      System.out.println("*************Delete-Result****");
+     System.out.println(deletemessg);
+     System.out.println("*****************************");
      }
 
 @Then("^Close ILB alternate ILB address screen$")

@@ -194,6 +194,11 @@ public class MAGIC_Q2_MA9733Test {
 				e.printStackTrace();
 			}
 		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='batchTransationsSummary']/tbody/tr[1]/td[1]/a/img"));
+		
+		   
+		   //Capture the Expected//
+		 	  GeneralFunctions.screenShot("MA9733_Screenshot.png");
+		 	  
 	    if(bStatus){
 		System.out.println("Back link-Pass");
 	    }	

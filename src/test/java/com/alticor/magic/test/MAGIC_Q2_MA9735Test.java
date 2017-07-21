@@ -6,10 +6,8 @@ package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class MAGIC_Q2_MA9735Test {
 
@@ -104,8 +102,7 @@ public class MAGIC_Q2_MA9735Test {
 		System.out.println("Period-Fail");
 		}
 		 
-		             
-		       //Click on submit//
+		             //Click on submit//
 		               try {
 							Thread.sleep(3000);
 						} catch (InterruptedException e) {
@@ -225,6 +222,10 @@ public class MAGIC_Q2_MA9735Test {
       
         //validating Collapse all//
        bStatus=GeneralFunctions.clickElementByJavascriptExecutor(By.xpath(".//*[@id='collapseAll']"));   
+      
+       //Capture the Expected//
+	 	  GeneralFunctions.screenShot("MA9735_Screenshot.png");
+	 	  
        if(bStatus){
 		System.out.println("Collapse All-Pass");
        }	

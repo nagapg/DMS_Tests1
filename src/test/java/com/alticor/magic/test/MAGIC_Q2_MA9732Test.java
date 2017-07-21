@@ -191,9 +191,14 @@ public class MAGIC_Q2_MA9732Test {
 				e.printStackTrace();
 			}	   
 		 String Sucess=GeneralFunctions.getText(By.xpath(".//*[@id='successMsgDiv']"));
-		 System.out.println("##########Expected-Result########################");
-		   System.out.println("The Message is " + Sucess);
-		   System.out.println("###############################################");
+		 
+		   
+		   //Capture the Expected//
+		 	  GeneralFunctions.screenShot("MA9732_Screenshot.png");
+		 	  
+		   System.out.println("##########Expected-Result##");
+		   System.out.println(Sucess);
+		   System.out.println("#########################");
 	}
 
 	@Then("^Close Baseline Rerun$")

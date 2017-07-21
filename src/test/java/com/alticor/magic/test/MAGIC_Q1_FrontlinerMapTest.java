@@ -6,10 +6,8 @@ package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class MAGIC_Q1_FrontlinerMapTest {
 	
@@ -135,9 +133,14 @@ public void Capture_Frontliner_Map() throws Throwable{
 	
 	//Validating the Expected//
 	String ExpVal=GeneralFunctions.getText(By.xpath(".//*[@id='LosMapExpand']/div/span[1]"));
-	    System.out.println("##########Expected-Result########################");
-		   System.out.println("The Output is:"  +ExpVal);
-		   System.out.println("##############################################");
+	
+	  //Capture the Expected//
+	  GeneralFunctions.screenShot("Frontliner_Map_Screenshot.png");
+	  
+
+	    System.out.println("##########Expected-Result####");
+		   System.out.println(ExpVal);
+		   System.out.println("##########################");
 }
 
 @Then("^Close Frontliner Map$")

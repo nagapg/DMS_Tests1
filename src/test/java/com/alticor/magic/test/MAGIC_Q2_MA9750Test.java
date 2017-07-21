@@ -235,9 +235,13 @@ public class MAGIC_Q2_MA9750Test {
 					e.printStackTrace();
 				}	   
 				String ExpVal=GeneralFunctions.getText(By.id(".//*[@id='emailingList']"));
-				System.out.println("##################################");
-				 System.out.println("The User email  is "+ ExpVal);
-				 System.out.println("##################################");
+				
+				   //Capture the Expected//
+			 	  GeneralFunctions.screenShot("MA9750_Screenshot.png");
+			 	  
+				System.out.println("##################");
+				 System.out.println( ExpVal);
+				 System.out.println("##################");
 			     }
 			     
 @Given("^User Selects To Bonus Period$")

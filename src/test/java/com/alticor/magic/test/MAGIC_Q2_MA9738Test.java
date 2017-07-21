@@ -6,7 +6,6 @@ package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -105,15 +104,14 @@ public class MAGIC_Q2_MA9738Test {
 		        System.out.println("Submit-Fail");
 		    }
 		                 
-		               
-	//Processing//
+		               //Processing//
 		                 try {
 								Thread.sleep(3000);
 							} catch (InterruptedException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}	   
-		 bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));
+		           bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[5]"));
 			       			if(bStatus){
 			       	        	System.out.println("Processing-Pass");
 			       	        }	
@@ -215,6 +213,10 @@ public class MAGIC_Q2_MA9738Test {
 				e.printStackTrace();
 			}
 				bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='divAuditDetails0']/table/tbody/tr[1]/td/table/tbody/tr/td[1]/div"));
+				
+				   //Capture the Expected//
+			 	  GeneralFunctions.screenShot("MA9738_Screenshot.png");
+			 	  
 				if(bStatus){
 		        	System.out.println("Audit Details-Pass");
 		        }	

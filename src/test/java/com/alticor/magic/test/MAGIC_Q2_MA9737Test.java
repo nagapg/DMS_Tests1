@@ -6,7 +6,6 @@ package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -103,7 +102,7 @@ public class MAGIC_Q2_MA9737Test {
 		        System.out.println("Submit-Fail");
 		    }
 		              
-	//Reports//
+	               //Reports//
 		                 try {
 								Thread.sleep(3000);
 							} catch (InterruptedException e) {
@@ -154,9 +153,13 @@ else{
 		   
 		   //Capture BE Field//
 			String ExpVal=GeneralFunctions.getText(By.id(".//*[@id='searchInputCol2']"));
-			 System.out.println("##########Expected-Result########################");
+			
+			   //Capture the Expected//
+		 	  GeneralFunctions.screenShot("MA9737_Screenshot.png");
+		 	  
+			 System.out.println("##########Expected-Result##");
 			 System.out.println("The BE Field  is empty");
-			 System.out.println("###############################################");
+			 System.out.println("####################");
 		}
 
 	@Then("^Drop down in BE$")

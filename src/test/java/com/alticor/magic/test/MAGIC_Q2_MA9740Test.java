@@ -6,7 +6,6 @@ package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -156,7 +155,10 @@ public void user_navigates_to_LTS() throws Throwable {
 			e.printStackTrace();
 		}
 trip=GeneralFunctions.getText(By.xpath(".//*[@id='detailHeaderTable']/tbody/tr[1]/td[6]"));
-	
+
+//Capture the Expected//
+ GeneralFunctions.screenShot("Trip_Screenshot.png");
+ 
 try {
 	Thread.sleep(3000);
 } catch (InterruptedException e) {
@@ -164,7 +166,10 @@ try {
 	e.printStackTrace();
 }
 	 target=GeneralFunctions.getText(By.xpath(".//*[@id='detailHeaderTable']/tbody/tr[2]/td[6]"));
-		}
+
+	   //Capture the Expected//
+	  GeneralFunctions.screenShot("Target_Screenshot.png");
+}
 
 @Then("^Compare Values$")
 public void compare_Values() throws Throwable {
@@ -179,10 +184,10 @@ System.out.println("Trip and Target are equal");
 
 @Then("^Display values$")
 		 public void Display_values() throws Throwable {
-	System.out.println("##########Expected-Result########################");
-			 System.out.println("The  Trip value is  : "  +  trip);
-			 System.out.println("The Target Value  is  :  "  +  target);
-			 System.out.println("###########################################");
+	System.out.println("##########Expected-Result###");
+			 System.out.println(trip);
+			 System.out.println( target);
+			 System.out.println("####################");
 }
 
 

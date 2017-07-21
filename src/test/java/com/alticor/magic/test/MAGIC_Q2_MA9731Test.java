@@ -11,7 +11,6 @@ package com.alticor.magic.test;
 
 import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -249,7 +248,11 @@ public class MAGIC_Q2_MA9731Test {
 					e.printStackTrace();
 				}
 			  String addmessg=GeneralFunctions.getText(By.xpath(".//*[@id='messageHeaderExpand']/table/tbody/tr/td/div"));
-			  System.out.println("##########Add Response########################"); 
+			  
+			  //Capture the Expected//
+		 	  GeneralFunctions.screenShot("Add_Screenshot.png");
+		 	  
+              System.out.println("##########Add Response########################"); 
 			  System.out.println(addmessg);
 			  System.out.println("##################################");
 		}  
@@ -355,9 +358,13 @@ public class MAGIC_Q2_MA9731Test {
 				e.printStackTrace();
 			}
 		  String editmssg=GeneralFunctions.getText(By.xpath(".//*[@id='messageHeaderExpand']/table/tbody/tr/td/div"));
-		  System.out.println("##########Update Response########################");
+		  
+		  //Capture the Expected//
+	 	  GeneralFunctions.screenShot("Update_Screenshot.png");
+	 	  
+          System.out.println("##########Update Response###");
 		  System.out.println(editmssg);
-		  System.out.println("##################################");
+		  System.out.println("##########################");
 		     }
 
 
@@ -457,7 +464,11 @@ public class MAGIC_Q2_MA9731Test {
 				e.printStackTrace();
 			}
 		   String deletemessg=GeneralFunctions.getText(By.xpath(".//*[@id='messageHeaderExpand']/table/tbody/tr/td/div"));
-		   System.out.println("##########Delete Response########################");  
+		   
+		   //Capture the Expected//
+		 	  GeneralFunctions.screenShot("Delete_Screenshot.png");
+		 	  
+           System.out.println("##########Delete Response########################");  
 		   System.out.println(deletemessg);
 		   System.out.println("##################################");
 	}           

@@ -194,9 +194,13 @@ public class MAGIC_Q2_MA9730Test {
 				e.printStackTrace();
 			}
 		ExpVal=GeneralFunctions.getText(By.xpath(".//*[@id='searchBoxDiv']/table/tbody/tr[40]/td[8]"));
-		System.out.println("##########Expected-Result########################");
-		 System.out.println("The Total Bonus  is "+ ExpVal);
-		 System.out.println("###############################################");
+		
+		  //Capture the Expected//
+	 	  GeneralFunctions.screenShot("MA9730_Screenshot.png");
+	 	  
+         System.out.println("##########Expected-Result##");
+		 System.out.println(ExpVal);
+		 System.out.println("########################");
 	}
 	
 	@Then("^Close Annual Bonus Screen$")

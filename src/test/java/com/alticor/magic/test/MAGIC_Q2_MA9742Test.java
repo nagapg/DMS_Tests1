@@ -8,7 +8,6 @@ import org.openqa.selenium.By;
 import com.alticor.magic.GeneralFunctions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class MAGIC_Q2_MA9742Test {
 
@@ -47,8 +46,7 @@ public class MAGIC_Q2_MA9742Test {
 					    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 					    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
 					   
-		
-	//Enter Aff//
+		//Enter Aff//
 			try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
@@ -93,9 +91,7 @@ public class MAGIC_Q2_MA9742Test {
 			    } else {
 			        System.out.println("Submit-Fail");
 			    }
-			                 
-			              
-			               }
+			                  }
 	 
 			                 @Then("^Capture Platinum value and sponsor value$")
 			         		public void Capture_Platinum_value_and_sponsor_value() throws Throwable{
@@ -108,6 +104,10 @@ public class MAGIC_Q2_MA9742Test {
 										e.printStackTrace();
 									}	   
 			    plat=GeneralFunctions.getText(By.xpath(".//*[@id='ABOInfo']/table/tbody/tr[3]/td[5]/a"));
+			    
+			    //Capture the Expected//
+			 	  GeneralFunctions.screenShot("Platinum_Screenshot.png");
+			 	  
 			 	System.out.println("The Platinum value is    "  +  plat);
 				
 				//Capturing Sponsor value from Dashboard//
@@ -118,6 +118,10 @@ public class MAGIC_Q2_MA9742Test {
 						e.printStackTrace();
 					}	   
 				sponsor=GeneralFunctions.getText(By.xpath(".//*[@id='ABOInfo']/table/tbody/tr[4]/td[2]/a"));
+				
+				   //Capture the Expected//
+			 	  GeneralFunctions.screenShot("Sponsor_Screenshot.png");
+			 	  
 				System.out.println("The Sponsor value is      "  +  sponsor);
 				 }
 	  
@@ -125,15 +129,15 @@ public class MAGIC_Q2_MA9742Test {
 		public void Values_are_same() throws Throwable{
 	
 				    if(plat!=null&&!plat.equals("sponsor")){
-		    	 System.out.println("###########Result#######################");
+		    	 System.out.println("###########Result################");
 					System.out.println("Platinum and Sponsor are equal");
-					 System.out.println("#####################################");		
+					 System.out.println("#############################");		
 		     }
 				else
 				{
-					 System.out.println("###########Expected-Result#######################");
+					 System.out.println("###########Expected-Result##########");
 					System.out.println("Platinum and Sponsor are not equal");
-					 System.out.println("################################################");
+					 System.out.println("##################################");
 				}
 	  }
 
