@@ -51,21 +51,7 @@ public class MAGIC_Q1_AwardDetailsTest {
 								e.printStackTrace();
 							}
 						    
-						     //Enter Aff//
-						    /*   try {
-								Thread.sleep(3000);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}	     
-			    bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
-				  if (bStatus) {
-				System.out.println("AFF-Pass");
-				} else {
-				System.out.println("AFF-Fail");
-				}*/
-
-				  //Enter Abo//
+						  				  //Enter Abo//
 				  try {
 						Thread.sleep(3000);
 					} catch (InterruptedException e) {
@@ -79,15 +65,6 @@ public class MAGIC_Q1_AwardDetailsTest {
 				System.out.println("ABO-Fail");
 				}
 				  
-				   //Enter Period//
-				/* bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"072017");
-				               if(bStatus){
-				System.out.println("Period-Pass");
-				}         
-				else{
-				System.out.println("Period-Fail");
-				}*/
-				 
 				   		//Click on submit//
 				               bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 				                 if (bStatus) {

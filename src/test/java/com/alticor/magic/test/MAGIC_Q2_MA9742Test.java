@@ -45,45 +45,27 @@ public class MAGIC_Q2_MA9742Test {
 					    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
 					    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 					    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
-					   
-		//Enter Aff//
-			try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-		    bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
-			  if (bStatus) {
-			System.out.println("AFF-Pass");
-			} else {
-			System.out.println("AFF-Fail");
-			}
-
-				  //Enter Abo//
-			  try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}	   
-			bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
+					    try {
+							Thread.sleep(3000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					    
+					    //Enter ABO//
+					     try {
+							Thread.sleep(3000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}	
+			    bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"900003");
 			  if (bStatus) {
 			System.out.println("ABO-Pass");
 			} else {
 			System.out.println("ABO-Fail");
 			}
 			
-				   //Enter Period//
-			bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"072017");
-			               if(bStatus){
-			System.out.println("Period-Pass");
-			}         
-			else{
-			System.out.println("Period-Fail");
-			}
-			 
 			       //Click on submit//
 			                 bStatus =GeneralFunctions.clickElement(By.id("SubmitButton"));
 			                 if (bStatus) {
@@ -104,10 +86,7 @@ public class MAGIC_Q2_MA9742Test {
 										e.printStackTrace();
 									}	   
 			    plat=GeneralFunctions.getText(By.xpath(".//*[@id='ABOInfo']/table/tbody/tr[3]/td[5]/a"));
-			    
-			    //Capture the Expected//
-			 	  GeneralFunctions.screenShot("Platinum_Screenshot.png");
-			 	  
+			   
 			 	System.out.println("The Platinum value is    "  +  plat);
 				
 				//Capturing Sponsor value from Dashboard//
@@ -120,7 +99,7 @@ public class MAGIC_Q2_MA9742Test {
 				sponsor=GeneralFunctions.getText(By.xpath(".//*[@id='ABOInfo']/table/tbody/tr[4]/td[2]/a"));
 				
 				   //Capture the Expected//
-			 	  GeneralFunctions.screenShot("Sponsor_Screenshot.png");
+			 	  GeneralFunctions.screenShot("MA9742_Screenshot.png");
 			 	  
 				System.out.println("The Sponsor value is      "  +  sponsor);
 				 }

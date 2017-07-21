@@ -46,21 +46,7 @@ public class MAGIC_Q2_MA9738Test {
 				    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 				    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
 				  
-	//Enter Aff//
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	    bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
-		  if (bStatus) {
-		System.out.println("AFF-Pass");
-		} else {
-		System.out.println("AFF-Fail");
-		}
-
+	
 			  //Enter Abo//
 		  try {
 				Thread.sleep(3000);
@@ -68,26 +54,11 @@ public class MAGIC_Q2_MA9738Test {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}	   
-		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
+		bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"900003");
 		  if (bStatus) {
 		System.out.println("ABO-Pass");
 		} else {
 		System.out.println("ABO-Fail");
-		}
-		 
-			   //Enter Period//
-		  try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}	   
-		bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"062017");
-		               if(bStatus){
-		System.out.println("Period-Pass");
-		}         
-		else{
-		System.out.println("Period-Fail");
 		}
 		 
 		       //Click on submit//

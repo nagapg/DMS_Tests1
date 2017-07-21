@@ -54,37 +54,21 @@ public void user_navigates_to_LTS() throws Throwable {
 					e.printStackTrace();
 				}
 			    
-     //Enter Aff//
-    bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"010");
-	  if (bStatus) {
-	System.out.println("AFF-Pass");
-	} else {
-	System.out.println("AFF-Fail");
-	}
-
-	  //Enter Abo//
+  	  //Enter Abo//
 	  try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	   
-	bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"9995");
+	bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"900003");
 	  if (bStatus) {
 	System.out.println("ABO-Pass");
 	} else {
 	System.out.println("ABO-Fail");
 	}
 	
-	   //Enter Period//
-	 bStatus=GeneralFunctions.enterTextToElement(By.id("selectedPeriod"),"072017");
-	               if(bStatus){
-	System.out.println("Period-Pass");
-	}         
-	else{
-	System.out.println("Period-Fail");
-	}
-	 
+	
 	   	  //Click on submit//
 	               try {
 						Thread.sleep(3000);
@@ -156,10 +140,7 @@ public void user_navigates_to_LTS() throws Throwable {
 		}
 trip=GeneralFunctions.getText(By.xpath(".//*[@id='detailHeaderTable']/tbody/tr[1]/td[6]"));
 
-//Capture the Expected//
- GeneralFunctions.screenShot("Trip_Screenshot.png");
- 
-try {
+ try {
 	Thread.sleep(3000);
 } catch (InterruptedException e) {
 	// TODO Auto-generated catch block
@@ -184,6 +165,7 @@ System.out.println("Trip and Target are equal");
 
 @Then("^Display values$")
 		 public void Display_values() throws Throwable {
+	
 	System.out.println("##########Expected-Result###");
 			 System.out.println(trip);
 			 System.out.println( target);
