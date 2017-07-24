@@ -152,6 +152,10 @@ public class MAGIC_Q2_MA9732Test {
         else{
         System.out.println("Submit Rerun-Fail");
         }
+		
+		  //Capture the Expected//
+	 	  GeneralFunctions.screenShot("MA9732_Screenshot.png");
+	 	  
 		try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
@@ -171,11 +175,7 @@ public class MAGIC_Q2_MA9732Test {
 				e.printStackTrace();
 			}	   
 		 String Sucess=GeneralFunctions.getText(By.xpath(".//*[@id='successMsgDiv']"));
-		 
-		   //Capture the Expected//
-		 	  GeneralFunctions.screenShot("MA9732_Screenshot.png");
-		 	  
-		   System.out.println("##########Expected-Result##");
+		 System.out.println("##########Expected-Result##");
 		   System.out.println(Sucess);
 		   System.out.println("#########################");
 	}
