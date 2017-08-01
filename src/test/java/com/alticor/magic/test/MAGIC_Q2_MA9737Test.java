@@ -137,6 +137,7 @@ else{
 	public void Drop_down_in_BE() throws Throwable {
 		
 		bStatus=GeneralFunctions.clickElement(By.name("searchButtonCol2"));
+		GeneralFunctions.screenShot("MA9737_Screenshot2.png");
 		if(bStatus){
 			System.out.println("BE Drop Down list Visible-Pass");
 		}	
