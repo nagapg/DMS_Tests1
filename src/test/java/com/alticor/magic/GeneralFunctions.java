@@ -598,8 +598,9 @@ public static boolean AlertPopUp() {
 public static void screenShot(String filename) throws IOException, InterruptedException {
     File scr = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
     String currentDir = System.getProperty("user.dir");
-    File dest = new File(currentDir + "\\Screenshots\\" + System.currentTimeMillis() + filename);
-    FileUtils.copyFile(scr, dest);
+   // File dest = new File(currentDir + "\\Screenshots\\" + System.currentTimeMillis() + filename);//
+    File dest = new File(currentDir + "\\Screenshots\\" +  filename);
+     FileUtils.copyFile(scr, dest);
 }
 
 //close the main//
