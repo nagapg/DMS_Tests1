@@ -221,7 +221,7 @@ public class MAGIC_Q2_MA9731Test {
 			  String addmessg=GeneralFunctions.getText(By.xpath(".//*[@id='messageHeaderExpand']/table/tbody/tr/td/div"));
 			  
 			  //Capture the Expected//
-		 	  GeneralFunctions.screenShot("Add_Screenshot.png");
+		 	  GeneralFunctions.screenShot("MA9731_Add.png");
 		 	  
               System.out.println("##########Add Response########################"); 
 			  System.out.println(addmessg);
@@ -331,7 +331,7 @@ public class MAGIC_Q2_MA9731Test {
 		  String editmssg=GeneralFunctions.getText(By.xpath(".//*[@id='messageHeaderExpand']/table/tbody/tr/td/div"));
 		  
 		  //Capture the Expected//
-	 	  GeneralFunctions.screenShot("Update_Screenshot.png");
+	 	  GeneralFunctions.screenShot("MA9731_Update.png");
 	 	  
           System.out.println("##########Update Response###");
 		  System.out.println(editmssg);
@@ -437,7 +437,7 @@ public class MAGIC_Q2_MA9731Test {
 		   String deletemessg=GeneralFunctions.getText(By.xpath(".//*[@id='messageHeaderExpand']/table/tbody/tr/td/div"));
 		   
 		   //Capture the Expected//
-		 	  GeneralFunctions.screenShot("Delete_Screenshot.png");
+		 	  GeneralFunctions.screenShot("MA9731_Delete.png");
 		 	  
            System.out.println("##########Delete Response########################");  
 		   System.out.println(deletemessg);

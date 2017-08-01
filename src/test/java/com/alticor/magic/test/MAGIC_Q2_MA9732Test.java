@@ -154,7 +154,7 @@ public class MAGIC_Q2_MA9732Test {
         }
 		
 		  //Capture the Expected//
-	 	  GeneralFunctions.screenShot("MA9732_Screenshot.png");
+	 	  GeneralFunctions.screenShot("MA9732.png");
 	 	  
 		try {
 				Thread.sleep(3000);

@@ -212,7 +212,7 @@ public class MAGIC_Q2_MA9750Test {
 				String ExpVal=GeneralFunctions.getText(By.id(".//*[@id='emailingList']"));
 				
 				   //Capture the Expected//
-			 	  GeneralFunctions.screenShot("MA9750_Screenshot.png");
+			 	  GeneralFunctions.screenShot("MA9750.png");
 			 	  
 				System.out.println("##################");
 				 System.out.println( ExpVal);

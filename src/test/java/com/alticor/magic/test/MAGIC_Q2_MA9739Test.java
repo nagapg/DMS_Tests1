@@ -151,7 +151,7 @@ public class MAGIC_Q2_MA9739Test {
 		bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='viewTableDiv']/table/tbody/tr[2]/td[4]/span/b"));
 		
 		   //Capture the Expected//
-	 	  GeneralFunctions.screenShot("MA9739_Screenshot.png");
+	 	  GeneralFunctions.screenShot("MA9739.png");
 	 	  
 		if(bStatus){
         	System.out.println("Amount Details-Pass");

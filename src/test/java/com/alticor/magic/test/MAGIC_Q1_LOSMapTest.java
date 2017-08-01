@@ -131,7 +131,7 @@ public void Capture_LOS_Map() throws Throwable{
 	String ExpVal=GeneralFunctions.getText(By.xpath(".//*[@id='selBar']/p/b"));
 	
 	  //Capture the Expected//
-	  GeneralFunctions.screenShot("LOSMap_Screenshot.png");
+	  GeneralFunctions.screenShot("LOSMap.png");
 	  
 
     System.out.println("##########Expected-Result###");

@@ -125,10 +125,7 @@ else{
 		   //Capture BE Field//
 			String ExpVal=GeneralFunctions.getText(By.id(".//*[@id='searchInputCol2']"));
 			
-			   //Capture the Expected//
-		 	  GeneralFunctions.screenShot("MA9737_Screenshot.png");
-		 	  
-			 System.out.println("##########Expected-Result##");
+		 	   System.out.println("##########Expected-Result##");
 			 System.out.println("The BE Field  is empty");
 			 System.out.println("####################");
 		}
@@ -137,7 +134,7 @@ else{
 	public void Drop_down_in_BE() throws Throwable {
 		
 		bStatus=GeneralFunctions.clickElement(By.name("searchButtonCol2"));
-		GeneralFunctions.screenShot("MA9737_Screenshot2.png");
+		GeneralFunctions.screenShot("MA9737.png");
 		if(bStatus){
 			System.out.println("BE Drop Down list Visible-Pass");
 		}	

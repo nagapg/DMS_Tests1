@@ -187,7 +187,7 @@ public class MAGIC_Q2_MA9735Test {
        bStatus=GeneralFunctions.clickElementByJavascriptExecutor(By.xpath(".//*[@id='collapseAll']"));   
       
        //Capture the Expected//
-	 	  GeneralFunctions.screenShot("MA9735_Screenshot.png");
+	 	  GeneralFunctions.screenShot("MA9735.png");
 	 	  
        if(bStatus){
 		System.out.println("Collapse All-Pass");

@@ -99,7 +99,7 @@ public class MAGIC_Q2_MA9742Test {
 				sponsor=GeneralFunctions.getText(By.xpath(".//*[@id='ABOInfo']/table/tbody/tr[4]/td[2]/a"));
 				
 				   //Capture the Expected//
-			 	  GeneralFunctions.screenShot("MA9742_Screenshot.png");
+			 	  GeneralFunctions.screenShot("MA9742.png");
 			 	  
 				System.out.println("The Sponsor value is      "  +  sponsor);
 				 }

@@ -110,7 +110,7 @@ public void Capture_Frontliner_Map() throws Throwable{
 	String ExpVal=GeneralFunctions.getText(By.xpath(".//*[@id='LosMapExpand']/div/span[1]"));
 	
 	  //Capture the Expected//
-	  GeneralFunctions.screenShot("Frontliner_Map_Screenshot.png");
+	  GeneralFunctions.screenShot("FrontlinerMap.png");
 	  
 
 	    System.out.println("##########Expected-Result####");

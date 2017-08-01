@@ -183,7 +183,7 @@ public class MAGIC_Q2_MA9733Test {
 		
 		   
 		   //Capture the Expected//
-		 	  GeneralFunctions.screenShot("MA9733_Screenshot.png");
+		 	  GeneralFunctions.screenShot("MA9733.png");
 		 	  
 	    if(bStatus){
 		System.out.println("Back link-Pass");

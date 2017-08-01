@@ -127,7 +127,7 @@ public void Capture_FAA() throws Throwable{
 	String ExpVal=GeneralFunctions.getText(By.xpath(".//*[@id='faaDiv']/table[3]/tbody/tr[1]/td[8]"));
 	
 	  //Capture the Expected//
-	  GeneralFunctions.screenShot("FAA_Screenshot.png");
+	  GeneralFunctions.screenShot("FAA.png");
 	  
 
    System.out.println("##########Expected-Result########################");

@@ -87,7 +87,7 @@ public class MAGIC_Q1_DashboardTest {
 		  String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='iboDashboard_collapsibleAboInformation']/div[1]"))
 				  ;
 		  //Capture the Expected//
-		  GeneralFunctions.screenShot("Dashboard_Screenshot.png");
+		  GeneralFunctions.screenShot("Dashboard.png");
 		  
 	       System.out.println("##########Expected-Result########################");
 		   System.out.println("The Output is:"  +ExpVal);

@@ -147,7 +147,7 @@ public class MAGIC_Q3_MA10840Test {
 				      	      String Stats=GeneralFunctions.getText(By.xpath(".//*[@id='sequenceDetailsTableDiv']/div/table/tbody/tr[2]/td[5]"));
 				      	      
 				      	  //Capture the Expected//
-				      	 	  GeneralFunctions.screenShot("MA10840_Screenshot.png");
+				      	 	  GeneralFunctions.screenShot("MA10840.png");
 				      	 	  
 				      	      System.out.println("*************Result********************");
 				      	     System.out.println("Status:" + Stats);

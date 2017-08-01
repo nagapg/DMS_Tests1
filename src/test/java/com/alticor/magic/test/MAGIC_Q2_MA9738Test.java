@@ -186,7 +186,7 @@ public class MAGIC_Q2_MA9738Test {
 				bStatus=GeneralFunctions.clickElement(By.xpath(".//*[@id='divAuditDetails0']/table/tbody/tr[1]/td/table/tbody/tr/td[1]/div"));
 				
 				   //Capture the Expected//
-			 	  GeneralFunctions.screenShot("MA9738_Screenshot.png");
+			 	  GeneralFunctions.screenShot("MA9738.png");
 			 	  
 				if(bStatus){
 		        	System.out.println("Audit Details-Pass");

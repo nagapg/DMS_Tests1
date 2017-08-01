@@ -132,7 +132,7 @@ public void Capture_Qualifications() throws Throwable{
     String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id('IboDashboardAwardsExpand')/x:div[1]"));
     
     //Capture the Expected//
-	  GeneralFunctions.screenShot("Qualifications_Screenshot.png");
+	  GeneralFunctions.screenShot("Qualifications.png");
 	  
 
     System.out.println("##########Expected-Result###");

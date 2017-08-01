@@ -132,7 +132,7 @@ public class MAGIC_Q1_AwardDetailsTest {
     String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='AwardInfoExpand']/div/span[1]"));
     
     //Capture the Expected//
-	  GeneralFunctions.screenShot("AwardDetails_Screenshot.png");
+	  GeneralFunctions.screenShot("AwardDetails.png");
 	  
   System.out.println("##########Expected-Result###");
    System.out.println( ExpVal);

@@ -310,7 +310,7 @@ if(bStatus){
 	       String addmessg=GeneralFunctions.getText(By.xpath(".//*[@id='rightPane']/div[1]/div[4]/div[3]"));
 	       
 	       //Capture the Expected//
-		 	  GeneralFunctions.screenShot("MA9736_Add_Screenshot.png");
+		 	  GeneralFunctions.screenShot("MA9736_Add.png");
 		 	  
 	       System.out.println("*************Add-Result******");
 	      System.out.println( addmessg);
@@ -351,7 +351,7 @@ if(bStatus){
         String updatemessg=GeneralFunctions.getText(By.xpath(".//*[@id='rightPane']/div[1]/div[4]/div[3]"));
         
         //Capture the Expected//
-	 	  GeneralFunctions.screenShot("MA9736_Update_Screenshot.png");
+	 	  GeneralFunctions.screenShot("MA9736_Update.png");
 	 	  
         System.out.println("*************Update-Result****");
        System.out.println( updatemessg);
@@ -391,7 +391,7 @@ if(bStatus){
       String deletemessg=GeneralFunctions.getText(By.xpath(".//*[@id='rightPane']/div[1]/div[4]/div[3]"));
       
       //Capture the Expected//
- 	  GeneralFunctions.screenShot("MA9736_Delete_Screenshot.png");
+ 	  GeneralFunctions.screenShot("MA9736_Delete.png");
  	  
       System.out.println("*************Delete-Result****");
      System.out.println(deletemessg);

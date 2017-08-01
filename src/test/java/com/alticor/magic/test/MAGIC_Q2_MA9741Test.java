@@ -164,7 +164,7 @@ public class MAGIC_Q2_MA9741Test {
 		bStatus=GeneralFunctions.verifyVisibilityOFElement(By.xpath(".//*[@id='div0']/table/tbody/tr[1]/td/table/tbody/tr/td[1]/div"));
 		
 		   //Capture the Expected//
-	 	  GeneralFunctions.screenShot("MA9741_Screenshot.png");
+	 	  GeneralFunctions.screenShot("MA9741.png");
 	 	  
 			if(bStatus){
 			System.out.println("Values present-Pass");

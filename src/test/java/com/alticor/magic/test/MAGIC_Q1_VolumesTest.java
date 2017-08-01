@@ -95,7 +95,7 @@ public void Capture_Volumes() throws Throwable{
 	 String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='IboBonusDtlBar']"));
 	 
 	  //Capture the Expected//
-	  GeneralFunctions.screenShot("Volumes_Screenshot.png");
+	  GeneralFunctions.screenShot("Volumes.png");
 	  
 
 	    System.out.println("##########Expected-Result###");

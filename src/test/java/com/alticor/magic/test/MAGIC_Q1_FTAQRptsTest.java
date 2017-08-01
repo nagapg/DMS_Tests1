@@ -141,7 +141,7 @@ public void Capture_FTAQRpts() throws Throwable{
     String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='searchBoxDiv']/div[1]"));
     
     //Capture the Expected//
-	  GeneralFunctions.screenShot("FTAQRpts_Screenshot.png");
+	  GeneralFunctions.screenShot("FTAQRpts.png");
 	  
  System.out.println("##########Expected-Result###");
 	   System.out.println(ExpVal);
