@@ -11,7 +11,4 @@ plugin={"json:target/cucumber_MA10846.json"})
 
 public class MA10846Test {
 
-	/** Declare variables */
-	boolean bStatus;
-	
 }
