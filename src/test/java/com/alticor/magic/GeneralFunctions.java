@@ -603,5 +603,25 @@ public static void screenShot(String filename) throws IOException, InterruptedEx
      FileUtils.copyFile(scr, dest);
 }
 
+/******************************************
+ * FunctionName  :ClearField
+ * Purpose       : clears
+ *
+ * *****************************************/
+public static boolean ClearField(By objLocator)
+{
+	try{
+		if(verifyVisibilityOFElement(objLocator)){
+		driver.findElement(objLocator).clear();
+        return true;
+		}
+		return false;
+	}catch(Exception e)
+	{
+		sErrMsg=e.getMessage();
+return false;
+	}
+}
+
 //close the main//
 	}
