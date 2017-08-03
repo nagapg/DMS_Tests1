@@ -60,8 +60,7 @@ public class MAGIC_Q3_MA10846Test {
 				}
 				  
 				  //Enter ABO//
-				   
-				bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"2531573");
+				   bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedIboNumber']"),"2531573");
 				  if (bStatus) {
 				System.out.println("ABO-Pass");
 				} else {
