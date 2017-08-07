@@ -4,12 +4,14 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import javax.imageio.ImageIO;
 import org.openqa.selenium.support.ui.Select;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -34,11 +36,11 @@ public class GeneralFunctions {
 	private static final String Select = null;
 	public static WebDriver driver;
 	public static String sErrMsg="";
-	
+	static WebElement ele;
 	
 /******************************************
 	 * FunctionName  :clickElementByJavascriptExecutor
-	 * Purpose       : JavaScript Executor
+	 * Purpose       : Click by JavaScript Executor
 	 *
 	 * *****************************************/
 	public static boolean clickElementByJavascriptExecutor(By objLocator){
@@ -56,7 +58,6 @@ public static boolean clickElementByJavascriptExecutor(WebElement objLocator){
 	JavascriptExecutor js=(JavascriptExecutor)driver;
 	js.executeScript("arguments[0].click();",objLocator);
 	return true;
-		
 		}catch(Exception e){};
 		return false;
 		}
@@ -71,18 +72,14 @@ public static boolean clickElementByJavascriptExecutor(WebElement objLocator){
 		try{
 			if(verifyVisibilityOFElement(objLocator)){
 				driver.findElement(objLocator).click();
-				//Reporter.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator, true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 				return true;
 			}
 			else{
-			//	Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " Element Not Visible", false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
-				return false;
+		return false;
 			}
-
-		}catch(Exception e)
+      }catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
-		//	Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false));//
 			return false;
 		}
 	}
@@ -92,7 +89,7 @@ public static boolean clickElementByJavascriptExecutor(WebElement objLocator){
 	 * Purpose       : enters text to element
 	 *
 	 * *****************************************/
-	public static boolean enterTextToElement(By objLocator,String sValue)
+    public static boolean enterTextToElement(By objLocator,String sValue)
 	{
 		try{
 			if(verifyVisibilityOFElement(objLocator)){
@@ -104,11 +101,9 @@ public static boolean clickElementByJavascriptExecutor(WebElement objLocator){
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
-	//	Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
-			return false;
+	return false;
 		}
 	}
-	
 /******************************************
 	 * FunctionName  :verifyVisibilityOFElement
 	 * Purpose       : existence of the element
@@ -121,8 +116,7 @@ return true;
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
-	//		Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
-			return false;
+	return false;
 		}
 	}
 	
@@ -135,14 +129,12 @@ return true;
 	{
 		try{
 			if(verifyVisibilityOFElement(objLocator)){
-
 				return driver.findElements(objLocator);
 			}
 			return null;
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
-			//Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 			return null;
 		}
 	}
@@ -164,8 +156,7 @@ if(verifyVisibilityOFElement(objLocator) )
 		catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
-		//	Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
-			return null;
+		return null;
 		}
 	}
 
@@ -183,18 +174,15 @@ if(verifyVisibilityOFElement(objLocator) )
 		try{
 			if(verifyVisibilityOFElement(objLocator)){
 			driver.findElement(objLocator).click();
-
-			Thread.sleep(3000);
+           Thread.sleep(3000);
             StringSelection content=new StringSelection(sPath);
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(content, null);
-
             Robot robot=new Robot();
             robot.keyPress(KeyEvent.VK_CONTROL);
             robot.keyPress(KeyEvent.VK_V);
             robot.keyRelease(KeyEvent.VK_CONTROL);
             robot.keyRelease(KeyEvent.VK_V);
-
-            Thread.sleep(2000);
+           Thread.sleep(2000);
             robot.keyPress(KeyEvent.VK_ENTER);
             robot.keyRelease(KeyEvent.VK_ENTER);
 			return true;
@@ -203,8 +191,7 @@ if(verifyVisibilityOFElement(objLocator) )
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
-		//	Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
-			return false;
+	       return false;
 		}
 	}
 	
@@ -216,11 +203,10 @@ if(verifyVisibilityOFElement(objLocator) )
 	public static boolean openapp(String appURL )
 	{
 		try{
-			
-			driver.get(appURL);
+		driver.get(appURL);
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
-			return true;
+		return true;
 	}
 		catch(Exception e)
 	{
@@ -237,8 +223,8 @@ if(verifyVisibilityOFElement(objLocator) )
 	public static boolean openIEBrowser(String sURL )
 	{
 		try{
-		//	System.setProperty("webdriver.ie.driver","IEDriverServer.exe");//
-			System.setProperty("webdriver.ie.driver","IEDriverServer.exe");
+	
+			System.setProperty("webdriver.ie.driver","drivers/IEDriverServer.exe");
 			DesiredCapabilities cap=new DesiredCapabilities();
 			cap.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
 			cap.setCapability(InternetExplorerDriver.UNEXPECTED_ALERT_BEHAVIOR, true);
@@ -248,21 +234,15 @@ if(verifyVisibilityOFElement(objLocator) )
             cap.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS,true);
             
 			cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS,true);
-			            //cap.setCapability(InternetExplorerDriver.HOST,true);//
-            
-			driver=new InternetExplorerDriver(cap);
+			        
+            driver=new InternetExplorerDriver(cap);
 			driver.get(sURL);
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
-			
-			//driver.navigate().to("javascript:document.getElementById('overridelink').click()");//
-		//	Reports.CurrentTest.AddStep(new StepReport("Open Browser " + driver, true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 			return true;
 		}catch(Exception e)
 		{
 			sErrMsg=e.getMessage();
-			
-		//	Reports.CurrentTest.AddStep(new StepReport("Open Broswr Failed: "  + " " + sErrMsg, false, null));//
 			return false;
 		}
 	}
@@ -275,8 +255,7 @@ if(verifyVisibilityOFElement(objLocator) )
 	public static boolean openChormeBrowser(String sURL)
 	{
 		try{
-			//System.setProperty("webdriver.chrome.driver","chromedriver.exe");//
-			System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
 		driver=new ChromeDriver();
 			driver.get(sURL);
 			driver.manage().deleteAllCookies();
@@ -287,8 +266,8 @@ if(verifyVisibilityOFElement(objLocator) )
 			sErrMsg=e.getMessage();
 			return false;
 		}
-
 }
+	
 	/******************************************
 	 * FunctionName  :openhubBrowser
 	 * Purpose       : opens browser in Hub
@@ -338,7 +317,6 @@ if(verifyVisibilityOFElement(objLocator) )
 	{
 		try{
 			System.setProperty("webdriver.firefox.marionette","geckodriver.exe");
-			
 			driver.get(sURL);
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
@@ -359,9 +337,7 @@ if(verifyVisibilityOFElement(objLocator) )
 	 * *****************************************/
 public static boolean close() {
 	try{
-		//driver.close();//
 driver.quit();
-		
 return true;
 		}
 	catch(Exception e)
@@ -386,8 +362,7 @@ return true;
 	}catch(Exception e)
 	{
 		sErrMsg=e.getMessage();
-	//	Reports.CurrentTest.AddStep(new StepReport("Click Element: " + objLocator + " " + sErrMsg, false,null));//
-		return false;
+	return false;
 	}
 }
 
@@ -415,7 +390,7 @@ return true;
 public static void waittime() {
 	// TODO Auto-generated method stub
 	try{
-driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 return;
 }catch(Exception e)
 	{
@@ -429,12 +404,11 @@ return;
  * @return 
  *
  * *****************************************/
-public static boolean ExplicitWait(By objLocator) {
+public static boolean ExplicitWait(By string) {
 	WebDriverWait expwait=new WebDriverWait(driver,10);
 			
 	try{
- //expwait.until(ExpectedConditions.alertIsPresent());//
-		expwait.until(ExpectedConditions.elementToBeClickable(objLocator));
+ expwait.until(ExpectedConditions.elementToBeClickable(string));
  return true;
 }catch(Exception e)
 	{
@@ -452,16 +426,14 @@ public static boolean FindElement(By objLocator) {
 	try{
 		if(verifyVisibilityOFElement(objLocator)){
 		driver.findElement(objLocator).clear();
-		//Reports.CurrentTest.AddStep(new StepReport("Clear Element" + objLocator,true));//
+		
 		driver.findElement(objLocator);
-	//	Reports.CurrentTest.AddStep(new StepReport("Found Element" + objLocator,true,null));//
-		return true;
+	return true;
 		}
 		return false;
 	}catch(Exception e)
 	{
 		sErrMsg=e.getMessage();
-//		Reports.CurrentTest.AddStep(new StepReport("Could not Find Element: " + objLocator + " " + sErrMsg, false));//
 		return false;
 	}
 }
@@ -476,16 +448,13 @@ public static  boolean  DropDown(By objLocator,String sval) {
 	try{
 		if(verifyVisibilityOFElement(objLocator)){
 			Select a=new Select( driver.findElement(objLocator));
-		//	a.selectByValue(sval);//
-			a.selectByVisibleText(sval);
-		//	Reports.CurrentTest.AddStep(new StepReport("Selected " + sval,true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
-			}
+	       a.selectByVisibleText(sval);
+	}
 		return true;
 	}catch(Exception e)
 	{
 		sErrMsg=e.getMessage();
-	//	Reports.CurrentTest.AddStep(new StepReport("Failed to Locate Dropdown by: "  + objLocator + " " + sErrMsg,false,null));//
-		return false;
+	   return false;
 	}
 }
 
@@ -498,7 +467,6 @@ public static  boolean  DropDown(By objLocator,String sval) {
 public static String getTitle(By objLocator)
 {
 	String text= driver.getTitle();
-	//Reports.CurrentTest.AddStep(new StepReport("Page Title is:" + text,true,((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));//
 	return text;
 	}
 
@@ -532,7 +500,9 @@ public static String getTagName(By objLocator)
 	try{
 if(verifyVisibilityOFElement(objLocator) )
 	{		
+
 	String sText=driver.findElement(objLocator).getTagName();
+	
 		return sText;
 	}
 	return null;
@@ -590,18 +560,38 @@ public static boolean AlertPopUp() {
     } 
 }
 
-
 /******************************************
- * FunctionName  :Screenshot
- * Purpose       : Takes Screenshot
- * *****************************************/
+* FunctionName  :screenShot
+* Purpose       : takes screenShot 
+
+* *****************************************/
+
+//public static void screenShot(String filename,By objLocator) throws IOException, InterruptedException {//
 public static void screenShot(String filename) throws IOException, InterruptedException {
-    File scr = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-    String currentDir = System.getProperty("user.dir");
-   // File dest = new File(currentDir + "\\Screenshots\\" + System.currentTimeMillis() + filename);//
-    File dest = new File(currentDir + "\\Screenshots\\" +  filename);
-     FileUtils.copyFile(scr, dest);
-}
+	 //   ele = driver.findElement(objLocator);//
+
+	File scr = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+
+//	BufferedImage  fullImg = ImageIO.read(scr);//
+
+	//Get the location of element on the page//
+	/*org.openqa.selenium.Point point = ele.getLocation();
+
+	// Get width and height of the element
+	int eleWidth = ele.getSize().getWidth();
+	int eleHeight = ele.getSize().getHeight();
+
+	// Crop the entire page screenshot to get only element screenshot
+	BufferedImage eleScreenshot= fullImg.getSubimage(point.getX(), point.getY(),
+	eleWidth, eleHeight);
+	ImageIO.write(eleScreenshot, "png",  scr );*/
+
+	String currentDir = System.getProperty("user.dir");
+	//File dest = new File(currentDir + "\\Screenshots\\" + System.currentTimeMillis() + filename);//
+	File dest = new File(currentDir + "\\Screenshots\\" +  filename);
+	FileUtils.copyFile(scr, dest);
+	}
+
 
 /******************************************
  * FunctionName  :ClearField
@@ -623,5 +613,11 @@ return false;
 	}
 }
 
-//close the main//
+	 //Close the main//
 	}
+
+
+
+
+
+
