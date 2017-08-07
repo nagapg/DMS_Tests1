@@ -187,7 +187,7 @@ public class MAGIC_Q2_MA9730Test {
 		ExpVal=GeneralFunctions.getText(By.xpath(".//*[@id='searchBoxDiv']/table/tbody/tr[40]/td[8]"));
 		
 		  //Capture the Expected//
-	 	  GeneralFunctions.screenShot("MA9730.png");
+	// 	 GeneralFunctions.screenShot("MA9730.png",By.xpath(".//*[@id='rightPane']/div[1]"));//
 	 	  
          System.out.println("##########Expected-Result##");
 		 System.out.println(ExpVal);

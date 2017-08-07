@@ -208,7 +208,3 @@ public class MAGIC_Q2_MA9735Test {
 	       }
 	}
 	}
-
-
-
-
