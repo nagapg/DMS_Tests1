@@ -6,5 +6,3 @@ Scenario:
        Then Capture Total Bonus
        And Close Annual Bonus Screen
          
-      
-        

@@ -6,4 +6,3 @@ Scenario:
        Then Click back Orange arrow
        And Close Batch Search 
        
-    

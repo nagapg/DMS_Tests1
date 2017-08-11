@@ -6,6 +6,3 @@ Scenario:
        Then Compare Values
        And Display values
        And Close LTS
-      
-    
-   

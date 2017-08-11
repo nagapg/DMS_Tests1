@@ -5,5 +5,3 @@ Scenario:
       When BE should be empty
       Then Drop down in BE
       And Close ILB Alt Name 
-       
-       

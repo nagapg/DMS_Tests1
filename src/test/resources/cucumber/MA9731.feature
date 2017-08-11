@@ -9,6 +9,3 @@ Scenario:
          Then delete name
          And Confirm delete
         And Close Award board Name Screen
-         
-      
-        

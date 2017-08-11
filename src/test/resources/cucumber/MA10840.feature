@@ -6,4 +6,3 @@ Scenario:
          And Click on status
         Then displays status history Bonus Period
         And Close MAGIC EOM Screen
- 

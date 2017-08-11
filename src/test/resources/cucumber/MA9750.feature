@@ -23,4 +23,3 @@ Feature: Transaction Reports Screen
        And Select Business Entity 
        Then Click on View
         And Close Transaction Reports
-    

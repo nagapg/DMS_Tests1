@@ -4,4 +4,3 @@ Feature: MAGIC FAA
          Given user navigates to FAA
          Then Capture FAA
          And Close FAA
-         
