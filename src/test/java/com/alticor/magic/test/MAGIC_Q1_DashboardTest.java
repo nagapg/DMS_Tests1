@@ -84,8 +84,7 @@ public class MAGIC_Q1_DashboardTest {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}	   
-		  String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='iboDashboard_collapsibleAboInformation']/div[1]"))
-				  ;
+		  String ExpVal=GeneralFunctions.getTitle(By.xpath(".//*[@id='iboDashboard_collapsibleAboInformation']/div[1]"));
 		  //Capture the Expected//
 		  GeneralFunctions.screenShot("Dashboard.png");
 		  
