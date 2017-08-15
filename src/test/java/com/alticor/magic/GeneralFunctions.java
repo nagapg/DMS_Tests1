@@ -36,7 +36,7 @@ public class GeneralFunctions {
 	private static final String Select = null;
 	public static WebDriver driver;
 	public static String sErrMsg="";
-	//static WebElement ele;//
+	static WebElement ele;
 	
 /******************************************
 	 * FunctionName  :clickElementByJavascriptExecutor
