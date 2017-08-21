@@ -39,13 +39,23 @@ public class MAGIC_Q3_MA10853Test {
 						    } else {
 						    System.out.println("MAGIC_QA-Fail");
 						    }
-						 GeneralFunctions.waittime();
+						  try {
+								Thread.sleep(3000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						 
 						    //Okta Login//
 						    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-username']"),"cmns559");
 						    GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='okta-signin-password']"),"our49pot");
 						    GeneralFunctions.clickElement(By.xpath(".//*[@id='okta-signin-submit']"));
-						    GeneralFunctions.waittime();
+						    try {
+								Thread.sleep(3000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						    
 			     //Enter Aff//
 			      bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"360");
@@ -63,10 +73,20 @@ public class MAGIC_Q3_MA10853Test {
 				        System.out.println("Submit-Fail");
 				    }
 				             
-				                 GeneralFunctions.waittime();
+				                 try {
+										Thread.sleep(3000);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 				                 
 				                 //Maintenance//
-				                 GeneralFunctions.waittime();
+				                 try {
+										Thread.sleep(3000);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 				                 bStatus =GeneralFunctions.clickElement(By.xpath(".//*[@id='topMenu']/div/a[2]"));
 				                 if (bStatus) {
 				                 System.out.println("Maintenance-Pass");
@@ -75,7 +95,12 @@ public class MAGIC_Q3_MA10853Test {
 				                  }
 				                 
 				                 //Maintenance-->Award maintenance//
-				                 GeneralFunctions.waittime();
+				                 try {
+										Thread.sleep(3000);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 				                 bStatus =GeneralFunctions.clickElement(By.linkText("Award Maintenance"));
 				                 if (bStatus) {
 				                 System.out.println("Award maintenance-Pass");
