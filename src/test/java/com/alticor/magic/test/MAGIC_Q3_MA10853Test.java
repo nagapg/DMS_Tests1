@@ -58,6 +58,12 @@ public class MAGIC_Q3_MA10853Test {
 							}
 						    
 			     //Enter Aff//
+						    try {
+								Thread.sleep(3000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 			      bStatus =GeneralFunctions.enterTextToElement(By.xpath(".//*[@id='selectedAffLeftContainer']"),"360");
 				  if (bStatus) {
 				System.out.println("AFF-Pass");
