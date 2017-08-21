@@ -113,6 +113,12 @@ public class MAGIC_Q3_MA10853Test {
 	public void territory_is_selected() throws Throwable {
 	
 		  //Click Territory//
+		  try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 				bStatus =GeneralFunctions.clickElement(By.xpath("html/body/div[18]/table/tbody/tr/td[2]/div[1]/div/div[4]/form/div[1]/div[2]/div/span/table/tbody/tr[5]/td[3]/span[2]"));
 				 if (bStatus) {
 				System.out.println("Territoy-Pass");
